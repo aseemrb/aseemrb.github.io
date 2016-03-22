@@ -10,9 +10,9 @@ My primary interests are computational complexity theory, data structures, algor
 
 I like to sketch and play with music at my leisure
 
-I worked as a software developer intern at Microsoft in summer 2015 where I worked on time based allocation of virtual machines to clients and developers for testing purposes
+I worked as a software developer intern at Microsoft in summer 2015 on time based allocation of virtual machines to clients and developers for testing purposes
 
-I have participated in some events and contests including:
+I have participated actively in some events and contests including:
 
 - ACM ICPC Asia regionals 2013, 2014 and 2015
 - Microsoft India CTF 2014 and 2015
@@ -20,4 +20,5 @@ I have participated in some events and contests including:
 - MIT Media Lab DI Workshop 2015
 - Defcon India 2016
 
+Find my resume [here]({{ site.baseurl }}/resume.pdf)  
 You can talk to me at [aseemraj@protonmail.com](mailto:aseemraj@protonmail.com)

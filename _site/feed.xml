@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.2">Jekyll</generator><link href="https://aseemraj.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://aseemraj.me/" rel="alternate" type="text/html" /><updated>2016-03-23T04:30:01+05:30</updated><id>https://aseemraj.me/</id><title>Aseem Raj Baranwal</title><subtitle>Programmer and tech enthusiast</subtitle><entry><title>Machine level obfuscation</title><link href="https://aseemraj.me/Machine-Level-Obfuscation/" rel="alternate" type="text/html" title="Machine level obfuscation" /><published>2015-01-25T00:00:00+05:30</published><updated>2015-01-25T00:00:00+05:30</updated><id>https://aseemraj.me/Machine-Level-Obfuscation</id><content type="html" xml:base="https://aseemraj.me/Machine-Level-Obfuscation/">&lt;p&gt;Let’s start with this beautiful piece of code in C. What do you think it does ?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1156563417652693958656&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;272&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--?&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Go ahead and run it on your machine! For lazy bums, here is the place you can see the output: &lt;a href=&quot;http://ideone.com/UaGZDp&quot;&gt;http://ideone.com/UaGZDp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, actually the output of this code depends on the machine, more specifically the &lt;a href=&quot;http://en.wikipedia.org/wiki/Endianness&quot;&gt;endianness&lt;/a&gt; of the machine. Let us walk through the code step by step to understand all this.&lt;/p&gt;
+
+&lt;h4 id=&quot;line-2&quot;&gt;Line 2&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1156563417652693958656&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;272&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here we have simply declared a single dimensional double array and initialized it with two elements with some values. The numbers are specific, which we shall see later in this post.&lt;/p&gt;
+
+&lt;h4 id=&quot;line-5&quot;&gt;Line 5:&lt;/h4&gt;
+&lt;p&gt;This line is a fancy way of saying&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Ternary operators are used here instead of an if else block to condense the code. We can clearly see that the main function is called repeatedly until d[1] becomes 0. Then we typecast the double array to a char pointer and print its value as a string using the &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;%s&quot;&lt;/code&gt; placeholder in the &lt;code class=&quot;highlighter-rouge&quot;&gt;printf&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;p&gt;So when does &lt;code class=&quot;highlighter-rouge&quot;&gt;d[1]&lt;/code&gt; become 0? You got it right, it’s after doubling &lt;code class=&quot;highlighter-rouge&quot;&gt;d[0]&lt;/code&gt; 272 times. Now when &lt;code class=&quot;highlighter-rouge&quot;&gt;d[1]&lt;/code&gt; becomes 0, &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;d[0] = 8.77663973968813359063877158122E102&lt;/code&gt;&lt;/strong&gt; in the &lt;em&gt;&lt;strong&gt;mantissa exponent&lt;/strong&gt;&lt;/em&gt; notation. This 64 bit double number in binary is represented as:&lt;br /&gt;
+&lt;strong&gt;01010101 01001111 01011001 01000101 01010110 01001111 01001100 01001001&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;These are the 8 bytes (64 bits) representing the number. Here the first bit 0 denotes the sign (+ve) of the number. The next 11 bits &lt;strong&gt;10101010100&lt;/strong&gt; represent the &lt;strong&gt;exponent&lt;/strong&gt;, and the last 52 bits &lt;strong&gt;1111010110010100010101010110010011110100110001001001&lt;/strong&gt; represent the &lt;strong&gt;mantissa&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is an 8-byte representation (64 bits) in the IEEE754 standard and so a char pointer will read the whole thing one byte at a time, as char is 1-byte in size in the C language implementation. Now comes the role of endianness. On little endian machines, the string will be read backwards, i.e. the last byte is read first, so the bytes read in order are (binary, hex, decimal, char ascii):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;01001001 = 0x49 = 73 = I&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;01001100 = 0x4C = 76 = L&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;01001111 = 0x4F = 79 = O&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;01010110 = 0x56 = 86 = V&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;01000101 = 0x45 = 69 = E&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;01011001 = 0x59 = 89 = Y&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;01001111 = 0x4F = 79 = O&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;01010101 = 0x55 = 85 = U&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As &lt;code class=&quot;highlighter-rouge&quot;&gt;d[]&lt;/code&gt; is an array, the next byte after &lt;code class=&quot;highlighter-rouge&quot;&gt;d[0]&lt;/code&gt; in memory is having &lt;code class=&quot;highlighter-rouge&quot;&gt;d[1]&lt;/code&gt; which is now &lt;code class=&quot;highlighter-rouge&quot;&gt;= 0&lt;/code&gt;, so this acts as a &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt; character, a string terminator for the &lt;code class=&quot;highlighter-rouge&quot;&gt;%s&lt;/code&gt; placeholder in &lt;code class=&quot;highlighter-rouge&quot;&gt;printf&lt;/code&gt;. Hence, the output of the code above is &lt;code class=&quot;highlighter-rouge&quot;&gt;ILOVEYOU&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Interesting, isn’t it? You just found a geeky way to say this to the love of your life! Anyway, this interesting aspect can be used to obfuscate any string into numbers, like I did with my name. &lt;code class=&quot;highlighter-rouge&quot;&gt;ASEEMRAJ&lt;/code&gt; can be obfuscated by using &lt;code class=&quot;highlighter-rouge&quot;&gt;d[0] = 4875566432211777.0&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;d[1] = 113&lt;/code&gt;. Now go and find the magical numbers for your own strings.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: If float is used instead of double we have 4 bytes, hence 4 characters instead of 8.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</content><summary>Let’s start with this beautiful piece of code in C. What do you think it does ?</summary></entry><entry><title>First interview experience</title><link href="https://aseemraj.me/First-Interview/" rel="alternate" type="text/html" title="First interview experience" /><published>2014-11-23T00:00:00+05:30</published><updated>2014-11-23T00:00:00+05:30</updated><id>https://aseemraj.me/First-Interview</id><content type="html" xml:base="https://aseemraj.me/First-Interview/">&lt;p&gt;On 14th November 2014, Microsoft invited the selected few (including) at IIIT Delhi, for final interviews for a software developer internship position, and I would like to share the story briefly.&lt;/p&gt;
+
+&lt;p&gt;This was going to be the first face to face interview of my life, so I was pretty excited. The process started with a total of 60 candidates from different institutes of North India. We had a written round first. We were given a problem dealing with linked lists, and assigned one invigilator per 5 candidates to discuss doubts and solutions with them. 7 candidates remained by the time we reached the last round.&lt;/p&gt;
+
+&lt;h5 id=&quot;round-1-written&quot;&gt;Round 1 (Written)&lt;/h5&gt;
+&lt;p&gt;Problem: Given a linked list with node structure as&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;where the random pointer may point to any node in the linked list, including the same node to which the random pointer belongs, or it may be even Null, duplicate the linked list and return the head pointer to the new linked list.&lt;/p&gt;
+
+&lt;p&gt;(Perhaps this is a very well known problem, but I had no experience with this, so was thinking afresh) I made the mistake of assuming that we are not allowed to alter the original linked list given in input, which led me to write an inefficient solution – O(n^2), for which I had to give another written round.&lt;/p&gt;
+
+&lt;p&gt;This problem can be easily solved in O(n) if altering original list is allowed in the following way:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create new nodes and insert them after the corresponding node in old list, e.g.&lt;br /&gt;
+&lt;strong&gt;&lt;em&gt;A–&amp;gt;B–&amp;gt;C–&amp;gt;D–&amp;gt;E–&amp;gt;NULL&lt;/em&gt;&lt;/strong&gt; is transformed to&lt;br /&gt;
+&lt;strong&gt;&lt;em&gt;A–&amp;gt;A’–&amp;gt;B–&amp;gt;B’–&amp;gt;C–&amp;gt;C’–&amp;gt;D–&amp;gt;D’–&amp;gt;E–&amp;gt;E’–&amp;gt;NULL&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
+where A’, B’, … E’ are newly created nodes&lt;/li&gt;
+  &lt;li&gt;Iterate in jumps of two, starting from A and assign:&lt;br /&gt;
+&lt;em&gt;&lt;strong&gt;ptr-&amp;gt;next-&amp;gt;random = ptr-&amp;gt;random-&amp;gt;next;&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Reconnect next pointers in the new list &lt;strong&gt;&lt;em&gt;A’-&amp;gt;B’-&amp;gt;…E’-&amp;gt;NULL&lt;/em&gt;&lt;/strong&gt; and return pointer to &lt;strong&gt;&lt;em&gt;A’&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;round-2-written&quot;&gt;Round 2 (Written)&lt;/h5&gt;
+&lt;p&gt;Problem: Given a binary tree, print the outer view of the tree in clockwise order starting from root.&lt;/p&gt;
+
+&lt;p&gt;I solved this in two steps, first printing the right view (modified to print leaves so that bottom view is also covered) and then printing the left view from bottom to top. The invigilator suggested breadth first traversal with a marker to store first and last nodes of a level separately and then print them as needed, but I convinced him that this method would work only for full binary trees and not all general binary trees, whereas my method would work for all binary trees. I was pushed on to the interviews then.&lt;/p&gt;
+
+&lt;h5 id=&quot;round-3-interview-1&quot;&gt;Round 3 (interview 1)&lt;/h5&gt;
+
+&lt;p&gt;M: Me, I: Interviewer&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;What did you do at Microsoft Hackcon? (a hacking competition where our team ranked 15 nationally)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;(Explained the competition and how we survived it)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Tell me about yourself briefly, apart from your programming skills, as I can see you have a strong skill set in your CV.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;I find interest in Mathematics and Physics, write poetry and play music as hobbies. Also, I like roller-skating.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Nice, so you were awarded first position in Data Structures and Algorithms! What is your favorite data structure?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;(Don’t know why) Graphs sir, because of the beautiful applications in real life problems.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Then he asked me some problems which I solved using Kruskal’s, Dijkstra’s and Johnson’s algorithm. (I had to write working code for all of them.)&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Okay so this is your last problem for this round. Given an integer n, write an API to find the next integer which is a palindrome.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;(Wrote the function, named it ‘api’)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Good job, I’m pushing you on to the next round and I want you to take care of two things.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Sure sir!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;First, always try to think of test cases when you write code to solve a problem. Second, don’t use stupid function names! (referring to the function name ‘api’ that I used)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;I will definitely take care of that sir. Thank you.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Do you have any questions for me?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;(asked about the internship work which he explained briefly).&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h5 id=&quot;round-4-interview-2&quot;&gt;Round 4 (interview 2)&lt;/h5&gt;
+
+&lt;p&gt;M: Me, I1: Interviewer 1, I2: Interviewer 2&lt;br /&gt;
+(I was the last candidate to be interviewed)&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I1:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;So you waited so long! (Being the last one to be interviewed). Are you hungry? We have three sandwiches here if you want.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;No thank you sir, I’m good.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I1:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;(Picking up two sandwiches) Choose one, brown bread or white bread? I know you must be running on reserve by now.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;…. (unresponsive)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I1:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Don’t worry, this is not an interview question! You just have an offer to eat a sandwich.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I2:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;He is just shy, actually he wants both of them plus the third one on the table.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Thank you sir, I’ll have both.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I1:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Good! Now while you eat, maybe you can think about this problem. (Gets up, picks up a marker and goes to the white board) You have a new deck of playing cards and you want to shuffle it. Think of some ways and then we shall discuss to find the best way. (Handed me the marker).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;(Ate the first sandwich completely, and scribbled something on the board). Sir I could think of many ways, but this seems efficient to me, I’m taking each element one by one (say index i), generating a random number from i+1 to 51 and swapping the elements at the two indices.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I1:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;You are focusing on time complexity here I see. But I would like you to achieve the maximum randomness possible, use extra space too if you want. (That was a big hint to tell what he wanted).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Sir, then I will generate random numbers and bind them with elements of the array. Then using the random numbers as keys, I will sort the array.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I2:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Yes, that is the perfect way to shuffle elements. You should focus on the goal of a problem instead of always thinking about optimizing on time.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;I will remember that sir.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I1:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Okay I’ll give you another chance. Can you write a function to print factorial of numbers as large as say 5000?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;(Knew the problem) Yes sir. (Wrote the code). Below is the code in C++&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sz&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// for saving computation
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sz&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sz&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I1:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Correct. I hope we are done with testing you now. Nice meeting you!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Thank you sir. Glad meeting you too.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I1:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Expect to see you at Microsoft then! Bye&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Thank you sir.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;I2:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Take the third sandwich on your way out, and don’t be shy when you are offered something.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;M:&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Sure sir, thank you!&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;</content><summary>On 14th November 2014, Microsoft invited the selected few (including) at IIIT Delhi, for final interviews for a software developer internship position, and I would like to share the story briefly.</summary></entry></feed>

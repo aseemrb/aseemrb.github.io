@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Machine Level Obfuscation
+title: Machine level obfuscation
 ---
 
 Let’s start with this beautiful piece of code in C. What do you think it does ?
