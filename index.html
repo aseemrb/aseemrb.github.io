@@ -1,85 +1,25 @@
-<!DOCTYPE HTML>
-<html>
-  
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aseem Raj Baranwal</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/docs.min.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-66119376-2', 'auto');
-      ga('send', 'pageview');
-    </script>
-  </head>
-  
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-offset-2 col-md-8 col-xs-12">
-          <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
-            <div class="active">
-              <div class="navbar-header">
-                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <h3>Aseem Raj Baranwal</h3>
-              </div>
-              <nav id="bs-navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                  <li class="lactive"><a href="index.html">About</a></li>
-                  <li><a href="projects.html">Projects</a></li>
-                  <li><a href="resume.pdf">Resume</a></li>
-                </ul>
-              </nav>
-            </div>
-          </header>
-          <br>
-          <div class="row">
-            <div class="col-xs-12 text-justify">
-              <p>
-                I'm a final year <strong>Computer Science</strong> undergraduate student at
-                <a href="http://iitj.ac.in/">IIT Jodhpur</a>.
-              </p>
-              <p>
-                My primary interests are data structures, algorithms, software development, and music.
-                I compete on <a href="http://codeforces.com/profile/scion">Codeforces</a> and
-                <a href="http://www.codechef.com/users/aseemraj">Codechef</a> to keep my love
-                for data structures and algorithms alive, and my open source work (small programming projects)
-                can be found on <a href="http://github.com/aseemraj">GitHub</a>.
-                My twitter handle is <a href="http://twitter.com/aseemrb">@aseemrb</a> and I also blog occasionally at
-                <a href="http://thefermion.wordpress.com/">thefermion</a><br>
-                I like to sketch and play with music at my leisure
-              <p>
-                I worked as a software developer intern at <strong>Microsoft</strong> in summer 2015 where I worked on time based allocation of virtual machines to clients and developers for testing purposes
-              </p>
-              <p>
-                I have participated in some events and contests including:
-                <ul>
-                  <li><strong>ACM ICPC</strong> Asia regionals 2013, 2014 and 2015</li>
-                  <li><strong>Microsoft India CTF</strong> 2014 and 2015</li>
-                  <li><strong>InCTF</strong> 2015</li>
-                  <li><strong>MIT Media Lab</strong> Design and Innovation Workshop 2015</li>
-                  <li><strong>Defcon India</strong> 2016</li>
-                </ul>
-              <p>
-                You can talk to me at <a href="mailto:aseemraj@protonmail.com">aseemraj@protonmail.com</a>
-              </p>
-              <hr>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+---
+layout: default
+title: Blog
+---
 
-</html>
+<!-- <h2 style="color:#666;border-bottom:2px solid rgba(100, 100, 100, 0.7)">Recent Posts</h2> -->
+
+<div class="posts">
+  <ul>
+  {% for post in site.posts %}
+  <li>
+    <article class="post">
+
+      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  </li>
+  {% endfor %}
+  </ul>
+</div>
