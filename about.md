@@ -14,11 +14,13 @@ I worked as a software developer intern at Microsoft in summer 2015 on time base
 
 I have participated actively in some events and contests including:
 
-- ACM ICPC Asia regionals 2013, 2014 and 2015
-- Microsoft India CTF 2014 and 2015
-- InCTF 2015
-- MIT Media Lab DI Workshop 2015
-- Defcon India 2016
+- [ACM ICPC Asia regionals](https://icpc.baylor.edu/regionals) 2013, 2014 and 2015
+- [Microsoft Build The Shield](http://buildtheshield.microsoft.com/) 2014 and 2015
+- [InCTF](http://inctf.in/) 2015
+- [MIT Media Lab DI Workshop](http://india.media.mit.edu/) 2015
+- [Defcon India](http://www.defconlucknow.in/) 2016
+- [KDE Conf India](https://kde.in/conf/2014) 2014
+- [JS Conf India](http://www.jschannel.com/) 2013
 
 Find my resume [here]({{ site.baseurl }}/resume.pdf)  
 You can talk to me at [aseemraj@protonmail.com](mailto:aseemraj@protonmail.com)
