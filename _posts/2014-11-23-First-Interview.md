@@ -3,7 +3,7 @@ layout: post
 title: First interview experience
 ---
 
-On 14th November 2014, Microsoft invited the selected few (including) at IIIT Delhi, for final interviews for a software developer internship position, and I would like to share the story briefly.
+On 14th November 2014, Microsoft invited the selected few (including me) at IIIT Delhi, for final interviews for a software developer internship position, and I would like to share the story briefly.
 
 This was going to be the first face to face interview of my life, so I was pretty excited. The process started with a total of 60 candidates from different institutes of North India. We had a written round first. We were given a problem dealing with linked lists, and assigned one invigilator per 5 candidates to discuss doubts and solutions with them. 7 candidates remained by the time we reached the last round.
 
