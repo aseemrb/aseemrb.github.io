@@ -3,7 +3,7 @@ layout: post
 title: Machine level obfuscation
 ---
 
-Let’s start with this beautiful piece of code in C. What do you think it does ?
+Let’s start with this beautiful piece of code in C. What do you think it does?
 
 {% highlight c %}
 #include <stdio.h>
