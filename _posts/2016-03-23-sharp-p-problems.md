@@ -1,11 +1,10 @@
 ---
-layout: post
+layout: mathpost
 title: The complexity class of &#35;P problems
 ---
 
 Recently, I had an assignment in one of my courses - Beyond NP Completeness, to present the complexity class of #P (Sharp-P) problems based on [L.G. Valiant](https://en.wikipedia.org/wiki/Leslie_Valiant)'s paper on complexity of computing the permanent of a matrix.
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 This post is an attempt to explain [the paper](https://www.math.washington.edu/~billey/colombia/references/valiant.permanent.1979pdf.pdf) as I found very limited number of resources on the internet where this topic is discussed in detail, one of the sightings being a lecture by Professor [Erik Demaine](http://erikdemaine.org/) under MIT open courseware which can be found on [youtube](https://www.youtube.com/watch?v=XROTP1RiNaA).
 
 Before we begin, it is strongly recommended to familiarize yourself with the following:
