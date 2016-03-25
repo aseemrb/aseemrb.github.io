@@ -34,7 +34,7 @@ Now we reduce 3-SAT to 3-coloring and thus prove it to be NP-Hard. To do this, l
 From $$\phi$$, we construct the graph G having:
 
 - Vertex $$v_i$$ for each $$x_i$$
-- Vertex $$\overline{v_i} for \overline{x_i}$$
+- Vertex $$\overline{v_i}$$ for each $$\overline{x_i}$$
 - Vertices $$u_{j1}, u_{j2}, ... u_{j5}$$ for each clause
 - 3 special vertices T, F, B
 
