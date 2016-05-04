@@ -4,10 +4,10 @@ title: Projects
 permalink: /projects/
 ---
 
-- #### Task placement and bandwidth allocation in data centers [research project]
+- #### Resource allocation for data parallel frameworks [research project]
     - Worked in a team of 4, surveying all of the recent literature available on the topic
     - Implemented the distributed algorithm proposed in this [*IEEE INFOCOM 2014 paper*](http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6848096) using Python, C++ and the NS2 network simulator, confirming the results depicted
-    - Proposed the heuristics and the mathematical model for server faults considering the failed server to be having multiple tasks of the same application. Designed a bandwidth allocation scheme for a new application entering a stable system
+    - Proposed the heuristics and the mathematical model for server faults considering the failed server to be having multiple tasks of the same application. Designed a task placement and bandwidth allocation scheme for a new application entering a data center
 
 - #### Total k-dominating set in interval graphs [research project]
     - Given a graph G = (V, E) and a positive integer k, the total k-dominating set for G is:  
