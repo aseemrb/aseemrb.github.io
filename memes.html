@@ -1,0 +1,16 @@
+---
+layout: default
+title: Memes
+---
+
+<div class="posts">
+All images here are taken randomly from the internet. None of it is my own property.
+<br>
+
+  {% for image in site.static_files %}
+    {% if image.path contains 'images/memes' %}
+        <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+    {% endif %}
+  {% endfor %}
+
+</div>
