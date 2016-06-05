@@ -6,25 +6,27 @@ title: Blog
 <!-- <h2 style="color:#666;border-bottom:2px solid rgba(100, 100, 100, 0.7)">Recent Posts</h2> -->
 
 <div class="posts">
-  <ul>
+  <table style="width:100%;">
   {% for post in site.posts %}
-  <li>
-    <article class="post">
+  <tr>
+    <!-- <article class="post"> -->
 
-      <h5>
-        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-        <span class="date">
-          - {{ post.date | date: "%b %e, %Y" }}
-        </span>
-      </h5>
+      <!-- <td>
+        &star;
+      </td> -->
+      <td>
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more"><span style="color:#343434;">{{ post.title }}</span></a>
+      </td>
+      <td class="date">
+        {{ post.date | date: "%b %e, %Y" }}
+      </td>
 
-      <div class="entry">
+      <!-- <div class="entry">
         {{ post.excerpt }}
-      </div>
+      </div> -->
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  </li>
+    <!-- </article> -->
+  </tr>
   {% endfor %}
-  </ul>
+  </table>
 </div>

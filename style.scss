@@ -7,6 +7,7 @@
 
 @import "reset";
 @import "variables";
+@import url(//fonts.googleapis.com/css?family=Merriweather:400,400italic,700);
 // Syntax highlighting @import is at the bottom of this file
 
 /**************/
@@ -19,7 +20,7 @@ html {
 
 body {
 	background: $white;
-  font: 18px/1.4 $helvetica;
+  font: 16px/2.0 $helvetica;
   color: $darkGray;
 }
 
@@ -129,8 +130,10 @@ img {
 }
 
 .date {
+  text-align: right;
   font-style: italic;
-  color: $gray;
+  color: #a0a0a0;
+  font-size: 0.9rem;
 }
 
 // Specify the color of the selection
