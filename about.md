@@ -16,7 +16,7 @@ I have participated actively in some events and contests including:
 
 - [ACM ICPC Asia regionals](https://icpc.baylor.edu/regionals) 2013, 2014 and 2015
 - [Microsoft Build The Shield](http://buildtheshield.microsoft.com/) 2014 and 2015
-- [InCTF](http://inctf.in/) 2015
+- [InCTF](https://www.amrita.edu/event/amrita-inctf-2015) 2015
 - [MIT Media Lab DI Workshop](http://india.media.mit.edu/) 2015
 - [Defcon India](http://www.defconlucknow.in/) 2016
 - [KDE Conf India](https://kde.in/conf/2014) 2014
