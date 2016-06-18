@@ -33,7 +33,7 @@ The variable $$y$$ has the classification information, where $$1$$ means belongi
     - Update $$w_{t+1} = w_t - \eta_t\nabla_t$$ with the step size $$\eta_t = 1/(\lambda t)$$
 - Output $$w_{T+1}$$
 
-Let's try to see why this approximation is okay for a suitable $$T$$. For this, we'll look at the value of the complete gradient, and the subgradient computed with the approximated function above, and see a relation between them. The comlete gradient of $$F$$ will be $$\dot{F}$$,
+Let's try to see why this approximation is okay for a suitable $$T$$. For this, we'll look at the value of the complete gradient, and the subgradient computed with the approximated function above, and see a relation between them. The complete gradient of $$F$$ will be $$\dot{F}$$,
 \begin{equation} \dot{F} = \frac{\lambda}{2} \nabla ||w||^2 + \frac{1}{m} \sum_{(x, y) \in S} l(w; (x, y)) \end{equation}
 Now what will be the expected value of the subgradient $$\nabla$$ that we computed above? To find the expected value, we observe that the example taken to approximate the objective is chosen *uniformly at random*, which means that the probability of any example being selected is $$P(e) = 1/m$$. Thus the expected value of the subgradient $$\nabla$$ turns out to be equal to the complete gradient of $$F$$, our primal objective function. And that is why intuitively this approximation is expected to work well enough. Next section deals with **mini-batch iterations**, to approximate the objective with more determinism.
 
