@@ -19,7 +19,7 @@
 @import "stacked";
 @import "icons";
 @import "screen-reader";
-@import url(//fonts.googleapis.com/css?family=Merriweather:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700);
 // Syntax highlighting @import is at the bottom of this file
 
 /**************/
@@ -143,9 +143,9 @@ img {
 
 .date {
   text-align: right;
-  font-style: italic;
+  // font-style: italic;
   color: #a0a0a0;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 // Specify the color of the selection
@@ -220,12 +220,12 @@ img {
 
 .site-name {
   margin: 0;
-  color: $darkGray;
-  cursor: pointer;
+  color: $gray;
   font-family: $helveticaNeue;
   font-weight: 300;
   font-size: 28px;
   letter-spacing: 1px;
+  margin-top: 15px;
 }
 
 .site-description {
