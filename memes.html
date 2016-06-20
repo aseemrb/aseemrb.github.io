@@ -7,10 +7,29 @@ title: Memes
 All images here are taken randomly from the internet. None of it is my own property.
 <br>
 
-  {% for image in site.static_files %}
-    {% if image.path contains 'images/memes' %}
-        <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
-    {% endif %}
-  {% endfor %}
+<table>
+  <td>
+    <h2>Static</h2>
+    <ul>
+      {% for image in site.static_files %}
+        {% if image.path contains 'images/memes/' %}
+          {% unless image.path contains 'images/memes/gifs/' %}
+            <li><a href="{{ site.baseurl }}{{ image.path }}">{{ image.path | slice: 14, 100}}</a></li>
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </td>
+  <td>
+    <h2>Animated</h2>
+    <ul>
+      {% for image in site.static_files %}
+        {% if image.path contains 'images/memes/gifs' %}
+            <li><a href="{{ site.baseurl }}{{ image.path }}">{{ image.path | slice: 19, 100}}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </td>
+</table>
 
 </div>

@@ -16,5 +16,5 @@ I worked as a software developer intern at Microsoft in summer 2015 on time base
 - [KDE Conf India](https://kde.in/conf/2014) 2014
 - [JS Conf India](http://www.jschannel.com/) 2013
 
-Find my resume [here]({{ site.baseurl }}/resume.pdf)  
+Find my resume [here]({{ site.baseurl }}/resume)  
 You can talk to me at [aseemraj@protonmail.com](mailto:aseemraj@protonmail.com)
