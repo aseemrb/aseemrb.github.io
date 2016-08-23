@@ -27,4 +27,4 @@ permalink: /projects/
     - A multi-user chatroom system with an additional canvas for collaborative sketching by multiple users in a chat room simultaneously
     - Built using Node.js and Express
 
-- #### Other programming projects and scripts can be found at my [*github*](http://github.com/aseemraj)
+- ##### Other programming projects and scripts can be found at my <a class="about-link" href="http://github.com/aseemraj">GitHub</a>

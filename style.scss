@@ -33,7 +33,7 @@ html {
 body {
 	background: $white;
   font: 16px/2.0 $helvetica;
-  color: $darkGray;
+  color: $darkerGray;
 }
 
 .container {
@@ -45,7 +45,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
-  color: $darkerGray;
+  color: $darkestGray;
   font-weight: bold;
 
   line-height: 1.7;
@@ -86,8 +86,12 @@ h4 {
   }
 }
 
-h5 a {
-  color: inherit;
+h5 {
+  font-size: 16px;
+  color: $gray;
+  a {
+    color: inherit;
+  }
 }
 
 p {
@@ -95,11 +99,22 @@ p {
 }
 
 a {
-  color: $blue;
+  color: $darkGray;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
     color: $blue;
+  }
+}
+
+.about-link {
+  color: $blue;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(65, 131, 196, 0.1);
+  &:hover, &:active {
+    color: $blue;
+    border-bottom: 1px solid rgba(65, 131, 196, 0.5);
   }
 }
 
@@ -253,10 +268,14 @@ nav {
 
   a {
     margin-left: 20px;
-    color: $darkGray;
+    color: $darkerGray;
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
+
+    &:hover, &:active {
+      color: $blue;
+    }
 
     @include mobile {
       margin: 0 10px;
