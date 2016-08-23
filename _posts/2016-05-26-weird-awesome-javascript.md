@@ -9,12 +9,12 @@ But now, after some digging into how stuff works, I think I understand what it i
 
 As wikipedia puts it, [JavaScript](https://en.wikipedia.org/wiki/JavaScript) is a **_high-level, dynamic, untyped, and interpreted programming language_**. But this statement doesn't do much. We need to explore more. JavaScript is popularly known to be a **_single-threaded non-blocking asynchronous concurrent language_** with a **_call stack_**, **_event loop_**, a **_callback queue_** and some **_APIs_**. But V8 only has a call stack and a **_heap_**. Weird! What about the other stuff? The event loop, the callback queue and the APIs? And how can it be single-threaded as well as concurrent simultaneously? There's something we are missing here.
 
-As it turns out, the JavaScript runtimes (like V8) only have a heap for memory allocation, and a stack for contextual execution. The other things are the Web APIs in the browser, for instance the `setTimeout, AJAX, DOM` etc. So in a browser, JavaScript has the following structure:
+As it turns out, the JavaScript runtimes (like V8) only have a heap for memory allocation, and a stack for contextual execution. The other things are the Web APIs in the browser, for instance the `setTimeout`, `AJAX`, `DOM` etc. So in a browser, JavaScript has the following structure:
 
 ![jsRunTime]({{site.baseurl}}/images/weird-awesome-javascript/chrome.png)
 
 - A runtime like Chrome's V8, which has a heap and the call stack
-- Web APIs provided by the browser, like `AJAX, setTimeout, DOM`
+- Web APIs provided by the browser, like `AJAX`, `setTimeout`, `DOM`
 - A callback queue for events with callbacks, like `onLoad`, `onClick`, etc.
 - and an *event loop* that does something we'll look at later
 
