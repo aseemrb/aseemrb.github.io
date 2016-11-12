@@ -99,15 +99,6 @@ p {
 }
 
 a {
-  color: $darkGray;
-  text-decoration: none;
-	cursor: pointer;
-  &:hover, &:active {
-    color: $blue;
-  }
-}
-
-.about-link {
   color: $blue;
   text-decoration: none;
   cursor: pointer;
@@ -115,6 +106,17 @@ a {
   &:hover, &:active {
     color: $blue;
     border-bottom: 1px solid rgba(65, 131, 196, 0.5);
+  }
+}
+
+.about-link {
+  color: $darkGray;
+  text-decoration: none;
+  border-bottom: none;
+  cursor: pointer;
+  &:hover, &:active {
+    color: $blue;
+    border-bottom: none;
   }
 }
 

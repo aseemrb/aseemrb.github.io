@@ -4,12 +4,12 @@ title: Projects
 permalink: /projects/
 ---
 
-- #### Resource allocation for data parallel frameworks [research project]
+- #### Resource allocation for data parallel frameworks
     - Worked in a team of 4, surveying all of the recent literature available on the topic
     - Implemented the distributed algorithm proposed in this [*IEEE INFOCOM 2014 paper*](http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6848096) using Python, C++ and the NS2 network simulator, confirming the results depicted
     - Proposed the heuristics and the mathematical model for server faults considering the failed server to be having multiple tasks of the same application. Designed a task placement and bandwidth allocation scheme for a new application entering a data center
 
-- #### Total k-dominating set in interval graphs [research project]
+- #### Total k-dominating set in interval graphs
     - Given a graph G = (V, E) and a positive integer k, the total k-dominating set for G is:  
     A set T such that ∀ v ∈ V, some vertex u ∈ T, such that dG(u, v) ≤ k  
     dG(u, v) = the distance between u and v in G
@@ -23,8 +23,10 @@ permalink: /projects/
     - A platform for bringing together all students where they can create and post one line feeds about technical events having links to the respective web pages of the corresponding events
     - Extensible features include mentioning locations and event topics as hashtags to help implement filtered search, and Google calendar sync for regular reminders regarding favorite events
 
-- #### [Collaboard [academic course project]](https://github.com/aseemraj/collaboard)
+- #### [Collaboard](https://github.com/aseemraj/collaboard)
     - A multi-user chatroom system with an additional canvas for collaborative sketching by multiple users in a chat room simultaneously
     - Built using Node.js and Express
 
-- ##### Other programming projects and scripts can be found at my <a class="about-link" href="http://github.com/aseemraj">GitHub</a>
+---
+
+Other programming projects and scripts can be found at my <a href="http://github.com/aseemraj">GitHub</a>
