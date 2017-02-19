@@ -19,16 +19,16 @@ avatar: https://raw.githubusercontent.com/aseemraj/aseemraj.github.io/master/ima
 footer-links:
   dribbble:
   email: aseemraj@protonmail.com
-  facebook: aseemrb
+  facebook: #aseemrb
   flickr:
   github: aseemraj
   instagram:
   linkedin: aseemraj
   pinterest:
-  rss: rss# just type anything here for a working RSS icon
+  rss: rss
   twitter: aseemrb
-  stackexchange: users/2775517/aseem-raj-baranwal?tab=activity
-  lastfm: aseemraj
+  stackexchange: #users/2775517/aseem-raj-baranwal?tab=activity
+  lastfm: #aseemraj
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
 
