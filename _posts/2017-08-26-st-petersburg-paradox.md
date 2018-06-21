@@ -39,3 +39,5 @@ Notice that drastic change, by our earlier computation, we should have been will
 
 ### Take away lesson
 Human intuition is highly sophisticated and trained to consider practical scenarios. Not that it's always right, but this game explains how our intuition can compute certain things so quickly, that we otherwise take time to realize consciously using equations.
+
+---
