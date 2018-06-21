@@ -3,32 +3,31 @@ layout: default
 title: Blog
 ---
 
-Hi, I'm a computer science enthusiast who loves to code and thrives on the internet. My recent interests are computational complexity theory, cryptocurrencies, open source software and playing the piano.
-
-When not being lazy, I occasionally blog about some of my favorite topics.
+Hi, I'm a computer science fancier who also loves programming, discrete mathematics, physics, and playing piano. I graduated from <a href="http://iitj.ac.in/">IIT Jodhpur</a> in 2016 and since then I'm a software engineer with <a href="https://docs.microsoft.com/en-us/azure/">Microsoft Azure</a> where our team works on <a href="https://docs.microsoft.com/en-us/azure/migrate/">Azure Migrate</a> and <a href="https://docs.microsoft.com/en-us/azure/site-recovery/">Disaster Recovery</a> services.<br>
+I occasionally write about things that I find interesting.
 <hr style="border:none;border-top:1px dashed #bbb;">
-
 <div class="posts">
   <table width="100%">
     <tr>
       <td colspan="2">
-        <h4 class="category-title">Posts</h4>
+        <h3 class="category-title">Posts</h3>
       </td>
     </tr>
   {% for post in site.posts %}
     <!-- {% unless post.next %}
       <tr>
         <td colspan="2">
-          <h4 class="category-title">{{ post.date | date: '%Y' }}</h4>
+          <h5 class="category-title">{{ post.date | date: '%Y' }}</h5>
         </td>
       </tr>
     {% else %}
       {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
       {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
       {% if year != nyear %}
+      <tr><td colspan="2"><hr /></td></tr>
       <tr>
         <td colspan="2">
-          <h4 class="category-title">{{ post.date | date: '%Y' }}</h4>
+          <h5 class="category-title">{{ post.date | date: '%Y' }}</h5>
         </td>
       </tr>
       {% endif %}

@@ -153,6 +153,36 @@ img {
   max-width: 100%;
 }
 
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border:1px solid #888;
+  width: 100%;
+}
+
+th {
+  border:1px solid #888;
+  padding: 5px;
+  text-align: center;
+}
+
+td {
+  border:1px solid #888;
+  padding: 5px;
+}
+
+div.posts table {
+  border:none;
+}
+
+div.posts table tr th {
+  border:none;
+}
+
+div.posts table tr td {
+  border:none;
+}
+
 // Fixes images in popup boxes from Google Translate
 .gmnoprint img {
   max-width: none;
@@ -328,7 +358,7 @@ nav {
 
 .wrapper-footer {
   margin-top: 50px;
-  
+
   border-bottom: 1px solid #ddd;
 }
 

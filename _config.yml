@@ -18,7 +18,7 @@ avatar: https://raw.githubusercontent.com/aseemraj/aseemraj.github.io/master/ima
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email: aseemraj@protonmail.com
+  email: #aseemraj@protonmail.com
   facebook: #aseemrb
   flickr:
   github: aseemraj
@@ -57,7 +57,7 @@ baseurl: ""
 permalink: /:title/
 
 # The release of Jekyll Now that you're using
-version: v1.2.0
+# version: v1.2.0
 
 # Jekyll 3 now only supports Kramdown for Markdown
 kramdown:

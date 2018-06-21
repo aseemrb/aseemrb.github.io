@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <article class="post">
   <h1>{{ page.title }}</h1>
@@ -13,8 +12,11 @@ layout: default
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
+  <div class="date">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="aseemrb" data-show-count="true">Tweet</a>
+  </div>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   {% include disqus.html %}
 </article>
 
-<a href="https://twitter.com/share" class="twitter-share-button" data-via="aseemrb" data-show-count="true">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
