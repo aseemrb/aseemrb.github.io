@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Weird but Awesome JavaScript
+title: Weird but awesome JavaScript
 ---
 
 I've been programming something or the other in JavaScript for more than a year now, but I still did not have a clear understanding of what it really is, and how it works. What makes it so different than other languages, why browsers use it, etc.
 
 But now, after some digging into how stuff works, I think I understand what it is. I had heard of Chrome's runtime V8, but I did not know what it really is. I had used callbacks, but did not know how they work. So this post tries to clarify the small misconceptions and incomplete information about these things.
 
-As wikipedia puts it, [JavaScript](https://en.wikipedia.org/wiki/JavaScript) is a **_high-level, dynamic, untyped, and interpreted programming language_**. But this statement doesn't do much. We need to explore more. JavaScript is popularly known to be a **_single-threaded non-blocking asynchronous concurrent language_** with a **_call stack_**, **_event loop_**, a **_callback queue_** and some **_APIs_**. But V8 only has a call stack and a **_heap_**. Weird! What about the other stuff? The event loop, the callback queue and the APIs? And how can it be single-threaded as well as concurrent simultaneously? There's something we are missing here.
+As Wikipedia puts it, [JavaScript](https://en.wikipedia.org/wiki/JavaScript) is a **_high-level, dynamic, untyped, and interpreted programming language_**. But this statement doesn't do much. We need to explore more. JavaScript is popularly known to be a **_single-threaded non-blocking asynchronous concurrent language_** with a **_call stack_**, **_event loop_**, a **_callback queue_** and some **_APIs_**. But V8 only has a call stack and a **_heap_**. Weird! What about the other stuff? The event loop, the callback queue and the APIs? And how can it be single-threaded as well as concurrent simultaneously? There's something we are missing here.
 
 As it turns out, the JavaScript runtimes (like V8) only have a heap for memory allocation, and a stack for contextual execution. The other things are the Web APIs in the browser, for instance the `setTimeout`, `AJAX`, `DOM` etc. So in a browser, JavaScript has the following structure:
 

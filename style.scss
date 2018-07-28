@@ -19,7 +19,7 @@
 @import "stacked";
 @import "icons";
 @import "screen-reader";
-@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700);
+// @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700);
 // Syntax highlighting @import is at the bottom of this file
 
 /**************/
@@ -38,7 +38,7 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 740px;
+  max-width: 1000px;
   padding: 0 10px;
   width: 100%;
 }

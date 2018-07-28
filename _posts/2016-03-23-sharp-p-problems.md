@@ -18,11 +18,11 @@ So let's begin with the permanent, which is defined for an *n x n matrix A* as:
 
 $$ Perm\ A = \sum_{\sigma}{\prod_{i=1}^{n}{A_{i,\sigma(i)}}} $$
 
-Before proceeding, let's understand what this means, and what we want to compute.  
-$$\sigma$$ is a permutation of the numbers {1, 2, 3, ... n}.  
+Before proceeding, let's understand what this means, and what we want to compute.
+$$\sigma$$ is a permutation of the numbers {1, 2, 3, ... n}.
 For example, for n = 5, if $$\sigma$$ = {2, 5, 3, 4, 1}, then $$\sigma(1) = 2$$, $$\sigma(2) = 5$$, $$\sigma(3) = 3$$ and so on. The summation therefore is over all $$\sigma$$, which means we are doing the summation for all possible permutations, total of them being $$n!$$ (factorial of n). So it is evident, that when taking the product, which is inside the summation term, we must take one element from each row and each column of the matrix, and a total of n elements have to be picked, therefore exactly one element from each row and each column has to be picked.
 
-A closer look at the permanent tells us that if we change all the negative signs in the expression of the determinant of a matrix to positive signs, it will indeed become the permanent. To show this with an example:  
+A closer look at the permanent tells us that if we change all the negative signs in the expression of the determinant of a matrix to positive signs, it will indeed become the permanent. To show this with an example:
 Consider the following matrix M:
 $$
         \begin{bmatrix}
@@ -32,24 +32,24 @@ $$
         \end{bmatrix}
 $$
 
-The determinant of M = 1 x ((3x1) - (1x3)) + (-1) x 2 x ((2x1) - (1x1)) + 4 x ((2x3) - (3x1)), while the permanent is: 1x3x1 + 1x1x3 + 2x2x1 + 2x1x1 + 4x2x3 + 4x3x1, which is clearly obtainable by changing all negative signs in the determinant's expression to positive. Surprisingly, though there exist [effecient solutions](https://en.wikipedia.org/wiki/Determinant#Calculation) to compute the determinant of a matrix, yet to compute the permanent, no algorithm that takes better than exponential time is known.
+The determinant of M = 1 x ((3x1) - (1x3)) + (-1) x 2 x ((2x1) - (1x1)) + 4 x ((2x3) - (3x1)), while the permanent is: 1x3x1 + 1x1x3 + 2x2x1 + 2x1x1 + 4x2x3 + 4x3x1, which is clearly obtainable by changing all negative signs in the determinant's expression to positive. Surprisingly, though there exist [efficient solutions](https://en.wikipedia.org/wiki/Determinant#Calculation) to compute the determinant of a matrix, yet to compute the permanent, no algorithm that takes better than exponential time is known.
 
-Valiant comments on the complexity of the problem of finding the permanent of a [(0-1) matrix](https://en.wikipedia.org/wiki/Logical_matrix), for which he defines the class #P. To put it easily, #P problems are the counting problems associated with the decision problems in class NP. It is a class of function problems, and not decision problems (where the answer is a simple yes/no). An NP problem of the form "Does there exist a solution that satisfies X?" usually corresponds to the #P problem "How many solutions exist which satisfy X?". Here goes the example of a #P problem:  
+Valiant comments on the complexity of the problem of finding the permanent of a [(0-1) matrix](https://en.wikipedia.org/wiki/Logical_matrix), for which he defines the class #P. To put it easily, #P problems are the counting problems associated with the decision problems in class NP. It is a class of function problems, and not decision problems (where the answer is a simple yes/no). An NP problem of the form "Does there exist a solution that satisfies X?" usually corresponds to the #P problem "How many solutions exist which satisfy X?". Here goes the example of a #P problem:
 &#35;SAT - Given a boolean formula $$\phi(x_1, x_2, ... x_n)$$, find the number of assignments that satisfy $$\phi$$. This is the counting version of the famous [SAT](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem) problem which is known to be NP complete.
 
 #### Defining #P completeness
 
-To define completeness in this class of problems, we need to bring in Oracle turing machines and the class FP. Oracle machines are those which have access to an *oracle* that can *magically* solve the decision problem for some language $$L \subseteq \{0, 1\}^*$$. These machines with oracle access can then make queries of the form "Is $$q \in L$$?" in one computational step. We can generalize this to non-boolean functions by saying that a T.M. M has oracle access to a function $$f: \{0, 1\}^* \rightarrow \{0, 1\}^*$$ if it is given access to the language $$L = \{(x, i) : f(x)_i = 1\}$$.  
-For every $$O \subseteq \{0, 1\}^*$$, we denote $$P^O$$ as the set of languages that can be decided by a polynomial time DTM (Deterministic Turing Machine) with oracle access to O. As an example, consider the $$\overline{SAT}$$ problem, which denotes the language of unsatisfiable boolean formulae. $$\overline{SAT}$$ $$\in P^{SAT}$$ because if we are given an oracle access to the SAT language, then we can solve an instance $$\phi$$ of the $$\overline{SAT}$$ problem in polynomial time, by asking "Is $$\phi \in SAT$$?" and negating the answer to that.  
+To define completeness in this class of problems, we need to bring in Oracle Turing Machines and the class FP. Oracle machines are those which have access to an *oracle* that can *magically* solve the decision problem for some language $$L \subseteq \{0, 1\}^*$$. These machines with oracle access can then make queries of the form "Is $$q \in L$$?" in one computational step. We can generalize this to non-boolean functions by saying that a T.M. M has oracle access to a function $$f: \{0, 1\}^* \rightarrow \{0, 1\}^*$$ if it is given access to the language $$L = \{(x, i) : f(x)_i = 1\}$$.
+For every $$O \subseteq \{0, 1\}^*$$, we denote $$P^O$$ as the set of languages that can be decided by a polynomial time DTM (Deterministic Turing Machine) with oracle access to O. As an example, consider the $$\overline{SAT}$$ problem, which denotes the language of unsatisfiable boolean formulae. $$\overline{SAT}$$ $$\in P^{SAT}$$ because if we are given an oracle access to the SAT language, then we can solve an instance $$\phi$$ of the $$\overline{SAT}$$ problem in polynomial time, by asking "Is $$\phi \in SAT$$?" and negating the answer to that.
 Now we are ready to define #P completeness. A function $$f$$ is said to be #P-complete if $$f \in \#P$$ and $$\forall g \in \#P, g$$ is in $$FP^f$$ (Cook reduction).
 
-Now let's get back to the permanent. We take a special case of the permanent problem where we put a constraint that the input matrix is a (0, 1) matrix, that is, all the entries of the given matrix are either 0 or 1. Let us look at this problem of finding the permanent of a binary matrix with a different perspective. Imagine that the given matrix A is an ***adjacency matrix of a bipartite graph***  
-$$G = (X, Y, E)$$ where,  
-$$X = \{x_1, x_2, ... x_n\}$$  
-$$Y = \{y_1, y_2, ... y_n\}$$  
+Now let's get back to the permanent. We take a special case of the permanent problem where we put a constraint that the input matrix is a (0, 1) matrix, that is, all the entries of the given matrix are either 0 or 1. Let us look at this problem of finding the permanent of a binary matrix with a different perspective. Imagine that the given matrix A is an ***adjacency matrix of a bipartite graph***
+$$G = (X, Y, E)$$ where,
+$$X = \{x_1, x_2, ... x_n\}$$
+$$Y = \{y_1, y_2, ... y_n\}$$
 $$E = \{(x_i, y_j) : A_{ij} = 1\}$$
 
-Now if we look at the term inside the summation, that is $$\prod{A_{i, \sigma(i)}}$$ for $$i = \{1, 2, ... n\}$$, we can try to imagine the value of this term as synonymous to a possible perfect matching in the biprtite graph represented by A. Why? Because we know that this term takes one element from each row and each column, so all vertices are covered in the term, and this term = 0, if any of the elements picked are 0. But in our adjacency matrix, 0 for row i and column j means that there is no edge between $$x_i$$ and $$y_j$$, so this term evaluates to 1 if and only if the selected elements form an edge cover (a perfect matching) for the given bipartite graph. So clearly, the whole term $$Perm\ A = \sum\prod A_{i, \sigma(i)}$$ where the summation is over all $$\sigma$$ represents the total number of perfect matchings in the bipartite graph represented by A. As finding the number of perfect matchings in a bipartite graph $$\in$$ #P, therefore clearly, finding the permanent of a binary matrix $$\in$$ #P.
+Now if we look at the term inside the summation, that is $$\prod{A_{i, \sigma(i)}}$$ for $$i = \{1, 2, ... n\}$$, we can try to imagine the value of this term as synonymous to a possible perfect matching in the bipartite graph represented by A. Why? Because we know that this term takes one element from each row and each column, so all vertices are covered in the term, and this term = 0, if any of the elements picked are 0. But in our adjacency matrix, 0 for row i and column j means that there is no edge between $$x_i$$ and $$y_j$$, so this term evaluates to 1 if and only if the selected elements form an edge cover (a perfect matching) for the given bipartite graph. So clearly, the whole term $$Perm\ A = \sum\prod A_{i, \sigma(i)}$$ where the summation is over all $$\sigma$$ represents the total number of perfect matchings in the bipartite graph represented by A. As finding the number of perfect matchings in a bipartite graph $$\in$$ #P, therefore clearly, finding the permanent of a binary matrix $$\in$$ #P.
 
 Now we shall move on to prove the ***Valiant's theorem*** which says that finding permanent for a binary matrix is #P-complete. We already proved it is in #P, so now all remains for us is to prove that it is in #P-Hard, that is all #P problems can be reduced to this problem in the way explained earlier in this post (where completeness is defined for #P problems). For this, we look at the problem of finding the permanent as a different graph problem.
 
@@ -60,9 +60,9 @@ Consider A = adjacency matrix of a weighted and directed graph with n nodes (We 
 
 Now, with a good observation, we can conclude that $$Perm(A) = \sum W_{i}$$ where $$W_i$$ is the weight of the $$i^{th}$$ cycle cover. We sum the weights of all possible cycle covers of the graph and it turns out to be equal to the permanent of the adjacency matrix. If this is hard to visualize, feel free to work out on an example having 3 or 4 nodes to let that sink in.
 
-Proceeding with the proof, we will attempt to reduce an instance of the 3-SAT problem to an instance of the cycle cover problem. ***The methodology and examples are directly taken from the original paper***. We begin with a boolean formula given to us in 3-[CNF](https://en.wikipedia.org/wiki/Conjunctive_normal_form) form.  
-$$F = C_1 \wedge C_2 \wedge C_3 \wedge ... C_m$$, a conjunction of m clauses where  
-$$C_i = (y_{i1} \vee y_{i2} \vee y_{i3})$$, a disjunction of 3 literals, where  
+Proceeding with the proof, we will attempt to reduce an instance of the 3-SAT problem to an instance of the cycle cover problem. ***The methodology and examples are directly taken from the original paper***. We begin with a boolean formula given to us in 3-[CNF](https://en.wikipedia.org/wiki/Conjunctive_normal_form) form.
+$$F = C_1 \wedge C_2 \wedge C_3 \wedge ... C_m$$, a conjunction of m clauses where
+$$C_i = (y_{i1} \vee y_{i2} \vee y_{i3})$$, a disjunction of 3 literals, where
 $$y_{ij} \in \{x_1, \overline{x_1}, x_2, \overline{x_2}, ... x_n, \overline{x_n}\}$$, the set of variable and their negations.
 
 We construct graph G by superposing the following the structures:
@@ -72,9 +72,9 @@ We construct graph G by superposing the following the structures:
 1. For each literal $$y_{ij}$$ such that $$y_{ij} = x_k$$ or $$\overline{x_k}$$, a Junction $$J_{ik}$$ at which interchange $$R_i$$ and track $$T_k$$ meet.
 1. The interchanges also have internal junctions, which are exactly same as above
 
-Example: Let's take some formula F where:  
-$$C_3 = (x_2 \vee \overline{x_5} \vee x_7)$$  
-$$x_5$$ occurs in $$C_2$$ and $$C_5$$  
+Example: Let's take some formula F where:
+$$C_3 = (x_2 \vee \overline{x_5} \vee x_7)$$
+$$x_5$$ occurs in $$C_2$$ and $$C_5$$
 $$\overline{x_5}$$ occurs in $$C_3$$
 
 For this example, the following are the structures:
@@ -104,14 +104,14 @@ Why this matrix is valued exactly with these numbers will be clear as we proceed
 
 Using these properties, we can draw very good insights. Let's look at routes in the graph. A route is a cycle cover. If we consider all the routes which have the same set of edges outside of the junctions, then we can call a route bad if:
 
-- It ignores a junction  
+- It ignores a junction
   In this case, the cycle cover will have the ignored junction to be covered, so it will come separately as a product in the term. But Perm(X) = 0, so it will make the whole term 0 and thus will not contribute to the cycle cover.
-- It enters and leaves a junction at the same end  
+- It enters and leaves a junction at the same end
   This case is bad because $$Perm(X(1; 1)) = Perm(X(4; 4)) = 0$$, so if nodes 1, 2, 3 or 2, 3, 4 remain (only one of the ends is covered) then again these nodes will separately come as a cycle and make that whole term 0. Thus no contribution to total number of cycle covers
-- It enters at node 1 of a junction, directly jumps to node 4 and then leaves out  
+- It enters at node 1 of a junction, directly jumps to node 4 and then leaves out
   This case leaves out nodes 2 and 3 of a junction, so they have to be covered in a separate cycle, but $$Perm(X(1,4; 1,4)) = 0$$, so this will again make the term 0 and contribute nothing in the total number of cycle covers
 
-So the only choice we have is to enter at either node 1 or node 4, and leave at the opposite end after covering nodes 2 and 3, if we want to make that route count towards the total number of cycle covers (the value of the permanent). Now if we go by this only choice, the contribution to the cycle wil be 4, as Perm($$X(1; 4)$$) = Perm($$X(4; 1)$$) = 4.
+So the only choice we have is to enter at either node 1 or node 4, and leave at the opposite end after covering nodes 2 and 3, if we want to make that route count towards the total number of cycle covers (the value of the permanent). Now if we go by this only choice, the contribution to the cycle will be 4, as Perm($$X(1; 4)$$) = Perm($$X(4; 1)$$) = 4.
 
 In any track $$T_k$$ of any good route, there are two cases as seen in the structure of the track:
 
@@ -120,7 +120,7 @@ In any track $$T_k$$ of any good route, there are two cases as seen in the struc
 
 These two cases correspond to whether $$x_k = 1$$ or $$\overline{x_k} = 1$$
 
-Now observe the interchanges. Each interchange has 5 junctions, 3 of which are connected to a corresponding track, which consists of the variable that is present in that particular clause, and 2 are internal juncions, which are of the same structure as a normal junction. A careful observation tells us that the whole of an interchange (all the five junctions) cannot be picked up by a route, in fact, all 3 of the external junctions can never be picked up in a route by the interchange, so at least one of the 3 junctions connected to tracks must be picked up by a track, this constraint being synonymous to the fact that we need at least one literal in the clause to be true, to make the whole clause true.
+Now observe the interchanges. Each interchange has 5 junctions, 3 of which are connected to a corresponding track, which consists of the variable that is present in that particular clause, and 2 are internal junctions, which are of the same structure as a normal junction. A careful observation tells us that the whole of an interchange (all the five junctions) cannot be picked up by a route, in fact, all 3 of the external junctions can never be picked up in a route by the interchange, so at least one of the 3 junctions connected to tracks must be picked up by a track, this constraint being synonymous to the fact that we need at least one literal in the clause to be true, to make the whole clause true.
 
 Now the total number of good routes (cycle covers) exactly corresponds to the total number of satisfying variable assignments for the boolean formula $$F$$ of the SAT instance we had taken. Since #SAT is known to be #P-complete, the Permanent problem is now proved to be #P-Hard.
 
@@ -148,7 +148,7 @@ Hence graphs $$G$$ and $$G^{'}$$ are equivalent in terms of the permanent proble
 
 ![to binary]({{site.baseurl}}/images/sharp-p-problems/2p.png)
 
-This is the transormation from $$G^{'}$$ to $$G^{''}$$. Again we have two cases to show the similarity. Let C be a cycle cover in $$G^{'}$$, then:
+This is the transformation from $$G^{'}$$ to $$G^{''}$$. Again we have two cases to show the similarity. Let C be a cycle cover in $$G^{'}$$, then:
 
 - If edge u-v was not a part of C, the only way to form a cycle cover (taking all vertices) is to take all the self-loops
 - If edge u-v was present in C, then in any cycle cover of $$G^{''}$$ there must be a path from u to v. At each step from u to v, we have 2 choices, and such a choice has to be taken $$r$$ times, so we have a total of $$2^r$$ different possible paths from u to v, so it will contribute $$2^r$$ overall, same as the weight of the u-v edge in $$G^{'}$$

@@ -37,7 +37,4 @@ $$E(W) = (\frac{1}{2} \times 2) + (\frac{1}{4} \times 4) + (\frac{1}{8} \times 8
 
 Notice that drastic change, by our earlier computation, we should have been willing to pay an infinite amount to play this game. But when we involve the practical situation in our mathematics, we are not even willing to pay more than $30 even when the maximum winnings can be a billion dollars.
 
-### Take away lesson
-Human intuition is highly sophisticated and trained to consider practical scenarios. Not that it's always right, but this game explains how our intuition can compute certain things so quickly, that we otherwise take time to realize consciously using equations.
-
 ---
