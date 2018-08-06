@@ -4,7 +4,7 @@ https://keybase.io/aseemraj
 
 I hereby claim:
 
-  * I am an admin of https://aseemraj.me
+  * I am an admin of https://aseemrb.me
   * I am aseemraj (https://keybase.io/aseemraj) on keybase.
   * I have a public key with fingerprint 026F 7B3C B562 2C93 9E41  B3D2 3ADB 0898 5BEA 065E
 
@@ -21,17 +21,27 @@ To do so, I am signing this object:
       "uid": "4183e6b6af34001e7941fbf585a15e19",
       "username": "aseemraj"
     },
+    "merkle_root": {
+      "ctime": 1533561988,
+      "hash_meta": "efdf34b81f6b0aa67a4018e607025ddb69be5de61766f8bc4dc890e5826efb00",
+      "seqno": 3414198
+    },
+    "revoke": {
+      "sig_ids": [
+        "1b831554a80a2b299d863aba0a50ff2be949eb351cd1c5f97da6219677c3f4330f"
+      ]
+    },
     "service": {
-      "hostname": "aseemraj.me",
+      "hostname": "aseemrb.me",
       "protocol": "https:"
     },
     "type": "web_service_binding",
     "version": 1
   },
-  "ctime": 1532454826,
+  "ctime": 1533561996,
   "expire_in": 157680000,
-  "prev": "af4abe7f59f0861cbf31fb365877b2b23e48fde5ad3d605c3a5a13796f711cae",
-  "seqno": 49,
+  "prev": "b09b0f65c280a3dacc4d753ce9c02eda4c9d08c59202017a1cc61bde3868661e",
+  "seqno": 50,
   "tag": "signature"
 }
 
@@ -41,23 +51,26 @@ which yields the signature:
 Version: Keybase OpenPGP v2.0.77
 Comment: https://keybase.io/crypto
 
-yMInAnicrVJrSBVBFL5mRkoXMiIpS2rJnjfb3ZnZx03InphEL0qlG91mdmdvm3r3
-unuvlRaU0QvM/hRKgYRZllgWEUYPyrIMwqBMJImiB2hUFIn2RJqV+hP9bP4Mc873
-fec7Z06rN96TFNfpvdfclbUwM+5BS1XME8gLNZRxxNK3c/4yroAOXbRQp040WGDq
-nJ/jBV4gRACySAnQIJCgAURBM4CuqhKSdA1JLKgbFEGCgQwxgFBDkBdEnqoqkXUq
-8jzmfJxhhkPUjthmOOrKipIhM0GCJFHUVKBSKBCgiwDrhFdUBRGKeQlRRtxsOS6D
-mSPYoRmmxWLsERyy9w/8f/YdG5KDggKoRCRsAMjzApVVKBjEQArCAqKC6gIdaodx
-EWVo5pMW2XgLt9PHsWiJqVF3sG4nfyEyilzLEduKWppVyBKbo9GI43eJ0e0RF7mV
-kuBvjSAxwzobI2OUUNsxrTDnFxhSi5quqICACBFURMnH0W0R06ZB00UgWVJ4dtw6
-tMQtbkBMqGwg1eAVSdCIAVgzQEKKLBORiIBCxdApwjrQJR5pALMugayyLxMEDbuO
-HVoctjg/VJlPHGKajhkK42jMptzO27c2DPfEJXlGJAxz98uTlDj6z9bVZY307N5/
-atquzxNKv1reyor52ecKyeCYnFWt3edTcxdMnyg/Gfe9w9cztfAFTGwZtW9Z/dU5
-h6Z9G+z6cqDyRkfp3EWT11RdC+FAQwKac6K5qfL68vL3M9b0HoikHvlZ8uqpueuT
-Vl96c1ZyRk6jd+DUkocHn9edGTW+9H5Z+e4FYx8nd7SHBoqbXub3mEptOu4MjN6R
-U/1+2JXmu+tff3yTcOninYZFSw9/6Gs/u3fjmRsXzAwzVluVosZ/mmnD1vTTKwu6
-G1fVUH5F/4c9s/Pa3qbE71OfHX20rry+0qn5cTKtQuofWLzpeEvmsUB22uXe+G5p
-9Vpf35b8I5Pe5YJ5g9VtU/Ssoim/AEuRQSo=
-=2t4b
+yMK3AnicrZNbaB1VFIZP1KYkNihGVCiFOmhbYwz7PrNPYvHyEEXbglgUU3u6L2ty
+JjnnTJyZc5q0DRS1Vdpo1V4Qkb5UakFTiVbjg2ispRYi9qVWNC3e8KEILT6YFFqs
+e4Iiio/OyzCLf33rX/+efazt6kJr01dtxye/vue+nqbpo1m90Fd+eGyzp2M74hU3
+e4Mw/4KKhTQrDUbWK3oII6w1pj4BTQ2jgoWUYBNSK6XgwhouXNGGwJlW1GeKMmY4
+Q5ggkFL7FghCyuv0wqjWD8lQEtWyHEtE6Dug5oIQI6kEhjW1hCqrUSADrkEhwcE1
+luM073DmtEqhK4pdzX2U5u39h/5/9l2fxzEcUBBaqJAyhDD4kuFQhzzgCnPAMhem
+kNRUFZza+YRqoga80U6vCslgBUpJHGd5uCaLcgnmlHKBZRC4BVVaLlUhU64TQusm
+6ACHQiOlhK+cpQAE8hHh1mohNXALAvtChIE2zJpAIuABERBqhJyPFJ6qxV6RMswc
+3zlIoBEPQj48jfpdbKlX7POwDijmnKkAKaKJlDYQVGmFFEdhSDRIJl1yHBuLDQ+l
+b5UgWArfNzRklKLQe3I0H5Y0IjMPz8/pH/vrrmp+HkNJnMUmrrh6OcuG0mKeSjYy
+lAs3gi79iSjpqGbdP+I6GpCkUVxzKTnlvwKTotOD4aEogVKUK7gvAuSefA40HFIj
+qVEouCFuM2qVcRn5nBqQBhGwihlpUWC4JIgg7CtsjMDaAg1EIASGvxPkDpqpfsd0
+udVUVk/AGz06te6aQlNroXnBVfnlKbS2XP/XlRovLryy+tCqyu0j7+15/+ZVb45+
++fHeTc0/FKM18tSWl7dM1Rc+Nv3thu2/tuzZkbX3Pb11wclXd+vC7AcTw+ueaV6c
+Lrt25V1zyzaceOLSrZcP2Oy7uQt3Hv5p8oUHgp7uyYNtd5y9XH8xmauz5xSZvO38
++ncWLZdTvTctuftI5dPlZ/buumHXxX0za2+cHVy5f9FqsmngwLu/vHXL7Gdre7t/
+P7H0x+mZNZ1vf7+4o/35V67snPbL5LWtj39+afcbH27ff3979+vskYstR2aHx4+d
+ObtvouOTsUe/ONWxvufQuWdfenC8Kz58YcnOFc3pim8aJ1vibTt+O3j+52Tg3tPT
+D41tHC71nh6/7tzxxkfhtomlM8T7AwIUgQY=
+=nWaF
 -----END PGP MESSAGE-----
 
 And finally, I am proving ownership of this host by posting or
