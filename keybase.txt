@@ -1,11 +1,11 @@
 ==================================================================
-https://keybase.io/aseemraj
+https://keybase.io/aseemrb
 --------------------------------------------------------------------
 
 I hereby claim:
 
   * I am an admin of https://aseemrb.me
-  * I am aseemraj (https://keybase.io/aseemraj) on keybase.
+  * I am aseemrb (https://keybase.io/aseemrb) on keybase.
   * I have a public key with fingerprint 026F 7B3C B562 2C93 9E41  B3D2 3ADB 0898 5BEA 065E
 
 To do so, I am signing this object:
@@ -18,18 +18,8 @@ To do so, I am signing this object:
       "host": "keybase.io",
       "key_id": "3adb08985bea065e",
       "kid": "0101bb1372eb3c4364f321cf3d99656dc56436dfe54ba374a344c540120e99b7de200a",
-      "uid": "4183e6b6af34001e7941fbf585a15e19",
-      "username": "aseemraj"
-    },
-    "merkle_root": {
-      "ctime": 1533561988,
-      "hash_meta": "efdf34b81f6b0aa67a4018e607025ddb69be5de61766f8bc4dc890e5826efb00",
-      "seqno": 3414198
-    },
-    "revoke": {
-      "sig_ids": [
-        "1b831554a80a2b299d863aba0a50ff2be949eb351cd1c5f97da6219677c3f4330f"
-      ]
+      "uid": "9a60e28078f3324829dbb0730ff9cc19",
+      "username": "aseemrb"
     },
     "service": {
       "hostname": "aseemrb.me",
@@ -38,10 +28,10 @@ To do so, I am signing this object:
     "type": "web_service_binding",
     "version": 1
   },
-  "ctime": 1533561996,
+  "ctime": 1533562455,
   "expire_in": 157680000,
-  "prev": "b09b0f65c280a3dacc4d753ce9c02eda4c9d08c59202017a1cc61bde3868661e",
-  "seqno": 50,
+  "prev": "f2e6bccf0465348e70c755b9d52b444e11fe0ee93539b8f6e2264c3a338a3ff3",
+  "seqno": 2,
   "tag": "signature"
 }
 
@@ -51,31 +41,28 @@ which yields the signature:
 Version: Keybase OpenPGP v2.0.77
 Comment: https://keybase.io/crypto
 
-yMK3AnicrZNbaB1VFIZP1KYkNihGVCiFOmhbYwz7PrNPYvHyEEXbglgUU3u6L2ty
-JjnnTJyZc5q0DRS1Vdpo1V4Qkb5UakFTiVbjg2ispRYi9qVWNC3e8KEILT6YFFqs
-e4Iiio/OyzCLf33rX/+efazt6kJr01dtxye/vue+nqbpo1m90Fd+eGyzp2M74hU3
-e4Mw/4KKhTQrDUbWK3oII6w1pj4BTQ2jgoWUYBNSK6XgwhouXNGGwJlW1GeKMmY4
-Q5ggkFL7FghCyuv0wqjWD8lQEtWyHEtE6Dug5oIQI6kEhjW1hCqrUSADrkEhwcE1
-luM073DmtEqhK4pdzX2U5u39h/5/9l2fxzEcUBBaqJAyhDD4kuFQhzzgCnPAMhem
-kNRUFZza+YRqoga80U6vCslgBUpJHGd5uCaLcgnmlHKBZRC4BVVaLlUhU64TQusm
-6ACHQiOlhK+cpQAE8hHh1mohNXALAvtChIE2zJpAIuABERBqhJyPFJ6qxV6RMswc
-3zlIoBEPQj48jfpdbKlX7POwDijmnKkAKaKJlDYQVGmFFEdhSDRIJl1yHBuLDQ+l
-b5UgWArfNzRklKLQe3I0H5Y0IjMPz8/pH/vrrmp+HkNJnMUmrrh6OcuG0mKeSjYy
-lAs3gi79iSjpqGbdP+I6GpCkUVxzKTnlvwKTotOD4aEogVKUK7gvAuSefA40HFIj
-qVEouCFuM2qVcRn5nBqQBhGwihlpUWC4JIgg7CtsjMDaAg1EIASGvxPkDpqpfsd0
-udVUVk/AGz06te6aQlNroXnBVfnlKbS2XP/XlRovLryy+tCqyu0j7+15/+ZVb45+
-+fHeTc0/FKM18tSWl7dM1Rc+Nv3thu2/tuzZkbX3Pb11wclXd+vC7AcTw+ueaV6c
-Lrt25V1zyzaceOLSrZcP2Oy7uQt3Hv5p8oUHgp7uyYNtd5y9XH8xmauz5xSZvO38
-+ncWLZdTvTctuftI5dPlZ/buumHXxX0za2+cHVy5f9FqsmngwLu/vHXL7Gdre7t/
-P7H0x+mZNZ1vf7+4o/35V67snPbL5LWtj39+afcbH27ff3979+vskYstR2aHx4+d
-ObtvouOTsUe/ONWxvufQuWdfenC8Kz58YcnOFc3pim8aJ1vibTt+O3j+52Tg3tPT
-D41tHC71nh6/7tzxxkfhtomlM8T7AwIUgQY=
-=nWaF
+yMIkAnicrVJbSBVBGD5eup2yrMgeLK3tZmE6uzOzl0M36ykiKaFOUXnc2Z3VLd09
+7q5HS3zpCgaFEQSRFUlFYWURSJGV3dSEVEoKgpCKMLo9GFGa2qzUQ9Bj8zLMx/d9
+8/0f/4OkhEAwrjvpUePzFSuXxLU3Hy0LbCnKDVdyxNZ3cqFKbgcduWixTl0vssPU
+uRAHeMATwkNJoARqCIrIgAKvGVBXFBGLuoZFBuoGxYioUEIqREjDCPACoIpCJJ0K
+AKhcJmeYViF1oo5peb6tIBoSMyRYFARNgQpFPIG6AFWdAFmRMaEqEDFlwiLb9RUs
+HFFdmmXaDGOPyEi8f/D/c+6yETtFFQEVZCDJBoQCkgVFJwRIEBiGomm84hNd6lhq
+CWVslpOWOISryuQYGDM16vfqD/I3IavEDxx1bM/W7GKGF3le1A35Om9n1CeWUxL5
+bREhpqWzEpkiRh3XtC0uxDOm5pm+J48hZGUijDM5WhE1HRoxfQaWRBmw4/9DY8zS
+EKhINM0ASMQQyVQCmoQxUXQsEIQQ5XmDAkoViKFCZEOkgiAiDaoQyio0DMj5Q5Va
+NhcSWEy1kFm6ZqGlemUO5aru3d2aGIgLBkaPiveXKxAcl/xn5Zq+jOlPWAvruy41
+Ffe29i3rTJhcVnt5c2sjuTZ0evXc1IJdcumGwZS7x6edEZe/XbdnfNt77/7e0tDZ
+k3npGf2bZub3NteDJxczUgf77p0aqjo65UtPcf6jl1nZ7bGP6dfC+wqGl01fcGGb
+uKj6xEbrZOXW1t0DPbmuXbP/zarRr+takmeXd2z8cGDgc+7FbwfnhzPWtKVPvjJh
+VsP3YO2rNDXn8ISPNdczhrejzqfDwYrGr7fmXOjLOn/78fSmqUkL0h6e/X4oZ3FH
+fNr5eAvlP/wxMSWQt7776oyEc11OwbPqIy/aujpqRStxYezOuxsNs7vbe45lX/+0
+K3tsDv4ZXlrn3pyX+DUyqUX+BY/QP+s=
+=LK6B
 -----END PGP MESSAGE-----
 
 And finally, I am proving ownership of this host by posting or
 appending to this document.
 
-View my publicly-auditable identity here: https://keybase.io/aseemraj
+View my publicly-auditable identity here: https://keybase.io/aseemrb
 
 ==================================================================
