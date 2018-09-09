@@ -25,7 +25,7 @@ Conclusion: #satisfying assignments for $$\phi(x)$$ = #certificates for $$x$$. H
 The corresponding decision problem for this is:
 ***Given a graph G, find whether there exists a 3-coloring for G. A 3-coloring is a mapping of each node of the graph to any of three available colors, such that no two nodes which are adjacent have the same color.***
 
-The 3-coloring problem is NP-Complete, which we will prove shortly, and so the counting version is again very easy to be proved #P-Complete as in the case of #SAT. To prove 3-coloring to be NP-Complete, we first show that it $$\in$$ NP, and then reduce a 3-SAT (well-known NP Complete problem) to 3-coloring, thus completing the proof.
+The 3-coloring problem is NP-Complete, which we will prove shortly, and so the counting version is again very easy to be proved #P-Complete as in the case of #SAT. To prove 3-coloring to be NP-Complete, we first show that it $$\in$$ NP, and then reduce 3-SAT (a well-known NP Complete problem) to 3-coloring, thus completing the proof.
 
 Given a coloring scheme of 3 colors and the graph as an input instance to the problem, we can easily verify in polynomial time whether the coloring scheme is valid, by iterating over all the edges and checking that all the pairs of adjacent nodes have different colors. Thus the 3-coloring problem is in NP.
 
