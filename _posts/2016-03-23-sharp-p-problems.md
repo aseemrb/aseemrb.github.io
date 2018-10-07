@@ -104,11 +104,11 @@ Why this matrix is valued exactly with these numbers will be clear as we proceed
 
 Using these properties, we can draw very good insights. Let's look at routes in the graph. A route is a cycle cover. If we consider all the routes which have the same set of edges outside of the junctions, then we can call a route bad if:
 
-- It ignores a junction
+- #### It ignores a junction
   In this case, the cycle cover will have the ignored junction to be covered, so it will come separately as a product in the term. But Perm(X) = 0, so it will make the whole term 0 and thus will not contribute to the cycle cover.
-- It enters and leaves a junction at the same end
+- #### It enters and leaves a junction at the same end
   This case is bad because $$Perm(X(1; 1)) = Perm(X(4; 4)) = 0$$, so if nodes 1, 2, 3 or 2, 3, 4 remain (only one of the ends is covered) then again these nodes will separately come as a cycle and make that whole term 0. Thus no contribution to total number of cycle covers
-- It enters at node 1 of a junction, directly jumps to node 4 and then leaves out
+- #### It enters at node 1 of a junction, jumps to node 4 and then leaves out
   This case leaves out nodes 2 and 3 of a junction, so they have to be covered in a separate cycle, but $$Perm(X(1,4; 1,4)) = 0$$, so this will again make the term 0 and contribute nothing in the total number of cycle covers
 
 So the only choice we have is to enter at either node 1 or node 4, and leave at the opposite end after covering nodes 2 and 3, if we want to make that route count towards the total number of cycle covers (the value of the permanent). Now if we go by this only choice, the contribution to the cycle will be 4, as Perm($$X(1; 4)$$) = Perm($$X(4; 1)$$) = 4.
