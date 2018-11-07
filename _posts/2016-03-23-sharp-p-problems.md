@@ -10,7 +10,7 @@ This post is an attempt to explain [the paper](https://www.math.washington.edu/~
 Before we begin, it is strongly recommended to familiarize yourself with the following:
 
 - The classes [P](https://en.wikipedia.org/wiki/P_(complexity)), [NP](https://en.wikipedia.org/wiki/NP_(complexity)), [NP-Hard](https://en.wikipedia.org/wiki/NP-hardness), [NP-Complete](https://en.wikipedia.org/wiki/NP-completeness)
-- [Poly-time reductions](https://en.wikipedia.org/wiki/Polynomial-time_reduction#Types_of_reduction)
+- [Poly-time reductions](https://en.wikipedia.org/wiki/Polynomial-time_reduction)
 - The class [FP](https://en.wikipedia.org/wiki/FP_(complexity))
 - The notion of an [Oracle](https://en.wikipedia.org/wiki/Oracle_machine)
 
