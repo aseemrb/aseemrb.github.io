@@ -11,7 +11,7 @@ title: record
       </td>
     </tr> -->
   {% for post in site.posts %}
-    <!-- {% unless post.next %}
+    {% unless post.next %}
       <tr>
         <td colspan="2">
           <h5 class="category-title">{{ post.date | date: '%Y' }}</h5>
@@ -20,21 +20,32 @@ title: record
     {% else %}
       {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
       {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-      {% if year != nyear %}
-      <tr><td colspan="2"><hr /></td></tr>
+      {% if year != nyear and year >= "2015" %}
+      <tr><td colspan="2">
+        <div class="year-separator"></div>
+      </td></tr>
       <tr>
         <td colspan="2">
+          {% if year >= "2016" %}
           <h5 class="category-title">{{ post.date | date: '%Y' }}</h5>
+          {% else %}
+          <h5 class="category-title">Archive</h5>
+          {% endif %}
         </td>
       </tr>
       {% endif %}
-    {% endunless %} -->
+    {% endunless %}
     <tr>
       <td>
         <a class="about-link" href="{{ site.baseurl }}{{ post.url }}" class="read-more">{{ post.title }}</a>
       </td>
       <td class="date">
-        {{ post.date | date: "%b %e, %Y" }}
+        {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+        {% if year <= "2015" %}
+          {{ post.date | date: "%b %e, %Y" }}
+        {% else %}
+          {{ post.date | date: "%b %e" }}
+        {% endif %}
       </td>
     </tr>
   {% endfor %}
