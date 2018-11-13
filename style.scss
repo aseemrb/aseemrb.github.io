@@ -371,7 +371,22 @@ footer {
 }
 
 .year-separator {
+  width: 20%;
   border-bottom: 1px rgba(150, 150, 150, 0.5) dashed;
+}
+
+.topbar-lumen-top {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  box-shadow: 5px 0px 15px 5px #258;
+}
+
+.topbar-lumen-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 5px 0px 20px 8px #258;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
