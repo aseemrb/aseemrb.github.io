@@ -27,7 +27,7 @@ $$m^k$$ elementary steps. Now Knuth has two points:
   always 0% as big as infinity. Now there exist an incredibly huge number of algorithms that do $$m^k$$ elementary operations
   on the $$m$$ bits and it is extremely hard to believe that none of those algorithms can do what we want.
 - The resolution of the *P vs NP* problem will not be a helpful result because the proof almost certainly will be
-  [**non-constructuve**](https://en.wikipedia.org/wiki/Constructive_proof#Non-constructive_proofs). Mathematics has a lot
+  [**non-constructive**](https://en.wikipedia.org/wiki/Constructive_proof#Non-constructive_proofs). Mathematics has a lot
   of examples where we have proof for the existence of something, but that proof does not help us *find* the actual thing
   *(I'm thinking cryptography here)*. So proving the existence of $$A$$ is different from actually finding $$A$$.
 
