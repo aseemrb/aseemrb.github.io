@@ -11,15 +11,15 @@ for a smaller group of people, which is how I could meet him in person. My first
 *'he is quite taller than he looks in the photos'*.
 
 Whenever Knuth gives a talk, almost all of it is interactive and Q/A based. He takes *all kinds of* questions
-(except politics and religion) from the audience. I could only appreciate all the wisdom his answers had.
-Almost every opinion was accompanied by an anecdote from his own life experience. Here's a set of
-things that were brought up during the lunch and the talk (unfortunately, I forgot most of the conversations).
+(except politics and religion) from the audience. I could only appreciate all the wisdom his answers had. Almost every opinion
+was accompanied by an anecdote from his own life experience. Here's a set of things that were
+brought up during the lunch and the talk (unfortunately, I forgot most of the conversations).
 
 ### On P vs NP
 Knuth believes that [P = NP](https://en.wikipedia.org/wiki/P_versus_NP_problem). This obviously needs an explanation, and I will
-try to present the reason based on my understanding of his argument. First let's be clear on **what it means when we say *P = NP***.
-It means that there exists an integer $$k$$ and an algorithm $$A$$ which solves every problem in the class *NP* of size $$m$$ bits in
-$$m^k$$ elementary steps. Now Knuth has two points:
+try to present the reason based on my understanding of his argument. First let's be clear on
+**what it means when we say *P = NP***. It means that there exists an integer $$k$$ and an algorithm $$A$$ which
+solves every problem in the class *NP* of size $$m$$ bits in $$m^k$$ elementary steps. Now Knuth has two points:
 
 - Imagine a number $$k$$ which is finite but excessively humongous (to have a sense of humongous numbers, one might look at
   [Ackermann Function](https://en.wikipedia.org/wiki/Ackermann_function) or even
@@ -42,9 +42,9 @@ Although, it was while reading this book that he discovered an **intersection be
 ### Boredom of the young generation
 Knuth is appalled by statements from people of the younger generation that go along the lines of:<br>
 **"X is quite boring, which is why I study / work on Y instead."**<br>
-He says that it's not the job of the world to entertain you. Boredom is inside you, not in the material that you work with.
-It is true that some people find certain things more interesting than others, and hence are more curious about it.
-The right thing to say would be that you are more curious about *Y* than *X*.
+He says that it's not the job of the world to entertain you. Boredom is inside you, not in the material
+that you work with. It is true that some people find certain things more interesting than others, and hence are more
+curious about it. The right thing to say would be that you are more curious about *Y* than *X*.
 
 ### On recent areas of interest
 As Knuth says, he was a mathematician who got curious about Computer Science, but now his interests are again
