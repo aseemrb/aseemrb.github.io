@@ -50,7 +50,7 @@ The right thing to say would be that you are more curious about *Y* than *X*.
 As Knuth says, he was a mathematician who got curious about Computer Science, but now his interests are again
 inclined toward pure Mathematics. The problem space concerned with [families of sets](https://en.wikipedia.org/wiki/Family_of_sets)
 seems very interesting to him currently because we haven't still found a lot of ways to represent and work with them in a way
-that might help us analyze the numerous application covered by this construct. I am not sure, but perhaps he started
+that might help us analyze the numerous applications covered by this construct. I am not sure, but perhaps he started
 thinking in this direction when the data structure [Zero-suppressed decision diagram (ZDD)](https://en.wikipedia.org/wiki/Zero-suppressed_decision_diagram#Representing_a_family_of_sets)
 (given by ***Shin-ichi Minato***) came to light, which in Knuth's words is
 **"the best way that I know of to represent families of sets"**.
