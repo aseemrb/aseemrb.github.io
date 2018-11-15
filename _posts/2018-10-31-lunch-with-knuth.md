@@ -44,7 +44,7 @@ Knuth is appalled by statements from people of the younger generation that go al
 **"X is quite boring, which is why I study / work on Y instead."**<br>
 He says that it's not the job of the world to entertain you. Boredom is inside you, not in the material that you work with.
 It is true that some people find certain things more interesting than others, and hence are more curious about it.
-The right thing to say would be that you are not as curious about *X* as about *Y*.
+The right thing to say would be that you are more curious about *Y* than *X*.
 
 ### On recent areas of interest
 As Knuth says, he was a mathematician who got curious about Computer Science, but now his interests are again
