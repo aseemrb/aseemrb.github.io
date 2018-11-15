@@ -13,7 +13,8 @@ for a smaller group of people, which is how I could meet him in person. My first
 Whenever Knuth gives a talk, almost all of it is interactive and Q/A based. He takes *all kinds of* questions
 (except politics and religion) from the audience. I could only appreciate all the wisdom his answers had. Almost every opinion
 was accompanied by an anecdote from his own life experience. Here's a set of things that were
-brought up during the lunch and the talk (unfortunately, I forgot most of the conversations).
+brought up during the lunch and the talk (unfortunately, I forgot most of the conversations).<br>
+*The public talk is now available [on youtube](https://youtu.be/XWR5Y3Wf8Fo).*
 
 ### On P vs NP
 Knuth believes that [P = NP](https://en.wikipedia.org/wiki/P_versus_NP_problem). This obviously needs an explanation, and I will
