@@ -3,7 +3,7 @@ layout: mathpost
 title: How much will you pay to play this game?
 ---
 
-Recently while revisiting probability, I came across an interesting problem, otherwise commonly known as the **_St. Petersburg paradox_**. The problem is about a coin-toss game, in which you will always win. What matters is the amount of money you win in the game. To play it, you must pay an amount **`C`** first. Let's see what the game is, and then we can think about the right value of **`C`**.
+Recently while revisiting probability, I came across an interesting problem, otherwise commonly known as the **_St. Petersburg paradox_**. The problem is about a coin-toss game, in which you will always win. What matters is the amount of money you win in the game. To play it, first, you must pay an amount **`C`**. Let's see what the game is, and then we can think about the right value of **`C`**.
 
 ### The game
 This is a single player game where at each stage, a [fair coin](https://en.wikipedia.org/wiki/Fair_coin) is tossed. The stakes start with **`$2`** on the table. If the first toss results in a heads, the player wins two dollars and the game ends, else if the toss lands a tails, the stakes are doubled, i.e. **`$4`**. So the stakes keep doubling while the toss keeps giving tails, and the game ends when it lands a heads, and the player takes away all the stakes as winnings at that point.

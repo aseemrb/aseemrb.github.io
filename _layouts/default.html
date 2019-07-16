@@ -1,49 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
+<html>
 
-    {% include meta.html %}
-
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-
-  </head>
+  {% include head.html %}
 
   <body>
-    <div class="topbar-lumen-top"></div>
-    <div class="topbar-lumen-bottom"></div>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <!-- <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a> -->
 
-          <div class="site-info">
-            <h1 class="site-name"><a style="border:none;" href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <!-- <p class="site-description">{{ site.description }}</p> -->
-          </div>
+    {% include header.html %}
 
-          <nav>
-            <a class="about-link" href="{{ site.baseurl }}/">about</a>
-            <a class="about-link" href="{{ site.baseurl }}/record/">record</a>
-            <!-- <a class="about-link" href="{{ site.baseurl }}/resume">resume</a> -->
-          </nav>
-        </header>
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
       </div>
     </div>
 
-    <div id="main" role="main" class="container" style="text-align:justify;">
-      {{ content }}
-    </div>
-
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include footer-icons.html %}
-        </footer>
-      </div>
-    </div>
-
-    {% include analytics.html %}
+    {% include footer.html %}
   </body>
+
 </html>

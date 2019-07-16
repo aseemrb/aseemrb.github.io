@@ -1,0 +1,19 @@
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+<!--     <h2 class="footer-heading">{{ site.title }}</h2> -->
+
+    <div class="footer-col-wrapper">
+      {% if site.footer-links.rss %}<a class="about-link" href="{{ site.baseurl }}/feed.xml"><i class="ficon fa fa-lg fa-rss fa-pull-left" style="color:#f26522;"></i></a>{% endif %}
+      {% if site.footer-links.email %}<a class="about-link" href="mailto:{{ site.footer-links.email }}"><i class="ficon fa fa-lg fa-envelope fa-pull-left" style="color:#333;"></i></a>{% endif %}
+      {% if site.footer-links.facebook %}<a class="about-link" href="https://www.facebook.com/{{ site.footer-links.facebook }}"><i class="ficon fa fa-lg fa-facebook-official fa-pull-right" style="color:#3b5998;"></i></a>{% endif %}
+      {% if site.footer-links.lastfm %}<a class="about-link" href="https://www.last.fm/user/{{ site.footer-links.lastfm }}"><i class="ficon fa fa-lg fa-lastfm pull-right" style="color:#D51007;"></i></a>{% endif %}
+      {% if site.footer-links.twitter %}<a class="about-link" href="https://www.twitter.com/{{ site.footer-links.twitter }}"><i class="ficon fa fa-lg fa-twitter fa-pull-right" style="color:#00aced;"></i></a>{% endif %}
+      {% if site.footer-links.linkedin %}<a class="about-link" href="https://www.linkedin.com/in/{{ site.footer-links.linkedin }}"><i class="ficon fa fa-linkedin-square fa-lg fa-pull-right" style="color:#0077b5"></i></a>{% endif %}
+      {% if site.footer-links.github %}<a class="about-link" href="https://github.com/{{ site.footer-links.github }}"><i class="ficon fa fa-github-alt fa-lg fa-pull-right" style="color:#333;"></i></a>{% endif %}
+    </div>
+
+  </div>
+
+</footer>

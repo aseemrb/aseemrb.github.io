@@ -1,0 +1,16 @@
+- title: "Research"
+  href: "/research/"
+
+- title: "Blog"
+  href: "/blog/"
+
+# - title: "Misc"
+#   href: ""
+#   subcategories:
+#     - subtitle: "Sketches"
+#       subhref: "/misc/sketchbook"
+#     - subtitle: "Travel"
+#       subhref: "/misc/travel"
+
+# - title: "CV"
+#   href: "/cv.pdf"
