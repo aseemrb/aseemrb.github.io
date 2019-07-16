@@ -6,15 +6,15 @@ layout: default
 
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }} {% if page.author %} by {{ page.author }}{% endif %}
-{% if page.categories %}
-  in
-  {% for cat in page.categories %}
-  <a href="{{ site.baseurl }}/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
-  {% endfor %}
+    <p class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}<!--  {% if page.author %} by {{ page.author }}{% endif %}
+    {% if page.categories %}
+      in
+      {% for cat in page.categories %}
+      <a href="{{ site.baseurl }}/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+      {% endfor %}
 
-{% endif %}
-</p>
+    {% endif %} -->
+    </p>
   </header>
 
   <article class="post-content">
