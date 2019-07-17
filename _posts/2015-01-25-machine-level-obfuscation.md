@@ -59,7 +59,7 @@ This is an 8-byte representation (64 bits) in the IEEE754 standard and so a char
 
 As `d[]` is an array, the next byte after `d[0]` in memory has `d[1]` which is now `= 0`, so this acts as a `NULL` character, a string terminator for the `%s` placeholder in `printf`. Hence, the output of the code above is `ILOVEYOU`.
 
-Interesting, isn’t it? You just found a geeky way to say this to the love of your life! Anyway, this interesting aspect can be used to obfuscate any string into numbers, like I did with my name. `ASEEMRAJ` can be obfuscated by using `d[0] = 4875566432211777.0` and `d[1] = 113`. Now go and find the magical numbers for your own strings.
+Interesting, isn’t it? You just found a geeky way to say this to the love of your life! Anyway, this interesting aspect can be used to obfuscate any string into numbers, like I did with my name. `ASEEMRAJ` can be obfuscated with `d[0] = 4875566432211777.0` and `d[1] = 113`. Now go and find the magical numbers for your own strings.
 
 *Note: If float is used instead of double we have 4 bytes, hence 4 characters instead of 8.*
 

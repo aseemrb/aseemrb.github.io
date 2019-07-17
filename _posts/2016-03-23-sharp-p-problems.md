@@ -155,6 +155,6 @@ This is the transformation from $$G^{'}$$ to $$G^{''}$$. Again we have two cases
 
 Thus the problem of finding the permanent of a 0-1 matrix, and equivalently the problem of finding the number of perfect matchings in a bipartite graph $$\in$$ #P-complete.
 
-I have talked about more #P-complete problems and their proofs in [this post]({{site.baseurl}}/sharp-p-complete-problems).
+I have talked about more #P-complete problems and their proofs in [this post]({{site.baseurl}}/blog/2016/03/sharp-p-complete-problems).
 
 ---
