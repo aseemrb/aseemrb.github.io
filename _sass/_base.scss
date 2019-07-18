@@ -67,6 +67,7 @@ figcaption {
  */
 ul, ol {
     margin-left: $spacing-unit;
+    text-align: left;
 }
 
 li {
@@ -236,4 +237,8 @@ a.tosu {
     height: 9.5em;
     overflow-y: auto;
     border: 1px dashed #ccc;
+}
+
+.home {
+    margin-top: 1.5em;
 }
