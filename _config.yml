@@ -17,7 +17,7 @@ footer-links:
   lastfm: aseemraj
   linkedin: aseemrb
   rss: aseemrb
-  twitter: aseemrb
+  twitter:
 # feel free to add other links here; you will have to add the SVG icon in _layouts/footer.html
 
 # Build settings

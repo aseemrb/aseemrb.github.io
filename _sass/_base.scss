@@ -242,3 +242,34 @@ a.tosu {
 .home {
     margin-top: 1.5em;
 }
+
+.pgpkey>pre {
+    height: 30em;
+    width: 40em;
+    overflow: scroll;
+    -webkit-touch-callout: all; /* iOS Safari */
+    -webkit-user-select: all; /* Safari */
+    -khtml-user-select: all; /* Konqueror HTML */
+    -moz-user-select: all; /* Firefox */
+    -ms-user-select: all; /* Internet Explorer/Edge */
+    user-select: all; /* Chrome and Opera */
+}
+
+.pgpkey {
+    margin-top: 1em;
+    display: none;
+    /*opacity: 0;*/
+    -webkit-transition: all 1s linear;
+    -ms-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    transition: all 1s linear;
+}
+
+.pgpkey:target {
+    /*opacity: 1;*/
+    display: block;
+    -webkit-transition: all 1s linear;
+    -ms-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    transition: all 1s linear;
+}
