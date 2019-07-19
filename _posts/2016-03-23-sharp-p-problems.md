@@ -23,16 +23,17 @@ $$\sigma$$ is a permutation of the numbers {1, 2, 3, ... n}.
 For example, for n = 5, if $$\sigma$$ = {2, 5, 3, 4, 1}, then $$\sigma(1) = 2$$, $$\sigma(2) = 5$$, $$\sigma(3) = 3$$ and so on. The summation, therefore, is over all $$\sigma$$, which means we are doing the summation for all possible permutations, a total of them being $$n!$$ (factorial of n). So it is evident, that when taking the product, which is inside the summation term, we must take one element from each row and each column of the matrix, and a total of n elements have to be picked, therefore exactly one element from each row and each column has to be picked.
 
 A closer look at the permanent tells us that if we change all the negative signs in the expression of the determinant of a matrix to positive signs, it will indeed become the Permanent. To show this with an example:
-Consider the following matrix M:
-$$
-        \begin{bmatrix}
+Consider the matrix,
+
+$$M =
+        \begin{pmatrix}
         1 & 2 & 4 \\
         2 & 3 & 1 \\
         1 & 3 & 1 \\
-        \end{bmatrix}
+        \end{pmatrix}
 $$
 
-The determinant of M = 1 x ((3x1) - (1x3)) + (-1) x 2 x ((2x1) - (1x1)) + 4 x ((2x3) - (3x1)), while the permanent is: 1x3x1 + 1x1x3 + 2x2x1 + 2x1x1 + 4x2x3 + 4x3x1, which is clearly obtainable by changing all negative signs in the determinant's expression to positive. Surprisingly, though there exist [efficient solutions](https://en.wikipedia.org/wiki/Determinant#Calculation) to compute the determinant of a matrix, yet to compute the permanent, no algorithm that takes better than exponential time is known.
+The determinant of $$M = (3 - 3) -2(2 - 1) + 4(6 - 3)$$, while the permanent is: $$(3 + 3) + 2(2 + 1) + 4(6 + 3)$$, which is clearly obtainable by changing all negative signs in the determinant's expression to positive. Surprisingly, though there exist [efficient solutions](https://en.wikipedia.org/wiki/Determinant#Calculation) to compute the determinant of a matrix, yet to compute the permanent, no algorithm that takes better than exponential time is known.
 
 Valiant comments on the complexity of the problem of finding the permanent of a [(0-1) matrix](https://en.wikipedia.org/wiki/Logical_matrix), for which he defines the class #P. To put it easily, #P problems are the counting problems associated with the decision problems in class NP. It is a class of function problems, and not decision problems (where the answer is a simple yes/no). An NP problem of the form "Does there exist a solution that satisfies X?" usually corresponds to the #P problem "How many solutions exist which satisfy X?". Here goes the example of a #P problem:
 &#35;SAT - Given a boolean formula $$\phi(x_1, x_2, ... x_n)$$, find the number of assignments that satisfy $$\phi$$. This is the counting version of the famous [SAT](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem) problem which is known to be NP-complete.
@@ -83,13 +84,15 @@ For this example, the following are the structures:
 |:-----------------:|:-----------------------:|
 | ![Track T5]({{site.baseurl}}/images/sharp-p-problems/t5.png) | ![Interchange R3]({{site.baseurl}}/images/sharp-p-problems/r3.png) |
 
-The small shaded regions are the junctions, which are themselves a network of nodes and edges represented by the adjacency matrix $$ X =
-        \begin{bmatrix}
+The small shaded regions are the junctions, which are themselves a network of nodes and edges represented by the adjacency matrix,
+
+$$ X =
+        \begin{pmatrix}
         0 & 1 & -1 & -1 \\
         1 & -1 & 1 & 1 \\
         0 & 1 & 1 & 2 \\
         0 & 1 & 3 & 0 \\
-        \end{bmatrix}
+        \end{pmatrix}.
 $$
 
 Why this matrix is valued exactly with these numbers will be clear as we proceed. This is a very crucial part. Let's note some important things:
