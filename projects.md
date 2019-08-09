@@ -42,7 +42,7 @@ This is a partial collection of side-projects that I've worked on.
     <div class="project-box">
         <i class="ficon fa fa-file-text-o"></i>
         <b>Historical Min/Max Range-Sum Queries</b><br>
-        An algorithm that solves the problem of finding the min/max sum in a dynamic array, that a range of indices has seen across all versions of the array. Leverages the characteristic properties of persistent segment trees.
+        An algorithm that solves the problem of finding the min/max sum that a range of indices has seen across all versions of a dynamic array. Leverages the characteristic properties of persistent segment trees.
     </div>
     <div class="project-box">
         <i class="ficon fa fa-file-text-o"></i>
