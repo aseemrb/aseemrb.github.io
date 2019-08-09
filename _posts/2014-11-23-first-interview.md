@@ -119,5 +119,3 @@ cout << "\n";
 | M: | Thank you.
 | I2: | Take the third sandwich on your way out, and don’t be shy when you are offered something.
 | M: | Sure, thank you!
-
----

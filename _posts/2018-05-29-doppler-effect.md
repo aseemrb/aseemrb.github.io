@@ -122,5 +122,3 @@ Now the events table looks like this (work it out yourself if you want)
 Here the time gap between two consecutive receive events is $$t_4 - t_2 = \frac{1}{f}\left(\frac{c-a}{c-b}\right)$$ seconds which is not the same as the time gap between two consecutive send events. Alice throws $$f$$ balls per second. But Bob receives $$f*\left(\frac{c-b}{c-a}\right)$$ balls per second.
 
 As clearly depicted by the equation, if Alice's velocity towards Bob increase then Bob will receive more balls per second, whereas if Bob's speed away from Alice increases then Bob will receive fewer balls per second. The same thing happens with sound waves when we hear a moving train's horn. We are Bob and the train is Alice.
-
----

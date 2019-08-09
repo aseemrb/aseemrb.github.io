@@ -90,5 +90,3 @@ As expected, **`cback()`** never makes it to the call stack because of **`blocka
 [This](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D) code on loupe gives the example of a more complex program, with an event handler defined for a button. The **`$.on('button', 'click', ...)`** Web API keeps waiting for events (clicks on the button) (an example showing the event-driven nature), and pushes the said function in the callback queue when we click the button below. The event loop takes care of things thereafter.
 
 This helped me clarify and satisfy some fundamental questions about JavaScript and know how it actually works. Do watch **Philip Roberts**' talk on *event loops* [here](https://www.youtube.com/watch?v=8aGhZQkoFbQ).
-
----

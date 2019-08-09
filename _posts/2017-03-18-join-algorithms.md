@@ -97,6 +97,4 @@ Therefore, for two relations X and Y, if X fits in $$P_x$$ memory pages and Y fi
 
 There are numerous other join algorithms that leverage the ideas in the above mentioned basic algorithms, for instance the hybrid hash-join partitions each relation using a hash function for saving probe time on the second relation when performing the actual join. **_Knowing how joins are implemented in the DBMS being used, one might therefore write more efficient queries_**.
 
-_* Recommended reading: B+ tree, Bx tree_ 
-
----
+_* Recommended reading: B+ tree, Bx tree_

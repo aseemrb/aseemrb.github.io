@@ -12,11 +12,12 @@ url: "https://aseemrb.github.io" # the base hostname & protocol for your site
 
 footer-links:
   email: aseemrb@gmail.com
-  facebook:
-  github: aseemrb
-  lastfm: aseemraj
   linkedin: aseemrb
+  github: aseemrb
+  lastfm:
   rss: aseemrb
+  keybase: aseemrb
+  facebook:
   twitter:
 # feel free to add other links here; you will have to add the SVG icon in _layouts/footer.html
 

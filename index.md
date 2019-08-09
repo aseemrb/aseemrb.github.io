@@ -2,9 +2,11 @@
 layout: default
 ---
 
+<!-- {% include image.html url="/images/profile.jpg" caption="A sassy caption here" width=300 align="right" %} -->
+
 <div class="home">
 <p>
-    Hi, I'm a Master of Mathematics student with the <a href="http://algcomp.uwaterloo.ca/">Algorithms & Complexity Group</a> at the <a href="https://uwaterloo.ca/">University of Waterloo</a>. I am fortunate to be advised by <a href="https://cs.uwaterloo.ca/~shallit/">Prof. Jeffrey Shallit</a>. My research interests include algorithmic number theory, combinatorics and graph theory.
+    Hi, I'm a Master of Mathematics student with the <a href="http://algcomp.uwaterloo.ca/">Algorithms & Complexity Group</a> at the <a href="https://uwaterloo.ca/">University of Waterloo</a>. I am fortunate to be advised by <a href="https://cs.uwaterloo.ca/~shallit/">Prof. Jeffrey Shallit</a>. My research interests include algorithmic number theory, combinatorics and graph theory.<br>
 </p>
 
 <p>
@@ -16,6 +18,7 @@ layout: default
 </p>
 
 <p>
-    I am new to research and my current interests can be found <a href="/research/">here</a>.<br>
-    My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 (via Jeffrey Shallit).<br>
+    My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 (via Jeffrey Shallit).
+    <!-- <br> -->
+    <!-- When not working, I turn to sketching, board games, and music. -->
 </p>

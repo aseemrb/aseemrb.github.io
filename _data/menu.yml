@@ -1,8 +1,17 @@
 - title: "Research"
   href: "/research/"
 
+- title: "Projects"
+  href: "/projects/"
+
 - title: "Blog"
   href: "/blog/"
+
+# - title: "Sketches"
+#   href: "/misc/sketchbook/"
+
+# - title: "Travelog"
+#   href: "/misc/travel/"
 
 # - title: "Misc"
 #   href: ""

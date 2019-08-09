@@ -62,5 +62,3 @@ As `d[]` is an array, the next byte after `d[0]` in memory stores `d[1]` which i
 Interesting, isn’t it? You just found a geeky way to say this to the love of your life! Anyway, this interesting aspect can be used to obfuscate any string into numbers, as I did with my name. `ASEEMRAJ` can be obfuscated with `d[0] = 4875566432211777.0` and `d[1] = 113`. Now go and find the magical numbers for your own strings.
 
 *Note: If a `float` is used instead of double we have 4 bytes, hence 4 characters instead of 8.*
-
----

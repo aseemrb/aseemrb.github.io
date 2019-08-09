@@ -36,5 +36,3 @@ In the previous hypothetical scenario we had $$w \in \{2^k : k \in \mathbb{N}\}$
 $$E(W) = (\frac{1}{2} \times 2) + (\frac{1}{4} \times 4) + (\frac{1}{8} \times 8) + \space \ldots + (\frac{1}{2^{29}} \times (2^{29} + 1,000,000,000)) \approx 30$$
 
 Notice that drastic change, by our earlier computation, we should have been willing to pay an infinite amount to play this game. But when we involve the practical situation in our mathematics, we are not even willing to pay more than $30 even when the maximum winnings can be a billion dollars.
-
----

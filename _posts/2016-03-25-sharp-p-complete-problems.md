@@ -5,7 +5,7 @@ title: Some more &#35;P complete problems
 
 I will be discussing two #P-Complete problems in this post: #SAT (Finding the number of satisfying assignments for a boolean formula) and finding the number of 3-colorings in a graph.
 
-Both SAT and 3-coloring are NP Complete problems, so understanding why their counting versions are #P-Complete is very easy compared to the counting version of a more easy problem like finding a perfect matching in a bipartite graph, which is synonymous to the 01-permanent problem as discussed in my [previous post]({{site.baseurl}}/blog/2016/03/sharp-p-problems).
+Both SAT and 3-coloring are NP Complete problems, so understanding why their counting versions are #P-Complete is very easy compared to the counting version of a more easy problem like finding a perfect matching in a bipartite graph, which is synonymous to the 01-permanent problem as discussed in my [previous post]({{site.baseurl}}{% post_url 2016-03-23-sharp-p-problems %}).
 
 Proving any problem to be #P-Complete requires two things
 
@@ -51,6 +51,3 @@ It is clear that all of a, b, and c cannot be false together, at least one of th
 This construction takes polynomial time. So 3-coloring is NP-Complete which completes our proof.
 
 This problem can be reduced to k-coloring, by putting k = 3. So we also know now that k-coloring is NP-Complete, and finding the number of k-colorings in a graph is #P-Complete.
-
-
----

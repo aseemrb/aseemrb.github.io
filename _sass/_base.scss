@@ -242,3 +242,25 @@ a.tosu {
     -moz-transition: all 1s linear;
     transition: all 1s linear;
 }
+
+.row {
+  display: flex;
+}
+
+.project-box {
+    flex: 50%;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #aaa;
+    background: #f7f7f7;
+}
+
+/*.project-box:hover {
+    background: #e6efff;
+    box-shadow: 0 0 20px #aaa;
+}*/
+
+.project-box>b {
+    color: #3067aC;
+}
