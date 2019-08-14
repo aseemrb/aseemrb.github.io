@@ -3,17 +3,18 @@ title: Aseem Baranwal
 general_email: aseemrb@gmail.com
 academic_email: aseem.baranwal@uwaterloo.ca
 
-description: > # this means to ignore newlines until "baseurl:"
-  Give a brief description of yourself, and maybe your passion/interests. It is displayed in search results.
+description: CS grad student @Uwaterloo.
 
 baseurl: "" # the subpath of your site, e.g. /blog/
 
 url: "https://aseemrb.github.io" # the base hostname & protocol for your site
 
 footer-links:
-  email: aseemrb@gmail.com
+  email:
+  scholar: DPt626YAAAAJ
   linkedin: aseemrb
   github: aseemrb
+  telegram: aseemrb
   lastfm:
   rss: aseemrb
   keybase: aseemrb

@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<!-- {% include image.html url="/images/profile.jpg" caption="A sassy caption here" width=300 align="right" %} -->
+{% include image.html url="/images/profile.jpg" caption="" width=300 align="left" %}
 
 <div class="home">
 <p>
@@ -20,5 +20,5 @@ layout: default
 <p>
     My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 (via Jeffrey Shallit).
     <!-- <br> -->
-    <!-- When not working, I turn to sketching, board games, and music. -->
+    <!-- When not working, I turn to sketching, traveling, board games, and music. -->
 </p>

@@ -4,7 +4,8 @@ permalink: /research/
 title: Research
 ---
 
-Currently, I am working in the area of <i>combinatorics on words</i> and <i>algorithmic number theory</i>. Other projects that I've worked on can be found <a href="{{site.base_url}}/projects/">here</a>.
+Currently my interests are in <i>combinatorics on words</i>, <i>algorithmic number theory</i>, and <i>automatic theorem proving</i>.<br>
+Other projects that I've worked on can be found <a href="{{site.base_url}}/projects/">here</a>.
 
 <h2>Publications</h2>
 <ul>

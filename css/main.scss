@@ -6,16 +6,14 @@
 // Pre-imports.
 @import "variables";
 @import "mixins";
-@import "path";
-@import "core";
 @import "larger";
-@import "fixed-width";
-@import "list";
 @import "bordered-pulled";
-@import "animated";
-@import "rotated-flipped";
-@import "stacked";
-@import "icons";
+
+/* This is for regular text. */
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
+
+/* This one is for handwritten stuff. */
+/*@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');*/
 
 $base-font-family: $helvetica;
 $base-font-size:   .95em;
