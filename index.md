@@ -10,7 +10,7 @@ layout: default
 </p>
 
 <p>
-    Previously I spent a wonderful couple of years at <a href="https://microsoft.com/">Microsoft</a> in the <i>Azure Compute</i> ecosystem, working majorly on cloud services involving <a href="https://azure.microsoft.com/en-us/services/azure-migrate/">migration</a> and <a href="https://azure.microsoft.com/en-us/services/site-recovery/">replication</a> of virtual & physical machines and data-centers.
+    Previously I spent a wonderful couple of years at <a href="https://microsoft.com/">Microsoft</a> in the Azure Compute ecosystem, working majorly on cloud services involving <a href="https://azure.microsoft.com/en-us/services/azure-migrate/">migration</a> and <a href="https://azure.microsoft.com/en-us/services/site-recovery/">replication</a> of virtual & physical machines and data-centers.
 </p>
 
 <p>
