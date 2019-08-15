@@ -4,8 +4,10 @@ permalink: /research/
 title: Research
 ---
 
-Currently my interests are in <i>combinatorics on words</i>, <i>algorithmic number theory</i>, and <i>automatic theorem proving</i>.<br>
-Other projects that I've worked on can be found <a href="{{site.base_url}}/projects/">here</a>.
+Currently my research interests span <i>combinatorics on words</i>, <i>algorithmic number theory</i>, and <i>automatic theorem proving</i>.<br>
+Some other projects that I've worked on can be found <a href="{{site.base_url}}/projects/">here</a>.
+
+My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2.
 
 <h2>Publications</h2>
 <ul>
