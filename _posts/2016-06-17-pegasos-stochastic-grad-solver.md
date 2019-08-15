@@ -1,6 +1,7 @@
 ---
 layout: mathpost
 title: Implementing PEGASOS, an SVM solver
+category: programming / implementation
 ---
 
 Here's the [original paper](http://ttic.uchicago.edu/~nati/Publications/PegasosMPB.pdf) that proposes the algorithm that we're going to implement.

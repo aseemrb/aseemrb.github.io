@@ -7,7 +7,7 @@ description: CS grad student @Uwaterloo.
 
 baseurl: "" # the subpath of your site, e.g. /blog/
 
-url: "https://aseemrb.github.io" # the base hostname & protocol for your site
+url: "https://aseemrb.me" # the base hostname & protocol for your site
 
 footer-links:
   email:
@@ -20,7 +20,6 @@ footer-links:
   keybase: aseemrb
   facebook:
   twitter:
-# feel free to add other links here; you will have to add the SVG icon in _layouts/footer.html
 
 # Build settings
 markdown: kramdown

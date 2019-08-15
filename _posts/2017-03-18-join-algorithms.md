@@ -1,6 +1,7 @@
 ---
 layout: mathpost
 title: Common join algorithms
+category: programming / implementation
 ---
 
 Working in the [Azure Disaster Recovery (ASR)](https://docs.microsoft.com/en-us/azure/site-recovery/) team for over 6 months now, I have been using [Kusto](https://docs.microsoft.com/en-us/connectors/kusto/) (a log analytics platform developed at Microsoft) extensively for interactive analysis and monitoring of internal service components and flows.

@@ -1,6 +1,7 @@
 ---
 layout: mathpost
 title: The complexity class of &#35;P problems
+category: Computer science
 ---
 
 Recently, I had an assignment in one of my courses - Beyond NP-Completeness, to present the complexity class of #P (Sharp-P) problems based on [L.G. Valiant](https://en.wikipedia.org/wiki/Leslie_Valiant)'s paper on complexity of computing the permanent of a matrix.

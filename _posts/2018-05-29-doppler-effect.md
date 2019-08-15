@@ -1,6 +1,7 @@
 ---
 layout: mathpost
-title: Explaining the Doppler effect to my mom
+title: An analogy for the Doppler effect
+category: Learning
 ---
 
 Some time back I was at home and was reading through the *[L.D. Landau & E.M. Lifshitz The Classical Theory of Fields](https://archive.org/details/TheClassicalTheoryOfFields)* where I came across *relativistic Doppler effect* (which is the classical Doppler effect with laws of special relativity taken into consideration). Mom was sitting beside me when she suddenly peeked at what I was reading and asked *"What is the Doppler effect?"*.

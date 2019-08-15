@@ -1,6 +1,7 @@
 ---
 layout: mathpost
 title: Lunch with Donald Knuth
+category: Experiences
 ---
 
 On Halloween, [Donald E. Knuth](https://www-cs-faculty.stanford.edu/~knuth/) ([wiki](https://en.wikipedia.org/wiki/Donald_Knuth))

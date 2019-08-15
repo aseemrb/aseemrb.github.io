@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Weird but awesome JavaScript
+category: Learning
 ---
 
 I've been programming something or the other in JavaScript for more than a year now, but I still did not have a clear understanding of what it really is, and how it works. What makes it so different than other languages, why browsers use it, etc.
