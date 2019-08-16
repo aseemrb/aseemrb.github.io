@@ -39,12 +39,13 @@ The determinant of $$M = (3 - 3) -2(2 - 1) + 4(6 - 3)$$, while the permanent is:
 Valiant comments on the complexity of the problem of finding the permanent of a [(0-1) matrix](https://en.wikipedia.org/wiki/Logical_matrix), for which he defines the class #P. To put it easily, #P problems are the counting problems associated with the decision problems in class NP. It is a class of function problems, and not decision problems (where the answer is a simple yes/no). An NP problem of the form "Does there exist a solution that satisfies X?" usually corresponds to the #P problem "How many solutions exist which satisfy X?". Here goes the example of a #P problem:
 &#35;SAT - Given a boolean formula $$\phi(x_1, x_2, ... x_n)$$, find the number of assignments that satisfy $$\phi$$. This is the counting version of the famous [SAT](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem) problem which is known to be NP-complete.
 
-#### Defining #P completeness
+# Defining #P completeness
 
 To define completeness in this class of problems, we need to bring in Oracle Turing Machines and the class FP. Oracle machines are those which have access to an *oracle* that can *magically* solve the decision problem for some language $$L \subseteq \{0, 1\}^*$$. These machines with oracle access can then make queries of the form "Is $$q \in L$$?" in one computational step. We can generalize this to non-boolean functions by saying that a T.M. M has oracle access to a function $$f: \{0, 1\}^* \rightarrow \{0, 1\}^*$$ if it is given access to the language $$L = \{(x, i) : f(x)_i = 1\}$$.
 For every $$O \subseteq \{0, 1\}^*$$, we denote $$P^O$$ as the set of languages that can be decided by a polynomial-time DTM (Deterministic Turing Machine) with oracle access to O. As an example, consider the $$\overline{SAT}$$ problem, which denotes the language of unsatisfiable boolean formulae. $$\overline{SAT}$$ $$\in P^{SAT}$$ because if we are given an oracle access to the SAT language, then we can solve an instance $$\phi$$ of the $$\overline{SAT}$$ problem in polynomial time, by asking "Is $$\phi \in SAT$$?" and negating the answer to that.
 Now we are ready to define #P completeness. A function $$f$$ is said to be #P-complete if $$f \in \#P$$ and $$\forall g \in \#P, g$$ is in $$FP^f$$ (Cook reduction).
 
+# Back to the problem
 Now let's get back to the permanent. We take a special case of the permanent problem where we put a constraint that the input matrix is a (0, 1) matrix, that is, all the entries of the given matrix are either 0 or 1. Let us look at this problem of finding the permanent of a binary matrix with a different perspective. Imagine that the given matrix A is an ***adjacency matrix of a bipartite graph***
 $$G = (X, Y, E)$$ where,
 $$X = \{x_1, x_2, ... x_n\}$$
@@ -108,11 +109,11 @@ Why this matrix is valued exactly with these numbers will be clear as we proceed
 
 Using these properties, we can draw very good insights. Let's look at routes in the graph. A route is a cycle cover. If we consider all the routes which have the same set of edges outside of the junctions, then we can call a route bad if:
 
-- #### It ignores a junction
+- #### **It ignores a junction**
   In this case, the cycle cover will have the ignored junction to be covered, so it will come separately as a product in the term. But Perm(X) = 0, so it will make the whole term 0 and thus will not contribute to the cycle cover.
-- #### It enters and leaves a junction at the same end
+- #### **It enters and leaves a junction at the same end**
   This case is bad because $$Perm(X(1; 1)) = Perm(X(4; 4)) = 0$$, so if nodes 1, 2, 3 or 2, 3, 4 remain (only one of the ends is covered) then again these nodes will separately come as a cycle and make that whole term 0. Thus no contribution to the total number of cycle covers
-- #### It enters at node 1 of a junction, jumps to node 4 and then leaves out
+- #### **It enters at node 1 of a junction, jumps to node 4 and then leaves out**
   This case leaves out nodes 2 and 3 of a junction, so they have to be covered in a separate cycle, but $$Perm(X(1,4; 1,4)) = 0$$, so this will again make the term 0 and contribute nothing in the total number of cycle covers
 
 So the only choice we have is to enter at either node 1 or node 4 and leave at the opposite end after covering nodes 2 and 3 if we want to make that route count towards the total number of cycle covers (the value of the permanent). Now if we go by this only choice, the contribution to the cycle will be 4, as Perm($$X(1; 4)$$) = Perm($$X(4; 1)$$) = 4.

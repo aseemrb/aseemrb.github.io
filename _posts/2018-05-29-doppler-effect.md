@@ -15,7 +15,7 @@ It was only quite later that I realized why the effect exists. So I wanted my mo
 
 ---
 
-### The analogy
+# The analogy
 Two friends Alice and Bob are playing with a ball. Alice is throwing balls straight towards Bob with a **constant velocity** and at a **constant rate** *(I had to tell my mom that the rate at which something happens is fancily called the frequency, so practically in this case frequency is the answer to the question **"How many in a second?"**).* Now let's take the following setup and known things where **all speeds are in m/s, time is in seconds and distance is in meters** and we shall derive the classical Doppler effect from there:
 - The speed at which Alice throws the ball = $$c$$ meters/s
 - The rate of throwing the balls = $$f$$ balls per second (frequency f Hz)
@@ -41,7 +41,7 @@ When I asked this question to my mom, her face immediately lit up. Intuition kic
 
 ---
 
-### Closure
+# Closure
 For closure let's look at what happens when
 - **Alice (in red) is moving towards Bob (in blue) with speed `a m/s`** and
 - **Bob is moving away from Alice with speed `b m/s`**.
