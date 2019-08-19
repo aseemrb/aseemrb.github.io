@@ -42,4 +42,4 @@ struct Palindrome
 vector<Palindrome> Tree;
 {% endhighlight %}
 
-Here, `ALPH` is the size of the alphabet which is required to enable adding edges for each possible letter. The field `envelope[i]` stores the index of the nore
+Here, `ALPH` is the size of the alphabet which is required to enable adding edges for each possible letter. The field `envelope[i]` stores the index `j` such that `Tree[j]` represents the palindrome
