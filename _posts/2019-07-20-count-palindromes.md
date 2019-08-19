@@ -16,6 +16,30 @@ The first thing to observe is that a string of length $$n$$ will have at most $$
 
 Hence, in our backtracking algorithm, we want to maintain the number of palindromes that the current string has. With each letter added or removed, the algorithm should very quickly find the new number of palindromes. If a letter is added to the end then the number may increase, and if a letter is deleted from the end then it may decrease.
 
-Such an algorithm is given by [Rubinchik and Shur](https://arxiv.org/abs/1506.04862), where the primary idea is to
-construct a graph where each node represents a unique palindrome. There are
-two types of edges in this graph:
+Such an algorithm is given by [Rubinchik and Shur](https://arxiv.org/abs/1506.04862), where the primary idea is to construct a graph where each node represents a unique palindrome. There are two types of edges in this graph:
+
+- **Border edge**: A directed edge from $$p$$ to $$q$$ labeled $$a$$, if $$q = apa$$ for some $$a \in \Sigma$$.
+- **Suffix edge**: An unlabeled directed edge from $$p$$ to $$q$$, if $$q$$ is the longest proper palindromic suffix of $$p$$.
+
+Whenever we append a new letter to an already processed string, it takes amortized constant time to maintain this graph. Below is an example graph for the string `aababba`.
+
+![graph]({{site.baseurl}}/images/count-palindromes/grpah.png)
+
+Here $$\epsilon$$ denotes the empty string and $$\gamma$$ is an imaginary palindrome of length $$-1$$. The *suffix edges* are shown by dashed lines, while the *border edges* are shown by solid lines with labels. We say that a palindrome consisting of a single letter *borders* $$\gamma$$, which makes the implementation of the algorithm easy.
+
+# The algorithm and the implementation
+First, note that this graph will be a tree of nodes where each node will represent a palindrome. So we define a struct `Palindrome` with the following properties, and create a tree of them.
+
+{% highlight cpp %}
+struct Palindrome
+{
+    int envelope[ALPH];
+    int renvelope[ALPH];
+    int len;
+    int lspIndex;
+};
+
+vector<Palindrome> Tree;
+{% endhighlight %}
+
+Here, `ALPH` is the size of the alphabet which is required to enable adding edges for each possible letter. The field `envelope[i]` stores the index of the nore
