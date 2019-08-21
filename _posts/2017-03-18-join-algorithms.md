@@ -10,7 +10,7 @@ Kusto is modeled in **a typical RDBMS fashion** and it supports complex analytic
 
 ---
 
-## Notation
+# Notation
 - $$N_x$$: Number of records in relation X
 - $$B_x$$: A block (partition) in relation X
 - $$P_x$$: The number of blocks (partitions) of X
@@ -18,7 +18,7 @@ Kusto is modeled in **a typical RDBMS fashion** and it supports complex analytic
 
 ---
 
-## Nested loop algorithm
+# Nested loop algorithm
 This is the trivial join algorithm with two nested loops. A brute force on all row-row combinations of both sides. For joining two relations **X** and **Y**, it runs in **$$\mathcal{O}(N_xN_y)$$** operations.
 
 The following would be a crude pseudocode for this.
@@ -40,7 +40,7 @@ for (record Rx in X)
 
 ---
 
-## Hash join algorithm
+# Hash join algorithm
 In this algorithm one of the tables is **loaded into memory and hashed on the joining key**. Then while scanning the second table, the hashes are matched to verify the join condition. To judge if this is a better algorithm we need to consider all pros and cons of the algorithm. First let us look at the pseudocode. In the example below, an inner join is performed. The primary thing to consider is that the hash function has the **join attributes as keys** and the **entire row as the value**.
 
 {% highlight python %}
@@ -77,18 +77,20 @@ The build phase runs in $$\mathcal{O}(N_x)$$ and the probe phase runs in $$\math
 1. What if during the build phase, the relation (table) **does not fit into available memory**?
 2. What about **non-equality conditions**? Comparing hashes would work only for equi-joins and not for any generic join conditions.
 
-### Dealing with the limitations
-- #### Memory constraint
+# Dealing with the limitations
+- **Memory constraint**
+
     If the whole relation does not fit into memory, then one way is to **partition the relation into blocks** of size that fit in memory, **hash each block** and then **probe** the other relation for each block of the first relation.
 
     For joining X and Y, if we partition X into $$P_x$$ blocks then the time taken for each block $$B_x$$ to be joined with relation Y is $$\mathcal{O}(N_{B_x} + N_y)$$, similar to the classical hash-join above. Overall for all blocks this will take $$\mathcal{O}(N_x + P_xN_y)$$ which is still better than the nested loop.
 
-- #### Equi-join constraint
+- **Equi-join constraint**
+
     We cannot use hash join with a non-equality condition (because hashing). This remains a limitation of the algorithm.
 
 ---
 
-## Sort-merge algorithm
+# Sort-merge algorithm
 The hash-join does not work for conditions other than equality, that's where sort-merge algorithm hops in. This is the most commonly used algorithm in most RDBMS implementations. The special idea here is to first sort both the relations (tables) by the join attribute so that a linear scan with two probes (one for each relation) will be able to deal with both relations at the same time. Therefore, practically the costliest part of this algorithm is sorting the inputs. Sorting can be done in 2 ways
 
 - Explicit external sort.

@@ -7,13 +7,15 @@ title: Projects
 
 This is a partial collection of side-projects that I've worked on.
 
-<h2>Open source <span style="font-size:0.8em;">(full list on <a href="https://github.com/aseemrb?tab=repositories">github</a>)</span></h2>
+<h2>Open source</h2>
+
+<p>View all projects on my <a href="https://github.com/aseemrb?tab=repositories">GitHub</a> page.</p>
 
 <div class="row">
     <div class="project-box">
         <i class="fab fa-github"></i>
         <b><a href="https://github.com/aseemrb/Walnut/">Walnut</a></b><br>
-        An automated theorem prover that implements a mechanical decision procedure for deciding certain combinatorial properties of <a href="https://en.wikipedia.org/wiki/Automatic_sequence">automatic sequences</a>. Originally developed by Hamoon Mousavi (2013).
+        An automated theorem prover that decides certain combinatorial properties of <a href="https://en.wikipedia.org/wiki/Automatic_sequence">automatic sequences</a>. Originally developed by Hamoon Mousavi (2013).
     </div>
     <div class="project-box">
         <i class="fab fa-github"></i>
@@ -31,13 +33,26 @@ This is a partial collection of side-projects that I've worked on.
     <div class="project-box">
         <i class="fab fa-github"></i>
         <b><a href="https://github.com/aseemrb/commingle">Commingle</a></b><br>
-        An application that notifies people about tech events, workshops and conferences happening nearby using crowd-sourced data. Created as part of a week-long hack with folks at the <a href="https://www.media.mit.edu">MIT Media Lab</a>.
+        An application that notifies people about events of their interest using crowd-sourced data. Created as part of a week-long hack with folks at the <a href="https://www.media.mit.edu">MIT Media Lab</a>.
+    </div>
+</div>
+
+<div class="row">
+    <div class="project-box">
+        <i class="fab fa-github"></i>
+        <b><a href="https://github.com/aseemrb/collaboard">Collaboard</a></b><br>
+        A whiteboard where multiple users can draw, share and brainstorm ideas. Written in <a href="https://nodejs.org/en/">nodejs</a> with socket programming using <a href="https://socket.io/">socket.io</a>.
+    </div>
+    <div class="project-box">
+        <i class="fab fa-github"></i>
+        <b><a href="https://github.com/aseemrb/judge-v2">Judge</a></b><br>
+        A web-app built on MVC principles to serve as the UX for <a href="https://github.com/ngsankha/judgev2">this judge</a>. Written in <a href="https://www.djangoproject.com/">python-django</a>.
     </div>
 </div>
 
 <br>
 
-<h2>Academic</h2>
+<h2>Academic writing</h2>
 <div class="row">
     <div class="project-box">
         <i class="far fa-file-alt"></i>

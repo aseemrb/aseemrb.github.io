@@ -106,7 +106,7 @@ For closure let's look at what happens when
    <line x1="442" x2="446" y1="120" y2="120" style="stroke: rgb(0,0,0);stroke-width:1" marker-end="url(#triangle)" />
 </svg>
 
-#### Observations
+# Observations
 - If Alice throws the first ball at $$t_1 = 0$$, then to compute the time instant at which the ball reached Bob we also need to consider how much farther Bob went during the process. Hence if Bob receives the first ball at $$t_2$$, then:<br>
 $$ct_2 = d + bt_2$$ ... where $$bt_2$$ is the extra distance covered by Bob
 - When Alice throws the second ball, she has already moved some distance which needs to be taken into account.

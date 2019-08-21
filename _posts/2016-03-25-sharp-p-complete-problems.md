@@ -14,7 +14,7 @@ Proving any problem to be #P-Complete requires two things
 - Proving that all #P problems are reducible to this problem
   (that is, the problem is #P-Hard)
 
-#### &#35;SAT
+# &#35;SAT
 #SAT is in #P by the definition of the problem. Since there exists a language in NP (the language being SAT) with a non-deterministic Turing Machine whose number of accepting paths is the number of satisfying assignments (this is one of the definitions of the class #P). To prove the completeness, we consider the Cook-Levin reduction from any language L in NP to SAT (the [Cook-Levin theorem](https://en.wikipedia.org/wiki/Cook%E2%80%93Levin_theorem)). This reduction is a polynomial time computable function $$f: \{0, 1\}^* \rightarrow \{0, 1\}^*$$ such that $$\forall x \in \{0, 1\}^*$$, $$x \in L \leftrightarrow f(x) \in SAT$$.
 
 This proof has some more information that we can use. If the boolean formula in consideration is $$\phi(x)$$, each satisfying truth assignment for the $$\phi$$ corresponds to an accepting computation path for the Turing Machine running on the input. So we have an efficient way to transform a certificate for input $$x$$ to a satisfying assignment for $$\phi(x)$$ and vice-versa.
@@ -22,7 +22,7 @@ This proof has some more information that we can use. If the boolean formula in 
 What this means in simple terms is that the mapping from the certificates of $$x$$ to the assignments of $$\phi(x)$$ is invertible and hence one to one.
 Conclusion: #satisfying assignments for $$\phi(x)$$ = #certificates for $$x$$. Hence the Cook-Levin reduction preserves the number of solutions. Thus #SAT is a #P-Complete problem.
 
-#### Number of 3-colorings in a graph
+# Number of 3-colorings in a graph
 The corresponding decision problem for this is:
 ***Given a graph G, find whether there exists a 3-coloring for G. A 3-coloring is a mapping of each node of the graph to any of three available colors, such that no two nodes which are adjacent have the same color.***
 
