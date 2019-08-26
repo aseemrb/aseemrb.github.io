@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Machine level obfuscation
-category: Learning
+category: programming
 ---
 
 Let’s start with this beautiful piece of code in C. What do you think it does?

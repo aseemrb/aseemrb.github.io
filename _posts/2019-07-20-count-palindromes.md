@@ -1,7 +1,7 @@
 ---
 layout: mathpost
 title: Fast and online palindrome counting
-category: Computer science
+category: learning
 ---
 
 For a [recent project](https://arxiv.org/abs/1904.10028), I had to deal with the following subproblem.

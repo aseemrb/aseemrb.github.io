@@ -1,7 +1,7 @@
 ---
 layout: mathpost
 title: Some more &#35;P complete problems
-category: Computer science
+category: learning
 ---
 
 I will be discussing two #P-Complete problems in this post: #SAT (Finding the number of satisfying assignments for a boolean formula) and finding the number of 3-colorings in a graph.

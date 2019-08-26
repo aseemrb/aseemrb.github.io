@@ -1,7 +1,7 @@
 ---
 layout: mathpost
 title: St. Petersburg paradox and intuition
-category: Learning
+category: learning
 ---
 
 Recently while revisiting probability, I came across an interesting problem, otherwise commonly known as the **_St. Petersburg paradox_**. The problem is about a coin-toss game, in which you will always win. What matters is the amount of money you win in the game. To play it, first, you must pay an amount **`C`**. Let's see what the game is, and then we can think about the right value of **`C`**.
