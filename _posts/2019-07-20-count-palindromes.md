@@ -35,7 +35,7 @@ Here $$\epsilon$$ denotes the empty string and $$\gamma$$ is an imaginary palind
 #### The algorithm
 First, note that this graph will be a tree of nodes where each node will represent a palindrome. So we define a struct `Palindrome` with the following properties and create a tree of them.
 
-{% highlight cpp %}
+{% highlight cpp linenos %}
 struct Palindrome
 {
     int envelope[ALPH];
@@ -55,7 +55,7 @@ Now the algorithm is straightforward.
 
 - When a new letter `nextChar` is added to the string `S` at the last position `pos`, start from the current longest palindromic suffix (call it `LSP`) in the string.
 - Go through suffix links to find the `candidate` suffix that may produce a new palindrome. It is guaranteed that we will find a candidate because we have the imaginary palindrome $$\gamma$$ of length $$-1$$. This is done as follows
-{% highlight cpp %}
+{% highlight cpp linenos %}
 candidate = LSP;
 while (true)
 {
@@ -72,7 +72,7 @@ while (true)
 {% endhighlight %}
 
 - After this loop, if the corresponding envelope is empty, we know that `nextChar` generates a new palindrome; otherwise it already exists.
-{% highlight cpp %}
+{% highlight cpp linenos %}
 candidate = LSP;
 if (Tree[candidate].envelope[nextChar] == 0)
 {
