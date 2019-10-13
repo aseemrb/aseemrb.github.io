@@ -15,7 +15,7 @@ It was only quite later that I realized why the effect exists. So I wanted my mo
 
 ---
 
-# The analogy
+#### The analogy
 Two friends Alice and Bob are playing with a ball. Alice is throwing balls straight towards Bob with a **constant velocity** and at a **constant rate** *(I had to tell my mom that the rate at which something happens is fancily called the frequency, so practically in this case frequency is the answer to the question **"How many in a second?"**).* Now let's take the following setup and known things where **all speeds are in m/s, time is in seconds and distance is in meters** and we shall derive the classical Doppler effect from there:
 - The speed at which Alice throws the ball = $$c$$ meters/s
 - The rate of throwing the balls = $$f$$ balls per second (frequency f Hz)
@@ -41,7 +41,7 @@ When I asked this question to my mom, her face immediately lit up. Intuition kic
 
 ---
 
-# Closure
+#### Closure
 For closure let's look at what happens when
 - **Alice (in red) is moving towards Bob (in blue) with speed `a m/s`** and
 - **Bob is moving away from Alice with speed `b m/s`**.
@@ -106,7 +106,7 @@ For closure let's look at what happens when
    <line x1="442" x2="446" y1="120" y2="120" style="stroke: rgb(0,0,0);stroke-width:1" marker-end="url(#triangle)" />
 </svg>
 
-# Observations
+#### Observations
 - If Alice throws the first ball at $$t_1 = 0$$, then to compute the time instant at which the ball reached Bob we also need to consider how much farther Bob went during the process. Hence if Bob receives the first ball at $$t_2$$, then:<br>
 $$ct_2 = d + bt_2$$ ... where $$bt_2$$ is the extra distance covered by Bob
 - When Alice throws the second ball, she has already moved some distance which needs to be taken into account.
