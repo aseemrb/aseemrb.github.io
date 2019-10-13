@@ -4,25 +4,32 @@ title: PGP Key
 permalink: /pgpkey/
 ---
 
-<p>
-    You can send/verify encrypted messages to/from me with <a href="https://www.openpgp.org/">OpenPGP</a>.
-</p>
-<p>
-    You may import my public key using tools like curl + gpg.
-    <pre>curl https://keybase.io/aseemrb/pgp_keys.asc | gpg --import</pre>
-</p>
+<div class="row">
+<div class="col-sm-12">
+    <p>
+        You can send/verify encrypted messages to/from me with <a href="https://www.openpgp.org/">OpenPGP</a>.
+    </p>
+    <p>
+        You may import my public key using <code>curl</code> and <code>gpg</code> with the below command.
+    </p>
+    <p>
+        <code>curl https://keybase.io/aseemrb/pgp_keys.asc | gpg --import</code>
+    </p>
 
-<p>Or click the fingerprint below to reveal and copy it.</p>
+    <p>Or click the fingerprint below to reveal it.</p>
 
-<a href="#key">
-    <div class="color-button">
+    <p>
+        <a class="badge badge-danger" data-toggle="collapse" href="#key" role="button" aria-expanded="false" aria-controls="key">
         026F 7B3C B562 2C93 9E41 B3D2 3ADB 0898 5BEA 065E
-    </div>
-</a>
-
-<div id="key" class="pgpkey">
-    <!-- <a href="#"><div class="color-button" style="background:#b33;">&nbsp;<i class="ficon fa fa-chevron-up"></i>&nbsp;</div></a> -->
-    <pre>-----BEGIN PGP PUBLIC KEY BLOCK-----
+        </a>
+    </p>
+</div>
+</div>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="collapse" id="key">
+            <div class="card card-body border border-primary">
+<pre>-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: Keybase OpenPGP v2.0.77
 Comment: https://keybase.io/crypto
 
@@ -111,4 +118,7 @@ l53lUxoAV4gKGFKvG1uqSixIx+vEHmvr9kPingvtzM6WYzVDcDtkwO9nwmHg7BBJ
 HBrf3yeKzptTxOI37lOGtON6EDrzrg3KtLZrVQ6L+w==
 =1YAn
 -----END PGP PUBLIC KEY BLOCK-----</pre>
+          </div>
+        </div>
+    </div>
 </div>

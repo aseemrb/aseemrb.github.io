@@ -9,26 +9,30 @@ Some other projects that I've worked on can be found <a href="{{site.base_url}}/
 
 My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2.
 
-<h2>Publications</h2>
-<ul>
-	<li>
-		<span>
-			<a href="https://doi.org/10.1007/978-3-030-28796-2_7"><div class="color-button">DOI</div></a>
-			<a href="https://arxiv.org/pdf/1904.10028"><div class="color-button">PDF</div></a>
-			<b>Repetitions in infinite palindrome-rich words</b>
-			<a class="fa-pull-right" href="http://words2019.lboro.ac.uk/">WORDS 2019</a>
-		</span>
-		<br>
-		Aseem Baranwal, Jeffrey Shallit
-	</li><br>
-	<li>
-		<span>
-			<a href="https://doi.org/10.1007/978-3-030-28796-2_6"><div class="color-button">DOI</div></a>
-			<a href="https://arxiv.org/pdf/1902.00503"><div class="color-button">PDF</div></a>
-			<b>Critical exponent of balanced words</b>
-			<a class="fa-pull-right" href="http://words2019.lboro.ac.uk/">WORDS 2019</a>
-		</span>
-		<br>
-		Aseem Baranwal, Jeffrey Shallit
-	</li><br>
+### Publications
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    <span>
+      <b>Repetitions in infinite palindrome-rich words</b><br>
+      <i>Aseem Baranwal, Jeffrey Shallit</i>
+    </span>
+    <span>
+      <a class="badge badge-primary" href="http://words2019.lboro.ac.uk/">WORDS 2019</a>
+      <a class="badge badge-dark" href="https://doi.org/10.1007/978-3-030-28796-2_7">DOI</a>
+      <a class="badge badge-dark" href="https://arxiv.org/abs/1904.10028">arXiv</a>
+    </span>
+  </li>
+
+  <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    <span>
+      <b>Critical exponent of balanced words via the Pell number system</b><br>
+      <i>Aseem Baranwal, Jeffrey Shallit</i>
+    </span>
+    <span>
+      <a class="badge badge-primary" href="http://words2019.lboro.ac.uk/">WORDS 2019</a>
+      <a class="badge badge-dark" href="https://doi.org/10.1007/978-3-030-28796-2_6">DOI</a>
+      <a class="badge badge-dark" href="https://arxiv.org/abs/1902.00503">arXiv</a>
+    </span>
+  </li>
 </ul>

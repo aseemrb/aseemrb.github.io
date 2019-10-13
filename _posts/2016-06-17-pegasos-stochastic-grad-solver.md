@@ -1,6 +1,6 @@
 ---
 layout: mathpost
-title: Implementing PEGASOS, an SVM solver
+title: Implementing PEGASOS
 category: programming
 ---
 

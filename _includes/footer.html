@@ -1,62 +1,56 @@
-<footer class="site-footer">
-
-  <div class="wrapper">
-    <div class="footer-col-wrapper">
-      <!-- Right side. -->
-      {% if site.footer-links.scholar %}
-        <a class="about-link" aria-label="scholar" href="https://scholar.google.com/citations?user={{ site.footer-links.scholar }}">
-          <i class="fa-lg icon-graduation-cap fa-pull-right" style="color:#444"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.linkedin %}
-        <a class="about-link" aria-label="linkedin" href="https://www.linkedin.com/in/{{ site.footer-links.linkedin }}">
-          <i class="fa-lg icon-linkedin-squared fa-pull-right" style="color:#0077b5"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.github %}
-        <a class="about-link" aria-label="github" href="https://github.com/{{ site.footer-links.github }}">
-          <i class="fa-lg icon-github-circled fa-pull-right" style="color:#333;"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.telegram %}
-        <a class="about-link" aria-label="telegram" href="https://t.me/{{ site.footer-links.telegram }}">
-          <i class="fa-lg icon-telegram fa-pull-right" style="color:#0088CC;"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.facebook %}
-        <a class="about-link" aria-label="facebook" href="https://www.facebook.com/{{ site.footer-links.facebook }}">
-          <i class="fa-lg icon-facebook-official fa-pull-right" style="color:#3b5998;"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.lastfm %}
-        <a class="about-link" aria-label="lastfm" href="https://www.last.fm/user/{{ site.footer-links.lastfm }}">
-          <i class="fa-lg fa-lastfm pull-left" style="color:#D51007;"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.twitter %}
-        <a class="about-link" aria-label="twitter" href="https://www.twitter.com/{{ site.footer-links.twitter }}">
-          <i class="fa-lg icon-twitter fa-pull-right" style="color:#00aced;"></i>
-        </a>
-      {% endif %}
-
+<footer class="footer mt-auto py-3 border-top">
+  <div class="container">
       <!-- Left side. -->
       {% if site.footer-links.rss %}
-        <a class="about-link" aria-label="rss" href="{{ site.baseurl }}/feed.xml">
+        <a aria-label="rss" href="{{ site.baseurl }}/feed.xml">
           <i class="fa-lg icon-rss fa-pull-left" style="color:#f26522;"></i>
         </a>
       {% endif %}
       {% if site.footer-links.keybase %}
-        <a class="about-link" aria-label="keybase" href="{{ site.baseurl }}/pgpkey">
+        <a aria-label="keybase" href="{{ site.baseurl }}/pgpkey">
           <i class="fa-lg icon-lock-open-alt fa-pull-left" style="color:#c33;"></i>
         </a>
       {% endif %}
       {% if site.footer-links.email %}
-        <a class="about-link" aria-label="email" href="mailto:{{ site.footer-links.email }}">
+        <a aria-label="email" href="mailto:{{ site.footer-links.email }}">
           <i class="fa-lg fa-envelope fa-pull-left" style="color:#666;"></i>
         </a>
       {% endif %}
-    </div>
-
+      <!-- Right side. -->
+      {% if site.footer-links.scholar %}
+        <a aria-label="scholar" href="https://scholar.google.com/citations?user={{ site.footer-links.scholar }}">
+          <i class="fa-lg icon-graduation-cap fa-pull-right" style="color:#444"></i>
+        </a>
+      {% endif %}
+      {% if site.footer-links.linkedin %}
+        <a aria-label="linkedin" href="https://www.linkedin.com/in/{{ site.footer-links.linkedin }}">
+          <i class="fa-lg icon-linkedin-squared fa-pull-right" style="color:#0077b5"></i>
+        </a>
+      {% endif %}
+      {% if site.footer-links.github %}
+        <a aria-label="github" href="https://github.com/{{ site.footer-links.github }}">
+          <i class="fa-lg icon-github-circled fa-pull-right" style="color:#333;"></i>
+        </a>
+      {% endif %}
+      {% if site.footer-links.telegram %}
+        <a aria-label="telegram" href="https://t.me/{{ site.footer-links.telegram }}">
+          <i class="fa-lg icon-telegram fa-pull-right" style="color:#0088CC;"></i>
+        </a>
+      {% endif %}
+      {% if site.footer-links.facebook %}
+        <a aria-label="facebook" href="https://www.facebook.com/{{ site.footer-links.facebook }}">
+          <i class="fa-lg icon-facebook-official fa-pull-right" style="color:#3b5998;"></i>
+        </a>
+      {% endif %}
+      {% if site.footer-links.lastfm %}
+        <a aria-label="lastfm" href="https://www.last.fm/user/{{ site.footer-links.lastfm }}">
+          <i class="fa-lg fa-lastfm pull-left" style="color:#D51007;"></i>
+        </a>
+      {% endif %}
+      {% if site.footer-links.twitter %}
+        <a aria-label="twitter" href="https://www.twitter.com/{{ site.footer-links.twitter }}">
+          <i class="fa-lg icon-twitter fa-pull-right" style="color:#00aced;"></i>
+        </a>
+      {% endif %}
   </div>
-
 </footer>

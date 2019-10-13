@@ -1,16 +1,34 @@
-<ul class="menu">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light border-bottom">
+  <div class="container">
+  <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    {% for menu_item in site.data.menu %}
-    {% if menu_item.subcategories != null %}
-    <li><a href="{{ site.baseurl }}{{ menu_item.href }}" class="page-link">{{ menu_item.title }}</a>
-        <ul class="sub-menu">
-        {% for subcategory in menu_item.subcategories %}
-        <li><a href="{{ site.baseurl }}{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a></li>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+    <ul class="navbar-nav">
+        {% for menu_item in site.data.menu %}
+        {% if menu_item.subcategories != null %}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ menu_item.title }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% for subcategory in menu_item.subcategories %}
+                    <a class="dropdown-item" href="{{ site.baseurl }}{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a>
+                {% endfor %}
+                <!-- <div class="dropdown-divider"></div> -->
+            </div>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{ site.baseurl }}{{ menu_item.href }}">
+                {{ menu_item.title }}
+            </a>
+        {% endif %}
+        </li>
         {% endfor %}
-        </ul>
-    {% else %}
-    <li><a href="{{ site.baseurl }}{{ menu_item.href }}" class="page-link">{{ menu_item.title }}</a>
-    {% endif %}
-    </li>
-    {% endfor %}
-</ul>
+    </ul>
+  </div>
+  </div>
+</nav>
