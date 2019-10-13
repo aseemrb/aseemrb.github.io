@@ -9,7 +9,7 @@ Some other projects that I've worked on can be found <a href="{{site.base_url}}/
 
 My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2.
 
-### Publications
+#### Publications
 
 <ul class="list-group">
   <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">

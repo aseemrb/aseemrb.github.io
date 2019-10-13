@@ -7,7 +7,7 @@ title: Projects
 
 This is a partial collection of side-projects that I've worked on.
 
-### Open source
+#### Open source
 
 <p>View all projects on my <a href="https://github.com/aseemrb?tab=repositories">GitHub</a> page.</p>
 
@@ -100,7 +100,7 @@ This is a partial collection of side-projects that I've worked on.
 
 <br>
 
-### Academic writing
+#### Academic writing
 
 <div class="row">
   <div class="col-lg-6 col-sm-12">
