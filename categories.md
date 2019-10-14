@@ -4,14 +4,8 @@ permalink: /categories/
 title: Blog
 ---
 
-<div class="row">
-  <div class="col-sm-1">
-    <a class="badge badge-light" href="/blog/">Chronological</a>
-  </div>
-  <div class="col-sm-1">
-    <a class="badge badge-dark" href="#">Categorized</a>
-  </div>
-</div>
+<a class="badge badge-light" href="/blog/">Chronological</a>
+<a class="badge badge-dark" href="#">Categorized</a>
 
 <ul class="list-group">
   {% for category in site.categories %}

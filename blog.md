@@ -4,14 +4,8 @@ title: Blog
 permalink: /blog/
 ---
 
-<div class="row">
-  <div class="col-sm-1">
-    <a class="badge badge-dark" href="#">Chronological</a>
-  </div>
-  <div class="col-sm-1">
-    <a class="badge badge-light" href="/categories/">Categorized</a>
-  </div>
-</div>
+<a class="badge badge-dark" href="#">Chronological</a>
+<a class="badge badge-light" href="/categories/">Categorized</a>
 
 <ul class="list-group">
   <div class="dropdown-divider"></div>

@@ -28,7 +28,7 @@ Note that there could be a border edge for each possible letter, but there will 
 
 Whenever we append a new letter to an already processed string, it takes amortized constant time to maintain this graph. Below is an example graph for the string `aababba`.
 
-<img style="display:block;margin-left:auto;margin-right:auto;" src="{{site.baseurl}}/images/count-palindromes/graph.png" alt="graph" height="500">
+<img class="mx-auto d-block" src="{{site.baseurl}}/images/count-palindromes/graph.png" alt="graph" width="400">
 
 Here $$\epsilon$$ denotes the empty string and $$\gamma$$ is an imaginary palindrome of length $$-1$$. The *suffix edges* are shown by dashed lines, while the *border edges* are shown by solid lines with labels. We say that a palindrome consisting of a single letter *borders* $$\gamma$$, which makes the implementation of the algorithm easy.
 
@@ -90,8 +90,6 @@ if (Tree[candidate].envelope[nextChar] == 0)
 
 #### Space and time requirements
 
-##### Space complexity is $$O(n)$$
-If the string can be of length up to $$n$$, then there are no more than $$n+2$$ nodes in the tree. This is because there will be at most $$n+2$$ palindromes including $$\epsilon$$ and $$\gamma$$.
+If the string can be of length up to $$n$$, then there are no more than $$n+2$$ nodes in the tree. This is because there will be at most $$n+2$$ palindromes including $$\epsilon$$ and $$\gamma$$. Hence, the space complexity is $$O(n)$$.
 
-##### Time complexity is amortized $$O(1)$$ per addition
 To think about the time complexity, note that following a suffix edge always reduces the length of the current longest palindromic suffix. The length cannot be reduced more than $$n$$ times, hence, the amortized cost across all updates is $$O(n)$$, which makes the average cost of maintenance per update $$O(1)$$.
