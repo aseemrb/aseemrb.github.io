@@ -4,16 +4,16 @@ permalink: /research/
 title: Research
 ---
 
-Currently my research interests span <i>combinatorics on words</i>, <i>algorithmic number theory</i>, and <i>automatic theorem proving</i>.<br>
-Some other projects that I've worked on can be found <a href="{{site.base_url}}/projects/">here</a>.
+Currently my research interests span combinatorics on words, algorithmic number theory, and automatic theorem proving.
 
-My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2.
+My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 (via <a href="https://cs.uwaterloo.ca/~shallit/">Jeffrey Shallit</a>).
 
 ##### Publications
 
-<ul class="list-group">
+<ul class="list-group list-group-flush">
   <li class="list-group-item list-group-item-action">
     <div class="row-fluid">
+      <i class="icon-doc-text"></i>
       <b>Repetitions in infinite palindrome-rich words</b>
     </div>
     <div class="row-fluid">
@@ -25,12 +25,12 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2.
     <div class="row-fluid">
       <a class="badge badge-primary" href="https://doi.org/10.1007/978-3-030-28796-2_7">DOI</a>
       <a class="badge badge-dark" href="https://arxiv.org/abs/1904.10028">arXiv</a>
-      <a class="badge badge-warning" href="{{site.base_url}}/slides/Repetitions_in_infinite_rich_words.pdf">Slides</a>
+      <a class="badge badge-warning" href="{{site.base_url}}/slides/repetitions-infinite-rich-words.pdf">Slides</a>
     </div>
   </li>
-
   <li class="list-group-item list-group-item-action">
     <div class="row-fluid">
+      <i class="icon-doc-text"></i>
       <b>Critical exponent of balanced words via the Pell number system</b>
     </div>
     <div class="row-fluid">
@@ -42,6 +42,73 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2.
     <div class="row-fluid">
       <a class="badge badge-primary" href="https://doi.org/10.1007/978-3-030-28796-2_6">DOI</a>
       <a class="badge badge-dark" href="https://arxiv.org/abs/1902.00503">arXiv</a>
+    </div>
+  </li>
+</ul>
+
+<br>
+
+##### Manuscripts
+<ul class="list-group list-group-flush">
+  <li class="list-group-item list-group-item-action">
+    <div class="row-fluid">
+      <i class="icon-doc-text"></i>
+      <a href="{{site.base_url}}/manuscripts/network-privacy-bitcoin.pdf">
+        <b>Enhancing network privacy in Bitcoin</b>
+      </a>
+      <a class="badge badge-warning" href="{{site.base_url}}/slides/network-privacy-bitcoin.pdf">Slides</a>
+    </div>
+    <div class="row-fluid">
+      <small>
+        Aseem Baranwal, Ben Armstrong
+      </small>
+    </div>
+    <div class="row-fluid">
+    </div>
+  </li>
+  <li class="list-group-item list-group-item-action">
+    <div class="row-fluid">
+      <i class="icon-doc-text"></i>
+      <a href="{{site.base_url}}/manuscripts/dominating-set-interval-graphs.pdf">
+        <b>Minimum distance total <var>k</var>-dominating set in interval graphs</b>
+      </a>
+    </div>
+    <div class="row-fluid">
+      <small>
+        Dinabandhu Pradhan, Aseem Baranwal, Sachin Grover
+      </small>
+    </div>
+    <div class="row-fluid">
+    </div>
+  </li>
+  <li class="list-group-item list-group-item-action">
+    <div class="row-fluid">
+      <i class="icon-doc-text"></i>
+      <a href="{{site.base_url}}/manuscripts/historical-max-range-sum.pdf">
+      <b>Historical min/max range-sum queries</b>
+      </a>
+    </div>
+    <div class="row-fluid">
+      <small>
+        Aseem Baranwal, Trevor Clokie
+      </small>
+    </div>
+    <div class="row-fluid">
+    </div>
+  </li>
+  <li class="list-group-item list-group-item-action">
+    <div class="row-fluid">
+      <i class="icon-doc-text"></i>
+      <a href="{{site.base_url}}/manuscripts/bandwidth-guarantees-datacenter.pdf">
+      <b>Resource allocation in datacenters for data-parallel frameworks</b>
+      </a>
+    </div>
+    <div class="row-fluid">
+      <small>
+        Aseem Baranwal, Sachin Grover, Nishit Parekh, Purvi Tiwari
+      </small>
+    </div>
+    <div class="row-fluid">
     </div>
   </li>
 </ul>

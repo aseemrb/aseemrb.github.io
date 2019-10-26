@@ -4,12 +4,8 @@ permalink: /projects/
 title: Projects
 ---
 
-
-This is a partial collection of side-projects that I've worked on.
-
-#### Open source
-
-<p>View all projects on my <a href="https://github.com/aseemrb?tab=repositories">GitHub</a> page.</p>
+This is a partial collection of open source projects that I've worked on.
+View all projects on <a href="https://github.com/aseemrb?tab=repositories">GitHub</a>.
 
 <div class="row">
   <div class="col-lg-6 col-sm-12">
@@ -92,68 +88,6 @@ This is a partial collection of side-projects that I've worked on.
       <div class="card-body">
         <p class="card-text">
         A whiteboard where multiple users can draw, share and brainstorm ideas. Written in <a href="https://nodejs.org/en/">nodejs</a> with socket programming using <a href="https://socket.io/">socket.io</a>.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<br>
-
-#### Academic writing
-
-<div class="row">
-  <div class="col-lg-6 col-sm-12">
-    <div class="card mb-3">
-      <div class="card-header">
-        <i class="icon-doc-text"></i>
-        Historical min/max range-sum queries
-      </div>
-      <div class="card-body">
-        <p class="card-text">
-          An algorithm that solves the problem of finding the min/max sum that a range of indices has seen across all versions of a dynamic array. Leverages the characteristic properties of persistent segment trees.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6 col-sm-12">
-    <div class="card mb-3">
-      <div class="card-header">
-        <i class="icon-doc-text"></i>
-        Sync-Diffusion: Anonymity in Bitcoin
-      </div>
-      <div class="card-body">
-        <p class="card-text">
-        A new anonymity-preserving protocol for transaction message propagation that aims to replace diffusion (Poisson gossip with poor anonymity properties) and compete with <a href="https://blockonomi.com/dandelion-protocol/">Dandelion</a>.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-lg-6 col-sm-12">
-    <div class="card mb-3">
-      <div class="card-header">
-        <i class="icon-doc-text"></i>
-        Performance-centric resource allocation
-      </div>
-      <div class="card-body">
-        <p class="card-text">
-          A task placement and compute resource allocation scheme for private datacenters, improving the <a href="https://ieeexplore.ieee.org/abstract/document/6848096">distributed algorithm given by Chen at al.</a> in 2014 to handle multiple task faults of the same application.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6 col-sm-12">
-    <div class="card mb-3">
-      <div class="card-header">
-        <i class="icon-doc-text"></i>
-        Total k-dominating sets
-      </div>
-      <div class="card-body">
-        <p class="card-text">
-        A linear time algorithm for computing a minimum distance total k-dominating set in interval graphs, based on perfect elimination ordering and bicompatible ordering.
         </p>
       </div>
     </div>
