@@ -11,14 +11,15 @@ url: "https://aseemrb.me" # the base hostname & protocol for your site
 
 footer-links:
   email:
-  scholar: DPt626YAAAAJ
-  linkedin: aseemrb
-  github: aseemrb
-  telegram: aseemrb
-  lastfm:
-  rss: aseemrb
-  keybase: aseemrb
   facebook:
+  github: aseemrb
+  keeweb: aseemrb
+  keybase: aseemrb
+  lastfm:
+  linkedin: aseemrb
+  rss: aseemrb
+  scholar: DPt626YAAAAJ
+  telegram: aseemrb
   twitter:
 
 # Build settings

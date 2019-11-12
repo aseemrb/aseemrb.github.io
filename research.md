@@ -10,11 +10,10 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
 
 ##### Publications
 
-<ul class="list-group list-group-flush">
+<ul class="list-group list-group-flush-all">
   <li class="list-group-item list-group-item-action">
     <div class="row-fluid">
-      <i class="icon-doc-text"></i>
-      <b>Repetitions in infinite palindrome-rich words</b>
+      <strong>Repetitions in infinite palindrome-rich words</strong>
     </div>
     <div class="row-fluid">
       <small>
@@ -23,15 +22,14 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
       </small>
     </div>
     <div class="row-fluid">
-      <a class="badge badge-primary" href="https://doi.org/10.1007/978-3-030-28796-2_7">DOI</a>
-      <a class="badge badge-dark" href="https://arxiv.org/abs/1904.10028">arXiv</a>
-      <a class="badge badge-warning" href="{{site.base_url}}/slides/repetitions-infinite-rich-words.pdf">Slides</a>
+      <a class="badge badge-primary btn-primary" href="https://doi.org/10.1007/978-3-030-28796-2_7">DOI</a>
+      <a class="badge badge-secondary" href="https://arxiv.org/abs/1904.10028">arXiv</a>
+      <a class="badge badge-dark" href="{{site.base_url}}/slides/repetitions-infinite-rich-words.pdf">Slides</a>
     </div>
   </li>
   <li class="list-group-item list-group-item-action">
     <div class="row-fluid">
-      <i class="icon-doc-text"></i>
-      <b>Critical exponent of balanced words via the Pell number system</b>
+      <strong>Critical exponent of balanced words via the Pell number system</strong>
     </div>
     <div class="row-fluid">
       <small>
@@ -41,7 +39,7 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
     </div>
     <div class="row-fluid">
       <a class="badge badge-primary" href="https://doi.org/10.1007/978-3-030-28796-2_6">DOI</a>
-      <a class="badge badge-dark" href="https://arxiv.org/abs/1902.00503">arXiv</a>
+      <a class="badge badge-secondary" href="https://arxiv.org/abs/1902.00503">arXiv</a>
     </div>
   </li>
 </ul>
@@ -49,28 +47,26 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
 <br>
 
 ##### Manuscripts
-<ul class="list-group list-group-flush">
+<ul class="list-group list-group-flush-all">
   <li class="list-group-item list-group-item-action">
     <div class="row-fluid">
-      <i class="icon-doc-text"></i>
       <a href="{{site.base_url}}/manuscripts/network-privacy-bitcoin.pdf">
-        <b>Enhancing network privacy in Bitcoin</b>
+        <strong>Enhancing network privacy in Bitcoin</strong>
       </a>
-      <a class="badge badge-warning" href="{{site.base_url}}/slides/network-privacy-bitcoin.pdf">Slides</a>
     </div>
     <div class="row-fluid">
       <small>
         Aseem Baranwal, Ben Armstrong
       </small>
+      <!-- <a class="badge badge-dark" href="{{site.base_url}}/slides/network-privacy-bitcoin.pdf">Slides</a> -->
     </div>
     <div class="row-fluid">
     </div>
   </li>
   <li class="list-group-item list-group-item-action">
     <div class="row-fluid">
-      <i class="icon-doc-text"></i>
       <a href="{{site.base_url}}/manuscripts/dominating-set-interval-graphs.pdf">
-        <b>Minimum distance total <var>k</var>-dominating set in interval graphs</b>
+        <strong>Minimum distance total <var>k</var>-dominating set in interval graphs</strong>
       </a>
     </div>
     <div class="row-fluid">
@@ -83,9 +79,8 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
   </li>
   <li class="list-group-item list-group-item-action">
     <div class="row-fluid">
-      <i class="icon-doc-text"></i>
       <a href="{{site.base_url}}/manuscripts/historical-max-range-sum.pdf">
-      <b>Historical min/max range-sum queries</b>
+      <strong>Historical min/max range-sum queries</strong>
       </a>
     </div>
     <div class="row-fluid">
@@ -98,9 +93,8 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
   </li>
   <li class="list-group-item list-group-item-action">
     <div class="row-fluid">
-      <i class="icon-doc-text"></i>
       <a href="{{site.base_url}}/manuscripts/bandwidth-guarantees-datacenter.pdf">
-      <b>Resource allocation in datacenters for data-parallel frameworks</b>
+      <strong>Resource allocation in datacenters for data-parallel frameworks</strong>
       </a>
     </div>
     <div class="row-fluid">
