@@ -4,8 +4,8 @@ title: Blog
 permalink: /blog/
 ---
 
-<a class="badge badge-primary" href="#">Chronological</a>
-<a class="badge badge-light" href="/categories/">Categorized</a>
+<span class="btn btn-disabled btn-sm btn-dark">Chronological</span>
+<a class="btn btn-sm btn-outline-secondary" href="/categories/">Categorized</a>
 
 <ul class="list-group">
   <div class="dropdown-divider"></div>
