@@ -10,7 +10,7 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
 
 ##### Publications
 
-<ul class="list-group list-group-flush-all">
+<ul class="list-group">
   <li class="list-group-item list-group-item-action">
     <div class="row-fluid">
       <strong>Repetitions in infinite palindrome-rich words</strong>
@@ -47,7 +47,7 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
 <br>
 
 ##### Manuscripts
-<ul class="list-group list-group-flush-all">
+<ul class="list-group">
   <li class="list-group-item list-group-item-action">
     <div class="row-fluid">
       <a href="{{site.base_url}}/manuscripts/network-privacy-bitcoin.pdf">
