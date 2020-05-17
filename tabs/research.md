@@ -13,7 +13,7 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
   <li class="list-group-item">
     <span><a href="http://hdl.handle.net/10012/15845">Decision Algorithms for Ostrowski-Automatic Sequences</a></span>
     <span class="float-right">
-      <a class="badge badge-primary btn-primary" href="http://hdl.handle.net/10012/15845">UWSpace</a>
+      <a class="btn btn-sm btn-outline-primary" href="http://hdl.handle.net/10012/15845">UWSpace</a>
     </span>
     <br>
     Master's thesis, University of Waterloo.
@@ -21,8 +21,8 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
   <li class="list-group-item">
     <span><a href="https://doi.org/10.1007/978-3-030-28796-2_7">Repetitions in infinite palindrome-rich words</a></span>
     <span class="float-right">
-      <a class="badge badge-primary btn-primary" href="https://doi.org/10.1007/978-3-030-28796-2_7">DOI</a>
-      <a class="badge badge-success" href="https://arxiv.org/abs/1904.10028">arXiv</a>
+      <a class="btn btn-sm btn-outline-success" href="https://doi.org/10.1007/978-3-030-28796-2_7">DOI</a>
+      <a class="btn btn-sm btn-outline-primary" href="https://arxiv.org/abs/1904.10028">arXiv</a>
     </span>
     <br>
     Aseem Baranwal, Jeffrey Shallit. International Conference on Combinatorics on Words.
@@ -31,16 +31,14 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
   <li class="list-group-item">
     <span><a href="https://doi.org/10.1007/978-3-030-28796-2_6">Critical exponent of balanced words via the Pell number system</a></span>
     <span class="float-right">
-      <a class="badge badge-primary" href="https://doi.org/10.1007/978-3-030-28796-2_6">DOI</a>
-      <a class="badge badge-success" href="https://arxiv.org/abs/1902.00503">arXiv</a>
+      <a class="btn btn-sm btn-outline-success" href="https://doi.org/10.1007/978-3-030-28796-2_6">DOI</a>
+      <a class="btn btn-sm btn-outline-primary" href="https://arxiv.org/abs/1902.00503">arXiv</a>
     </span>
     <br>
     Aseem Baranwal, Jeffrey Shallit. International Conference on Combinatorics on Words.
     <a href="https://doi.org/10.1007/978-3-030-28796-2">WORDS 2019</a>
   </li>
 </ul>
-
-<br>
 
 <!-- ## Manuscripts
 <ul class="list-group">
