@@ -1,4 +1,4 @@
-title: Aseem Raj Baranwal                          # the main title
+title: Aseem Baranwal                          # the main title
 
 tagline: CS grad student @UWaterloo  # it will display as the sub-title
 
@@ -10,7 +10,7 @@ author: Aseem Raj Baranwal                  # change to your full name
 avatar: /assets/img/sample/avatar.png   # support internet resources
 username: aseemrb
 social:
-  name: Aseem Raj Baranwal                  # it will shows as the copyright owner in Footer
+  name: Aseem Baranwal                  # it will shows as the copyright owner in Footer
   email:             # change to your email address
   links:
     # The first element serves as the copyright owner's link
@@ -20,7 +20,7 @@ social:
     # - https://www.facebook.com/username
     - https://www.linkedin.com/in/aseemrb
 
-google_site_verification: google_meta_tag_verification # change to your verification string
+google_site_verification: nsG3qKlqEDLBSJpUvt4S6c5WybareI8C8FVJiXEYnWc # change to your verification string
 
 #--------------------------
 
