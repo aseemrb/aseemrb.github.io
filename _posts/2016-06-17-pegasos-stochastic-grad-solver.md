@@ -1,7 +1,7 @@
 ---
-layout: mathpost
 title: Implementing PEGASOS
-category: programming
+author: Aseem Raj Baranwal
+date: 2016-06-17
 ---
 
 Here's the [original paper](http://ttic.uchicago.edu/~nati/Publications/PegasosMPB.pdf) that proposes the algorithm that we're going to implement.
@@ -24,7 +24,7 @@ The variable $$y$$ has the classification information, where $$1$$ means belongi
 
 **PEGASOS** stands for *Primal Estimated sub-GrAdient SOlver for SVM*, where *stochastic* means *having a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely.* Let's dive into the algorithm and see why it's *stochastic*. The PEGASOS algorithm performs stochastic gradient descent on the primal objective function $$F$$ with a *carefully chosen* step size.
 
-#### The basic procedure
+## The basic procedure
 - Initially, set $$w_1$$ to be the [zero vector](http://mathworld.wolfram.com/ZeroVector.html)
 - Iterate $$T$$ times while doing the following in each iteration $$t$$
     - Choose a random training example $$(x_{i_t}, y_{i_t})$$ by picking $$i_t$$ uniformly at random from $$\{1, 2, ... m\}$$
@@ -46,12 +46,12 @@ $$ \dot{F} = \frac{\lambda}{2} \nabla ||w||^2 + \frac{1}{m} \sum_{(x, y) \in S} 
 
 Now what will be the expected value of the subgradient $$\nabla$$ that we computed above? To find the expected value, we observe that the example taken to approximate the objective is chosen *uniformly at random*, which means that the probability of any example being selected is $$P(e) = 1/m$$. Thus the expected value of the subgradient $$\nabla$$ turns out to be equal to the complete gradient of $$F$$, our primal objective function. And that is why intuitively this approximation is expected to work well enough. Next section deals with **mini-batch iterations**, to approximate the objective with more determinism.
 
-#### Mini-batch iterations
+## Mini-batch iterations
 As an extension of the basic procedure, now we would select a subset of examples, rather than selecting a single example for approximating the objective. So for a given $$k \in \{1, 2, ... m\}$$, we choose a subset of size $$k$$ and approximate the objective as before. Note that $$k = 1$$ is the case we already saw above. So now the objective can be written as
 $$ f(w, A_t) = \frac{\lambda}{2} ||w||^2 + \frac{1}{k}\sum_{i \in A_t}l(w; (x_i, y_i)) $$
 where $$A_t$$ is the subset chosen in $$t^{th}$$ iteration.
 
-#### Projection step
+## Projection step
 A potential variation in the above algorithm is that we limit the set of admissible solutions to a ball of radius $$1/\sqrt{\lambda}$$. To enforce this, project $$w_t$$ after each iteration onto a sphere as $$w_{t+1} = \min\{1, \frac{1/\sqrt{\lambda}}{||w_{t+1}||}\}w_{t+1}$$. The revised analysis as presented in the paper does not compulsorily require this projection step. It mentions this as an optional step because no major difference was found during the experiments between the projected and the unprojected variants.
 
 It is proved in the paper that the number of iterations required to obtain a solution of accuracy $$\epsilon$$ is $$O(1/\epsilon)$$, where each iteration operates on a single training example. In contrast, previous analyses of stochastic gradient descent methods for SVMs required $$\Omega(1/\epsilon^2)$$ iterations because in previously devised SVM solvers, the number of iterations also scales linearly with $$1/\lambda$$, where $$\lambda$$ is the regularization parameter of the SVM; while with PEGASOS, this is not the case. PEGASOS works on an approximation, so the runtime of the algorithm is not dependent on the number of training examples or with some function of $$\lambda$$. It just depends on $$k$$, the size of the subset we are taking, and $$T$$, the number of iterations that we are making. The implemented code (in C++) will be put up later when I'm not feeling lazy.

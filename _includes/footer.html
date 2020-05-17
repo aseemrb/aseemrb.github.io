@@ -1,61 +1,14 @@
-<footer class="footer mt-auto py-3 border-top">
-  <div class="container">
-      <!-- Left side. -->
-      {% if site.footer-links.rss %}
-        <a aria-label="rss" href="{{ site.baseurl }}/feed.xml" data-toggle="tooltip" data-placement="top" title="RSS">
-          <i class="fa-lg icon-rss fa-pull-left" style="color:#f26522;"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.keeweb %}
-        <a aria-label="keeweb" href="https://keeweb.aseemrb.me" data-toggle="tooltip" data-placement="top" title="Keeweb">
-          <i class="fa-lg icon-lock-open-alt fa-pull-left" style="color:#c33;"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.keybase %}
-        <a aria-label="keybase" href="{{ site.baseurl }}/pgpkey" data-toggle="tooltip" data-placement="top" title="PGP Key">
-          <i class="fa-lg icon-key fa-pull-left" style="color:#3a3;"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.email %}
-        <a aria-label="email" href="mailto:{{ site.footer-links.email }}" data-toggle="tooltip" data-placement="top" title="Email">
-          <i class="fa-lg fa-envelope fa-pull-left" style="color:#666;"></i>
-        </a>
-      {% endif %}
-      <!-- Right side. -->
-      {% if site.footer-links.scholar %}
-        <a aria-label="scholar" href="https://scholar.google.com/citations?user={{ site.footer-links.scholar }}" data-toggle="tooltip" data-placement="top" title="Scholar">
-          <i class="fa-lg icon-graduation-cap fa-pull-right" style="color:#444"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.linkedin %}
-        <a aria-label="linkedin" href="https://www.linkedin.com/in/{{ site.footer-links.linkedin }}" data-toggle="tooltip" data-placement="top" title="Linkedin">
-          <i class="fa-lg icon-linkedin-squared fa-pull-right" style="color:#0077b5"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.github %}
-        <a aria-label="github" href="https://github.com/{{ site.footer-links.github }}" data-toggle="tooltip" data-placement="top" title="Github">
-          <i class="fa-lg icon-github-circled fa-pull-right" style="color:#333;"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.telegram %}
-        <a aria-label="telegram" href="https://t.me/{{ site.footer-links.telegram }}" data-toggle="tooltip" data-placement="top" title="Telegram">
-          <i class="fa-lg icon-telegram fa-pull-right" style="color:#0088CC;"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.facebook %}
-        <a aria-label="facebook" href="https://www.facebook.com/{{ site.footer-links.facebook }}" data-toggle="tooltip" data-placement="top" title="Facebook">
-          <i class="fa-lg icon-facebook-official fa-pull-right" style="color:#3b5998;"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.lastfm %}
-        <a aria-label="lastfm" href="https://www.last.fm/user/{{ site.footer-links.lastfm }}" data-toggle="tooltip" data-placement="top" title="LastFm">
-          <i class="fa-lg fa-lastfm pull-left" style="color:#D51007;"></i>
-        </a>
-      {% endif %}
-      {% if site.footer-links.twitter %}
-        <a aria-label="twitter" href="https://www.twitter.com/{{ site.footer-links.twitter }}" data-toggle="tooltip" data-placement="top" title="Twitter">
-          <i class="fa-lg icon-twitter fa-pull-right" style="color:#00aced;"></i>
-        </a>
-      {% endif %}
-  </div>
+<footer class="d-flex w-100 justify-content-center">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="footer-left">
+      <p class="mb-0">
+        © {{ 'now' | date: "%Y" }}
+        <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
+        {% if site.data.rights.brief %}
+        <span data-toggle="tooltip" data-placement="top"
+          title="{{ site.data.rights.verbose }}">{{ site.data.rights.brief }}</span>
+        {% endif %}
+      </p>
+    </div>
+  </div> <!-- div.d-flex -->
 </footer>

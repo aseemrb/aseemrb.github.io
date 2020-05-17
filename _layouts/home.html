@@ -1,0 +1,35 @@
+---
+layout: page
+# The Home page layout
+---
+
+<div id="post-list">
+  {% for post in paginator.posts %}
+  <div class="post-preview">
+    <h1>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    </h1>
+    <div class="post-content">
+      <p>
+      {% assign _content = post.content %}
+      {% include no-linenos.html %}
+      {{ _content | markdownify | strip_html | truncate: 200 }}
+      </p>
+    </div>
+
+    <div class="post-meta text-muted">
+      <!-- posted date -->
+      <i class="far fa-clock fa-fw"></i>
+      <span class="timeago" data-toggle="tooltip" data-placement="bottom"
+        title="{{ post.date | date: site.data.date_format.tooltip }}">
+      {{ post.date | date: site.data.date_format.post }}
+      <i class="unloaded">{{ post.date | date_to_xmlschema }}</i>
+      </span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% if paginator.total_pages > 0 %}
+  {% include post-paginator.html %}
+{% endif %}

@@ -1,12 +1,12 @@
 ---
-layout: post
 title: Machine level obfuscation
-category: programming
+author: Aseem Raj Baranwal
+date: 2015-01-25
 ---
 
 Let’s start with this small C program. What do you think it does?
 
-{% highlight c linenos %}
+```c
 #include <stdio.h>
 double d[]= {1156563417652693958656.0, 272};
 int main()
@@ -14,20 +14,20 @@ int main()
     d[1]--?d[0]*=2, main() : printf("%s\n",(char*)d);
     return 0;
 }
-{% endhighlight %}
+```
 
 Go ahead and run it on your machine. For lazy bums, you can see the outpu [here](http://ideone.com/UaGZDp). Well, the output of this code depends on the machine, more specifically the [endianness](http://en.wikipedia.org/wiki/Endianness) of the machine. Let us walk through the code line by line to understand what is happening.
 
-##### Line 2
-{% highlight c linenos %}
+## Line 2
+```c
 double d[]= {1156563417652693958656.0, 272};
-{% endhighlight %}
+```
 
 Here we have simply declared a one-dimensional double array and initialized it with two elements with some values. The numbers are specific, which we shall see later in this post.
 
-##### Line 5:
+## Line 5
 This line is a fancy way of saying
-{% highlight c linenos %}
+```c
 if(d[1] > 0)
 {
     d[1] = d[1] - 1;
@@ -39,7 +39,7 @@ else
     d[1] = d[1] - 1;
     printf("%s\n",(char*)d);
 }
-{% endhighlight %}
+```
 
 Ternary operators are used here instead of an if-else block to condense the code. The main function is called repeatedly until `d[1]` becomes 0. Then we typecast the `double` array to a `char` pointer and print its value as a string using the `"%s"` placeholder in the `printf` function.
 

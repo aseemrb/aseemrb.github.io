@@ -1,7 +1,7 @@
 ---
-layout: post
 title: Weird but awesome Javascript
-category: learning
+author: Aseem Raj Baranwal
+date: 2016-05-26
 ---
 
 I've been programming something or the other in Javascript for more than a year now, but I still did not have a clear understanding of what it really is, and how it works. What makes it so different than other languages, why browsers use it, etc.
@@ -21,10 +21,10 @@ As it turns out, the Javascript runtimes (like V8) only have a heap for memory a
 
 The example image above is the representation of Chrome's Javascript environment. Notice that **_V8 Runtime (the big rectangular box)_** only has a call stack and a heap for memory allocation. The **_Web APIs_**, **_event loop_** and the **_callback queue_** are provided as external tools by the browser, and are not inherent to the V8 runtime. We'll try to look at each of the parts and understand how this works.
 
-#### What is the call stack?
+## What is the call stack?
 So let's start with the call stack. What is this? Well, as we already know by now, Javascript is single-threaded, which means it has a **single call stack**, which in turn means that it can do **_one thing at a time_**. This is the same as in an operating system, each process has the call stack, and each time a function is called it gets a new stack frame. Why a stack is used you ask? Because the call stack is fundamentally a data structure which keeps a record of where in the program is the execution going on. When the execution steps into a function, it is pushed on to the stack, and when a function returns after completion, it is popped off the stack, so we have to get back to the place from where this function call was made. Thus naturally, a stack data structure makes complete sense. Anyway, getting back to Javascript, it's the same thing, and whenever the program throws some error, we can see the call stack in the browser console.
 
-#### So what is 'blocking'?
+## So what is 'blocking'?
 Ever heard statements like **_nodejs uses an event-driven I/O bound non-blocking_** model that makes it perfect for data-intensive, real-time applications? Those terms are not very helpful yet. Let's try to understand each term there.
 
 - **Event-driven:** This is a programming paradigm in which the flow of the program is determined by events such as user actions (mouse clicks, key-press), or messages from other programs. For example: "*When the user makes a GET request, render the page `index.html`*". This is an event based trigger as we might say, where the event is the user sending a GET request and the trigger is the rendering of the page `index.html`.
@@ -33,20 +33,20 @@ Ever heard statements like **_nodejs uses an event-driven I/O bound non-blocking
 
 So JS in the browser is a problem if it is blocking, isn't it? Because say we make a network request, then we cannot click on things, submit forms, etc. because the browser is blocked now. **_But this does not happen! Why?_** Because we have **_asynchronous callbacks_** which solve this problem.
 
-#### Is Concurrency a sham then?
+## Is Concurrency a sham then?
 So it's false that Javascript can only do one thing at a time. It's true however that the Javascript runtime can only do one thing at a time. But we can do things concurrently, because the browser is more than the runtime (refer to the image above).
 
 Notice the arrows in the above image. The call stack can put things in the Web APIs, which push the callbacks into the callback queue once complete, and then comes the **_event loop magic_**. The event loop does the following:
 
-{% highlight ruby linenos %}
+```cpp
 if the Call Stack is empty:
     take the first thing off the Callback Queue and
     push it onto the Call Stack of the runtime (V8)
-{% endhighlight %}
+```
 
 The event loop keeps looking at the call stack and the callback queue, and does this simple job when it meets the condition above. There exists a tool where we can visualize this clearly. [Loupe](http://latentflip.com/loupe) helps visualize the whole process beautifully. Go put some code there and see what's happening. For example, we take the code below ([on Loupe](http://latentflip.com/loupe/?code=Y29uc29sZS5sb2coJ0hpJyk7CgpzZXRUaW1lb3V0KGZ1bmN0aW9uIGNiYWNrKCkgewogICAgY29uc29sZS5sb2coJ1RoaXMgd2lsbCBydW4gYWZ0ZXIgc29tZSB0aW1lJyk7Cn0sIDMwMDApOwogCmNvbnNvbGUubG9nKCdCdXQgdGhpcyBydW5zIGJlZm9yZSB0aGUgY2FsbGJhY2suJyk7!!!)).
 
-{% highlight js linenos %}
+```js
 console.log('Hi');
 
 setTimeout(function cback() {
@@ -54,7 +54,7 @@ setTimeout(function cback() {
 }, 3000);
 
 console.log('But this runs before the callback.');
-{% endhighlight %}
+```
 
 Though the visualization makes it clear, let’s go through what's happening:
 
@@ -72,7 +72,7 @@ The interesting thing to observe here is that **`setTimeout`** with the second a
 
 Try [this](http://latentflip.com/loupe/?code=Y29uc29sZS5sb2coJ0hpJyk7CgpmdW5jdGlvbiBibG9ja2FnZSgpIHsKICAgIHdoaWxlKHRydWUpOwp9CgpzZXRUaW1lb3V0KGZ1bmN0aW9uIGNiYWNrKCkgewogICAgY29uc29sZS5sb2coJ1RoaXMgd2lsbCBydW4gYWZ0ZXIgc29tZSB0aW1lJyk7Cn0sIDMwMDApOwoKYmxvY2thZ2UoKTs%3D!!!) to understand the above statement:
 
-{% highlight js linenos %}
+```js
 console.log("Hi");
 
 function blockage() {
@@ -84,7 +84,7 @@ setTimeout(function cback() {
 }, 3000);
 
 blockage();
-{% endhighlight %}
+```
 
 As expected, **`cback()`** never makes it to the call stack because of **`blockage()`** and thus **`setTimeout`** fails to give us the desired thing after 3 seconds. The browser has to render the UI every `16.67 milliseconds (60 frames per second)`, and if there is blockage in the stack, it will not be able to render. So **_blocking the event loop_** actually means having some function on the stack that does not return well in time.
 

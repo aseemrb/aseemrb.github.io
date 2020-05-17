@@ -1,7 +1,7 @@
 ---
-layout: mathpost
 title: The complexity class of &#35;P problems
-category: learning
+author: Aseem Raj Baranwal
+date: 2016-03-23
 ---
 
 Recently, I had an assignment in one of my courses - Beyond NP-Completeness, to present the complexity class of #P (Sharp-P) problems based on [L.G. Valiant](https://en.wikipedia.org/wiki/Leslie_Valiant)'s paper on complexity of computing the permanent of a matrix.
@@ -39,13 +39,13 @@ The determinant of $$M = (3 - 3) -2(2 - 1) + 4(6 - 3)$$, while the permanent is:
 Valiant comments on the complexity of the problem of finding the permanent of a [(0-1) matrix](https://en.wikipedia.org/wiki/Logical_matrix), for which he defines the class #P. To put it easily, #P problems are the counting problems associated with the decision problems in class NP. It is a class of function problems, and not decision problems (where the answer is a simple yes/no). An NP problem of the form "Does there exist a solution that satisfies X?" usually corresponds to the #P problem "How many solutions exist which satisfy X?". Here goes the example of a #P problem:
 &#35;SAT - Given a boolean formula $$\phi(x_1, x_2, ... x_n)$$, find the number of assignments that satisfy $$\phi$$. This is the counting version of the famous [SAT](https://en.wikipedia.org/wiki/Boolean_satisfiability_problem) problem which is known to be NP-complete.
 
-#### Defining #P completeness
+## Defining #P completeness
 
 To define completeness in this class of problems, we need to bring in Oracle Turing Machines and the class FP. Oracle machines are those which have access to an *oracle* that can *magically* solve the decision problem for some language $$L \subseteq \{0, 1\}^*$$. These machines with oracle access can then make queries of the form "Is $$q \in L$$?" in one computational step. We can generalize this to non-boolean functions by saying that a T.M. M has oracle access to a function $$f: \{0, 1\}^* \rightarrow \{0, 1\}^*$$ if it is given access to the language $$L = \{(x, i) : f(x)_i = 1\}$$.
 For every $$O \subseteq \{0, 1\}^*$$, we denote $$P^O$$ as the set of languages that can be decided by a polynomial-time DTM (Deterministic Turing Machine) with oracle access to O. As an example, consider the $$\overline{SAT}$$ problem, which denotes the language of unsatisfiable boolean formulae. $$\overline{SAT}$$ $$\in P^{SAT}$$ because if we are given an oracle access to the SAT language, then we can solve an instance $$\phi$$ of the $$\overline{SAT}$$ problem in polynomial time, by asking "Is $$\phi \in SAT$$?" and negating the answer to that.
 Now we are ready to define #P completeness. A function $$f$$ is said to be #P-complete if $$f \in \#P$$ and $$\forall g \in \#P, g$$ is in $$FP^f$$ (Cook reduction).
 
-#### Back to the problem
+## Back to the problem
 Now let's get back to the permanent. We take a special case of the permanent problem where we put a constraint that the input matrix is a (0, 1) matrix, that is, all the entries of the given matrix are either 0 or 1. Let us look at this problem of finding the permanent of a binary matrix with a different perspective. Imagine that the given matrix A is an ***adjacency matrix of a bipartite graph***
 $$G = (X, Y, E)$$ where,
 $$X = \{x_1, x_2, ... x_n\}$$

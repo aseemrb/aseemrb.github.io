@@ -1,33 +1,135 @@
-# Site settings
-title: Aseem Raj Baranwal
-general_email: aseemrb@gmail.com
-academic_email: aseem.baranwal@uwaterloo.ca
+title: Aseem Raj Baranwal                          # the main title
 
-description: Aseem Raj Baranwal - CS grad student @Uwaterloo.
+tagline: CS grad student @UWaterloo  # it will display as the sub-title
 
-baseurl: "" # the subpath of your site, e.g. /blog/
+description: >-                        # used by seo meta and the atom feed
+  CS grad student at the University of Waterloo.
 
-url: "https://aseemrb.me" # the base hostname & protocol for your site
+url: 'https://aseemrb.me'
+author: Aseem Raj Baranwal                  # change to your full name
+avatar: /assets/img/sample/avatar.png   # support internet resources
+username: aseemrb
+social:
+  name: Aseem Raj Baranwal                  # it will shows as the copyright owner in Footer
+  email:             # change to your email address
+  links:
+    # The first element serves as the copyright owner's link
+    - https://twitter.com/aseemrb      # change to your twitter homepage
+    - https://github.com/aseemrb       # change to your github homepage
+    # Uncomment below to add more social links
+    # - https://www.facebook.com/username
+    - https://www.linkedin.com/in/aseemrb
 
-footer-links:
-  email:
-  facebook:
-  github: aseemrb
-  keeweb: aseemrb
-  keybase: aseemrb
-  lastfm:
-  linkedin: aseemrb
-  disqus: aseemrb
-  rss: aseemrb
-  scholar: DPt626YAAAAJ
-  telegram: aseemrb
-  twitter:
+google_site_verification: google_meta_tag_verification # change to your verification string
 
-# Build settings
+#--------------------------
+
+# if your site type is Project Pages site, change below value to '/projectname'
+baseurl: ''
+
+# Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
+timezone: America/Toronto
+
+disqus:
+  comments: false  # boolean type, the global switch for posts comments.
+  shortname: ''    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+
+
+# Prefer color scheme setting, available values:
+#
+#     dual   - Follow the system prefer color by default, and a toggle will display
+#              in the left bottom of Sidebar, which used for switch the theme between dark and light.
+#
+#     light  - Use the light color scheme
+#
+#     dark   - Use the dark color scheme
+#
+theme_mode: dual
+
+# boolean type, global switch for ToC in posts.
+toc: true
+
+paginate: 4
+paginate_path: "/blog/page:num/"
+
 markdown: kramdown
 
-kramdown:
-  math_engine: mathjax
+highlighter: rouge
 
-# Other options
-permalink: blog/:year/:month/:title
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: 'highlight'
+    # default_lang: console
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+permalink: /posts/:title/
+
+defaults:
+  -
+    scope:
+      path: ""          # An empty string here means all files in the project
+      type: posts
+    values:
+      layout: post
+      comments: false    # Enable comments in posts.
+      toc: true         # Display TOC column in posts.
+      location: Post
+      breadcrumb:
+        -
+          label: Posts
+          url: /blog/
+  -
+    scope:
+      path: _drafts
+    values:
+      comments: false
+  -
+    scope:
+      path: assets/data
+    values:
+      layout: compress
+
+
+sass:
+  sass_dir: /assets/css
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: [html, head, body, dt, dd, rt, rp,
+            optgroup, option, colgroup, caption,
+            thead, tbody, tfoot, tr, td, th]
+  profile: false
+  blanklines: false
+  ignore:
+    envs: []
+
+exclude:
+  - vendor        # Avoid Jekyll mistakenly read the vender directory on Travis-CI's VM .
+  - Gemfile.lock
+  - Gemfile
+  - tools
+  - docs
+  - README.md
+
+sitemap_exclude:  # Sitemap will exclude the following items.
+  fuzzy:
+    - /assets/
+  accurate:
+    - /norobots/
+    - /tabs/
+    - /categories/
+    - /tags/
+    - /posts/
+    - 404.html
+    - feed.xml
+    - sitemap.xml
+    - robots.txt
+    - redirects.json

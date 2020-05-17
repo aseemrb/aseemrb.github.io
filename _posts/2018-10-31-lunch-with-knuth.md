@@ -1,7 +1,7 @@
 ---
-layout: mathpost
 title: Lunch with Donald Knuth
-category: Experiences
+author: Aseem Raj Baranwal
+date: 2018-10-31
 ---
 
 On Halloween, [Donald E. Knuth](https://www-cs-faculty.stanford.edu/~knuth/) ([wiki](https://en.wikipedia.org/wiki/Donald_Knuth))
@@ -17,7 +17,7 @@ was accompanied by an anecdote from his own life experience. Here's a set of thi
 brought up during the lunch and the talk (unfortunately, I forgot most of the conversations).<br>
 *The public talk is now available [on youtube](https://youtu.be/XWR5Y3Wf8Fo).*
 
-#### On P vs NP
+## On P vs NP
 Knuth believes that [P = NP](https://en.wikipedia.org/wiki/P_versus_NP_problem). This obviously needs an explanation, and I will
 try to present the reason based on my understanding of his argument. First let's be clear on
 **what it means when we say *P = NP***. It means that there exists an integer $$k$$ and an algorithm $$A$$ which
@@ -34,21 +34,21 @@ solves every problem in the class *NP* of size $$m$$ bits in $$m^k$$ elementary 
   *(I'm thinking cryptography here)*. So proving the existence of $$A$$ is different from actually finding $$A$$.
 
 
-#### Honeymoon advice
+## Honeymoon advice
 On his honeymoon in 1961, Knuth was reading [Noam Chomsky](https://en.wikipedia.org/wiki/Noam_Chomsky)'s book
 ***Syntactic Structures***, and he thinks that was a bad idea (reading it *on the honeymoon*, not reading it altogether).
 Although, it was while reading this book that he discovered an **intersection between *Mathematics* and *Computer Programming***
 (compiler design).
 
 
-#### Boredom of the young generation
+## Boredom of the young generation
 Knuth is appalled by statements from people of the younger generation that go along the lines of:<br>
 **"X is quite boring, which is why I study / work on Y instead."**<br>
 He says that it's not the job of the world to entertain you. Boredom is inside you, not in the material
 that you work with. It is true that some people find certain things more interesting than others, and hence are more
 curious about it. The right thing to say would be that you are more curious about *Y* than *X*.
 
-#### On recent areas of interest
+## On recent areas of interest
 As Knuth says, he was a mathematician who got curious about Computer Science, but now his interests are again
 inclined toward pure Mathematics. The problem space concerned with [families of sets](https://en.wikipedia.org/wiki/Family_of_sets)
 seems very interesting to him currently because we haven't still found a lot of ways to represent and work with them in a way

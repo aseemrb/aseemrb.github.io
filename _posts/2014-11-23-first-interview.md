@@ -1,7 +1,7 @@
 ---
-layout: post
 title: First interview experience
-category: Experiences
+author: Aseem Raj Baranwal
+date: 2014-11-23
 ---
 
 On 14th November 2014, Microsoft invited the selected few (including me) at IIIT Delhi, for final interviews for a software developer internship position, and I would like to share the story briefly.
@@ -10,16 +10,16 @@ This was going to be the first face to face interview of my life, so I was prett
 
 ---
 
-#### Round 1 (written)
+## Round 1 (written)
 Problem: Given a linked list with node structure as
-{% highlight c linenos %}
+```c
 struct Node
 {
     int data;
     Node* next;
     Node* random;
 };
-{% endhighlight %}
+```
 
 where the random pointer may point to any node in the linked list, including the same node to which the random pointer belongs, or it may be even Null, duplicate the linked list and return the head pointer to the new linked list.
 
@@ -37,14 +37,14 @@ where **`A'`**, **`B'`**, … **`E'`** are newly created nodes
 
 ---
 
-#### Round 2 (written)
+## Round 2 (written)
 Problem: Given a binary tree, print the outer view of the tree in clockwise order starting from root.
 
 I solved this in two steps, first printing the right view (modified to print leaves so that bottom view is also covered) and then printing the left view from bottom to top. The invigilator suggested breadth first traversal with a marker to store first and last nodes of a level separately and then print them as needed, but I convinced him that this method would work only for full binary trees and not all general binary trees, whereas my method would work for all binary trees. I was pushed on to the interviews then.
 
 ---
 
-#### Round 3 (interview 1)
+## Round 3 (interview 1)
 
 M: Me, I: Interviewer
 
@@ -68,7 +68,7 @@ Then he asked me some problems which I solved using Kruskal's, Dijkstra's and Jo
 
 ---
 
-#### Round 4 (interview 2)
+## Round 4 (interview 2)
 
 M: Me, I1: Interviewer 1, I2: Interviewer 2
 (I was the last candidate to be interviewed)
@@ -89,7 +89,7 @@ M: Me, I1: Interviewer 1, I2: Interviewer 2
 | I1: | Okay I'll give you another chance. Can you write a function to print factorial of numbers as large as say 5000?
 | M: | (Knew the problem) Yes I can! (Wrote the code). Below is the code in C++
 
-{% highlight c linenos %}
+```c
 cin >> n;
 if(n < 0) break;
 int a[sz] = {0};
@@ -112,7 +112,7 @@ while(a[j] == 0) j--;
 cout << endl;
 while(j >= 0) cout << a[j--];
 cout << "\n";
-{% endhighlight %}
+```
 
 | I1: | Correct. I hope we are done with testing you now. Nice meeting you!
 | M: | Thank you. Glad meeting you too.
