@@ -28,7 +28,7 @@ Note that there could be a border edge for each possible letter, but there will 
 
 Whenever we append a new letter to an already processed string, it takes amortized constant time to maintain this graph. Below is an example graph for the string `aababba`.
 
-<img class="mx-auto d-block" src="{{site.baseurl}}/images/count-palindromes/graph.png" alt="graph" width="400">
+<img class="mx-auto" src="{{site.baseurl}}/images/count-palindromes/graph.png" alt="graph" width="400">
 
 Here $$\epsilon$$ denotes the empty string and $$\gamma$$ is an imaginary palindrome of length $$-1$$. The *suffix edges* are shown by dashed lines, while the *border edges* are shown by solid lines with labels. We say that a palindrome consisting of a single letter *borders* $$\gamma$$, which makes the implementation of the algorithm easy.
 
