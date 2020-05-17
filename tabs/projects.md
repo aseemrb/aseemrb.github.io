@@ -1,6 +1,10 @@
 ---
 layout: page
 title: Projects
+breadcrumb:
+    -
+      label: Home
+      url: /
 ---
 
 This is a partial collection of open source projects that I've worked on.

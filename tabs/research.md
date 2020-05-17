@@ -1,6 +1,10 @@
 ---
 layout: page
 title: Research
+breadcrumb:
+    -
+      label: Home
+      url: /
 ---
 
 Currently I'm studying about probability density estimation problems and community detection in graph models. Previously, I've worked on combinatorics on words, algorithmic number theory and automatic theorem proving.
