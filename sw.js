@@ -1,14 +1,10 @@
 ---
 layout: compress
-# Chirpy v2.2
-# https://github.com/cotes2020/jekyll-theme-chirpy
-# © 2020 Cotes Chung
-# MIT Licensed
 ---
 
 self.importScripts('{{ "/assets/data/cache-list.js" | relative_url }}');
 
-var cacheName = 'chirpy-{{ "now" | date: "%Y%m%d.%H%M" }}';
+var cacheName = 'aseemrb-{{ "now" | date: "%Y%m%d.%H%M" }}';
 
 
 function isExcluded(url) {
