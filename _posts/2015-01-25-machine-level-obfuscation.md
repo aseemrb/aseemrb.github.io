@@ -16,7 +16,7 @@ int main()
 }
 ```
 
-Go ahead and run it on your machine. For lazy bums, you can see the outpu [here](http://ideone.com/UaGZDp). Well, the output of this code depends on the machine, more specifically the [endianness](http://en.wikipedia.org/wiki/Endianness) of the machine. Let us walk through the code line by line to understand what is happening.
+Go ahead and run it on your machine. For lazy bums, you can see the output [here](http://ideone.com/UaGZDp). Well, the output of this code depends on the machine, more specifically the [endianness](http://en.wikipedia.org/wiki/Endianness) of the machine. Let us walk through the code line by line to understand what is happening.
 
 ## Line 2
 ```c
