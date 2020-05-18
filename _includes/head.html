@@ -44,6 +44,10 @@
     <link rel="preload" href="{{ site.baseurl }}/assets/css/home.css" as="style">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/home.css">
 
+  {% elsif page.layout == 'home' %}
+    <link rel="preload" href="{{ site.baseurl }}/assets/css/page.css" as="style">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/page.css">
+
   {% elsif page.layout == 'page' %}
 
     {% if page.title == 'Categories' %}
