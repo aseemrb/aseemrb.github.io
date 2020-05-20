@@ -2,16 +2,16 @@
 layout: page
 title: Research
 breadcrumb:
-    -
-      label: Home
-      url: /
+  -
+    label: Home
+    url: /
 ---
 
 Currently I'm studying about probability density estimation problems and community detection in graph models. Previously, I've worked on combinatorics on words, algorithmic number theory and automatic theorem proving.
 
 My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 (via <a href="https://cs.uwaterloo.ca/~shallit/">Jeffrey Shallit</a>).
 
-## Publications
+## <a href="https://scholar.google.com/citations?user=DPt626YAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i></a> Publications
 
 <ul class="list-group">
   <li class="list-group-item">
