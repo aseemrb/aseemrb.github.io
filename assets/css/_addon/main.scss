@@ -925,6 +925,11 @@ table {
   transition: background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
+#homediv {
+  font-size:1.2rem;
+  margin-top:8rem;
+}
+
 /*--- Responsive Design ---*/
 
 @media all and (max-width: 576px) {
@@ -1104,6 +1109,9 @@ table {
     &:first-child {
       margin-top: -3.5rem;
     }
+  }
+  #homediv {
+    margin-top: 3rem;
   }
 }
 
