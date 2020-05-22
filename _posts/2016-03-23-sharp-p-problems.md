@@ -26,13 +26,12 @@ For example, for n = 5, if $$\sigma$$ = {2, 5, 3, 4, 1}, then $$\sigma(1) = 2$$,
 A closer look at the permanent tells us that if we change all the negative signs in the expression of the determinant of a matrix to positive signs, it will indeed become the Permanent. To show this with an example:
 Consider the matrix,
 
-$$M =
+$$ M =
         \begin{pmatrix}
         1 & 2 & 4 \\
         2 & 3 & 1 \\
         1 & 3 & 1 \\
-        \end{pmatrix}
-$$
+        \end{pmatrix} $$
 
 The determinant of $$M = (3 - 3) -2(2 - 1) + 4(6 - 3)$$, while the permanent is: $$(3 + 3) + 2(2 + 1) + 4(6 + 3)$$, which is clearly obtainable by changing all negative signs in the determinant's expression to positive. Surprisingly, though there exist [efficient solutions](https://en.wikipedia.org/wiki/Determinant#Calculation) to compute the determinant of a matrix, yet to compute the permanent, no algorithm that takes better than exponential time is known.
 
