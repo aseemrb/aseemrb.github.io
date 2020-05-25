@@ -17,7 +17,7 @@ Before we begin, it is strongly recommended to familiarize yourself with the fol
 
 So let's begin with the permanent, which is defined for an *n x n matrix A* as:
 
-$$ Perm\ A = \sum_{\sigma}{\prod_{i=1}^{n}{A_{i,\sigma(i)}}} $$
+$${\rm Perm}\ A = \sum_{\sigma}{\prod_{i=1}^{n}{A_{i,\sigma(i)}}} $$
 
 Before proceeding, let's understand what this means, and what we want to compute.
 $$\sigma$$ is a permutation of the numbers {1, 2, 3, ... n}.
@@ -51,7 +51,7 @@ $$X = \{x_1, x_2, ... x_n\}$$
 $$Y = \{y_1, y_2, ... y_n\}$$
 $$E = \{(x_i, y_j) : A_{ij} = 1\}$$
 
-Now if we look at the term inside the summation, that is $$\prod{A_{i, \sigma(i)}}$$ for $$i = \{1, 2, ... n\}$$, we can try to imagine the value of this term as synonymous to a possible perfect matching in the bipartite graph represented by A. Why? Because we know that this term takes one element from each row and each column, so all vertices are covered in the term, and this term = 0, if any of the elements picked are 0. But in our adjacency matrix, 0 for row i and column j means that there is no edge between $$x_i$$ and $$y_j$$, so this term evaluates to 1 if and only if the selected elements form an edge cover (a perfect matching) for the given bipartite graph. So clearly, the whole term $$Perm\ A = \sum\prod A_{i, \sigma(i)}$$ where the summation is over all $$\sigma$$ represents the total number of perfect matchings in the bipartite graph represented by A. As finding the number of perfect matchings in a bipartite graph $$\in$$ #P, therefore clearly, finding the permanent of a binary matrix $$\in$$ #P.
+Now if we look at the term inside the summation, that is $$\prod{A_{i, \sigma(i)}}$$ for $$i = \{1, 2, ... n\}$$, we can try to imagine the value of this term as synonymous to a possible perfect matching in the bipartite graph represented by A. Why? Because we know that this term takes one element from each row and each column, so all vertices are covered in the term, and this term = 0, if any of the elements picked are 0. But in our adjacency matrix, 0 for row i and column j means that there is no edge between $$x_i$$ and $$y_j$$, so this term evaluates to 1 if and only if the selected elements form an edge cover (a perfect matching) for the given bipartite graph. So clearly, the whole term $${\rm Perm}\ A = \sum\prod A_{i, \sigma(i)}$$ where the summation is over all $$\sigma$$ represents the total number of perfect matchings in the bipartite graph represented by A. As finding the number of perfect matchings in a bipartite graph $$\in$$ #P, therefore clearly, finding the permanent of a binary matrix $$\in$$ #P.
 
 Now we shall move on to prove the ***Valiant's theorem*** which says that finding permanent for a binary matrix is #P-complete. We already proved it is in #P, so now all remains for us is to prove that it is in #P-Hard, that is all #P problems can be reduced to this problem in the way explained earlier in this post (where completeness is defined for #P problems). For this, we look at the problem of finding the permanent as a different graph problem.
 
@@ -60,7 +60,7 @@ Consider A = adjacency matrix of a weighted and directed graph with n nodes (We 
 - **Cycle Cover of a graph G**: A set of cycles (subgraphs of G in which all vertices have indegree = 1 and outdegree = 1) which contains all vertices of G
 - **Weight of a cycle cover**: Product of weights of edges involved in the cover
 
-Now, with a good observation, we can conclude that $$Perm(A) = \sum W_{i}$$ where $$W_i$$ is the weight of the $$i^{th}$$ cycle cover. We sum the weights of all possible cycle covers of the graph and it turns out to be equal to the permanent of the adjacency matrix. If this is hard to visualize, feel free to work out on an example having 3 or 4 nodes to let that sink in.
+Now, with a good observation, we can conclude that $${\rm Perm}(A) = \sum W_{i}$$ where $$W_i$$ is the weight of the $$i^{th}$$ cycle cover. We sum the weights of all possible cycle covers of the graph and it turns out to be equal to the permanent of the adjacency matrix. If this is hard to visualize, feel free to work out on an example having 3 or 4 nodes to let that sink in.
 
 Proceeding with the proof, we will attempt to reduce an instance of the 3-SAT problem to an instance of the cycle cover problem. ***The methodology and examples are directly taken from the original paper***. We begin with a boolean formula given to us in 3-[CNF](https://en.wikipedia.org/wiki/Conjunctive_normal_form) form.
 $$F = C_1 \wedge C_2 \wedge C_3 \wedge ... C_m$$, a conjunction of m clauses where
@@ -100,22 +100,22 @@ Why this matrix is valued exactly with these numbers will be clear as we proceed
 
 - Each junction (represented by $$X$$) has external connections only via nodes 1 and 4
 - Taking $$X(a; b)$$ as the matrix leftover after deleting rows a and columns b, we note the following properties of the matrix $$X$$:
-    - Perm($$X$$) = 0
-    - Perm($$X(1; 1)$$) = 0
-    - Perm($$X(4; 4)$$) = 0
-    - Perm($$X(1,4; 1,4)$$) = 0
-    - Perm($$X(1; 4)$$) = Perm($$X(4; 1)$$) = 4
+    - $${\rm Perm}(X) = 0$$.
+    - $${\rm Perm}(X(1; 1)) = 0$$.
+    - $${\rm Perm}(X(4; 4)) = 0$$.
+    - $${\rm Perm}(X(1,4; 1,4)) = 0$$.
+    - $${\rm Perm}(X(1; 4)) = {\rm Perm}(X(4; 1)) = 4$$.
 
 Using these properties, we can draw very good insights. Let's look at routes in the graph. A route is a cycle cover. If we consider all the routes which have the same set of edges outside of the junctions, then we can call a route bad if:
 
 - **It ignores a junction**<br>
-  In this case, the cycle cover will have the ignored junction to be covered, so it will come separately as a product in the term. But Perm(X) = 0, so it will make the whole term 0 and thus will not contribute to the cycle cover.
+  In this case, the cycle cover will have the ignored junction to be covered, so it will come separately as a product in the term. But $${\rm Perm}(X) = 0$$, so it will make the whole term 0 and thus will not contribute to the cycle cover.
 - **It enters and leaves a junction at the same end**<br>
-  This case is bad because $$Perm(X(1; 1)) = Perm(X(4; 4)) = 0$$, so if nodes 1, 2, 3 or 2, 3, 4 remain (only one of the ends is covered) then again these nodes will separately come as a cycle and make that whole term 0. Thus no contribution to the total number of cycle covers
+  This case is bad because $${\rm Perm}(X(1; 1)) = {\rm Perm}(X(4; 4)) = 0$$, so if nodes 1, 2, 3 or 2, 3, 4 remain (only one of the ends is covered) then again these nodes will separately come as a cycle and make that whole term 0. Thus no contribution to the total number of cycle covers
 - **It enters at node 1 of a junction, jumps to node 4 and then leaves out**<br>
-  This case leaves out nodes 2 and 3 of a junction, so they have to be covered in a separate cycle, but $$Perm(X(1,4; 1,4)) = 0$$, so this will again make the term 0 and contribute nothing in the total number of cycle covers
+  This case leaves out nodes 2 and 3 of a junction, so they have to be covered in a separate cycle, but $${\rm Perm}(X(1,4; 1,4)) = 0$$, so this will again make the term 0 and contribute nothing in the total number of cycle covers
 
-So the only choice we have is to enter at either node 1 or node 4 and leave at the opposite end after covering nodes 2 and 3 if we want to make that route count towards the total number of cycle covers (the value of the permanent). Now if we go by this only choice, the contribution to the cycle will be 4, as Perm($$X(1; 4)$$) = Perm($$X(4; 1)$$) = 4.
+So the only choice we have is to enter at either node 1 or node 4 and leave at the opposite end after covering nodes 2 and 3 if we want to make that route count towards the total number of cycle covers (the value of the permanent). Now if we go by this only choice, the contribution to the cycle will be 4, as $${\rm Perm}(X(1; 4)) = {\rm Perm}(X(4; 1)) = 4$$.
 
 In any track $$T_k$$ of any good route, there are two cases as seen in the structure of the track:
 
