@@ -132,7 +132,7 @@ Let's get on to finding the permanent of a 0-1 matrix now. It is a great thing t
 
 To prove this, we will reduce the permanent problem to the 0-1 permanent problem. First, we need to make the weights of all the edges non-negative. Doing this is easy with modular arithmetic. We can compute $$permanent\ mod\ r$$ for all $$r = \{2, 3, 5, 7, ... p\}$$ where $$p \leq M^n n!$$, as we do not need to consider primes greater than the largest value the expression of the permanent can take. Here $$M$$ is the maximum value in the matrix, so a total of $$n!$$ permutations of the entries with each of them being equal to the maximum value. That's the maximum we will ever have.
 
-Since the number of primes $$\leq M^n n!$$ is $$\leq log_2(M^n n!) \approx nlog_2M + nlog_2n$$, the complexity is polynomial in terms of input size for this reduction. We can reconstruct the permanent using [CRT](https://en.wikipedia.org/wiki/Chinese_remainder_theorem).
+Since the number of primes $$\leq M^n n!$$ is $$\leq \log_2(M^n n!) \approx n \log_2M + n \log_2n$$, the complexity is polynomial in terms of input size for this reduction. We can reconstruct the permanent using [CRT](https://en.wikipedia.org/wiki/Chinese_remainder_theorem).
 
 So now we have a matrix where all the entries are non-negative. We have to reduce this to a form where all entries are either 0 or 1, to prove that the permanent problem is reducible to the 0-1 permanent problem. We can do so in two ways, by transforming the original graph to an equivalent graph.
 
