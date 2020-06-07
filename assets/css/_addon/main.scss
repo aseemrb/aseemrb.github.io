@@ -58,6 +58,11 @@ body {
   font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif;
 }
 
+ul.updates-list>li>a:hover {
+  text-decoration: none !important;
+  border-bottom: 1px dashed;
+}
+
 /*--- sidebar layout ---*/
 
 $tab-count: {{ site.data.tabs | size }};
