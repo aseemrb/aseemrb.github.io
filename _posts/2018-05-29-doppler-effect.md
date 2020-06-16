@@ -1,6 +1,6 @@
 ---
 title: An analogy for the Doppler effect
-author: Aseem Raj Baranwal
+author: Aseem
 date: 2018-05-29
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: First interview experience
-author: Aseem Raj Baranwal
+author: Aseem Baranwal
 date: 2014-11-23
 ---
 

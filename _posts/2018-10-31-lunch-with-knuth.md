@@ -1,6 +1,6 @@
 ---
 title: Lunch with Donald Knuth
-author: Aseem Raj Baranwal
+author: Aseem
 date: 2018-10-31
 ---
 

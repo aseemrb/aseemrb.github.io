@@ -1,6 +1,6 @@
 ---
 title: St. Petersburg paradox and intuition
-author: Aseem Raj Baranwal
+author: Aseem
 date: 2017-08-26
 ---
 

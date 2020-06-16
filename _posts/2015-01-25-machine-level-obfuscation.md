@@ -1,6 +1,6 @@
 ---
 title: Machine level obfuscation
-author: Aseem Raj Baranwal
+author: Aseem
 date: 2015-01-25
 ---
 

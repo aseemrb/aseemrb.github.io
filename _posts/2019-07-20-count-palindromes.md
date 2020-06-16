@@ -1,6 +1,6 @@
 ---
 title: Fast and online palindrome counting
-author: Aseem Raj Baranwal
+author: Aseem
 date: 2019-07-20
 ---
 

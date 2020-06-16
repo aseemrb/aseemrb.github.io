@@ -1,6 +1,6 @@
 ---
 title: Weird but awesome Javascript
-author: Aseem Raj Baranwal
+author: Aseem
 date: 2016-05-26
 ---
 

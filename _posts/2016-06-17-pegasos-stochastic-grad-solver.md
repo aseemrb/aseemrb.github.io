@@ -1,6 +1,6 @@
 ---
 title: Implementing PEGASOS
-author: Aseem Raj Baranwal
+author: Aseem
 date: 2016-06-17
 ---
 

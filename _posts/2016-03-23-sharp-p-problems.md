@@ -1,6 +1,6 @@
 ---
 title: The complexity class of &#35;P problems
-author: Aseem Raj Baranwal
+author: Aseem
 date: 2016-03-23
 ---
 

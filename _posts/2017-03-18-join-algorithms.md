@@ -1,6 +1,6 @@
 ---
 title: Common join algorithms
-author: Aseem Raj Baranwal
+author: Aseem
 date: 2017-03-18
 ---
 
