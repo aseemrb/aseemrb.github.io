@@ -58,6 +58,11 @@ body {
   font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif;
 }
 
+span.light-side-date {
+  color: #777;
+  font-size: 1rem;
+}
+
 ul.updates-list>li>a:hover {
   text-decoration: none !important;
   border-bottom: 1px dashed;

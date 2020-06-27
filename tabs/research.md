@@ -9,7 +9,7 @@ breadcrumb:
 
 Currently I'm studying about probability density estimation problems and community detection in graph models. Previously, I've worked on combinatorics on words, algorithmic number theory and automatic theorem proving.
 
-My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 (via <a href="https://cs.uwaterloo.ca/~shallit/">Jeffrey Shallit</a>).
+My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2. You can calculate yours <a href="https://mathscinet.ams.org/mathscinet/collaborationDistance.html">here</a>.
 
 ## <a href="https://scholar.google.com/citations?user=DPt626YAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i></a> Publications
 
@@ -25,7 +25,7 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
   <li class="list-group-item">
     <span><a href="https://doi.org/10.1007/978-3-030-28796-2_7">Repetitions in infinite palindrome-rich words</a></span>
     <span class="float-right">
-      <a class="btn btn-sm btn-outline-success btn-research" href="https://doi.org/10.1007/978-3-030-28796-2_7">DOI</a>
+      <a class="btn btn-sm btn-outline-primary btn-research" href="https://doi.org/10.1007/978-3-030-28796-2_7">DOI</a>
       <a class="btn btn-sm btn-outline-primary btn-research" href="https://arxiv.org/abs/1904.10028">arXiv</a>
     </span>
     <br>
@@ -35,7 +35,7 @@ My <a href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</a> is 2 
   <li class="list-group-item">
     <span><a href="https://doi.org/10.1007/978-3-030-28796-2_6">Critical exponent of balanced words via the Pell number system</a></span>
     <span class="float-right">
-      <a class="btn btn-sm btn-outline-success btn-research" href="https://doi.org/10.1007/978-3-030-28796-2_6">DOI</a>
+      <a class="btn btn-sm btn-outline-primary btn-research" href="https://doi.org/10.1007/978-3-030-28796-2_6">DOI</a>
       <a class="btn btn-sm btn-outline-primary btn-research" href="https://arxiv.org/abs/1902.00503">arXiv</a>
     </span>
     <br>
