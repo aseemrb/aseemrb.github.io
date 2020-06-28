@@ -19,7 +19,7 @@ View all projects on <a href="https://github.com/aseemrb?tab=repositories">GitHu
       </div>
       <div class="card-body">
         <p class="card-text">
-          An automated theorem prover that implements a mechanical decision procedure to decide combinatorial properties of <a href="https://en.wikipedia.org/wiki/Automatic_sequence">automatic sequences</a>. Originally developed by Hamoon Mousavi (2013).
+          An automated theorem prover that implements a decision procedure for combinatorial properties of <a href="https://en.wikipedia.org/wiki/Automatic_sequence">automatic sequences</a>. Originally developed by Hamoon Mousavi (2013).
         </p>
       </div>
     </div>
@@ -32,7 +32,7 @@ View all projects on <a href="https://github.com/aseemrb?tab=repositories">GitHu
       </div>
       <div class="card-body">
         <p class="card-text">
-        A decentralised art marketplace where digital art can be sold as <a href="https://hackernoon.com/non-fungible-tokens-5ba83906b275">NFTs</a>. Users bid and artists accept it and sign over a copy of the art in <i>any</i> currency they like. See the <a href="https://coinlist.co/build/0x/projects/02411ccc-ce9f-404b-8c6d-614b29063db7">project</a> at <a href="https://coinlist.co/build/0x/">0x + Coinlist hackathon</a>.
+        A decentralised art marketplace where digital art can be sold as <a href="https://hackernoon.com/non-fungible-tokens-5ba83906b275">NFTs</a>. Users bid and artists accept it and sign over a copy of the art in <i>any</i> currency they like. See the <a href="https://coinlist.co/build/0x/projects/02411ccc-ce9f-404b-8c6d-614b29063db7">project page</a>.
         </p>
       </div>
     </div>
@@ -77,7 +77,7 @@ View all projects on <a href="https://github.com/aseemrb?tab=repositories">GitHu
       </div>
       <div class="card-body">
         <p class="card-text">
-          An application that notifies people about events of their interest using crowd-sourced data. Created as part of a week-long hack with folks at the <a href="https://www.media.mit.edu">MIT Media Lab</a>.
+          An app that notifies people about events of their interest using crowd-sourced data. Created as part of a week-long hack with folks at the <a href="https://www.media.mit.edu">MIT Media Lab</a>.
         </p>
       </div>
     </div>
@@ -86,11 +86,11 @@ View all projects on <a href="https://github.com/aseemrb?tab=repositories">GitHu
     <div class="card mb-3">
       <div class="card-header">
         <i class="icon-github-circled"></i>
-        <a href="https://github.com/aseemrb/collaboard">Collaboard</a>
+        <a href="https://github.com/Demfier/pmup">Pick Me Up</a>
       </div>
       <div class="card-body">
         <p class="card-text">
-        A whiteboard where multiple users can draw, share and brainstorm ideas. Written in <a href="https://nodejs.org/en/">nodejs</a> with socket programming using <a href="https://socket.io/">socket.io</a>.
+        An artificially intelligent app that detects the slightest hint of sadness in your voice and motivate you. Details about the models used and setup instructions can be found <a href="https://github.com/Demfier/pmup/blob/master/README.md">here</a>.
         </p>
       </div>
     </div>
