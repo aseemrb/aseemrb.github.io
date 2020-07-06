@@ -3,11 +3,6 @@
   icon: "fas fa-home"
   match: "/"
 -
-  name: Blog
-  icon: "fas fa-blog"
-  path: blog
-  match: "/blog/"
--
   name: "Research"
   icon: "fas fa-book"
   path: tabs
@@ -19,6 +14,13 @@
   path: tabs
   url: projects
   match: "/tabs/projects/"
+-
+  name: Blog
+  icon: "fas fa-blog"
+  path: blog
+  match: "/blog/"
+# TODO: Put everything other than research and main projects under miscellaneous:
+# travel, sketching, music, blog, etc.
 # -
 #   name: "Sketches"
 #   icon: "fas fa-pen"
