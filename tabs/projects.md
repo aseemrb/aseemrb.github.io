@@ -90,7 +90,7 @@ View all projects on <a href="https://github.com/aseemrb?tab=repositories">GitHu
       </div>
       <div class="card-body">
         <p class="card-text">
-        An artificially intelligent app that detects the slightest hint of sadness in your voice and motivate you. Details about the models used and setup instructions can be found <a href="https://github.com/Demfier/pmup/blob/master/README.md">here</a>.
+        An artificially intelligent app that detects the slightest hint of sadness in your voice and motivates you. Details about the models used and setup instructions can be found <a href="https://github.com/Demfier/pmup/blob/master/README.md">here</a>.
         </p>
       </div>
     </div>
