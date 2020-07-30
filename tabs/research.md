@@ -15,6 +15,7 @@ Currently I'm studying high-dimensional statistics. Previously, I've worked on c
   <li class="list-group-item">
     <span><a href="http://hdl.handle.net/10012/15845">Decision Algorithms for Ostrowski-Automatic Sequences</a></span>
     <span class="float-right">
+      <a class="btn btn-sm btn-outline-success btn-research" href="/pdfs/slides/Ostrowski-Decision-Algorithms.pdf">Slides</a>
       <a class="btn btn-sm btn-outline-primary btn-research" href="http://hdl.handle.net/10012/15845">UWSpace</a>
     </span>
     <br>
@@ -23,6 +24,7 @@ Currently I'm studying high-dimensional statistics. Previously, I've worked on c
   <li class="list-group-item">
     <span><a href="https://doi.org/10.1007/978-3-030-28796-2_7">Repetitions in infinite palindrome-rich words</a></span>
     <span class="float-right">
+      <a class="btn btn-sm btn-outline-success btn-research" href="/pdfs/slides/Repetitions-Rich-Words.pdf">Slides</a>
       <a class="btn btn-sm btn-outline-primary btn-research" href="https://doi.org/10.1007/978-3-030-28796-2_7">DOI</a>
       <a class="btn btn-sm btn-outline-primary btn-research" href="https://arxiv.org/abs/1904.10028">arXiv</a>
     </span>
