@@ -7,7 +7,7 @@ breadcrumb:
     url: /
 ---
 
-Currently I'm studying high-dimensional statistics. Previously, I've worked on combinatorics on words, algorithmic number theory and automatic theorem proving.
+Currently I'm studying about statistics and optimization. Previously, I've worked on combinatorics on words, algorithmic number theory and automatic theorem proving.
 
 ## <a href="https://scholar.google.com/citations?user=DPt626YAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i></a> Publications
 

@@ -46,9 +46,11 @@
 </div><!-- #nav-wrapper -->
 
 <div class="sidebar-bottom d-flex flex-wrap justify-content-around mt-4">
-  <a href="{{ site.baseurl }}/feed.xml">
-    <i class="fas fa-rss"></i>
-  </a>
+  {% if site.theme_mode == "dual" %}
+  <!-- <span class="icon-border"></span> -->
+  <span id="mode-toggle-wrapper">
+    {% include mode-toggle.html %}
+  </span>
   <span class="icon-border"></span>
   <a href="https://github.com/{{ site.username }}">
     <i class="fab fa-github-alt"></i>
@@ -59,13 +61,11 @@
   <a href="https://linkedin.com/in/{{ site.username }}">
     <i class="fab fa-linkedin"></i>
   </a>
+  <a href="javascript:window.location.href=atob('bWFpbHRvOmFzZWVtcmJAZ21haWwuY29t')">
+    <i class="fas fa-envelope"></i>
+  </a>
   <!-- <a href="https://keybase.io/{{ site.username }}">
     <i class="fab fa-keybase"></i>
   </a> -->
-  <span class="icon-border"></span>
-  {% if site.theme_mode == "dual" %}
-  <span id="mode-toggle-wrapper">
-    {% include mode-toggle.html %}
-  </span>
   {% endif %}
 </div>
