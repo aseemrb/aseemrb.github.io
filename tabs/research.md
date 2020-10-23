@@ -13,7 +13,7 @@ Currently I'm studying about statistics and optimization. Previously, I've worke
 
 <ul class="list-group">
   <li class="list-group-item">
-    <span><a href="http://hdl.handle.net/10012/15845">Ostrowski-Automatic Sequences: Theory and Applications</a></span>
+    <span><a href="">Ostrowski-Automatic Sequences: Theory and Applications</a></span>
     <span class="float-right">
       <a class="btn btn-sm btn-outline-primary btn-research" href="">DOI</a>
       <a class="btn btn-sm btn-outline-primary btn-research" href="">PDF</a>
