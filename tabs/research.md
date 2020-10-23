@@ -16,10 +16,10 @@ Currently I'm studying about statistics and optimization. Previously, I've worke
     <span><a href="http://hdl.handle.net/10012/15845">Ostrowski-Automatic Sequences: Theory and Applications</a></span>
     <span class="float-right">
       <a class="btn btn-sm btn-outline-primary btn-research" href="">DOI</a>
-      <a class="btn btn-sm btn-outline-primary btn-research" href="http://hdl.handle.net/10012/15845">PDF</a>
+      <a class="btn btn-sm btn-outline-primary btn-research" href="">PDF</a>
     </span>
     <br>
-    Master's thesis, University of Waterloo.
+    Aseem Baranwal, Luke Schaeffer, Jeffrey Shallit. To appear in the Theoretical Computer Science Journal.
   </li>
   
   <li class="list-group-item">
@@ -29,7 +29,7 @@ Currently I'm studying about statistics and optimization. Previously, I've worke
       <a class="btn btn-sm btn-outline-primary btn-research" href="http://hdl.handle.net/10012/15845">UWSpace</a>
     </span>
     <br>
-    Aseem Baranwal, Luke Schaeffer, Jeffrey Shallit. To appear in the Theoretical Computer Science Journal.
+    Master's thesis, University of Waterloo.
   </li>
   
   <li class="list-group-item">
