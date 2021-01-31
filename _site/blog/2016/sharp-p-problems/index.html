@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Aseem  Baranwal | the complexity class of &#35;P problems</title>
+<meta name="description" content="PhD student at Cheriton School of Computer Science @UWaterloo.
+">
+
+<!-- Open Graph -->
+
+
+<!-- Bootstrap & MDB -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" integrity="sha512-RO38pBRxYH3SoOprtPTD86JFOclM51/XTIdEPh5j8sj4tp8jmQIx26twG52UaLi//hQldfrh7e51WzP9wuP32Q==" crossorigin="anonymous" />
+
+<!-- Fonts & Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+<!-- Code Syntax Highlighting -->
+<link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css" />
+
+<!-- Styles -->
+<link rel="shortcut icon" href="/assets/img/favicon.ico">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<link rel="canonical" href="/blog/2016/sharp-p-problems/">
+
+<!-- JQuery -->
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+
+<!-- Theming-->
+
+    
+<!-- MathJax -->
+<script type="text/javascript">
+  window.MathJax = {
+    tex: {
+      tags: 'ams'
+    }
+  };
+</script>
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+
+  </head>
+
+  <body class="fixed-top-nav sticky-bottom-footer">
+
+    <!-- Header -->
+
+    <header>
+
+    <!-- Nav Bar -->
+    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand title font-weight-lighter" href="/">
+       <span class="font-weight-bold">Aseem</span>   Baranwal
+      </a>
+      <!-- Navbar Toggle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <!-- About -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/">
+              about
+              
+            </a>
+          </li>
+          
+          <!-- Blog -->
+          <li class="nav-item active">
+            <a class="nav-link" href="/blog/">
+              blog
+              
+            </a>
+          </li>
+          
+          <!-- Other pages -->
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="nav-item ">
+              <a class="nav-link" href="/publications/">
+                publications
+                
+              </a>
+          </li>
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</header>
+
+
+    <!-- Content -->
+
+    <div class="container mt-5" style="text-align:justify;">
+      
+
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">the complexity class of &#35;P problems</h1>
+    <p class="post-meta">March 23, 2016 • Aseem</p>
+  </header>
+
+  <article class="post-content">
+    <p>Recently, I had an assignment in one of my courses - Beyond NP-Completeness, to present the complexity class of #P (Sharp-P) problems based on <a href="https://en.wikipedia.org/wiki/Leslie_Valiant">L.G. Valiant</a>’s paper on complexity of computing the permanent of a matrix.</p>
+
+<p>This post is an attempt to explain <a href="https://www.math.washington.edu/~billey/colombia/references/valiant.permanent.1979pdf.pdf">the paper</a> as I found very limited number of resources on the internet where this topic is discussed in detail, one of the sightings being a lecture by Professor <a href="http://erikdemaine.org/">Erik Demaine</a> under MIT open courseware which can be found on <a href="https://www.youtube.com/watch?v=XROTP1RiNaA">youtube</a>.</p>
+
+<p>Before we begin, it is strongly recommended to familiarize yourself with the following:</p>
+
+<ul>
+  <li>The classes <a href="https://en.wikipedia.org/wiki/P_(complexity)">P</a>, <a href="https://en.wikipedia.org/wiki/NP_(complexity)">NP</a>, <a href="https://en.wikipedia.org/wiki/NP-hardness">NP-Hard</a>, <a href="https://en.wikipedia.org/wiki/NP-completeness">NP-Complete</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Polynomial-time_reduction">Poly-time reductions</a></li>
+  <li>The class <a href="https://en.wikipedia.org/wiki/FP_(complexity)">FP</a></li>
+  <li>The notion of an <a href="https://en.wikipedia.org/wiki/Oracle_machine">Oracle</a></li>
+</ul>
+
+<p>So let’s begin with the permanent, which is defined for an <em>n x n matrix A</em> as:</p>
+
+\[{\rm Perm}\ A = \sum_{\sigma}{\prod_{i=1}^{n}{A_{i,\sigma(i)}}}\]
+
+<p>Before proceeding, let’s understand what this means, and what we want to compute.
+\(\sigma\) is a permutation of the numbers {1, 2, 3, … n}.
+For example, for n = 5, if \(\sigma\) = {2, 5, 3, 4, 1}, then \(\sigma(1) = 2\), \(\sigma(2) = 5\), \(\sigma(3) = 3\) and so on. The summation, therefore, is over all \(\sigma\), which means we are doing the summation for all possible permutations, a total of them being \(n!\) (factorial of n). So it is evident, that when taking the product, which is inside the summation term, we must take one element from each row and each column of the matrix, and a total of n elements have to be picked, therefore exactly one element from each row and each column has to be picked.</p>
+
+<p>A closer look at the permanent tells us that if we change all the negative signs in the expression of the determinant of a matrix to positive signs, it will indeed become the Permanent. To show this with an example:
+Consider the matrix,</p>
+
+\[M =
+        \begin{pmatrix}
+        1 &amp; 2 &amp; 4 \\
+        2 &amp; 3 &amp; 1 \\
+        1 &amp; 3 &amp; 1 \\
+        \end{pmatrix}\]
+
+<p>The determinant of \(M = (3 - 3) -2(2 - 1) + 4(6 - 3)\), while the permanent is: \((3 + 3) + 2(2 + 1) + 4(6 + 3)\), which is clearly obtainable by changing all negative signs in the determinant’s expression to positive. Surprisingly, though there exist <a href="https://en.wikipedia.org/wiki/Determinant#Calculation">efficient solutions</a> to compute the determinant of a matrix, yet to compute the permanent, no algorithm that takes better than exponential time is known.</p>
+
+<p>Valiant comments on the complexity of the problem of finding the permanent of a <a href="https://en.wikipedia.org/wiki/Logical_matrix">(0-1) matrix</a>, for which he defines the class #P. To put it easily, #P problems are the counting problems associated with the decision problems in class NP. It is a class of function problems, and not decision problems (where the answer is a simple yes/no). An NP problem of the form “Does there exist a solution that satisfies X?” usually corresponds to the #P problem “How many solutions exist which satisfy X?”. Here goes the example of a #P problem:
+#SAT - Given a boolean formula \(\phi(x_1, x_2, ... x_n)\), find the number of assignments that satisfy \(\phi\). This is the counting version of the famous <a href="https://en.wikipedia.org/wiki/Boolean_satisfiability_problem">SAT</a> problem which is known to be NP-complete.</p>
+
+<h2 id="defining-p-completeness">Defining #P completeness</h2>
+
+<p>To define completeness in this class of problems, we need to bring in Oracle Turing Machines and the class FP. Oracle machines are those which have access to an <em>oracle</em> that can <em>magically</em> solve the decision problem for some language \(L \subseteq \{0, 1\}^*\). These machines with oracle access can then make queries of the form “Is \(q \in L\)?” in one computational step. We can generalize this to non-boolean functions by saying that a T.M. M has oracle access to a function \(f: \{0, 1\}^* \rightarrow \{0, 1\}^*\) if it is given access to the language \(L = \{(x, i) : f(x)_i = 1\}\).
+For every \(O \subseteq \{0, 1\}^*\), we denote \(P^O\) as the set of languages that can be decided by a polynomial-time DTM (Deterministic Turing Machine) with oracle access to O. As an example, consider the \(\overline{SAT}\) problem, which denotes the language of unsatisfiable boolean formulae. \(\overline{SAT}\) \(\in P^{SAT}\) because if we are given an oracle access to the SAT language, then we can solve an instance \(\phi\) of the \(\overline{SAT}\) problem in polynomial time, by asking “Is \(\phi \in SAT\)?” and negating the answer to that.
+Now we are ready to define #P completeness. A function \(f\) is said to be #P-complete if \(f \in \#P\) and \(\forall g \in \#P, g\) is in \(FP^f\) (Cook reduction).</p>
+
+<h2 id="back-to-the-problem">Back to the problem</h2>
+<p>Now let’s get back to the permanent. We take a special case of the permanent problem where we put a constraint that the input matrix is a (0, 1) matrix, that is, all the entries of the given matrix are either 0 or 1. Let us look at this problem of finding the permanent of a binary matrix with a different perspective. Imagine that the given matrix A is an <strong><em>adjacency matrix of a bipartite graph</em></strong>
+\(G = (X, Y, E)\) where,
+\(X = \{x_1, x_2, ... x_n\}\)
+\(Y = \{y_1, y_2, ... y_n\}\)
+\(E = \{(x_i, y_j) : A_{ij} = 1\}\)</p>
+
+<p>Now if we look at the term inside the summation, that is \(\prod{A_{i, \sigma(i)}}\) for \(i = \{1, 2, ... n\}\), we can try to imagine the value of this term as synonymous to a possible perfect matching in the bipartite graph represented by A. Why? Because we know that this term takes one element from each row and each column, so all vertices are covered in the term, and this term = 0, if any of the elements picked are 0. But in our adjacency matrix, 0 for row i and column j means that there is no edge between \(x_i\) and \(y_j\), so this term evaluates to 1 if and only if the selected elements form an edge cover (a perfect matching) for the given bipartite graph. So clearly, the whole term \({\rm Perm}\ A = \sum\prod A_{i, \sigma(i)}\) where the summation is over all \(\sigma\) represents the total number of perfect matchings in the bipartite graph represented by A. As finding the number of perfect matchings in a bipartite graph \(\in\) #P, therefore clearly, finding the permanent of a binary matrix \(\in\) #P.</p>
+
+<p>Now we shall move on to prove the <strong><em>Valiant’s theorem</em></strong> which says that finding permanent for a binary matrix is #P-complete. We already proved it is in #P, so now all remains for us is to prove that it is in #P-Hard, that is all #P problems can be reduced to this problem in the way explained earlier in this post (where completeness is defined for #P problems). For this, we look at the problem of finding the permanent as a different graph problem.</p>
+
+<p>Consider A = adjacency matrix of a weighted and directed graph with n nodes (We are talking about a general matrix now, not a binary matrix). We define two things now:</p>
+
+<ul>
+  <li><strong>Cycle Cover of a graph G</strong>: A set of cycles (subgraphs of G in which all vertices have indegree = 1 and outdegree = 1) which contains all vertices of G</li>
+  <li><strong>Weight of a cycle cover</strong>: Product of weights of edges involved in the cover</li>
+</ul>
+
+<p>Now, with a good observation, we can conclude that \({\rm Perm}(A) = \sum W_{i}\) where \(W_i\) is the weight of the \(i^{th}\) cycle cover. We sum the weights of all possible cycle covers of the graph and it turns out to be equal to the permanent of the adjacency matrix. If this is hard to visualize, feel free to work out on an example having 3 or 4 nodes to let that sink in.</p>
+
+<p>Proceeding with the proof, we will attempt to reduce an instance of the 3-SAT problem to an instance of the cycle cover problem. <strong><em>The methodology and examples are directly taken from the original paper</em></strong>. We begin with a boolean formula given to us in 3-<a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form">CNF</a> form.
+\(F = C_1 \wedge C_2 \wedge C_3 \wedge ... C_m\), a conjunction of m clauses where
+\(C_i = (y_{i1} \vee y_{i2} \vee y_{i3})\), a disjunction of 3 literals, where
+\(y_{ij} \in \{x_1, \overline{x_1}, x_2, \overline{x_2}, ... x_n, \overline{x_n}\}\), the set of variable and their negations.</p>
+
+<p>We construct graph G by superposing the following the structures:</p>
+
+<ol>
+  <li>A Track \(T_k\) for each variable \(x_k\)</li>
+  <li>An Interchange \(R_i\) for each clause \(C_i\)</li>
+  <li>For each literal \(y_{ij}\) such that \(y_{ij} = x_k\) or \(\overline{x_k}\), a Junction \(J_{ik}\) at which interchange \(R_i\) and track \(T_k\) meet.</li>
+  <li>The interchanges also have internal junctions, which are exactly same as above</li>
+</ol>
+
+<p>Example: Let’s take some formula F where:
+\(C_3 = (x_2 \vee \overline{x_5} \vee x_7)\)
+\(x_5\) occurs in \(C_2\) and \(C_5\)
+\(\overline{x_5}\) occurs in \(C_3\)</p>
+
+<p>For this example, the following are the structures:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Track \(T_5\)</strong></th>
+      <th style="text-align: center"><strong>Interchange \(R_3\)</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="/images/sharp-p-problems/t5.png" alt="Track T5" /></td>
+      <td style="text-align: center"><img src="/images/sharp-p-problems/r3.png" alt="Interchange R3" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The small shaded regions are the junctions, which are themselves a network of nodes and edges represented by the adjacency matrix,</p>
+
+\[X =
+        \begin{pmatrix}
+        0 &amp; 1 &amp; -1 &amp; -1 \\
+        1 &amp; -1 &amp; 1 &amp; 1 \\
+        0 &amp; 1 &amp; 1 &amp; 2 \\
+        0 &amp; 1 &amp; 3 &amp; 0 \\
+        \end{pmatrix}.\]
+
+<p>Why this matrix is valued exactly with these numbers will be clear as we proceed. This is a very crucial part. Let’s note some important things:</p>
+
+<ul>
+  <li>Each junction (represented by \(X\)) has external connections only via nodes 1 and 4</li>
+  <li>Taking \(X(a; b)\) as the matrix leftover after deleting rows a and columns b, we note the following properties of the matrix \(X\):
+    <ul>
+      <li>\({\rm Perm}(X) = 0\).</li>
+      <li>\({\rm Perm}(X(1; 1)) = 0\).</li>
+      <li>\({\rm Perm}(X(4; 4)) = 0\).</li>
+      <li>\({\rm Perm}(X(1,4; 1,4)) = 0\).</li>
+      <li>\({\rm Perm}(X(1; 4)) = {\rm Perm}(X(4; 1)) = 4\).</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Using these properties, we can draw very good insights. Let’s look at routes in the graph. A route is a cycle cover. If we consider all the routes which have the same set of edges outside of the junctions, then we can call a route bad if:</p>
+
+<ul>
+  <li><strong>It ignores a junction</strong><br />
+In this case, the cycle cover will have the ignored junction to be covered, so it will come separately as a product in the term. But \({\rm Perm}(X) = 0\), so it will make the whole term 0 and thus will not contribute to the cycle cover.</li>
+  <li><strong>It enters and leaves a junction at the same end</strong><br />
+This case is bad because \({\rm Perm}(X(1; 1)) = {\rm Perm}(X(4; 4)) = 0\), so if nodes 1, 2, 3 or 2, 3, 4 remain (only one of the ends is covered) then again these nodes will separately come as a cycle and make that whole term 0. Thus no contribution to the total number of cycle covers</li>
+  <li><strong>It enters at node 1 of a junction, jumps to node 4 and then leaves out</strong><br />
+This case leaves out nodes 2 and 3 of a junction, so they have to be covered in a separate cycle, but \({\rm Perm}(X(1,4; 1,4)) = 0\), so this will again make the term 0 and contribute nothing in the total number of cycle covers</li>
+</ul>
+
+<p>So the only choice we have is to enter at either node 1 or node 4 and leave at the opposite end after covering nodes 2 and 3 if we want to make that route count towards the total number of cycle covers (the value of the permanent). Now if we go by this only choice, the contribution to the cycle will be 4, as \({\rm Perm}(X(1; 4)) = {\rm Perm}(X(4; 1)) = 4\).</p>
+
+<p>In any track \(T_k\) of any good route, there are two cases as seen in the structure of the track:</p>
+
+<ul>
+  <li>All junctions on the left side are picked by the track and those on the right side are picked by interchanges</li>
+  <li>The vice-versa of the above</li>
+</ul>
+
+<p>These two cases correspond to whether \(x_k = 1\) or \(\overline{x_k} = 1\)</p>
+
+<p>Now observe the interchanges. Each interchange has 5 junctions, 3 of which are connected to a corresponding track, which consists of the variable that is present in that particular clause, and 2 are internal junctions, which are of the same structure as a normal junction. A careful observation tells us that the whole of an interchange (all the five junctions) cannot be picked up by a route, in fact, all 3 of the external junctions can never be picked up in a route by the interchange, so at least one of the 3 junctions connected to tracks must be picked up by a track, this constraint being synonymous to the fact that we need at least one literal in the clause to be true, to make the whole clause true.</p>
+
+<p>Now the total number of good routes (cycle covers) exactly corresponds to the total number of satisfying variable assignments for the boolean formula \(F\) of the SAT instance we had taken. Since #SAT is known to be #P-complete, the Permanent problem is now proved to be #P-Hard.</p>
+
+<p>Let’s get on to finding the permanent of a 0-1 matrix now. It is a great thing to note that though the problem of finding a perfect matching in a bipartite graph \(\in\) P, yet counting the total number of perfect matchings \(\in\) #P-complete. This is one of those examples where it becomes clear that easy decision problems can have very hard counting versions of themselves. Rest of the post is about proving that 0-1 permanent is #P-complete.</p>
+
+<p>To prove this, we will reduce the permanent problem to the 0-1 permanent problem. First, we need to make the weights of all the edges non-negative. Doing this is easy with modular arithmetic. We can compute \(permanent\ mod\ r\) for all \(r = \{2, 3, 5, 7, ... p\}\) where \(p \leq M^n n!\), as we do not need to consider primes greater than the largest value the expression of the permanent can take. Here \(M\) is the maximum value in the matrix, so a total of \(n!\) permutations of the entries with each of them being equal to the maximum value. That’s the maximum we will ever have.</p>
+
+<p>Since the number of primes \(\leq M^n n!\) is \(\leq \log_2(M^n n!) \approx n \log_2M + n \log_2n\), the complexity is polynomial in terms of input size for this reduction. We can reconstruct the permanent using <a href="https://en.wikipedia.org/wiki/Chinese_remainder_theorem">CRT</a>.</p>
+
+<p>So now we have a matrix where all the entries are non-negative. We have to reduce this to a form where all entries are either 0 or 1, to prove that the permanent problem is reducible to the 0-1 permanent problem. We can do so in two ways, by transforming the original graph to an equivalent graph.</p>
+
+<ul>
+  <li>As mentioned in the original paper, Fig. 2 by forming self-loops proportional to the weight of the edge.</li>
+  <li>First, convert all the edges to widgets such that all the edges in the resultant graph have weights which are powers of 2. Then all edges that are powers of 2 can be easily transformed to widgets where we only have 0-1 edges. All the while proving that the initial and final graphs are equivalent.</li>
+</ul>
+
+<p>The first method is mentioned in the paper, so I will be explaining the second perspective here. Images are taken from Wikipedia. First, we transform the graph \(G\) into one where all edge weights are powers of 2, the graph \(G^{'}\). To do this, we take an edge with weight \(w\) and split it into a widget as shown in the image below. We use the fact that any number can be expressed as a sum of powers of 2.</p>
+
+<p><img src="/images/sharp-p-problems/p2.png" alt="powers of 2" /></p>
+
+<p>To prove the correspondence, take two cases for a cycle cover C of the graph \(G\):</p>
+
+<ul>
+  <li>If edge u-v was not in C, then to cover all the edges in the transformed graph, we must use all the self-loops, so the total contribution = 1 in the product, and hence we have no change in the output. This is as good as not considering the edge u-v in the original graph</li>
+  <li>If edge u-v was present in C, then in all the corresponding cycle covers in \(G^{'}\), there must be a path from u to v. We can see that there are total \(r\) such paths and they sum up to \(w\)</li>
+</ul>
+
+<p>Hence graphs \(G\) and \(G^{'}\) are equivalent in terms of the permanent problem. Now we are left with a transformation such that all edges become binary, with weights 0 or 1. This is easy in the following way (Refer to the image below).</p>
+
+<p><img src="/images/sharp-p-problems/2p.png" alt="to binary" /></p>
+
+<p>This is the transformation from \(G^{'}\) to \(G^{''}\). Again we have two cases to show the similarity. Let C be a cycle cover in \(G^{'}\), then:</p>
+
+<ul>
+  <li>If edge u-v was not a part of C, the only way to form a cycle cover (taking all vertices) is to take all the self-loops</li>
+  <li>If edge u-v was present in C, then in any cycle cover of \(G^{''}\) there must be a path from u to v. At each step from u to v, we have 2 choices, and such a choice has to be taken \(r\) times, so we have a total of \(2^r\) different possible paths from u to v, so it will contribute \(2^r\) overall, same as the weight of the u-v edge in \(G^{'}\)</li>
+</ul>
+
+<p>Thus the problem of finding the permanent of a 0-1 matrix, and equivalently the problem of finding the number of perfect matchings in a bipartite graph \(\in\) #P-complete.</p>
+
+<p>I have talked about more #P-complete problems and their proofs in <a href="/blog/2016/sharp-p-complete-problems/">this post</a>.</p>
+
+  </article>
+
+  
+
+</div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <!-- 
+<footer class="sticky-bottom mt-5">
+  <div class="container">
+    &copy; Copyright 2021 Aseem  Baranwal.
+    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+
+    
+    
+  </div>
+</footer>
+
+ -->
+
+  </body>
+
+  <!-- Bootsrap & MDB scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
+
+  
+<!-- Mansory & imagesLoaded -->
+<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
+
+
+  
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+
+</html>

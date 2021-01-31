@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Aseem  Baranwal | some more &#35;P complete problems</title>
+<meta name="description" content="PhD student at Cheriton School of Computer Science @UWaterloo.
+">
+
+<!-- Open Graph -->
+
+
+<!-- Bootstrap & MDB -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" integrity="sha512-RO38pBRxYH3SoOprtPTD86JFOclM51/XTIdEPh5j8sj4tp8jmQIx26twG52UaLi//hQldfrh7e51WzP9wuP32Q==" crossorigin="anonymous" />
+
+<!-- Fonts & Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+<!-- Code Syntax Highlighting -->
+<link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css" />
+
+<!-- Styles -->
+<link rel="shortcut icon" href="/assets/img/favicon.ico">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<link rel="canonical" href="/blog/2016/sharp-p-complete-problems/">
+
+<!-- JQuery -->
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+
+<!-- Theming-->
+
+    
+<!-- MathJax -->
+<script type="text/javascript">
+  window.MathJax = {
+    tex: {
+      tags: 'ams'
+    }
+  };
+</script>
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+
+  </head>
+
+  <body class="fixed-top-nav sticky-bottom-footer">
+
+    <!-- Header -->
+
+    <header>
+
+    <!-- Nav Bar -->
+    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand title font-weight-lighter" href="/">
+       <span class="font-weight-bold">Aseem</span>   Baranwal
+      </a>
+      <!-- Navbar Toggle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <!-- About -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/">
+              about
+              
+            </a>
+          </li>
+          
+          <!-- Blog -->
+          <li class="nav-item active">
+            <a class="nav-link" href="/blog/">
+              blog
+              
+            </a>
+          </li>
+          
+          <!-- Other pages -->
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="nav-item ">
+              <a class="nav-link" href="/publications/">
+                publications
+                
+              </a>
+          </li>
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</header>
+
+
+    <!-- Content -->
+
+    <div class="container mt-5" style="text-align:justify;">
+      
+
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">some more &#35;P complete problems</h1>
+    <p class="post-meta">March 25, 2016 • Aseem</p>
+  </header>
+
+  <article class="post-content">
+    <p>I will be discussing two #P-Complete problems in this post: #SAT (Finding the number of satisfying assignments for a boolean formula) and finding the number of 3-colorings in a graph.</p>
+
+<p>Both SAT and 3-coloring are NP Complete problems, so understanding why their counting versions are #P-Complete is very easy compared to the counting version of a more easy problem like finding a perfect matching in a bipartite graph, which is synonymous to the 01-permanent problem as discussed in my <a href="/blog/2016/sharp-p-problems/">previous post</a>.</p>
+
+<p>Proving any problem to be #P-Complete requires two things</p>
+
+<ul>
+  <li>Proving that the problem is in #P</li>
+  <li>Proving that all #P problems are reducible to this problem
+(that is, the problem is #P-Hard)</li>
+</ul>
+
+<h2 id="sat">#SAT</h2>
+<p>#SAT is in #P by the definition of the problem. Since there exists a language in NP (the language being SAT) with a non-deterministic Turing Machine whose number of accepting paths is the number of satisfying assignments (this is one of the definitions of the class #P). To prove the completeness, we consider the Cook-Levin reduction from any language L in NP to SAT (the <a href="https://en.wikipedia.org/wiki/Cook%E2%80%93Levin_theorem">Cook-Levin theorem</a>). This reduction is a polynomial time computable function \(f: \{0, 1\}^* \rightarrow \{0, 1\}^*\) such that \(\forall x \in \{0, 1\}^*\), \(x \in L \leftrightarrow f(x) \in SAT\).</p>
+
+<p>This proof has some more information that we can use. If the boolean formula in consideration is \(\phi(x)\), each satisfying truth assignment for the \(\phi\) corresponds to an accepting computation path for the Turing Machine running on the input. So we have an efficient way to transform a certificate for input \(x\) to a satisfying assignment for \(\phi(x)\) and vice-versa.</p>
+
+<p>What this means in simple terms is that the mapping from the certificates of \(x\) to the assignments of \(\phi(x)\) is invertible and hence one to one.
+Conclusion: #satisfying assignments for \(\phi(x)\) = #certificates for \(x\). Hence the Cook-Levin reduction preserves the number of solutions. Thus #SAT is a #P-Complete problem.</p>
+
+<h2 id="number-of-3-colorings-in-a-graph">Number of 3-colorings in a graph</h2>
+<p>The corresponding decision problem for this is:
+<strong><em>Given a graph G, find whether there exists a 3-coloring for G. A 3-coloring is a mapping of each node of the graph to any of three available colors, such that no two nodes which are adjacent have the same color.</em></strong></p>
+
+<p>The 3-coloring problem is NP-Complete, which we will prove shortly, and so the counting version is again very easy to be proved #P-Complete as in the case of #SAT. To prove 3-coloring to be NP-Complete, we first show that it \(\in\) NP, and then reduce 3-SAT (a well-known NP Complete problem) to 3-coloring, thus completing the proof.</p>
+
+<p>Given a coloring scheme of 3 colors and the graph as an input instance to the problem, we can easily verify in polynomial time whether the coloring scheme is valid, by iterating over all the edges and checking that all the pairs of adjacent nodes have different colors. Thus the 3-coloring problem is in NP.</p>
+
+<p>Now we reduce 3-SAT to 3-coloring and thus prove it to be NP-Hard. To do this, let’s consider a 3-SAT instance having the boolean formula \(\phi(x)\) with <strong><em>n variables</em></strong> and <strong><em>m clauses</em></strong>. The variables are \(x_1, x_2, ... x_n\)</p>
+
+<p>From \(\phi\), we construct the graph G having:</p>
+
+<ul>
+  <li>Vertex \(v_i\) for each \(x_i\)</li>
+  <li>Vertex \(\overline{v_i}\) for each \(\overline{x_i}\)</li>
+  <li>Vertices \(u_{j1}, u_{j2}, ... u_{j5}\) for each clause</li>
+  <li>3 special vertices T, F, B</li>
+</ul>
+
+<p>We will force T, F and B to be of different colors by forming a triangle among them. Actually in the correspondence, we take node T’s color to denote a truth assignment and node F’s color to denote a false assignment. Also note that \(\forall i\), we want exactly one of \(v_i\) and \(\overline{v_i}\) to be colored as T’s color and the other one to be colored as F’s color. To do this, we form the edges as depicted in the image below.</p>
+
+<p><img src="/images/sharp-p-complete-problems/assignments.png" alt="coloring" /></p>
+
+<p>This ensures that every pair of \(v_i\) and \(\overline{v_i}\) is assigned the colors of T and F, both not being same. We have to take care of one more thing. For every clause, one of the literals must be true for the boolean formula to be true. So for each clause, we build a structure similar to the one given below. The example clause for the below image is \(C_i = (a \vee b \vee c)\).</p>
+
+<p><img src="/images/sharp-p-complete-problems/clause.png" alt="coloring" /></p>
+
+<p>It is clear that all of a, b, and c cannot be false together, at least one of them has to be true for a possible 3-coloring to exist here.</p>
+
+<p>This construction takes polynomial time. So 3-coloring is NP-Complete which completes our proof.</p>
+
+<p>This problem can be reduced to k-coloring, by putting k = 3. So we also know now that k-coloring is NP-Complete, and finding the number of k-colorings in a graph is #P-Complete.</p>
+
+  </article>
+
+  
+
+</div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <!-- 
+<footer class="sticky-bottom mt-5">
+  <div class="container">
+    &copy; Copyright 2021 Aseem  Baranwal.
+    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+
+    
+    
+  </div>
+</footer>
+
+ -->
+
+  </body>
+
+  <!-- Bootsrap & MDB scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
+
+  
+<!-- Mansory & imagesLoaded -->
+<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
+
+
+  
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+
+</html>
