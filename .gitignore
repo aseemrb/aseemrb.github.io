@@ -4,6 +4,9 @@
 # python compiled files
 *.pyc
 
+# Jekyll debug
+_site
+
 # Jeykll Gemfile.lock
 Gemfile.lock
 
