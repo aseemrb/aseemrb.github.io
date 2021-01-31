@@ -1,5 +1,5 @@
 ---
-title: Common join algorithms
+title: common join algorithms
 author: Aseem
 date: 2017-03-18
 ---

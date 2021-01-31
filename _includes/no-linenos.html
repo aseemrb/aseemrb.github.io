@@ -1,8 +1,0 @@
-{% comment %}
-  Remove line numbers from code snippets.
-{% endcomment %}
-
-{% if _content contains '<td class="rouge-gutter gl"><pre class="lineno">' %}
-  {% assign _content = _content | replace: '<td class="rouge-gutter gl"><pre class="lineno">', '<!-- <td class="rouge-gutter gl"><pre class="lineno">'%}
-  {% assign _content = _content | replace: '</td><td class="rouge-code">', '</td> --><td class="rouge-code">' %}
-{% endif %}

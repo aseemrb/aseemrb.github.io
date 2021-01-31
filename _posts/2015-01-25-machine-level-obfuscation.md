@@ -1,5 +1,5 @@
 ---
-title: Machine level obfuscation
+title: machine level obfuscation
 author: Aseem
 date: 2015-01-25
 ---

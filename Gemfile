@@ -1,15 +1,12 @@
-source "https://rubygems.org"
-
-gem "jekyll", ">=3.8.6"
-gem 'tzinfo-data'
-
-# Official Plugins
+source 'https://rubygems.org'
 group :jekyll_plugins do
-  gem "jekyll-paginate"
-  gem "jekyll-redirect-from"
-  gem "jekyll-seo-tag", "~> 2.6.1"
-end
-
-group :test do
-  # gem "html-proofer"
+    gem 'github-pages'
+    gem 'jekyll'
+    gem 'jekyll-email-protect'
+    gem 'jekyll-github-metadata'
+    gem 'jekyll-paginate-v2'
+    gem 'jekyll-scholar'
+    gem 'jekyll-twitter-plugin'
+    gem 'jemoji'
+    gem 'unicode_utils'
 end

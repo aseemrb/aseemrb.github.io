@@ -1,5 +1,5 @@
 ---
-title: St. Petersburg paradox and intuition
+title: st. Petersburg paradox and intuition
 author: Aseem
 date: 2017-08-26
 ---

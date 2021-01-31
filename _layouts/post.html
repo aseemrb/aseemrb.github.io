@@ -1,139 +1,37 @@
 ---
 layout: default
-# The posts' layout
 ---
 
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  function stripcdata(x) {
-    if (x.startsWith('% <![CDATA[') && x.endsWith('%]]>'))
-      return x.substring(11,x.length-4);
-    return x;
-  }
-  document.querySelectorAll("script[type='math/tex']").forEach(function(el){
-    el.outerHTML = "\\(" + stripcdata(el.textContent) + "\\)";
-  });
-  document.querySelectorAll("script[type='math/tex; mode=display']").forEach(function(el){
-    el.outerHTML = "\\[" + stripcdata(el.textContent) + "\\]";
-  });
-}, false);
-window.MathJax = {
-  options: {
-    renderActions: {
-      findScript: [9, function (doc) {
-        for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
-          const display = !!node.type.match(/; *mode=display/);
-          const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-          const text = document.createTextNode('');
-          node.parentNode.replaceChild(text, node);
-          math.start = {node: text, delim: '', n: 0};
-          math.end = {node: text, delim: '', n: 0};
-          doc.math.push(math);
-        }
-        doc.findMath();
-      }, '']
-    }
-  }
-};
-</script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-<div class="row" style="margin-top:2%;">
-  <div id="post-wrapper" class="col-12 col-lg-11 col-xl-8">
+{% if page._styles %}
+<style type="text/css">
+  {{ page._styles }}
+</style>
+{% endif %}
 
-    <div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+<div class="post">
 
-      <h1 data-toc-skip>{{ page.title }}</h1>
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+  </header>
 
-      <div class="post-meta text-muted d-flex flex-column">
-        <!-- Published date and author -->
-        <div>
-          Posted
-          <span class="timeago" data-toggle="tooltip" data-placement="bottom"
-           title="{{ page.date | date: site.data.date_format.tooltip }}">
-            {{ page.date | date: site.data.date_format.post }}
-            <i class="unloaded">{{ page.date | date_to_xmlschema }}</i>
-          </span>
-          by
-          <span class="author">
-          {% if page.author %}
-            {{ page.author }}
-          {% else%}
-            {{ site.author }}
-          {% endif %}
-          </span>
-        </div>
+  <article class="post-content">
+    {{ content }}
+  </article>
 
-        <!-- lastmod -->
-        {%- capture filename -%}
-          {{ page.url | split: "/" | last }}
-        {%- endcapture -%}
+  {% if site.disqus_shortname and page.comments %}
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname  = '{{ site.disqus_shortname }}';
+      var disqus_identifier = '{{ page.id }}';
+      var disqus_title      = {{ page.title | jsonify }};
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  {% endif %}
 
-        {% assign record = site.data.updates | where: "filename", filename | first %}
-
-        {% if record %}
-        <div>
-          Updated
-          <span class="timeago lastmod"
-            data-toggle="tooltip" data-placement="bottom"
-             title="{{ record.lastmod | date: site.data.date_format.tooltip }}">
-            {{ record.lastmod | date: site.data.date_format.post }}
-            <i class="unloaded">{{ record.lastmod | date_to_xmlschema}}</i>
-          </span>
-        </div>
-        {% endif %}
-
-        <!-- page views -->
-        {% if site.google_analytics.pv.enabled %}
-        <div>
-          <span id="pv" class="pageviews"><i class="fas fa-spinner fa-spin fa-fw"></i></span>
-          views
-        </div>
-        {% endif %}
-
-      </div> <!-- .post-meta -->
-
-      <div class="post-content">
-
-        {% if page.image %}
-          <img src="{{ page.image }}">
-        {% endif %}
-
-        {{ content }}
-
-      </div>
-
-      <div class="post-tail-wrapper text-muted">
-        <div class="post-tail-bottom
-          d-flex justify-content-between align-items-center pt-5 pb-2">
-          {% include post-sharing.html %}
-        </div><!-- .post-tail-bottom -->
-
-      </div><!-- div.post-tail -->
-
-    </div> <!-- .post -->
-
-  </div> <!-- #post-wrapper -->
-
-  {% include panel.html %}
-
-</div> <!-- .row -->
-
-<div class="row">
-  <div id="post-extend-wrapper" class="col-12 col-lg-11 col-xl-8">
-
-    <div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
-
-      {% include post-nav.html %}
-
-      {% if site.disqus.comments and page.comments %}
-        {% include disqus.html %}
-      {% endif %}
-
-    </div> <!-- .pl-1 pr-1 -->
-
-  </div> <!-- #post-extend-wrapper -->
-
-</div> <!-- .row -->
-
-{% include lozad.html %}
+</div>

@@ -1,5 +1,5 @@
 ---
-title: An analogy for the Doppler effect
+title: an analogy for the Doppler effect
 author: Aseem
 date: 2018-05-29
 ---
