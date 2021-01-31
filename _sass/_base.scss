@@ -367,6 +367,13 @@ footer.sticky-bottom {
             border-color: var(--global-theme-color);
           }
         }
+        a.btn-dark, a.btn-primary, a.btn-danger {
+          color: var(--global-bg-color);
+          &:hover {
+            color: var(--global-bg-color);
+            border-color: var(--global-theme-color);
+          }
+        }
       }
       .hidden {
         font-size: 0.875rem;
