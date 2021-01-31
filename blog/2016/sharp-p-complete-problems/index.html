@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>Aseem  Baranwal | blank</title>
+<title>Aseem  Baranwal | some more &#35;P complete problems</title>
 <meta name="description" content="PhD student at Cheriton School of Computer Science @UWaterloo.
 ">
 
@@ -29,7 +29,7 @@
 <link rel="shortcut icon" href="/assets/img/favicon.ico">
 <link rel="stylesheet" href="/assets/css/main.css">
 
-<link rel="canonical" href="/blog/">
+<link rel="canonical" href="/blog/2016/sharp-p-complete-problems/">
 
 <!-- JQuery -->
 <!-- jQuery -->
@@ -126,64 +126,72 @@
     <!-- Content -->
 
     <div class="container mt-5" style="text-align:justify;">
-      <div class="post">
+      
 
-  <div class="header-bar">
-    <h1>scrawl</h1>
-    <h2>a space where I think out loud</h2>
-  </div>
+<div class="post">
 
+  <header class="post-header">
+    <h1 class="post-title">some more &#35;P complete problems</h1>
+    <p class="post-meta">March 25, 2016 • Aseem</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <h3><a class="post-title" href="/blog/2019/count-palindromes/">fast and online palindrome counting</a></h3>
-        <p class="post-meta">July 20, 2019</p>
-        <p></p>
-      </li>
-    
-      <li>
-        <h3><a class="post-title" href="/blog/2018/lunch-with-knuth/">lunch with Donald Knuth</a></h3>
-        <p class="post-meta">October 31, 2018</p>
-        <p></p>
-      </li>
-    
-      <li>
-        <h3><a class="post-title" href="/blog/2018/doppler-effect/">an analogy for the Doppler effect</a></h3>
-        <p class="post-meta">May 29, 2018</p>
-        <p></p>
-      </li>
-    
-      <li>
-        <h3><a class="post-title" href="/blog/2017/st-petersburg-paradox/">st. Petersburg paradox and intuition</a></h3>
-        <p class="post-meta">August 26, 2017</p>
-        <p></p>
-      </li>
-    
-  </ul>
+  <article class="post-content">
+    <p>I will be discussing two #P-Complete problems in this post: #SAT (Finding the number of satisfying assignments for a boolean formula) and finding the number of 3-colorings in a graph.</p>
+
+<p>Both SAT and 3-coloring are NP Complete problems, so understanding why their counting versions are #P-Complete is very easy compared to the counting version of a more easy problem like finding a perfect matching in a bipartite graph, which is synonymous to the 01-permanent problem as discussed in my <a href="/blog/2016/sharp-p-problems/">previous post</a>.</p>
+
+<p>Proving any problem to be #P-Complete requires two things</p>
+
+<ul>
+  <li>Proving that the problem is in #P</li>
+  <li>Proving that all #P problems are reducible to this problem
+(that is, the problem is #P-Hard)</li>
+</ul>
+
+<h2 id="sat">#SAT</h2>
+<p>#SAT is in #P by the definition of the problem. Since there exists a language in NP (the language being SAT) with a non-deterministic Turing Machine whose number of accepting paths is the number of satisfying assignments (this is one of the definitions of the class #P). To prove the completeness, we consider the Cook-Levin reduction from any language L in NP to SAT (the <a href="https://en.wikipedia.org/wiki/Cook%E2%80%93Levin_theorem">Cook-Levin theorem</a>). This reduction is a polynomial time computable function \(f: \{0, 1\}^* \rightarrow \{0, 1\}^*\) such that \(\forall x \in \{0, 1\}^*\), \(x \in L \leftrightarrow f(x) \in SAT\).</p>
+
+<p>This proof has some more information that we can use. If the boolean formula in consideration is \(\phi(x)\), each satisfying truth assignment for the \(\phi\) corresponds to an accepting computation path for the Turing Machine running on the input. So we have an efficient way to transform a certificate for input \(x\) to a satisfying assignment for \(\phi(x)\) and vice-versa.</p>
+
+<p>What this means in simple terms is that the mapping from the certificates of \(x\) to the assignments of \(\phi(x)\) is invertible and hence one to one.
+Conclusion: #satisfying assignments for \(\phi(x)\) = #certificates for \(x\). Hence the Cook-Levin reduction preserves the number of solutions. Thus #SAT is a #P-Complete problem.</p>
+
+<h2 id="number-of-3-colorings-in-a-graph">Number of 3-colorings in a graph</h2>
+<p>The corresponding decision problem for this is:
+<strong><em>Given a graph G, find whether there exists a 3-coloring for G. A 3-coloring is a mapping of each node of the graph to any of three available colors, such that no two nodes which are adjacent have the same color.</em></strong></p>
+
+<p>The 3-coloring problem is NP-Complete, which we will prove shortly, and so the counting version is again very easy to be proved #P-Complete as in the case of #SAT. To prove 3-coloring to be NP-Complete, we first show that it \(\in\) NP, and then reduce 3-SAT (a well-known NP Complete problem) to 3-coloring, thus completing the proof.</p>
+
+<p>Given a coloring scheme of 3 colors and the graph as an input instance to the problem, we can easily verify in polynomial time whether the coloring scheme is valid, by iterating over all the edges and checking that all the pairs of adjacent nodes have different colors. Thus the 3-coloring problem is in NP.</p>
+
+<p>Now we reduce 3-SAT to 3-coloring and thus prove it to be NP-Hard. To do this, let’s consider a 3-SAT instance having the boolean formula \(\phi(x)\) with <strong><em>n variables</em></strong> and <strong><em>m clauses</em></strong>. The variables are \(x_1, x_2, ... x_n\)</p>
+
+<p>From \(\phi\), we construct the graph G having:</p>
+
+<ul>
+  <li>Vertex \(v_i\) for each \(x_i\)</li>
+  <li>Vertex \(\overline{v_i}\) for each \(\overline{x_i}\)</li>
+  <li>Vertices \(u_{j1}, u_{j2}, ... u_{j5}\) for each clause</li>
+  <li>3 special vertices T, F, B</li>
+</ul>
+
+<p>We will force T, F and B to be of different colors by forming a triangle among them. Actually in the correspondence, we take node T’s color to denote a truth assignment and node F’s color to denote a false assignment. Also note that \(\forall i\), we want exactly one of \(v_i\) and \(\overline{v_i}\) to be colored as T’s color and the other one to be colored as F’s color. To do this, we form the edges as depicted in the image below.</p>
+
+<p><img src="/images/sharp-p-complete-problems/assignments.png" alt="coloring" /></p>
+
+<p>This ensures that every pair of \(v_i\) and \(\overline{v_i}\) is assigned the colors of T and F, both not being same. We have to take care of one more thing. For every clause, one of the literals must be true for the boolean formula to be true. So for each clause, we build a structure similar to the one given below. The example clause for the below image is \(C_i = (a \vee b \vee c)\).</p>
+
+<p><img src="/images/sharp-p-complete-problems/clause.png" alt="coloring" /></p>
+
+<p>It is clear that all of a, b, and c cannot be false together, at least one of them has to be true for a possible 3-coloring to exist here.</p>
+
+<p>This construction takes polynomial time. So 3-coloring is NP-Complete which completes our proof.</p>
+
+<p>This problem can be reduced to k-coloring, by putting k = 3. So we also know now that k-coloring is NP-Complete, and finding the number of k-colorings in a graph is #P-Complete.</p>
+
+  </article>
 
   
-<nav aria-label="Blog page naviation">
-  <ul class="pagination pagination-lg justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="" tabindex="-1" aria-disabled="">Newer</a>
-    </li>
-    
-      
-        <li class="page-item active"><a class="page-link" href="/blog/index.html" title="blank">1</a></li>
-      
-        <li class="page-item "><a class="page-link" href="/blog/page/2/index.html" title="blank - page 2">2</a></li>
-      
-        <li class="page-item "><a class="page-link" href="/blog/page/3/index.html" title="blank - page 3">3</a></li>
-      
-    
-    <li class="page-item ">
-      <a class="page-link" href="/blog/page/2/">Older</a>
-    </li>
-  </ul>
-</nav>
-
-
 
 </div>
 

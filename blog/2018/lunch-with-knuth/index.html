@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>Aseem  Baranwal | blank</title>
+<title>Aseem  Baranwal | lunch with Donald Knuth</title>
 <meta name="description" content="PhD student at Cheriton School of Computer Science @UWaterloo.
 ">
 
@@ -29,7 +29,7 @@
 <link rel="shortcut icon" href="/assets/img/favicon.ico">
 <link rel="stylesheet" href="/assets/css/main.css">
 
-<link rel="canonical" href="/blog/">
+<link rel="canonical" href="/blog/2018/lunch-with-knuth/">
 
 <!-- JQuery -->
 <!-- jQuery -->
@@ -126,64 +126,72 @@
     <!-- Content -->
 
     <div class="container mt-5" style="text-align:justify;">
-      <div class="post">
+      
 
-  <div class="header-bar">
-    <h1>scrawl</h1>
-    <h2>a space where I think out loud</h2>
-  </div>
+<div class="post">
 
+  <header class="post-header">
+    <h1 class="post-title">lunch with Donald Knuth</h1>
+    <p class="post-meta">October 31, 2018 • Aseem</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <h3><a class="post-title" href="/blog/2019/count-palindromes/">fast and online palindrome counting</a></h3>
-        <p class="post-meta">July 20, 2019</p>
-        <p></p>
-      </li>
-    
-      <li>
-        <h3><a class="post-title" href="/blog/2018/lunch-with-knuth/">lunch with Donald Knuth</a></h3>
-        <p class="post-meta">October 31, 2018</p>
-        <p></p>
-      </li>
-    
-      <li>
-        <h3><a class="post-title" href="/blog/2018/doppler-effect/">an analogy for the Doppler effect</a></h3>
-        <p class="post-meta">May 29, 2018</p>
-        <p></p>
-      </li>
-    
-      <li>
-        <h3><a class="post-title" href="/blog/2017/st-petersburg-paradox/">st. Petersburg paradox and intuition</a></h3>
-        <p class="post-meta">August 26, 2017</p>
-        <p></p>
-      </li>
-    
-  </ul>
+  <article class="post-content">
+    <p>On Halloween, <a href="https://www-cs-faculty.stanford.edu/~knuth/">Donald E. Knuth</a> (<a href="https://en.wikipedia.org/wiki/Donald_Knuth">wiki</a>)
+visited the University of Waterloo for a
+<a href="https://uwaterloo.ca/computer-science/events/dls-donald-knuth-all-questions-answered">distinguished lecture</a>,
+and thanks to my advisor <a href="https://cs.uwaterloo.ca/~shallit/">Prof. Jeff Shallit</a>, who arranged a lunch with him
+for a smaller group of people, which is how I could meet him in person. My first thought when he appeared was
+<em>‘he is quite taller than he looks in the photos’</em>.</p>
+
+<p>Whenever Knuth gives a talk, almost all of it is interactive and Q/A based. He takes <em>all kinds of</em> questions
+(except politics and religion) from the audience. I could only appreciate all the wisdom his answers had. Almost every opinion
+was accompanied by an anecdote from his own life experience. Here’s a set of things that were
+brought up during the lunch and the talk (unfortunately, I forgot most of the conversations).<br />
+<em>The public talk is now available <a href="https://youtu.be/XWR5Y3Wf8Fo">on youtube</a>.</em></p>
+
+<h2 id="on-p-vs-np">On P vs NP</h2>
+<p>Knuth believes that <a href="https://en.wikipedia.org/wiki/P_versus_NP_problem">P = NP</a>. This obviously needs an explanation, and I will
+try to present the reason based on my understanding of his argument. First let’s be clear on
+<strong>what it means when we say <em>P = NP</em></strong>. It means that there exists an integer \(k\) and an algorithm \(A\) which
+solves every problem in the class <em>NP</em> of size \(m\) bits in \(m^k\) elementary steps. Now Knuth has two points:</p>
+
+<ul>
+  <li>Imagine a number \(k\) which is finite but excessively humongous (to have a sense of humongous numbers, one might look at
+<a href="https://en.wikipedia.org/wiki/Ackermann_function">Ackermann Function</a> or even
+<a href="https://en.wikipedia.org/wiki/Graham%27s_number">Graham’s Number</a>). But irrespective of how big a finite number is, it is
+always 0% as big as infinity. Now there exist an incredibly huge number of algorithms that do \(m^k\) elementary operations
+on the \(m\) bits and it is extremely hard to believe that none of those algorithms can do what we want.</li>
+  <li>The resolution of the <em>P vs NP</em> problem will not be a helpful result because the proof almost certainly will be
+<a href="https://en.wikipedia.org/wiki/Constructive_proof#Non-constructive_proofs"><strong>non-constructive</strong></a>. Mathematics has a lot
+of examples where we have proof for the existence of something, but that proof does not help us <em>find</em> the actual thing
+<em>(I’m thinking cryptography here)</em>. So proving the existence of \(A\) is different from actually finding \(A\).</li>
+</ul>
+
+<h2 id="honeymoon-advice">Honeymoon advice</h2>
+<p>On his honeymoon in 1961, Knuth was reading <a href="https://en.wikipedia.org/wiki/Noam_Chomsky">Noam Chomsky</a>’s book
+<strong><em>Syntactic Structures</em></strong>, and he thinks that was a bad idea (reading it <em>on the honeymoon</em>, not reading it altogether).
+Although, it was while reading this book that he discovered an <strong>intersection between <em>Mathematics</em> and <em>Computer Programming</em></strong>
+(compiler design).</p>
+
+<h2 id="boredom-of-the-young-generation">Boredom of the young generation</h2>
+<p>Knuth is appalled by statements from people of the younger generation that go along the lines of:<br />
+<strong>“X is quite boring, which is why I study / work on Y instead.”</strong><br />
+He says that it’s not the job of the world to entertain you. Boredom is inside you, not in the material
+that you work with. It is true that some people find certain things more interesting than others, and hence are more
+curious about it. The right thing to say would be that you are more curious about <em>Y</em> than <em>X</em>.</p>
+
+<h2 id="on-recent-areas-of-interest">On recent areas of interest</h2>
+<p>As Knuth says, he was a mathematician who got curious about Computer Science, but now his interests are again
+inclined toward pure Mathematics. The problem space concerned with <a href="https://en.wikipedia.org/wiki/Family_of_sets">families of sets</a>
+seems very interesting to him currently because we haven’t still found a lot of ways to represent and work with them in a way
+that might help us analyze the numerous applications covered by this construct. I am not sure, but perhaps he started
+thinking in this direction when the data structure <a href="https://en.wikipedia.org/wiki/Zero-suppressed_decision_diagram#Representing_a_family_of_sets">Zero-suppressed decision diagram (ZDD)</a>
+(given by <strong><em>Shin-ichi Minato</em></strong>) came to light, which in Knuth’s words is
+<strong>“the best way that I know of to represent families of sets”</strong>.</p>
+
+  </article>
 
   
-<nav aria-label="Blog page naviation">
-  <ul class="pagination pagination-lg justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="" tabindex="-1" aria-disabled="">Newer</a>
-    </li>
-    
-      
-        <li class="page-item active"><a class="page-link" href="/blog/index.html" title="blank">1</a></li>
-      
-        <li class="page-item "><a class="page-link" href="/blog/page/2/index.html" title="blank - page 2">2</a></li>
-      
-        <li class="page-item "><a class="page-link" href="/blog/page/3/index.html" title="blank - page 3">3</a></li>
-      
-    
-    <li class="page-item ">
-      <a class="page-link" href="/blog/page/2/">Older</a>
-    </li>
-  </ul>
-</nav>
-
-
 
 </div>
 
