@@ -13,71 +13,73 @@
   </div>
 
   <div id="{{entry.key}}" class="col-sm-8">
-    {% if entry.type == "thesis" %}
-      {{reference}}
-    {% else %}
-      <div class="title">{{entry.title}}</div>
-      <div class="author">
-        {% for author in entry.author_array %}
-          {% assign author_is_self = false %}
-          {% if author.last == site.scholar.last_name%}
-            {% if site.scholar.first_name contains author.first%}
-              {% assign author_is_self = true %}
+    <div class="title">
+      {{entry.title}}
+      {% if entry.type == "thesis" %}
+      <br>
+      <div style="font-size:small;color:rgba(0,0,0,0.5);">Master's thesis, {{entry.school}}</div>
+      {% endif %}
+    </div>
+    <div class="author">
+      {% for author in entry.author_array %}
+        {% assign author_is_self = false %}
+        {% if author.last == site.scholar.last_name%}
+          {% if site.scholar.first_name contains author.first%}
+            {% assign author_is_self = true %}
+          {% endif %}
+        {% endif %}
+        {% assign coauthor_url = nil %}
+        {% if site.data.coauthors[author.last] %}
+          {% for coauthor in site.data.coauthors[author.last] %}
+            {% if coauthor.firstname contains author.first %}
+              {% assign coauthor_url = coauthor.url %}
+              {% break %}
             {% endif %}
+          {% endfor %}
+        {% endif %}
+        
+        {% if forloop.length == 1 %}
+          {% if author_is_self %}
+            {{author.last}}, {{author.first}}
+          {% else %}
+            {{author.last}}, {{author.first}}
           {% endif %}
-          {% assign coauthor_url = nil %}
-          {% if site.data.coauthors[author.last] %}
-            {% for coauthor in site.data.coauthors[author.last] %}
-              {% if coauthor.firstname contains author.first %}
-                {% assign coauthor_url = coauthor.url %}
-                {% break %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-          
-          {% if forloop.length == 1 %}
+        {% else %}
+          {% unless forloop.last %}
             {% if author_is_self %}
-              {{author.last}}, {{author.first}}
+              {{author.last}}, {{author.first}},
             {% else %}
-              {{author.last}}, {{author.first}}
+              {% if coauthor_url %}
+                <a href="{{coauthor_url}}" target="_blank">{{author.last}}, {{author.first}}</a>,
+              {% else %}
+                {{author.last}}, {{author.first}},
+              {% endif %}
             {% endif %}
           {% else %}
-            {% unless forloop.last %}
-              {% if author_is_self %}
-                {{author.last}}, {{author.first}},
-              {% else %}
-                {% if coauthor_url %}
-                  <a href="{{coauthor_url}}" target="_blank">{{author.last}}, {{author.first}}</a>,
-                {% else %}
-                  {{author.last}}, {{author.first}},
-                {% endif %}
-              {% endif %}
+            {% if author_is_self %}
+              and {{author.last}}, {{author.first}}
             {% else %}
-              {% if author_is_self %}
-                and {{author.last}}, {{author.first}}
+              {% if coauthor_url %}
+                and <a href="{{coauthor_url}}" target="_blank">{{author.last}}, {{author.first}}</a>
               {% else %}
-                {% if coauthor_url %}
-                  and <a href="{{coauthor_url}}" target="_blank">{{author.last}}, {{author.first}}</a>
-                {% else %}
-                  and {{author.last}}, {{author.first}}
-                {% endif %}
+                and {{author.last}}, {{author.first}}
               {% endif %}
-            {% endunless %}
-          {% endif %}
-        {% endfor %}
-      </div>
+            {% endif %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    </div>
 
-      <div class="periodical">
-      {% if entry.type == "article" %}
-        <em>{{entry.journal}}</em>
-      {% elsif entry.type == "inproceedings" %}
-        <em>In {{entry.booktitle}}</em>
-      {% endif %}
-      {% if entry.year %}
-        {{entry.year}}
-      {% endif %}
-      </div>
+    <div class="periodical">
+    {% if entry.type == "article" %}
+      <em>{{entry.journal}}</em>
+    {% elsif entry.type == "inproceedings" %}
+      <em>In {{entry.booktitle}}</em>
     {% endif %}
+    {% if entry.year %}
+      {{entry.year}}
+    {% endif %}
+    </div>
 
     <div class="links">
     {% if entry.abstract %}
