@@ -42,6 +42,7 @@ a, table.table a {
   margin-left: 1rem;
   margin-bottom: 1rem;
   width: 100%;
+  display:none;
 
   .address {
     margin-bottom: 5px;
@@ -57,7 +58,8 @@ a, table.table a {
 
 @media (min-width: 576px) {
   .profile {
-    width: 30%;
+    width: 25%;
+    display: inline;
     .address {
       p { display: block; }
     }
