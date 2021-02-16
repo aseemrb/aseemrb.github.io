@@ -23,6 +23,9 @@ $light-purple-color:  lighten($purple-color, 25%);
 $pink-color:          #f92080 !default;
 $pink-color-light:    #ffdddd !default;
 $yellow-color:        #efcc00 !default;
+$thm-color:           #4374b7 !default;
+$thm-color-light:     lighten($thm-color, 10%);
+$thm-color-dark:      darken($thm-color, 25%);
 
 $grey-color:          #828282 !default;
 $grey-color-light:    lighten($grey-color, 40%);
