@@ -114,6 +114,7 @@ footer.sticky-bottom { border-top: 1px solid #e8e8e8; padding-top: 40px; padding
 .publications ol.bibliography li .abbr abbr a:hover { text-decoration: none; }
 .publications ol.bibliography li .abbr .award { color: var(--global-theme-color) !important; border: 1px solid var(--global-theme-color); }
 .publications ol.bibliography li .title { font-weight: bolder; }
+.publications ol.bibliography li .author { font-size: 0.9rem; }
 .publications ol.bibliography li .author a { border-bottom: 1px dashed var(--global-theme-color); }
 .publications ol.bibliography li .author a:hover { border-bottom-style: solid; text-decoration: none; }
 .publications ol.bibliography li .author > em { border-bottom: 1px solid; font-style: normal; }
