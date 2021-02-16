@@ -5,3 +5,11 @@
 "Schaeffer":
   - firstname: ["Luke", "L."]
     url: https://dblp.org/pid/18/9367.html
+
+"Fountoulakis":
+  - firstname: ["Kimon", "K."]
+    url: https://cs.uwaterloo.ca/~kfountou/
+
+"Jagannath":
+  - firstname: ["Aukosh", "A."]
+    url: https://www.math.uwaterloo.ca/~a3jagann/
