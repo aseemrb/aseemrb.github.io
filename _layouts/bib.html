@@ -25,6 +25,9 @@
       {% endif %}
     </div>
     <div class="author">
+      {% if entry.author_array.size > 1 %}
+        with
+      {% endif %}
       {% for author in entry.author_array %}
         {% assign author_is_self = false %}
         {% if author.last == site.scholar.last_name%}
@@ -43,15 +46,11 @@
         {% endif %}
         
         {% if forloop.length == 1 %}
-          {% if author_is_self %}
-            {{author.first}} {{author.last}}
-          {% else %}
-            {{author.first}} {{author.last}}
-          {% endif %}
+          {{author.first}} {{author.last}}
         {% else %}
           {% unless forloop.last %}
             {% if author_is_self %}
-              {{author.first}} {{author.last}},
+              
             {% else %}
               {% if coauthor_url %}
                 <a href="{{coauthor_url}}" target="_blank">{{author.first}} {{author.last}}</a>,
