@@ -75,9 +75,11 @@
 
     <div class="periodical">
     {% if entry.type == "article" %}
-      <em>{{entry.journal}}</em>
+      {{entry.journal}}
     {% elsif entry.type == "inproceedings" %}
-      <em>In {{entry.booktitle}}</em>
+      In {{entry.booktitle}}
+    {% elsif entry.type == "prearticle" %}
+      To appear in {{entry.journal}}
     {% endif %}
     {% if entry.year and entry.type != "thesis" %}
       {{entry.year}}
