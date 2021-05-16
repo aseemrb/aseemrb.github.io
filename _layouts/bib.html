@@ -4,11 +4,17 @@
 <div class="row">
   <div class="col-sm-2 abbr">
   {% if entry.abbr %}
-    {% if site.data.venues[entry.abbr] %}
-    <abbr class="badge"><a href="{{site.data.venues[entry.abbr].url}}" target="_blank">{{entry.abbr}}</a></abbr>
+    {% if entry.type == "article" or entry.type == "thesis" %}
+      <abbr class="badge" style="background-color:rgb(255, 130, 0);">
     {% else %}
-    <abbr class="badge">{{entry.abbr}}</abbr>
+      <abbr class="badge">
     {% endif %}
+    {% if site.data.venues[entry.abbr] %}
+    <a href="{{site.data.venues[entry.abbr].url}}" target="_blank">{{entry.abbr}}</a>
+    {% else %}
+    {{ entry.abbr }}
+    {% endif %}
+    </abbr>
   {% endif %}
   </div>
 
@@ -74,15 +80,16 @@
     </div>
 
     <div class="periodical">
-    {% if entry.type == "article" %}
+    {% if entry.type == "article" or entry.type == "prearticle" %}
       {{entry.journal}}
     {% elsif entry.type == "inproceedings" %}
       In {{entry.booktitle}}
-    {% elsif entry.type == "prearticle" %}
-      To appear in {{entry.journal}}
     {% endif %}
     {% if entry.year and entry.type != "thesis" %}
       {{entry.year}}
+    {% endif %}
+    {% if entry.type == "prearticle" %}
+      (to appear)
     {% endif %}
     </div>
 
