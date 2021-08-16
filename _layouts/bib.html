@@ -5,10 +5,11 @@
   <div class="col-sm-2 abbr">
   {% if entry.abbr %}
     {% if entry.type == "article" or entry.type == "thesis" %}
-      <abbr class="badge" style="background-color:rgb(255, 130, 0);">
+      <!-- <span class="badge pub-type-jrnl">&nbsp;</span> -->
     {% else %}
-      <abbr class="badge">
+      <!-- <span class="badge pub-type-conf">&nbsp;</span> -->
     {% endif %}
+    <abbr class="badge">
     {% if site.data.venues[entry.abbr] %}
     <a href="{{site.data.venues[entry.abbr].url}}" target="_blank">{{entry.abbr}}</a>
     {% else %}
@@ -124,7 +125,7 @@
       {% if entry.poster contains '://' %}
       <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Poster</a>
       {% else %}
-      <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Poster</a>
+      <a href="{{ entry.poster | prepend: '/assets/posters/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Poster</a>
       {% endif %}
     {% endif %}
     {% if entry.slides %}
