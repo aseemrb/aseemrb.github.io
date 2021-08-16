@@ -1,6 +1,6 @@
 /******************************************************************************* Variables used throughout the theme. To adjust anything, simply edit the variables below and rebuild the theme. *****************************************************************************/
 /******************************************************************************* Themes *****************************************************************************/
-:root { --global-bg-color: #ffffff; --global-text-color: #424242; --global-theme-color: #4374b7; --global-hover-color: #668fc7; --global-footer-bg-color: #424242; --global-footer-text-color: #e8e8e8; --global-footer-link-color: #ffffff; --global-icon-color: #424242; }
+:root { --global-bg-color: #ffffff; --global-text-color: #424242; --global-theme-color: #B71C1C; --global-hover-color: #FF3636; --global-footer-bg-color: #424242; --global-footer-text-color: #e8e8e8; --global-footer-link-color: #ffffff; --global-icon-color: #424242; }
 :root .fa-sun { display: none; }
 :root .fa-moon { padding-left: 10px; padding-top: 12px; display: block; }
 
@@ -132,3 +132,7 @@ footer.sticky-bottom { border-top: 1px solid #e8e8e8; padding-top: 40px; padding
 code { color: var(--global-theme-color); }
 
 html.transition, html.transition *, html.transition *:before, html.transition *:after { transition: all 750ms !important; transition-delay: 0 !important; }
+
+.pub-type-conf { background: #037ef3; }
+
+.pub-type-jrnl { background: #00c16e; }
