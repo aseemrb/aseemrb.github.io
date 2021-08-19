@@ -101,6 +101,13 @@
     {% if entry.arxiv %}
       <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" target="_blank">arXiv</a>
     {% endif %}
+    {% if entry.preprint %}
+      {% if entry.preprint contains '://' %}
+      <a href="{{ entry.preprint }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Preprint</a>
+      {% else %}
+      <a href="{{ entry.preprint | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Preprint</a>
+      {% endif %}
+    {% endif %}
     {% if entry.pdf %}
       {% if entry.pdf contains '://' %}
       <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank">PDF</a>
