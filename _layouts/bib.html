@@ -26,10 +26,6 @@
       {% else %}
         {{entry.title}}
       {% endif %}
-      {% if entry.type == "thesis" %}
-      <br>
-      <div style="font-size:small;color:rgba(0,0,0,0.5);">Master's thesis, {{entry.school}} 2020</div>
-      {% endif %}
     </div>
     <div class="author">
       {% if entry.author_array.size > 1 %}
@@ -84,10 +80,18 @@
     {% if entry.type == "article" or entry.type == "prearticle" %}
       {{entry.journal}}
     {% elsif entry.type == "inproceedings" %}
-      In {{entry.booktitle}}
+      {{entry.booktitle}}, {{entry.series}}
+    {% elsif entry.type == "thesis" %}
+      {{entry.thesistype}}, {{entry.school}}
     {% endif %}
-    {% if entry.year and entry.type != "thesis" %}
-      {{entry.year}}
+    {% if entry.volume %}
+      Vol. {{entry.volume}}
+    {% endif %}
+    {% if entry.pages %}
+      {{entry.pages}}
+    {% endif %}
+    {% if entry.year %}
+      , {{entry.year}}
     {% endif %}
     {% if entry.type == "prearticle" %}
       (to appear)
