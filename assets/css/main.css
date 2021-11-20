@@ -136,3 +136,5 @@ html.transition, html.transition *, html.transition *:before, html.transition *:
 .pub-type-conf { background: #037ef3; }
 
 .pub-type-jrnl { background: #00c16e; }
+
+.periodical { font-size: small; font-weight: 400; }
