@@ -16,7 +16,7 @@ nav: true
     <span class="badge pub-type-jrnl">&nbsp;</span> Journal/Article
   </div>
   </div> -->
-
+  More details on <a href="https://www.semanticscholar.org/author/145196323">Semantic Scholar</a> and <a href="https://scholar.google.com/citations?user=DPt626YAAAAJ">Google Scholar</a>.
   {% for y in page.years %}
     <h2 class="year">{{y}}</h2>
     {% bibliography -f papers -q @*[year={{y}}]* %}
