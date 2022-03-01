@@ -20,4 +20,4 @@ I received my thesis-based M.Math. degree from UWaterloo, advised by Prof. [Jeff
 
 <!-- In my free time I [sketch](), [play board games](), or play my keys/guitar. -->
 
-Fun fact: My [Erdős number](https://en.wikipedia.org/wiki/Erdős_number) is 2.
+Fun fact: My [Erdős number](https://en.wikipedia.org/wiki/Erdős_number) is 2: [Paul Erdős](https://en.wikipedia.org/wiki/Paul_Erd%C5%91s) &#8594; [Jeffrey Shallit](https://cs.uwaterloo.ca/~shallit/) &#8594; Me.
