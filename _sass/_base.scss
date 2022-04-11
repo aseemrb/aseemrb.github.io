@@ -361,14 +361,14 @@ footer.sticky-bottom {
       .links {
         a.btn {
           color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
-          padding-left: 0.5rem;
-          padding-right: 0.5rem;
+          border: 1px dotted var(--global-text-color);
+          padding-left: 0.6rem;
+          padding-right: 0.6rem;
           padding-top: 0.25rem;
           padding-bottom: 0.25rem;
           &:hover {
             color: var(--global-bg-color);
-            background-color: var(--global-footer-bg-color);
+            background-color: var(--global-theme-color);
             border-color: var(--global-bg-color);
           }
         }
@@ -411,7 +411,8 @@ footer.sticky-bottom {
       }
       div.abstract.hidden {
         border: dotted 1px var(--global-bg-color);
-        margin-top: 2px;
+        border-radius: 5px;
+        margin-top: 5px;
       }
       div.abstract.hidden.open {
         border-color: var(--global-text-color);
