@@ -157,6 +157,116 @@
   <div id="gat-retrospective:2022" class="col-sm-8">
     <div class="title">
       
+        <a href="https://arxiv.org/abs/2204.09297" target="_blank">Effects of Graph Convolutions in Deep Networks</a>
+      
+    </div>
+    <div class="author">
+      
+        with
+      
+      
+        
+        
+        
+        
+          
+            
+              
+              
+        
+        
+        
+          
+            
+              
+                <a href="https://scholar.google.ca/citations?user=K-SafJUAAAAJ" target="_blank">Kimon Fountoulakis</a>,
+              
+            
+          
+        
+      
+        
+        
+        
+        
+          
+            
+              
+              
+        
+        
+        
+          
+            
+              
+                <a href="https://www.math.uwaterloo.ca/~a3jagann/" target="_blank">Aukosh Jagannath</a>
+              
+            
+          
+        
+      
+    </div>
+
+    <div class="periodical">
+    
+      arXiv preprint arXiv:2204.09297
+    
+    
+    
+    
+      , 2022
+    
+    
+    </div>
+
+    <div class="links">
+    
+      <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
+    
+    
+    
+      
+      <a href="https://arxiv.org/abs/2204.09297" class="btn btn-sm z-depth-0" role="button" target="_blank">Preprint</a>
+      
+    
+    
+    
+    
+    
+      <a href="https://github.com/opallab/Effects-of-Graph-Convs-in-Deep-Nets" class="btn btn-sm z-depth-0" role="button" target="_blank">Code</a>
+    
+    
+    
+    
+    
+    </div>
+
+    <!-- Hidden abstract block -->
+    
+    <div class="abstract hidden">
+      <p>We present a rigorous theoretical understanding of the effects of graph convolutions in multi-layer networks. We study these effects through the node classification problem of a non-linearly separable Gaussian mixture model coupled with a stochastic block model. First, we show that a single graph convolution expands the regime of the distance between the means where multi-layer networks can classify the data by a factor of at least \(1/\sqrt[4]\mathbbE\,\rm deg\), where \(\mathbbE\,\rm deg\)denotes the expected degree of a node. Second, we show that with a slightly stronger graph density, two graph convolutions improve this factor to at least \(1/\sqrt[4]n\), where \(n\)is the number of nodes in the graph. Finally, we provide both theoretical and empirical insights into the performance of graph convolutions placed in different combinations among the layers of a network, concluding that the performance is mutually similar for all combinations of the placement. We present extensive experiments on both synthetic and real-world data that illustrate our results.</p>
+    </div>
+    
+  </div>
+</div>
+</li>
+<li><div class="row">
+  <div class="col-sm-2 abbr">
+  
+    
+      <!-- <span class="badge pub-type-jrnl">&nbsp;</span> -->
+    
+    <abbr class="badge">
+    
+    arXiv
+    
+    </abbr>
+  
+  </div>
+
+  <div id="gat-retrospective:2023" class="col-sm-8">
+    <div class="title">
+      
         <a href="https://arxiv.org/abs/2202.13060" target="_blank">Graph Attention Retrospective</a>
       
     </div>
@@ -297,7 +407,7 @@
     <!-- Hidden abstract block -->
     
     <div class="abstract hidden">
-      <p>Graph-based learning is a rapidly growing sub-field of machine learning with applications in social networks, citation networks, and bioinformatics. One of the most popular type of models is graph attention networks. These models were introduced to allow a node to aggregate information from the features of neighbor nodes in a non-uniform way in contrast to simple graph convolution which does not distinguish the neighbors of a node. In this paper, we study theoretically this expected behaviour of graph attention networks. We prove multiple results on the performance of the graph attention mechanism for the problem of node classification for a contextual stochastic block model. Here the features of the nodes are obtained from a mixture of Gaussians and the edges from a stochastic block model where the features and the edges are coupled in a natural way. First, we show that in an "easy" regime, where the distance between the means of the Gaussians is large enough, graph attention maintains the weights of intra-class edges and significantly reduces the weights of the inter-class edges. As a corollary, we show that this implies perfect node classification independent of the weights of inter-class edges. However, a classical argument shows that in the "easy" regime, the graph is not needed at all to classify the data with high probability. In the "hard" regime, we show that every attention mechanism fails to distinguish intra-class from inter-class edges. We evaluate our theoretical results on synthetic and real-world data.</p>
+      <p>We study theoretically this expected behaviour of graph attention networks. We prove multiple results on the performance of the graph attention mechanism for the problem of node classification for a contextual stochastic block model. Here the features of the nodes are obtained from a mixture of Gaussians and the edges from a stochastic block model where the features and the edges are coupled in a natural way. First, we show that in an "easy" regime, where the distance between the means of the Gaussians is large enough, graph attention maintains the weights of intra-class edges and significantly reduces the weights of the inter-class edges. As a corollary, we show that this implies perfect node classification independent of the weights of inter-class edges. However, a classical argument shows that in the "easy" regime, the graph is not needed at all to classify the data with high probability. In the "hard" regime, we show that every attention mechanism fails to distinguish intra-class from inter-class edges. We evaluate our theoretical results on synthetic and real-world data.</p>
     </div>
     
   </div>
@@ -434,7 +544,7 @@
     <!-- Hidden abstract block -->
     
     <div class="abstract hidden">
-      <p>Recently there has been increased interest in semi-supervised classification in the presence of graphical information. A new class of learning models has emerged that relies, at its most basic level, on classifying the data after first applying a graph convolution. To understand the merits of this approach, we study the classification of a mixture of Gaussians, where the data corresponds to the node attributes of a stochastic block model. We show that graph convolution extends the regime in which the data is linearly separable by a factor of roughly \(1/\sqrt D\), where \(D\) is the expected degree of a node, as compared to the mixture model data on its own. Furthermore, we find that the linear classifier obtained by minimizing the cross-entropy loss after the graph convolution generalizes to out-of-distribution data where the unseen data can have different intra- and inter-class edge probabilities from the training data.</p>
+      <p>We study the classification of a mixture of Gaussians, where the data corresponds to the node attributes of a stochastic block model. We show that graph convolution extends the regime in which the data is linearly separable by a factor of roughly \(1/\sqrt D\), where \(D\) is the expected degree of a node, as compared to the mixture model data on its own. Furthermore, we find that the linear classifier obtained by minimizing the cross-entropy loss after the graph convolution generalizes to out-of-distribution data where the unseen data can have different intra- and inter-class edge probabilities from the training data.</p>
     </div>
     
   </div>
