@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2020-06-26
+date: 2020-05-13
 inline: true
 ---
 
-I volunteered for <a href="http://acm-stoc.org/stoc2020/">STOC 2020</a>
+My [master's thesis](https://uwspace.uwaterloo.ca/handle/10012/15845) is now published at UWSpace

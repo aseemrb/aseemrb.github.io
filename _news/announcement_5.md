@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2022-02-28
+date: 2022-04-21
 inline: true
 ---
 
-New paper: [Graph Attention Retrospective](https://arxiv.org/abs/2202.13060)
+New [preprint](https://arxiv.org/abs/2204.09297) that explains the effects of graph convolutions in deep networks

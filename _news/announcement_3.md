@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2021-02-16
+date: 2021-05-08
 inline: true
 ---
 
-New paper: [Graph Convolutions -- Improved linear separability and OOD generalization](https://arxiv.org/abs/2102.06966)
+[Our work on graph convolutions](http://proceedings.mlr.press/v139/baranwal21a.html) is accepted at [ICML 2021](https://icml.cc/Conferences/2021)

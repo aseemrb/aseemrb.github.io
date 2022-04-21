@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2021-05-08
+date: 2022-02-28
 inline: true
 ---
 
-[Our work on graph convolutions](http://proceedings.mlr.press/v139/baranwal21a.html) is accepted at [ICML 2021](https://icml.cc/Conferences/2021)
+New preprint: [Graph Attention Retrospective](https://arxiv.org/abs/2202.13060)
