@@ -1,5 +1,5 @@
 ---
-title: fast and online palindrome counting
+title: Fast and online palindrome counting
 author: Aseem
 date: 2019-07-20
 ---

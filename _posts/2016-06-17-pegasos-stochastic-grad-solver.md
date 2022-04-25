@@ -1,5 +1,5 @@
 ---
-title: implementing PEGASOS
+title: Implementing PEGASOS
 author: Aseem
 date: 2016-06-17
 ---

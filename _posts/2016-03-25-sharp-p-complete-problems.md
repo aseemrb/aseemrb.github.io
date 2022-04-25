@@ -1,5 +1,5 @@
 ---
-title: some more &#35;P complete problems
+title: Some more &#35;P complete problems
 author: Aseem
 date: 2016-03-25
 ---

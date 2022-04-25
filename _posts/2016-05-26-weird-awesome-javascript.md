@@ -1,5 +1,5 @@
 ---
-title: weird but awesome Javascript
+title: Weird but awesome Javascript
 author: Aseem
 date: 2016-05-26
 ---

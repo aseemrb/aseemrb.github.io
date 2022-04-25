@@ -1,5 +1,5 @@
 ---
-title: the complexity class of &#35;P problems
+title: The complexity class of &#35;P problems
 author: Aseem
 date: 2016-03-23
 ---

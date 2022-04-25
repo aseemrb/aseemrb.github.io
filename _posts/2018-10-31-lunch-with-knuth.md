@@ -1,5 +1,5 @@
 ---
-title: lunch with Donald Knuth
+title: Lunch with Donald Knuth
 author: Aseem
 date: 2018-10-31
 ---
