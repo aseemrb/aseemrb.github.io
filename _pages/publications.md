@@ -8,6 +8,7 @@ nav: true
 ---
 
 <div class="publications">
-  More details on <a href="https://scholar.google.com/citations?user=DPt626YAAAAJ">Google Scholar</a>.
+  More details on <a href="https://scholar.google.com/citations?user=DPt626YAAAAJ">Google scholar</a>.
+  <hr>
   {% bibliography -f papers %}
 </div>
