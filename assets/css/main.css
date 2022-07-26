@@ -52,7 +52,7 @@ a:hover:after, table.table a:hover:after { width: 100%; }
 .navbar.navbar-light .navbar-nav .nav-item .nav-link:hover { color: var(--global-hover-color); }
 .navbar.navbar-light .navbar-nav .nav-item.active > .nav-link { background-color: inherit; font-weight: bolder; color: var(--global-theme-color); }
 .navbar.navbar-light .navbar-nav .nav-item.active > .nav-link:hover { color: var(--global-hover-color); }
-.navbar.navbar-light .contact-icon { font-size: 1.5rem; }
+.navbar.navbar-light .contact-icon { font-size: 1.2rem; }
 .navbar.navbar-light .contact-icon a:hover { color: var(--global-hover-color); }
 
 .navbar-toggler .icon-bar { display: block; width: 22px; height: 2px; background-color: var(--global-icon-color); border-radius: 1px; margin-bottom: 4px; transition: all 0.2s; }
@@ -68,7 +68,8 @@ a:hover:after, table.table a:hover:after { width: 100%; }
 
 .news table th { color: var(--global-text-color); }
 
-.contact-icon { font-size: 1.5rem; }
+.contact-icon { font-size: 1.2rem; }
+.contact-icon a { padding-right: 0.5rem; }
 
 .btn { margin: 0; }
 
