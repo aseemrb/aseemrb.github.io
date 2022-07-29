@@ -28,9 +28,6 @@
       {% endif %}
     </div>
     <span class="author">
-      <!-- {% if entry.author_array.size > 1 %}
-        with
-      {% endif %} -->
       {% for author in entry.author_array %}
         {% assign author_is_self = false %}
         {% if author.last == site.scholar.last_name%}
@@ -48,14 +45,10 @@
           {% endfor %}
         {% endif %}
         
-        {% if forloop.length == 1 %}
-          {{author.first}} {{author.last}}
+        {% if coauthor_url %}
+          <a href="{{coauthor_url}}" target="_blank">{{author.first}} {{author.last}}</a>{% if forloop.last == false %}, {% else %}. {% endif %}
         {% else %}
-          {% if coauthor_url %}
-            <a href="{{coauthor_url}}" target="_blank">{{author.first}} {{author.last}}</a>,
-          {% else %}
-            {{author.first}} {{author.last}},
-          {% endif %}
+          {{author.first}} {{author.last}}{% if forloop.last == false %}, {% else %}. {% endif %}
         {% endif %}
       {% endfor %}
       </span>
@@ -65,8 +58,6 @@
       {{entry.journal}}
     {% elsif entry.type == "inproceedings" %}
       {{entry.booktitle}}, {{entry.series}}
-    {% elsif entry.type == "thesis" %}
-      {{entry.thesistype}}, {{entry.school}}
     {% endif %}
     {% if entry.volume %}
       Vol. {{entry.volume}}
