@@ -47,6 +47,7 @@ a, table.table a {
   .address {
     margin-bottom: 5px;
     margin-top: 5px;
+    text-align: center;
     font-family: monospace;
     font-size: 1.2rem;
     p {
@@ -58,10 +59,13 @@ a, table.table a {
 
 @media (min-width: 576px) {
   .profile {
-    width: 25%;
+    width: 30%;
     display: inline;
     .address {
       p { display: block; }
+    }
+    img {
+      border-radius: 15%;
     }
   }
 }
