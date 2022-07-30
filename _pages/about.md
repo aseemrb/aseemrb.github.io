@@ -20,4 +20,4 @@ I received my MMath from UWaterloo, advised by Prof. [Jeffrey Shallit](https://c
 
 <!-- In my free time I [sketch](), [play board games](), or play my keys/guitar. -->
 
-Fun fact: My [Erdős number](https://en.wikipedia.org/wiki/Erdős_number) is 2: [Paul Erdős](https://en.wikipedia.org/wiki/Paul_Erd%C5%91s) &#8594; [Jeffrey Shallit](https://cs.uwaterloo.ca/~shallit/) &#8594; Me.
+My [Erdős number](https://en.wikipedia.org/wiki/Erdős_number) is 2 with the path [P. Erdős](https://en.wikipedia.org/wiki/Paul_Erd%C5%91s) <a href="http://archive.numdam.org/item/JTNB_1991__3_1_43_0/"><i class="fa-solid fa-arrow-right-long" style="color:#0076df;"></i></a> [J. Shallit](https://cs.uwaterloo.ca/~shallit/) <a href="https://doi.org/10.1016/j.tcs.2021.01.018"><i class="fa-solid fa-arrow-right-long" style="color:#0076df;"></i></a> me.
