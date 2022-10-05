@@ -21,3 +21,20 @@
 "Levi":
   - firstname: ["Amit", "A."]
     url: https://scholar.google.ca/citations?user=kb4ubhcAAAAJ
+
+"Ochem":
+  - firstname: ["Pascal", "P."]
+    url: https://www.lirmm.fr/~ochem/
+
+"Currie":
+  - firstname: ["James", "J."]
+    url: https://ion.uwinnipeg.ca/~currie/
+
+"Mol":
+  - firstname: ["Lucas", "L."]
+    url: https://faculty.tru.ca/lmol/
+
+"Rampersad":
+  - firstname: ["Narad", "N."]
+    url: https://ion.uwinnipeg.ca/~nrampers/
+
