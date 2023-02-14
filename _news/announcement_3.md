@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2021-05-08
+date: 2022-12-09
 inline: true
 ---
 
-Our [paper on graph convolutions](http://proceedings.mlr.press/v139/baranwal21a.html) is accepted at [ICML 2021](https://icml.cc/Conferences/2021)
+I was one of the [top 20 reviewers](https://twitter.com/LogConference/status/1601245186306080770) at LoG Conference 2022, thanks to the organizers and authors!
