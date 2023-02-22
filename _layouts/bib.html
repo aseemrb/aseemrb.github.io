@@ -18,7 +18,7 @@
     </abbr>
   {% endif %}
   </div> -->
-
+  <!-- <div class="col-sm-1"></div> -->
   <div id="{{entry.key}}" class="col-sm-10">
     <div class="title">
       {% if entry.url %}
@@ -121,11 +121,11 @@
       <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn btn-sm z-depth-0" role="button" target="_blank">Slides</a>
       {% endif %}
     {% endif %}
-    {% if entry.video %}
-      {% if entry.video contains '://' %}
-      <a href="{{ entry.video }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Video</a>
+    {% if entry.talk %}
+      {% if entry.talk contains '://' %}
+      <a href="{{ entry.talk }}" class="btn btn-sm z-depth-0" role="button" target="_blank">talk</a>
       {% else %}
-      <a href="{{ entry.video | prepend: '/assets/video/' | relative_url }}" class="btn btn btn-sm z-depth-0" role="button" target="_blank">Video</a>
+      <a href="{{ entry.talk | prepend: '/assets/talk/' | relative_url }}" class="btn btn btn-sm z-depth-0" role="button" target="_blank">talk</a>
       {% endif %}
     {% endif %}
     {% if entry.website %}
