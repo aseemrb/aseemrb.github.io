@@ -6,7 +6,7 @@ description: about me
 
 profile:
   align: right
-  image: picture.jpg
+  image: ppt.png
   address: 
 
 news: true  # includes a list of news items

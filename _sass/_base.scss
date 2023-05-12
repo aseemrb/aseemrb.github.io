@@ -63,7 +63,7 @@ a, table.table a {
   }
 }
 
-@media (min-width: 276px) {
+@media (min-width: 1000px) {
   .profile {
     width: 25%;
     display: inline;
@@ -71,7 +71,7 @@ a, table.table a {
       p { display: block; }
     }
     img {
-      border-radius: 15%;
+      border-radius: 5%;
     }
   }
 }
