@@ -9,18 +9,19 @@
 @string{NeurIPS = "Neural Information Processing Systems"}
 @string{LNCS = "Lect. Notes Comput. Sci."}
 
-@article{antisq-crit-exp-2022,
+@article{optimality-mp:2023,
+  selected={true},
   abbr={arXiv},
-  title={Antisquares and Critical Exponents},
-  author={A. Baranwal and J. Currie and L. Mol and P. Ochem and N. Rampersad and J. Shallit},
+  title={Optimality of Message-Passing Architectures for Sparse Graphs},
+  author={A. Baranwal and K. Fountoulakis and A. Jagannath},
   journal={arXiv},
-  preprint={https://arxiv.org/abs/2209.09223},
-  url={https://arxiv.org/abs/2209.09223},
-  year={2022},
-  abstract={The complement \(\bar\{x\}\)\ of a binary word \(x\)\ is obtained by changing each \(0\)\ in \(x\)\ to \(1\)\ and vice versa. An antisquare is a nonempty word of the form \(x\bar\{x\}\). In this paper, we study infinite binary words that do not contain arbitrarily large antisquares. For example, we show that the repetition threshold for the language of infinite binary words containing exactly two distinct antisquares is \((5+\sqrt{5})/2\). We also study repetition thresholds for related classes, where "two" in the previous sentence is replaced by a large number. We say a binary word is good if the only antisquares it contains are \(01\)\ and \(10\). We characterize the minimal antisquares, that is, those words that are antisquares but all proper factors are good. We determine the growth rate of the number of good words of length \(n\)\ and determine the repetition threshold between polynomial and exponential growth for the number of good words.}
+  preprint={https://arxiv.org/abs/2305.10391},
+  url={https://arxiv.org/abs/2305.10391},
+  year={2023},
+  abstract={We study the node classification problem on feature-decorated graphs in the sparse setting, i.e., when the expected degree of a node is \(O(1)\)\ in the number of nodes. Such graphs are typically known to be locally tree-like. We introduce a notion of Bayes optimality for node classification tasks, called asymptotic local Bayes optimality, and compute the optimal classifier according to this criterion for a fairly general statistical data model with arbitrary distributions of the node features and edge connectivity. The optimal classifier is implementable using a message-passing graph neural network architecture. We then compute the generalization error of this classifier and compare its performance against existing learning methods theoretically on a well-studied statistical model with naturally identifiable signal-to-noise ratios (SNRs) in the data. We find that the optimal message-passing architecture interpolates between a standard MLP in the regime of low graph signal and a typical convolution in the regime of high graph signal. Furthermore, we prove a corresponding non-asymptotic result.}
 }
 
-@inproceedings{effects-gc-deep-nets:2022,
+@inproceedings{effects-gc:2023,
   selected={true},
   abbr={ICLR},
   title={Effects of Graph Convolutions in Multi-layer Networks},
@@ -31,6 +32,17 @@
   code={https://github.com/opallab/Effects-of-Graph-Convs-in-Deep-Nets},
   year={2023 (spotlight)},
   abstract={We present a rigorous theoretical understanding of the effects of graph convolutions in multi-layer networks. We study these effects through the node classification problem of a non-linearly separable Gaussian mixture model coupled with a stochastic block model. First, we show that a single graph convolution expands the regime of the distance between the means where multi-layer networks can classify the data by a factor of at least \(1/\sqrt[4]{\Delta}\), where \(\Delta\)\ denotes the expected degree of a node. Second, we show that with a slightly stronger graph density, two graph convolutions improve this factor to at least \(1/\sqrt[4]{n}\), where \(n\)\ is the number of nodes in the graph. Finally, we provide both theoretical and empirical insights into the performance of graph convolutions placed in different combinations among the layers of a network, concluding that the performance is mutually similar for all combinations of the placement. We present extensive experiments on both synthetic and real-world data that illustrate our results.}
+}
+
+@article{antisq-crit-exp:2023,
+  abbr={arXiv},
+  title={Antisquares and Critical Exponents},
+  author={A. Baranwal and J. Currie and L. Mol and P. Ochem and N. Rampersad and J. Shallit},
+  journal={arXiv},
+  preprint={https://arxiv.org/abs/2209.09223},
+  url={https://arxiv.org/abs/2209.09223},
+  year={2022},
+  abstract={The complement \(\bar\{x\}\)\ of a binary word \(x\)\ is obtained by changing each \(0\)\ in \(x\)\ to \(1\)\ and vice versa. An antisquare is a nonempty word of the form \(x\bar\{x\}\). In this paper, we study infinite binary words that do not contain arbitrarily large antisquares. For example, we show that the repetition threshold for the language of infinite binary words containing exactly two distinct antisquares is \((5+\sqrt{5})/2\). We also study repetition thresholds for related classes, where "two" in the previous sentence is replaced by a large number. We say a binary word is good if the only antisquares it contains are \(01\)\ and \(10\). We characterize the minimal antisquares, that is, those words that are antisquares but all proper factors are good. We determine the growth rate of the number of good words of length \(n\)\ and determine the repetition threshold between polynomial and exponential growth for the number of good words.}
 }
 
 @article{gat-retrospective:2022,
