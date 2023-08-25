@@ -2,7 +2,7 @@
 ---
 
 @string{TCS = "Theor. Comput. Sci."}
-@String{JMLR = "J. Mach. Learn. Res."}
+@String{JMLR = "Journal of Machine Learning Research"}
 @string{ICML = "International Conference on Machine Learning"}
 @string{ICLR = "International Conference on Learning Representations"}
 @string{PMLR = "Proc. Mach. Learn. Res."}
@@ -21,12 +21,29 @@
   abstract={We study the node classification problem on feature-decorated graphs in the sparse setting, i.e., when the expected degree of a node is \(O(1)\)\ in the number of nodes. Such graphs are typically known to be locally tree-like. We introduce a notion of Bayes optimality for node classification tasks, called asymptotic local Bayes optimality, and compute the optimal classifier according to this criterion for a fairly general statistical data model with arbitrary distributions of the node features and edge connectivity. The optimal classifier is implementable using a message-passing graph neural network architecture. We then compute the generalization error of this classifier and compare its performance against existing learning methods theoretically on a well-studied statistical model with naturally identifiable signal-to-noise ratios (SNRs) in the data. We find that the optimal message-passing architecture interpolates between a standard MLP in the regime of low graph signal and a typical convolution in the regime of high graph signal. Furthermore, we prove a corresponding non-asymptotic result.}
 }
 
-@inproceedings{effects-gc:2023,
+@article{gat-retrospective:2023,
+  selected={true},
+  abbr={JMLR},
+  title={Graph Attention Retrospective},
+  author={K. Fountoulakis and A. Levi and S. Yang and A. Baranwal and A. Jagannath},
+  journal=JMLR,
+  year    = {2023},
+  volume  = {24},
+  number  = {246},
+  pages   = {1--52},
+  preprint={https://jmlr.org/papers/v24/22-125.html},
+  url={https://jmlr.org/papers/v24/22-125.html},
+  code={https://github.com/opallab/Graph-Attention-Retrospective},
+  talk={https://youtu.be/qcRSny2ecZU},
+  abstract={Graph-based learning is a rapidly growing sub-field of machine learning with applications in social networks, citation networks, and bioinformatics. One of the most popular models is graph attention networks. They were introduced to allow a node to aggregate information from features of neighbor nodes in a non-uniform way, in contrast to simple graph convolution which does not distinguish the neighbors of a node. In this paper, we theoretically study the behaviour of graph attention networks. We prove multiple results on the performance of the graph attention mechanism for the problem of node classification for a contextual stochastic block model. Here, the node features are obtained from a mixture of Gaussians and the edges from a stochastic block model. We show that in an "easy" regime, where the distance between the means of the Gaussians is large enough, graph attention is able to distinguish inter-class from intra-class edges. Thus it maintains the weights of important edges and significantly reduces the weights of unimportant edges. Consequently, we show that this implies perfect node classification. In the "hard" regime, we show that every attention mechanism fails to distinguish intra-class from inter-class edges. In addition, we show that graph attention convolution cannot (almost) perfectly classify the nodes even if intra-class edges could be separated from inter-class edges. Beyond perfect node classification, we provide a positive result on graph attention's robustness against structural noise in the graph. In particular, our robustness result implies that graph attention can be strictly better than both the simple graph convolution and the best linear classifier of node features. We evaluate our theoretical results on synthetic and real-world data.}
+}
+
+@article{effects-gc:2023,
   selected={true},
   abbr={ICLR},
   title={Effects of Graph Convolutions in Multi-layer Networks},
   author={A. Baranwal and K. Fountoulakis and A. Jagannath},
-  booktitle=ICLR,
+  journal=ICLR,
   preprint={https://arxiv.org/abs/2204.09297},
   url={https://openreview.net/forum?id=P-73JPgRs0R},
   slides={Effects-GC-2023.pdf},
@@ -45,20 +62,6 @@
   url={https://arxiv.org/abs/2209.09223},
   year={2022},
   abstract={The complement \(\bar\{x\}\)\ of a binary word \(x\)\ is obtained by changing each \(0\)\ in \(x\)\ to \(1\)\ and vice versa. An antisquare is a nonempty word of the form \(x\bar\{x\}\). In this paper, we study infinite binary words that do not contain arbitrarily large antisquares. For example, we show that the repetition threshold for the language of infinite binary words containing exactly two distinct antisquares is \((5+\sqrt{5})/2\). We also study repetition thresholds for related classes, where "two" in the previous sentence is replaced by a large number. We say a binary word is good if the only antisquares it contains are \(01\)\ and \(10\). We characterize the minimal antisquares, that is, those words that are antisquares but all proper factors are good. We determine the growth rate of the number of good words of length \(n\)\ and determine the repetition threshold between polynomial and exponential growth for the number of good words.}
-}
-
-@article{gat-retrospective:2022,
-  selected={true},
-  abbr={ICLR},
-  title={Graph Attention Retrospective},
-  author={K. Fountoulakis and A. Levi and S. Yang and A. Baranwal and A. Jagannath},
-  journal="GroundedML, " # ICLR,
-  preprint={https://arxiv.org/abs/2202.13060},
-  url={https://arxiv.org/abs/2202.13060},
-  code={https://github.com/opallab/Graph-Attention-Retrospective},
-  talk={https://youtu.be/qcRSny2ecZU},
-  year={2022 (best paper award)},
-  abstract={We study theoretically this expected behaviour of graph attention networks. We prove multiple results on the performance of the graph attention mechanism for the problem of node classification for a contextual stochastic block model. Here the features of the nodes are obtained from a mixture of Gaussians and the edges from a stochastic block model where the features and the edges are coupled in a natural way. First, we show that in an "easy" regime, where the distance between the means of the Gaussians is large enough, graph attention maintains the weights of intra-class edges and significantly reduces the weights of the inter-class edges. As a corollary, we show that this implies perfect node classification independent of the weights of inter-class edges. However, a classical argument shows that in the "easy" regime, the graph is not needed at all to classify the data with high probability. In the "hard" regime, we show that every attention mechanism fails to distinguish intra-class from inter-class edges. We evaluate our theoretical results on synthetic and real-world data.}
 }
 
 @InProceedings{graph-conv:2021,
