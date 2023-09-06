@@ -1,0 +1,20 @@
+"ICML":
+  url: https://icml.cc/
+
+"ICLR":
+  url: https://iclr.cc/
+
+"NeurIPS":
+  url: https://neurips.cc/
+
+"JMLR":
+  url: https://jmlr.org/
+
+"DMTCS":
+  url: https://dmtcs.episciences.org/
+
+"TCS":
+  url: https://www.sciencedirect.com/journal/theoretical-computer-science
+
+"WORDS":
+  url: https://link.springer.com/conference/cwords

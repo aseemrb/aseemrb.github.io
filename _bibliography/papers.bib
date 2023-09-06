@@ -54,18 +54,6 @@
   abstract={We present a rigorous theoretical understanding of the effects of graph convolutions in multi-layer networks. We study these effects through the node classification problem of a non-linearly separable Gaussian mixture model coupled with a stochastic block model. First, we show that a single graph convolution expands the regime of the distance between the means where multi-layer networks can classify the data by a factor of at least \(1/\sqrt[4]{\Delta}\), where \(\Delta\)\ denotes the expected degree of a node. Second, we show that with a slightly stronger graph density, two graph convolutions improve this factor to at least \(1/\sqrt[4]{n}\), where \(n\)\ is the number of nodes in the graph. Finally, we provide both theoretical and empirical insights into the performance of graph convolutions placed in different combinations among the layers of a network, concluding that the performance is mutually similar for all combinations of the placement. We present extensive experiments on both synthetic and real-world data that illustrate our results.}
 }
 
-@article{antisq-crit-exp:2023,
-  abbr={arXiv},
-  title={{Antisquares and Critical Exponents}},
-  author={A. Baranwal and J. Currie and L. Mol and P. Ochem and N. Rampersad and J. Shallit},
-  journal=DMTCS,
-  volume={{25:2}},
-  preprint={https://arxiv.org/abs/2209.09223},
-  url={http://dmtcs.episciences.org/12192},
-  year={2023},
-  abstract={The complement \(\bar\{x\}\)\ of a binary word \(x\)\ is obtained by changing each \(0\)\ in \(x\)\ to \(1\)\ and vice versa. An antisquare is a nonempty word of the form \(x\bar\{x\}\). In this paper, we study infinite binary words that do not contain arbitrarily large antisquares. For example, we show that the repetition threshold for the language of infinite binary words containing exactly two distinct antisquares is \((5+\sqrt{5})/2\). We also study repetition thresholds for related classes, where "two" in the previous sentence is replaced by a large number. We say a binary word is good if the only antisquares it contains are \(01\)\ and \(10\). We characterize the minimal antisquares, that is, those words that are antisquares but all proper factors are good. We determine the growth rate of the number of good words of length \(n\)\ and determine the repetition threshold between polynomial and exponential growth for the number of good words.}
-}
-
 @InProceedings{graph-conv:2021,
   selected={true},
   abbr={ICML},
@@ -86,6 +74,18 @@
   talk={https://youtu.be/2IyzIIwmQCo},
   poster={icml-2021-graph-conv.png},
   abstract={We study the classification of a mixture of Gaussians, where the data corresponds to the node attributes of a stochastic block model. We show that graph convolution extends the regime in which the data is linearly separable by a factor of roughly \(1/\sqrt D\), where \(D\)\ is the expected degree of a node, as compared to the mixture model data on its own. Furthermore, we find that the linear classifier obtained by minimizing the cross-entropy loss after the graph convolution generalizes to out-of-distribution data where the unseen data can have different intra- and inter-class edge probabilities from the training data.}
+}
+
+@article{antisq-crit-exp:2023,
+  abbr={DMTCS},
+  title={{Antisquares and Critical Exponents}},
+  author={A. Baranwal and J. Currie and L. Mol and P. Ochem and N. Rampersad and J. Shallit},
+  journal=DMTCS,
+  volume={{25:2}},
+  preprint={https://arxiv.org/abs/2209.09223},
+  url={http://dmtcs.episciences.org/12192},
+  year={2023},
+  abstract={The complement \(\bar\{x\}\)\ of a binary word \(x\)\ is obtained by changing each \(0\)\ in \(x\)\ to \(1\)\ and vice versa. An antisquare is a nonempty word of the form \(x\bar\{x\}\). In this paper, we study infinite binary words that do not contain arbitrarily large antisquares. For example, we show that the repetition threshold for the language of infinite binary words containing exactly two distinct antisquares is \((5+\sqrt{5})/2\). We also study repetition thresholds for related classes, where "two" in the previous sentence is replaced by a large number. We say a binary word is good if the only antisquares it contains are \(01\)\ and \(10\). We characterize the minimal antisquares, that is, those words that are antisquares but all proper factors are good. We determine the growth rate of the number of good words of length \(n\)\ and determine the repetition threshold between polynomial and exponential growth for the number of good words.}
 }
 
 @article{ostr:2020,

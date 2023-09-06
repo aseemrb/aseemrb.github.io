@@ -337,11 +337,15 @@ footer.sticky-bottom {
       .abbr {
         height: 2rem;
         margin-bottom: 0.5rem;
+        margin-right: 0.5rem;
         abbr {
+          width: 3.5rem;
           display: inline-block;
           background-color: var(--global-theme-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
+          opacity: 0.8;
+          &:hover {
+            opacity: 1;
+          }
           a {
             color: white;
             &:hover {
