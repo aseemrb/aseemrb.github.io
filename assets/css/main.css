@@ -110,8 +110,9 @@ footer.sticky-bottom { border-top: 1px solid #e8e8e8; padding-top: 40px; padding
 .publications h2.year { color: #828282; border-top: 1px solid #e8e8e8; padding-top: 1rem; margin-top: 2rem; margin-bottom: -2rem; text-align: right; }
 .publications ol.bibliography { list-style: none; padding: 0; margin-top: 0; }
 .publications ol.bibliography li { margin-bottom: 0.5rem; }
-.publications ol.bibliography li .abbr { height: 2rem; margin-bottom: 0.5rem; }
-.publications ol.bibliography li .abbr abbr { display: inline-block; background-color: var(--global-theme-color); padding-left: 1rem; padding-right: 1rem; }
+.publications ol.bibliography li .abbr { height: 2rem; margin-bottom: 0.5rem; margin-right: 0.5rem; }
+.publications ol.bibliography li .abbr abbr { width: 3.5rem; display: inline-block; background-color: var(--global-theme-color); opacity: 0.8; }
+.publications ol.bibliography li .abbr abbr:hover { opacity: 1; }
 .publications ol.bibliography li .abbr abbr a { color: white; }
 .publications ol.bibliography li .abbr abbr a:hover { text-decoration: none; }
 .publications ol.bibliography li .abbr .award { color: var(--global-theme-color) !important; border: 1px solid var(--global-theme-color); }
