@@ -6,7 +6,7 @@ description: about me
 
 profile:
   align: right
-  image: ppt.png
+  image: ppt.webp
   address: 
 
 news: true  # includes a list of news items
@@ -21,4 +21,4 @@ I received my MMath from UWaterloo, advised by Prof [Jeffrey Shallit](https://cs
 <!-- In my free time I [sketch](), [play board games](), or play my [keys or guitar](). -->
 Fun fact: my [Erdős number](https://en.wikipedia.org/wiki/Erdős_number) is 2 with the path [P. Erdős](https://en.wikipedia.org/wiki/Paul_Erd%C5%91s) <a href="http://www.numdam.org/item/JTNB_1991__3_1_43_0/"><i class="fa-solid fa-arrow-right-long"></i></a> [J. Shallit](https://cs.uwaterloo.ca/~shallit/) <a href="https://doi.org/10.1016/j.tcs.2021.01.018"><i class="fa-solid fa-arrow-right-long"></i></a> me.
 
-A short CV (as of May 2023) can be found [here](/assets/pdf/CV.pdf).
+Here is [a short CV](/assets/pdf/CV.pdf) (as of May 2023).
