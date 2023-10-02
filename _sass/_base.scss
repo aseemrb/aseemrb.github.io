@@ -19,6 +19,7 @@ a, table.table a {
   &:hover {
     color: var(--global-theme-color);
     text-decoration: underline;
+    text-decoration-style: dashed;
   }
   &:hover:after {
     width: 100%;
@@ -364,10 +365,9 @@ footer.sticky-bottom {
       .author {
         font-size: 0.9rem;
         a {
-          border-bottom: 1px dashed var(--global-theme-color);
           &:hover {
-              border-bottom-style: solid;
-              text-decoration: none;
+            text-decoration: underline;
+            text-decoration-style: dashed;
           }
         }
         > em {
