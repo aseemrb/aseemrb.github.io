@@ -128,8 +128,8 @@ footer.sticky-bottom { border-top: 1px solid #e8e8e8; padding-top: 40px; padding
 .publications ol.bibliography li .hidden p { line-height: 1.4em; margin: 10px; }
 .publications ol.bibliography li .hidden pre { font-size: 1em; line-height: 1.4em; padding: 10px; }
 .publications ol.bibliography li .hidden.open { max-height: 100em; -webkit-transition: 0.15s ease; -moz-transition: 0.15s ease; -ms-transition: 0.15s ease; -o-transition: 0.15s ease; transition: all 0.15s ease; }
-.publications ol.bibliography li div.abstract.hidden { border: dotted 1px var(--global-bg-color); border-radius: 5px; margin-top: 5px; }
-.publications ol.bibliography li div.abstract.hidden.open { border-color: var(--global-text-color); }
+.publications ol.bibliography li div.abstract.hidden, .publications ol.bibliography li div.bibtex.hidden { border: dotted 1px var(--global-bg-color); border-radius: 10px; margin-top: 5px; }
+.publications ol.bibliography li div.abstract.hidden.open, .publications ol.bibliography li div.bibtex.open { border-color: var(--global-text-color); }
 
 code { color: var(--global-theme-color); }
 
