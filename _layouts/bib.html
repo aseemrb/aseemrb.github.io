@@ -126,6 +126,7 @@
     {% if entry.website %}
       <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
     {% endif %}
+    <!-- <a class="bibtex btn btn-sm z-depth-0" role="button">Bibtex</a> -->
     </div>
 
     <!-- Hidden abstract block -->
@@ -134,5 +135,10 @@
       <p>{{ entry.abstract }}</p>
     </div>
     {% endif %}
+
+    <!-- Hidden bibtex block -->
+    <!-- <div class="bibtex hidden">
+      <pre>{{ entry.bibtex }}</pre>
+    </div> -->
   </div>
 </div>
