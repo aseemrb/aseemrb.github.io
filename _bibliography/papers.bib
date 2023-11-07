@@ -51,18 +51,19 @@
   slides={Effects-GC-2023.pdf},
   talk={https://youtu.be/AtsaBVu-Oq0},
   code={https://github.com/opallab/Effects-of-Graph-Convs-in-Deep-Nets},
-  year={2023 (spotlight)},
+  year={2023},
+  comments={(spotlight)},
   abstract={We present a rigorous theoretical understanding of the effects of graph convolutions in multi-layer networks. We study these effects through the node classification problem of a non-linearly separable Gaussian mixture model coupled with a stochastic block model. First, we show that a single graph convolution expands the regime of the distance between the means where multi-layer networks can classify the data by a factor of at least \(1/\sqrt[4]{\Delta}\), where \(\Delta\)\ denotes the expected degree of a node. Second, we show that with a slightly stronger graph density, two graph convolutions improve this factor to at least \(1/\sqrt[4]{n}\), where \(n\)\ is the number of nodes in the graph. Finally, we provide both theoretical and empirical insights into the performance of graph convolutions placed in different combinations among the layers of a network, concluding that the performance is mutually similar for all combinations of the placement. We present extensive experiments on both synthetic and real-world data that illustrate our results.}
 }
 
-@InProceedings{graph-conv:2021,
+@inproceedings{graph-conv:2021,
   selected={true},
   abbr={ICML},
   title={Graph convolution for Semi-Supervised Classification: Separability and OoD Generalization},
   author={Baranwal, A. and Fountoulakis, K. and Jagannath, A.},
   booktitle={Proceedings of the 38th }#ICML,
   pages={684--693},
-  year={2021 (spotlight)},
+  year={2021},
   editor={Meila, Marina and Zhang, Tong},
   volume={139},
   series=PMLR,
@@ -74,6 +75,7 @@
   code={https://github.com/opallab/icml-21-graph-conv/},
   talk={https://youtu.be/2IyzIIwmQCo},
   poster={icml-2021-graph-conv.png},
+  comments={(spotlight)},
   abstract={We study the classification of a mixture of Gaussians, where the data corresponds to the node attributes of a stochastic block model. We show that graph convolution extends the regime in which the data is linearly separable by a factor of roughly \(1/\sqrt D\), where \(D\)\ is the expected degree of a node, as compared to the mixture model data on its own. Furthermore, we find that the linear classifier obtained by minimizing the cross-entropy loss after the graph convolution generalizes to out-of-distribution data where the unseen data can have different intra- and inter-class edge probabilities from the training data.}
 }
 

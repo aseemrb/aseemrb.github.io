@@ -13,7 +13,6 @@
     </abbr>
   {% endif %}
   </div>
-  <!-- <div class="col-sm-1"></div> -->
   <div id="{{entry.key}}" class="col-sm-10">
     <div class="title">
       {% if entry.url %}
@@ -50,22 +49,7 @@
 
     <span class="periodical">
     {% if entry.type == "article" or entry.type == "prearticle" %}
-      {{entry.journal}}
-    {% elsif entry.type == "inproceedings" %}
-      {{entry.booktitle}}, {{entry.series}}
-    {% endif %}
-    {% if entry.volume %}
-      Vol. {{entry.volume}}
-    {% endif %}
-    {% if entry.pages %}
-      {{entry.pages}}
-    {% endif %}
-    {% if entry.year %}
-      , {{entry.year}}
-    {% endif %}
-    {% if entry.type == "prearticle" %}
-      (to appear)
-    {% endif %}
+      {{entry.journal}}{% elsif entry.type == "inproceedings" %}{{entry.booktitle}}, {{entry.series}}{% endif %}{% if entry.volume %}  Vol. {{entry.volume}}{% endif %}{% if entry.pages %}{{entry.pages}}{% endif %}{% if entry.year %}, {{entry.year}}{% endif %}{% if entry.comments %} {{entry.comments}}{% endif %}
     </span>
 
     <div class="links">
