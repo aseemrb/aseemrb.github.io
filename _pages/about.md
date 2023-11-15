@@ -10,11 +10,11 @@ profile:
   address: 
 
 news: true  # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
-I'm a Ph.D. student at the [School of Computer Science](https://cs.uwaterloo.ca/) at [UWaterloo](https://uwaterloo.ca/), co-advised by two awesome supervisors: Prof [Kimon Fountoulakis](https://scholar.google.ca/citations?user=K-SafJUAAAAJ) and Prof [Aukosh Jagannath](https://aukosh.github.io/). I am a part of the [OpAL Lab](https://opallab.ca/) and the [A&C group](https://algcomp.uwaterloo.ca/). My interests broadly span machine learning on graphs and high dimensional probability.
+I'm a Ph.D. student at the [School of Computer Science](https://cs.uwaterloo.ca/) at [UWaterloo](https://uwaterloo.ca/), co-advised by two awesome supervisors: [Kimon Fountoulakis](https://scholar.google.ca/citations?user=K-SafJUAAAAJ) and [Aukosh Jagannath](https://aukosh.github.io/). I am a part of the [OpAL Lab](https://opallab.ca/) and the [A&C group](https://algcomp.uwaterloo.ca/). My interests broadly span machine learning on graphs, statistical benchmarking of GNN architectures, and high dimensional probability.
 
 I have completed two internships with amazing mentors: The summer of 2023 at [Microsoft Research](https://www.microsoft.com/en-us/research/lab/microsoft-research-redmond/) with [Jay Stokes](https://www.microsoft.com/en-us/research/people/jstokes/), [Mohsen Alimomeni](https://www.linkedin.com/in/mohsenam/) and [Jennifer Neville](https://jenneville.github.io/) on applications of GNNs in cyber-security; and the fall of 2022 at [Google Research](https://research.google/teams/graph-mining/) with [Bryan Perozzi](http://www.perozzi.net/), [Anton Tsitsulin](http://tsitsul.in/) and [Sami Abu-El-Haija](https://samihaija.github.io/) on scalable GNNs for node-classification.
 
