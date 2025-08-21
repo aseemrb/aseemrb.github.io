@@ -14,7 +14,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
-I am a researcher with interests broadly spanning machine learning on graphs, statistical benchmarking of GNN architectures, and high dimensional probability. I completed my Ph.D. at the [School of Computer Science](https://cs.uwaterloo.ca/) at [UWaterloo](https://uwaterloo.ca/), co-advised by two awesome supervisors: [Kimon Fountoulakis](https://scholar.google.ca/citations?user=K-SafJUAAAAJ) and [Aukosh Jagannath](https://aukosh.github.io/), where I was a part of the [OpAL Lab](https://opallab.ca/) and the [A&C group](https://algcomp.uwaterloo.ca/).
+I am a researcher with interests broadly spanning machine learning on graphs, statistical benchmarking of model architectures, and high dimensional probability. I completed my Ph.D. at the [School of Computer Science](https://cs.uwaterloo.ca/) at [UWaterloo](https://uwaterloo.ca/), co-advised by two awesome supervisors: [Kimon Fountoulakis](https://scholar.google.ca/citations?user=K-SafJUAAAAJ) and [Aukosh Jagannath](https://aukosh.github.io/), where I was a part of the [WatCL Lab](https://watcl.ca/) and the [A&C group](https://algcomp.uwaterloo.ca/).
 
 Prior to this, I received my MMath from UWaterloo, advised by Prof [Jeffrey Shallit](https://cs.uwaterloo.ca/~shallit/), where I worked on algorithmic number theory and combinatorics on words. I was an undergrad at [IIT Jodhpur](http://iitj.ac.in/) before that, where I actively contested at the [ACM-ICPC](https://icpc.global/) and several [CTFs](https://ctftime.org/ctf-wtf/).
 
