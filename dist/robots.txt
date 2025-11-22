@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aseemrb.me/sitemap-index.xml
+Sitemap: https://aseemrb.github.io/sitemap-index.xml
