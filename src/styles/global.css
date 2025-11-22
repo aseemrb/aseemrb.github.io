@@ -1,0 +1,134 @@
+@import "tailwindcss";
+@import "./typography.css";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=midnight], [data-theme=midnight] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *));
+
+:root,
+html[data-theme="light"] {
+  --background: #fdfdfd;
+  --foreground: #282728;
+  --accent: #006cac;
+  --muted: #e6e6e6;
+  --border: #ece9e9;
+}
+
+html[data-theme="dark"] {
+  --background: #0d0d10;
+  --foreground: #eaedf3;
+  --accent: #5ba8d5;
+  --muted: #3d3d3d;
+  --border: hsl(0, 0%, 24%);
+}
+
+/* Option 1: Midnight Void (Cool & Deep) */
+html[data-theme="midnight"] {
+  --background: #0f172a;
+  --foreground: #e2e8f0;
+  --accent: #38bdf8;
+  --muted: #334155;
+  --border: #1e293b;
+}
+
+/* Option 2: Obsidian & Gold (Elegant & High Contrast) */
+html[data-theme="obsidian"] {
+  --background: #000000;
+  --foreground: #ededed;
+  --accent: #f59e0b;
+  --muted: #262626;
+  --border: #262626;
+}
+
+/* Option 3: Deep Forest (Natural & Calm) */
+html[data-theme="forest"] {
+  --background: #051a12;
+  --foreground: #e8f5e9;
+  --accent: #4ade80;
+  --muted: #1b4d3e;
+  --border: #14382d;
+}
+
+/* Option 4: Cyber Grape (Vibrant & Modern) */
+html[data-theme="cyber"] {
+  --background: #13111c;
+  --foreground: #e0dce8;
+  --accent: #a78bfa;
+  --muted: #2e293b;
+  --border: #2e293b;
+}
+
+/* Option 5: Carbon & Coral (Sleek & Pop) */
+html[data-theme="carbon"] {
+  --background: #18181b;
+  --foreground: #f4f4f5;
+  --accent: #fb7185;
+  --muted: #3f3f46;
+  --border: #27272a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-accent/75;
+    scrollbar-width: auto;
+    scrollbar-color: var(--color-muted) transparent;
+  }
+
+  html {
+    @apply overflow-y-scroll scroll-smooth;
+  }
+
+  body {
+    @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
+  }
+
+  a {
+    @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
+  }
+
+  p a, #news a {
+    color: var(--accent);
+  }
+
+  #pubs a {
+    text-decoration: none;
+  }
+
+  p a:hover, #news a:hover, #pubs a:hover {
+    @apply underline decoration-dashed;
+  }
+
+  button {
+    @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  section,
+  footer {
+    @apply mx-auto max-w-app px-4;
+  }
+}
+
+@utility max-w-app {
+  @apply max-w-3xl xl:max-w-4xl;
+}
+
+.active-nav {
+  @apply underline decoration-wavy decoration-2 underline-offset-4;
+}
+
+/* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 1rem;
+}

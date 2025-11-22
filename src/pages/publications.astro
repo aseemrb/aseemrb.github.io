@@ -1,0 +1,63 @@
+---
+import PubsLayout from "../layouts/PubsLayout.astro";
+import publicationsData from "../data/publications.json";
+import coauthorsData from "../data/coauthors.json";
+import LinkButton from "@/components/LinkButton.astro";
+
+const publications = publicationsData.sort((a, b) => {
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+});
+---
+
+<PubsLayout frontmatter={{ title: "Publications" }}>
+  <ul>
+    {
+      publications.map(pub => (
+        <li id="pubs" class="my-6">
+          <div class="items-baseline gap-x-2 mb-2">
+            <h4><LinkButton href={pub.link}>{pub.title}</LinkButton></h4>
+            <div class="flex gap-2 text-xs font-medium">
+              {pub.link && <a href={pub.link} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">URL</a>}
+              {pub.preprint && <a href={pub.preprint} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">arXiv</a>}
+              {pub.code && <a href={pub.code} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">Code</a>}
+              {pub.slides && <a href={pub.slides} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">Slides</a>}
+              {pub.poster && <a href={pub.poster} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">Poster</a>}
+              {pub.talk && <a href={pub.talk} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">Talk</a>}
+            </div>
+          </div>
+          <div class="text-sm">
+            {pub.authors.map((author, index) => {
+              const nameParts = author.split(" ");
+              const lastName = nameParts[nameParts.length - 1];
+              const firstPart = nameParts.slice(0, -1).join(" ");
+
+              let url = null;
+              // @ts-ignore
+              const coauthorList = coauthorsData[lastName];
+              if (coauthorList) {
+                const match = coauthorList.find((entry: any) =>
+                  entry.firstname.includes(firstPart)
+                );
+                if (match) url = match.url;
+              }
+
+              return (
+                <>
+                  {url ? (
+                    <LinkButton href={url}>{author}</LinkButton>
+                  ) : (
+                    <span>{author}</span>
+                  )}
+                  {index < pub.authors.length - 1 ? ", " : ""}
+                </>
+              );
+            })}
+          </div>
+          <div class="text-sm font-bold italic">
+            {pub.venue} • {new Date(pub.date).getFullYear()}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</PubsLayout>

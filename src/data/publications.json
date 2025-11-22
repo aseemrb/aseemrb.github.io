@@ -1,0 +1,176 @@
+[
+    {
+        "title": "Statistical Foundations for Learning on Graphs",
+        "authors": [],
+        "venue": "PhD Thesis, UWSpace, University of Waterloo",
+        "date": "2024-11-27",
+        "link": "https://hdl.handle.net/10012/21209",
+        "code": null,
+        "slides": "https://aseemrb.me/assets/pdf/Defence-PhD.pdf",
+        "poster": null,
+        "talk": null,
+        "featured": false
+    },
+    {
+        "title": "Analysis of Corrected Graph Convolutions",
+        "authors": [
+            "Robert Wang",
+            "Aseem Baranwal",
+            "Kimon Fountoulakis"
+        ],
+        "venue": "Neural Information Processing Systems",
+        "date": "2024-09-25",
+        "link": "https://openreview.net/forum?id=MSsQDWUWpd",
+        "preprint": "https://arxiv.org/abs/2405.13987",
+        "code": null,
+        "slides": null,
+        "poster": null,
+        "talk": null,
+        "featured": true
+    },
+    {
+        "title": "Optimality of Message-Passing Architectures for Sparse Graphs",
+        "authors": [
+            "Aseem Baranwal",
+            "Kimon Fountoulakis",
+            "Aukosh Jagannath"
+        ],
+        "venue": "Neural Information Processing Systems",
+        "date": "2023-09-21",
+        "preprint": "https://arxiv.org/abs/2305.10391",
+        "link": "https://openreview.net/forum?id=d1knqWjmNt",
+        "code": "https://github.com/watcl-lab/optimality-mp-archs-sparse-graphs",
+        "slides": null,
+        "poster": "../assets/posters/neurips-2023-optimality-mp.pdf",
+        "talk": null,
+        "featured": true
+    },
+    {
+        "title": "Graph Attention Retrospective",
+        "authors": [
+            "Kimon Fountoulakis",
+            "Amit Levi",
+            "Shenghao Yang",
+            "Aseem Baranwal",
+            "Aukosh Jagannath"
+        ],
+        "venue": "Journal of Machine Learning Research",
+        "date": "2023-05-23",
+        "preprint": "https://jmlr.org/papers/v24/22-125.html",
+        "link": "https://jmlr.org/papers/v24/22-125.html",
+        "code": "https://github.com/watcl-lab/Graph-Attention-Retrospective",
+        "slides": null,
+        "poster": null,
+        "talk": "https://youtu.be/qcRSny2ecZU",
+        "featured": true
+    },
+    {
+        "title": "Effects of Graph Convolutions in Multi-layer Networks",
+        "authors": [
+            "Aseem Baranwal",
+            "Kimon Fountoulakis",
+            "Aukosh Jagannath"
+        ],
+        "venue": "International Conference on Learning Representations",
+        "date": "2023-02-01",
+        "preprint": "https://arxiv.org/abs/2204.09297",
+        "link": "https://openreview.net/forum?id=P-73JPgRs0R",
+        "code": "https://github.com/watcl-lab/Effects-of-Graph-Convs-in-Deep-Nets",
+        "slides": "../assets/pdf/Effects-GC-2023.pdf",
+        "poster": null,
+        "talk": "https://youtu.be/AtsaBVu-Oq0",
+        "featured": true
+    },
+    {
+        "title": "Graph convolution for Semi-Supervised Classification: Improved Linear Separability and OoD Generalization",
+        "authors": [
+            "Aseem Baranwal",
+            "Kimon Fountoulakis",
+            "Aukosh Jagannath"
+        ],
+        "venue": "International Conference on Machine Learning",
+        "date": "2021-05-08",
+        "preprint": "https://arxiv.org/abs/2102.06966",
+        "link": "https://proceedings.mlr.press/v139/baranwal21a.html",
+        "code": "https://github.com/watcl-lab/Graph-Convolution-for-Semi-Supervised-Classification-Improved-Linear-Separability-and-OoD-Gen.",
+        "slides": "../assets/pdf/Graph-Conv-ICML-2021.pdf",
+        "poster": "@/assets/posters/icml-2021-graph-conv.pdf",
+        "talk": "https://youtu.be/2IyzIIwmQCo",
+        "featured": true
+    },
+    {
+        "title": "Antisquares and Critical Exponents",
+        "authors": [
+            "Aseem Baranwal",
+            "James Currie",
+            "Lucas Mol",
+            "Pascal Ochem",
+            "Narad Rampersad",
+            "Jeffrey Shallit"
+        ],
+        "venue": "Discrete Mathematics & Theoretical Computer Science",
+        "date": "2023-09-06",
+        "link": "https://dmtcs.episciences.org/12192",
+        "preprint": "https://arxiv.org/abs/2209.09223",
+        "code": null,
+        "slides": null,
+        "poster": null,
+        "talk": null
+    },
+    {
+        "title": "Ostrowski-Automatic Sequences: Theory and Applications",
+        "authors": [
+            "Aseem Baranwal",
+            "Luke Schaeffer",
+            "Jeffrey Shallit"
+        ],
+        "venue": "Theoretical Computer Science",
+        "date": "2021-02-16",
+        "link": "https://doi.org/10.1016/j.tcs.2021.01.018",
+        "code": "https://github.com/aseemrb/walnut",
+        "slides": null,
+        "poster": null,
+        "talk": null
+    },
+    {
+        "title": "Decision Algorithms for Ostrowski-Automatic Sequences",
+        "authors": [],
+        "venue": "MMath Thesis, University of Waterloo",
+        "date": "2020-05-13",
+        "link": "https://hdl.handle.net/10012/15845",
+        "code": null,
+        "slides": "../assets/pdf/Ostrowski-Decision-Algorithms.pdf",
+        "poster": null,
+        "talk": null
+    },
+    {
+        "title": "Repetitions in infinite palindrome-rich words",
+        "authors": [
+            "Aseem Baranwal",
+            "Jeffrey Shallit"
+        ],
+        "venue": "Combinatorics on Words",
+        "date": "2019-08-09",
+        "link": "https://doi.org/10.1007/978-3-030-28796-2_7",
+        "preprint": "https://arxiv.org/abs/1904.10028",
+        "code": null,
+        "slides": "../assets/pdf/Repetitions-Rich-Words.pdf",
+        "poster": null,
+        "talk": null
+    },
+    {
+        "title": "Critical exponent of infinite balanced words via the Pell number system",
+        "authors": [
+            "Aseem Baranwal",
+            "Jeffrey Shallit"
+        ],
+        "venue": "Combinatorics on Words",
+        "date": "2019-08-09",
+        "link": "https://doi.org/10.1007/978-3-030-28796-2_6",
+        "preprint": "https://arxiv.org/abs/1902.00503",
+        "code": null,
+        "slides": null,
+        "poster": null,
+        "talk": null
+    }
+]

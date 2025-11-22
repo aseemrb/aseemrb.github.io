@@ -1,0 +1,193 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import Card from "@/components/Card.astro";
+import Hr from "@/components/Hr.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import IconRss from "@/assets/icons/IconRss.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { SITE } from "@/config";
+import { SOCIALS } from "@/constants";
+import { NEWS } from "@/news";
+import publicationsData from "@/data/publications.json";
+import coauthorsData from "@/data/coauthors.json";
+
+const posts = await getCollection("blog");
+
+const sortedPosts = getSortedPosts(posts);
+const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+// const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
+const featuredPublications = publicationsData.filter(pub => pub.featured);
+---
+
+<Layout>
+  <Header />
+  <main id="main-content" data-layout="index">
+    <section id="hero" class="pt-8 pb-6">
+      <h4 class="my-4 inline-block text-2xl font-bold sm:my-8 sm:text-2xl">
+        Aseem Baranwal
+        {
+          SOCIALS.length > 0 && (
+            <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
+              <Socials />
+            </div>
+          )
+        }
+      </h4>
+
+      <p class="mt-2">
+        I work on Machine Learning at <LinkButton class="underline-offset-4 hover:text-accent" href="https://xtxmarkets.com/">XTX Markets</LinkButton>. My interests broadly span learning on graphs, statistical analysis of model architectures, and high dimensional probability.
+      </p>
+      <p class="mt-2">
+        I completed my Ph.D. at the <LinkButton class="underline-offset-4 hover:text-accent" href="https://cs.uwaterloo.ca/">Cheriton School of Computer Science</LinkButton> at <LinkButton class="underline-offset-4 hover:text-accent" href="https://uwaterloo.ca/">UWaterloo</LinkButton> co-advised by Prof <LinkButton class="underline-offset-4 hover:text-accent" href="https://scholar.google.ca/citations?user=K-SafJUAAAAJ">Kimon Fountoulakis</LinkButton> and Prof <LinkButton class="underline-offset-4 hover:text-accent" href="https://aukosh.github.io/">Aukosh Jagannath</LinkButton>, where I was a part of the <LinkButton class="underline-offset-4 hover:text-accent" href="https://watcl.ca/">WatCL Lab</LinkButton> and the <LinkButton class="underline-offset-4 hover:text-accent" href="https://algcomp.uwaterloo.ca/">A&C group</LinkButton>.
+      </p>
+      <p class="mt-2">
+        Prior to this, I received my M.Math. from UWaterloo, advised by Prof <LinkButton class="underline-offset-4 hover:text-accent" href="https://cs.uwaterloo.ca/~shallit/">Jeffrey Shallit</LinkButton> where I worked on algorithmic number theory and combinatorics on words. My undergrad was at <LinkButton class="underline-offset-4 hover:text-accent" href="http://iitj.ac.in/">IIT Jodhpur</LinkButton> where I actively contested at the <LinkButton class="underline-offset-4 hover:text-accent" href="https://icpc.global/">ACM-ICPC</LinkButton> and several <LinkButton class="underline-offset-4 hover:text-accent" href="https://ctftime.org/ctf-wtf/">CTFs</LinkButton>.
+      </p>
+      <p class="mt-2">
+        Fun fact: my <LinkButton class="underline-offset-4 hover:text-accent" href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</LinkButton> is 2
+        <LinkButton class="underline-offset-4 hover:text-accent" href="http://www.numdam.org/item/JTNB_1991__3_1_43_0/">via</LinkButton>
+        Jeffrey Shallit.
+      </p>
+    </section>
+
+    <Hr />
+
+    {
+      NEWS.length > 0 && (
+        <>
+          <section id="news" class="pt-12 pb-6">
+            <h2 class="text-2xl font-semibold tracking-wide">News</h2>
+            <ul class="space-y-4 mt-4">
+              {NEWS.map(({ date, content }) => (
+                <li class="grid grid-cols-[1fr] md:grid-cols-[auto_1fr] gap-2 md:gap-4 items-baseline">
+                  <span class="text-sm text-skin-base opacity-80 font-mono whitespace-nowrap">
+                    {date}
+                  </span>
+                  <span set:html={content} />
+                </li>
+              ))}
+            </ul>
+          </section>
+          <Hr />
+        </>
+      )
+    }
+
+    {
+      featuredPublications.length > 0 && (
+        <>
+          <section id="featured-publications" class="pt-12 pb-6">
+            <h2 class="text-2xl font-semibold tracking-wide">Featured Publications</h2>
+            <ul>
+              {featuredPublications.map(pub => (
+                <li class="my-6">
+                  <div class="mb-2">
+                    <a
+                      href={pub.link || pub.preprint || "#"}
+                      class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0 hover:underline"
+                    >
+                      <h3 class="text-lg font-medium decoration-dashed hover:underline">{pub.title}</h3>
+                    </a>
+                    <div class="flex gap-2 text-xs font-medium mt-1">
+                      {pub.link && <a href={pub.link} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">URL</a>}
+                      {pub.preprint && <a href={pub.preprint} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">arXiv</a>}
+                      {pub.code && <a href={pub.code} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">Code</a>}
+                      {pub.slides && <a href={pub.slides} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">Slides</a>}
+                      {pub.poster && <a href={pub.poster} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">Poster</a>}
+                      {pub.talk && <a href={pub.talk} target="_blank" class="border border-accent/50 px-2 py-0.5 rounded hover:bg-accent hover:text-background transition-colors !no-underline hover:!no-underline">Talk</a>}
+                    </div>
+                  </div>
+                  <div class="text-sm">
+                    {pub.authors.map((author, index) => {
+                      const nameParts = author.split(" ");
+                      const lastName = nameParts[nameParts.length - 1];
+                      const firstPart = nameParts.slice(0, -1).join(" ");
+
+                      let url = null;
+                      // @ts-ignore
+                      const coauthorList = coauthorsData[lastName];
+                      if (coauthorList) {
+                        const match = coauthorList.find((entry: any) =>
+                          entry.firstname.includes(firstPart)
+                        );
+                        if (match) url = match.url;
+                      }
+
+                      return (
+                        <>
+                          {url ? (
+                            <LinkButton href={url}>{author}</LinkButton>
+                          ) : (
+                            <span>{author}</span>
+                          )}
+                          {index < pub.authors.length - 1 ? ", " : ""}
+                        </>
+                      );
+                    })}
+                  </div>
+                  <div class="text-sm font-bold italic">
+                    {pub.venue} • {new Date(pub.date).getFullYear()}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </>
+      )
+    }
+
+    <!-- {
+      featuredPosts.length > 0 && (
+        <>
+          <section id="featured" class="pt-12 pb-6">
+            <h2 class="text-2xl font-semibold tracking-wide">Featured Posts</h2>
+            <ul>
+              {featuredPosts.map(data => (
+                <Card variant="h3" {...data} />
+              ))}
+            </ul>
+          </section>
+          {featuredPublications.length > 0 && <Hr />}
+        </>
+      )
+    } -->
+
+    <!-- {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+          <ul>
+            {recentPosts.map(
+              (data, index) =>
+                index < SITE.postPerIndex && <Card variant="h3" {...data} />
+            )}
+          </ul>
+        </section>
+      )
+    } -->
+
+    <!-- <div class="my-8 text-center">
+      <LinkButton href="/blog/">
+        All Posts
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
+    </div> -->
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset?.layout;
+    if (indexLayout) {
+      sessionStorage.setItem("backUrl", "/");
+    }
+  });
+</script>

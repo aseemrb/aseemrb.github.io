@@ -1,0 +1,37 @@
+---
+import IconPalette from "@/assets/icons/IconPalette.svg";
+import { SITE } from "@/config";
+---
+
+{
+  SITE.lightAndDarkMode && (
+    <div class="relative">
+      <div class="flex h-9 w-9 items-center justify-center rounded p-2 transition-all hover:text-accent">
+        <IconPalette class="h-6 w-6" />
+      </div>
+      <label for="theme-selector" class="sr-only">
+        Select Theme
+      </label>
+      <select
+        id="theme-selector"
+        class="absolute inset-0 h-full w-full cursor-pointer appearance-none opacity-0"
+        aria-label="Select Theme"
+      >
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="midnight">Midnight Void</option>
+        <option value="obsidian">Obsidian Gold</option>
+        <option value="forest">Deep Forest</option>
+        <option value="cyber">Cyber Grape</option>
+        <option value="carbon">Carbon Coral</option>
+      </select>
+    </div>
+  )
+}
+
+<style>
+  /* Custom arrow styling wrapper */
+  div.relative {
+    position: relative;
+  }
+</style>
