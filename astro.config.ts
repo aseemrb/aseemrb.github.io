@@ -17,7 +17,6 @@ import { SITE } from "./src/config";
 export default defineConfig({
   // site: SITE.website,
   site: 'https://aseemrb.github.io',
-  base: '/web',
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
