@@ -1,17 +1,28 @@
-# hidden files
-.*
+# build output
+dist/
 
-# python compiled files
-*.pyc
+# generated types
+.astro/
 
-# Jekyll debug
-_site
+# dependencies
+node_modules/
 
-# Jeykll Gemfile.lock
-Gemfile.lock
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# yui-compressor
-*.jar
+# environment variables
+.env
+.env.production
 
-# bundle cache
-vendor
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# pagefind
+
+public/pagefind
