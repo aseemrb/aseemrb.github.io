@@ -20,6 +20,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# cache
+**__pycache__
+
 # jetbrains setting folder
 .idea/
 

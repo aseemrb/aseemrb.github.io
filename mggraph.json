@@ -1,0 +1,3420 @@
+{
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Aseem Baranwal",
+      "school": "University of Waterloo",
+      "year": "2024"
+    },
+    {
+      "id": "333575",
+      "name": "Kimon  Fountoulakis",
+      "school": "The University of Edinburgh",
+      "year": "2015"
+    },
+    {
+      "id": "181006",
+      "name": "Jacek  Gondzio",
+      "school": "Technical University of Warsaw",
+      "year": "1983"
+    },
+    {
+      "id": "133627",
+      "name": "Andrzej  Ruszczynski",
+      "school": "Politechnika Warszawska",
+      "year": "1977"
+    },
+    {
+      "id": "174151",
+      "name": "Jacek  Szymanowski",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "333577",
+      "name": "Andreas  Grothey",
+      "school": "The University of Edinburgh",
+      "year": "2001"
+    },
+    {
+      "id": "333578",
+      "name": "Ken I. M. McKinnon",
+      "school": "University of Cambridge",
+      "year": "1972"
+    },
+    {
+      "id": "216861",
+      "name": "Aukosh Sundar Jagannath",
+      "school": "New York University",
+      "year": "2016"
+    },
+    {
+      "id": "35436",
+      "name": "Gerard  Ben Arous",
+      "school": "École Normale Supérieure Paris",
+      "year": "1981"
+    },
+    {
+      "id": "56559",
+      "name": "Robert  Azencott",
+      "school": "Université de Paris",
+      "year": "1969"
+    },
+    {
+      "id": "59354",
+      "name": "Jacques  Neveu",
+      "school": "Université de Paris",
+      "year": "1955"
+    },
+    {
+      "id": "25287",
+      "name": "Robert  Fortet",
+      "school": "Université de Paris",
+      "year": "1939"
+    },
+    {
+      "id": "17947",
+      "name": "(René) Maurice  Fréchet",
+      "school": "Université de Paris",
+      "year": "1906"
+    },
+    {
+      "id": "24555",
+      "name": "Jacques Salomon Hadamard",
+      "school": "École Normale Supérieure Paris",
+      "year": "1892"
+    },
+    {
+      "id": "34266",
+      "name": "C. Émile (Charles) Picard",
+      "school": "Université de Paris",
+      "year": "1877"
+    },
+    {
+      "id": "34254",
+      "name": "Gaston  Darboux",
+      "school": "École Normale Supérieure Paris",
+      "year": "1866"
+    },
+    {
+      "id": "26995",
+      "name": "Michel  Chasles",
+      "school": "École Polytechnique",
+      "year": "1814"
+    },
+    {
+      "id": "17865",
+      "name": "Siméon Denis Poisson",
+      "school": "École Polytechnique",
+      "year": "1800"
+    },
+    {
+      "id": "17864",
+      "name": "Joseph Louis Lagrange",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "38586",
+      "name": "Leonhard  Euler",
+      "school": "Universität Basel",
+      "year": "1726"
+    },
+    {
+      "id": "53410",
+      "name": "Johann  Bernoulli",
+      "school": "Universität Basel",
+      "year": "1690"
+    },
+    {
+      "id": "54440",
+      "name": "Jacob  Bernoulli",
+      "school": "Universität Basel",
+      "year": "1676"
+    },
+    {
+      "id": "143084",
+      "name": "Peter  Werenfels",
+      "school": "Universität Basel",
+      "year": "1649"
+    },
+    {
+      "id": "143083",
+      "name": "Theodor  Zwinger, Jr.",
+      "school": "Universität Basel",
+      "year": "1630"
+    },
+    {
+      "id": "143082",
+      "name": "Sebastian  Beck",
+      "school": "Universität Basel",
+      "year": "1610"
+    },
+    {
+      "id": "143045",
+      "name": "Johann Jacob Grynaeus",
+      "school": "Universität Basel",
+      "year": "1559"
+    },
+    {
+      "id": "182092",
+      "name": "Simon  Sulzer",
+      "school": "Collège Saint-Guillaume à Strasbourg",
+      "year": "1531"
+    },
+    {
+      "id": "131399",
+      "name": "Wolfgang Fabricius Capito",
+      "school": "Universität Ingolstadt",
+      "year": "1506"
+    },
+    {
+      "id": "126659",
+      "name": "Ulrich  Zasius",
+      "school": "Albert-Ludwigs-Universität Freiburg im Breisgau",
+      "year": "1501"
+    },
+    {
+      "id": "125938",
+      "name": "Desiderius  Erasmus",
+      "school": "Collège de Montaigu",
+      "year": "1497"
+    },
+    {
+      "id": "125888",
+      "name": "Jan  Standonck",
+      "school": "Collège Sainte-Barbe",
+      "year": "1474"
+    },
+    {
+      "id": "125898",
+      "name": "Alexander  Hegius",
+      "school": "Universität Rostock",
+      "year": "1463"
+    },
+    {
+      "id": "128012",
+      "name": "Rudolf  Agricola",
+      "school": "Università degli Studi di Ferrara",
+      "year": "1478"
+    },
+    {
+      "id": "131584",
+      "name": "Theodoros  Gazes",
+      "school": "Università di Mantova and Imperial University of Constantinople",
+      "year": "1433"
+    },
+    {
+      "id": "134873",
+      "name": "Vittorino  da Feltre",
+      "school": "Università degli Studi di Padova",
+      "year": "1416"
+    },
+    {
+      "id": "298290",
+      "name": "Gasparino  da Barzizza",
+      "school": "Università degli Studi di Padova",
+      "year": "1413"
+    },
+    {
+      "id": "298304",
+      "name": "Giovanni  Conversini",
+      "school": "Università di Bologna",
+      "year": "1363"
+    },
+    {
+      "id": "134931",
+      "name": "Guarino  da Verona",
+      "school": "Imperial University of Constantinople",
+      "year": "1408"
+    },
+    {
+      "id": "135185",
+      "name": "Manuel  Chrysoloras",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "134780",
+      "name": "Demetrios  Kydones",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "146365",
+      "name": "Nilos  Kabasilas",
+      "school": "",
+      "year": "1363"
+    },
+    {
+      "id": "176844",
+      "name": "Gregory  Palamas",
+      "school": "Imperial University of Constantinople",
+      "year": "1316"
+    },
+    {
+      "id": "184631",
+      "name": "Theodore  Metochites",
+      "school": "Imperial University of Constantinople",
+      "year": "1315"
+    },
+    {
+      "id": "184632",
+      "name": "Manuel  Bryennios",
+      "school": "Imperial University of Constantinople",
+      "year": "1300"
+    },
+    {
+      "id": "201288",
+      "name": "Gregory  Chioniadis",
+      "school": "Ilkhans Court at Tabriz",
+      "year": "1296"
+    },
+    {
+      "id": "204293",
+      "name": "Shams al‐Dīn  al‐Bukhārī",
+      "school": "Maragheh Observatory",
+      "year": "????"
+    },
+    {
+      "id": "217509",
+      "name": "Nasir al-Dīn  al-Ṭūsī",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "223724",
+      "name": "Kamāl al-Dīn  Ibn Yūnus",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "230926",
+      "name": "Sharaf al-Dīn  al-Ṭūsī",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "287466",
+      "name": "Saraf al-Dīn Muhammad  al-Masʿūdī al-Marwazī",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "295739",
+      "name": "Ghiyāth al-Dīn Abū al-Fatḥ ʿUmar ibn Ibrāhīm al-Khayyām al-Nīsābūrī",
+      "school": "",
+      "year": "1068"
+    },
+    {
+      "id": "287468",
+      "name": "Bahmanyār  ibn al-Marzubān",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "298616",
+      "name": "Abu ʿAli al-Husayn (Avicenna) ibn Sina",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "287480",
+      "name": "Athīr al-Dīn  al-Mufaḍḍal al-Abharī",
+      "school": "",
+      "year": "1264"
+    },
+    {
+      "id": "287479",
+      "name": "Qutb al-Dīn  Ibrāhīm al-Mīṣrī",
+      "school": "",
+      "year": "1222"
+    },
+    {
+      "id": "287478",
+      "name": "Fakhr al-Dīn Muhammad  al-Rēzī",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "140181",
+      "name": "Thomas von Kempen à Kempis",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "179836",
+      "name": "Geert (Gerardus Magnus) Groote",
+      "school": "Université de Paris",
+      "year": "1358"
+    },
+    {
+      "id": "179837",
+      "name": "Florens (Florentius Radwyn) Radewyns",
+      "school": "Charles University",
+      "year": "1378"
+    },
+    {
+      "id": "182045",
+      "name": "Simon  Grynaeus",
+      "school": "Eberhard-Karls-Universität Tübingen",
+      "year": "1511"
+    },
+    {
+      "id": "125760",
+      "name": "Johann (Johannes Kapnion) Reuchlin",
+      "school": "Universität Basel",
+      "year": "1477"
+    },
+    {
+      "id": "131444",
+      "name": "Johannes  Argyropoulos",
+      "school": "Università degli Studi di Padova",
+      "year": "1444"
+    },
+    {
+      "id": "131561",
+      "name": "Basilios  Bessarion",
+      "school": "Mystras",
+      "year": "1436"
+    },
+    {
+      "id": "131575",
+      "name": "Georgios Plethon Gemistos",
+      "school": "",
+      "year": "1380"
+    },
+    {
+      "id": "134781",
+      "name": "Elissaeus  Judaeus",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "125755",
+      "name": "Jacob ben Jehiel  Loans",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "126956",
+      "name": "Philipp  Melanchthon",
+      "school": "Ruprecht-Karls-Universität Heidelberg",
+      "year": "1511"
+    },
+    {
+      "id": "127107",
+      "name": "Johannes  Stöffler",
+      "school": "Universität Ingolstadt",
+      "year": "1476"
+    },
+    {
+      "id": "143044",
+      "name": "Jacob  Andreae",
+      "school": "Eberhard-Karls-Universität Tübingen",
+      "year": "1553"
+    },
+    {
+      "id": "152648",
+      "name": "Jakob  Beuerlin",
+      "school": "Eberhard-Karls-Universität Tübingen",
+      "year": "1551"
+    },
+    {
+      "id": "152647",
+      "name": "Balthasar  Kaeuffelin",
+      "school": "Eberhard-Karls-Universität Tübingen",
+      "year": "1521"
+    },
+    {
+      "id": "143011",
+      "name": "Nicolas  Malebranche",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "60985",
+      "name": "Gottfried Wilhelm Leibniz",
+      "school": "Universität Leipzig",
+      "year": "1666"
+    },
+    {
+      "id": "137705",
+      "name": "Jakob  Thomasius",
+      "school": "Universität Leipzig",
+      "year": "1643"
+    },
+    {
+      "id": "143630",
+      "name": "Friedrich  Leibniz",
+      "school": "Universität Leipzig",
+      "year": "1622"
+    },
+    {
+      "id": "60984",
+      "name": "Erhard  Weigel",
+      "school": "Universität Leipzig",
+      "year": "1650"
+    },
+    {
+      "id": "144221",
+      "name": "Philipp  Müller",
+      "school": "Universität Leipzig",
+      "year": "1604"
+    },
+    {
+      "id": "144220",
+      "name": "Christoph  Meurer",
+      "school": "Universität Leipzig",
+      "year": "1582"
+    },
+    {
+      "id": "127790",
+      "name": "Moritz Valentin Steinmetz",
+      "school": "Universität Leipzig",
+      "year": "1550"
+    },
+    {
+      "id": "126827",
+      "name": "Georg Joachim von Leuchen Rheticus",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1535"
+    },
+    {
+      "id": "126730",
+      "name": "Johannes  Volmar",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1515"
+    },
+    {
+      "id": "126724",
+      "name": "Bonifazius  Erasmi",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1509"
+    },
+    {
+      "id": "126177",
+      "name": "Nicolaus (Mikołaj Kopernik) Copernicus",
+      "school": "Università di Bologna and Università degli Studi di Padova and Uniwersytet Jagielloński and Università degli Studi di Ferrara",
+      "year": "1499"
+    },
+    {
+      "id": "126113",
+      "name": "Leonhard (Leonard Vitreatoris z Dobczyc) von Dobschütz",
+      "school": "Uniwersytet Jagielloński",
+      "year": "1489"
+    },
+    {
+      "id": "126112",
+      "name": "Domenico Maria Novara da Ferrara",
+      "school": "Università degli Studi di Firenze",
+      "year": "1483"
+    },
+    {
+      "id": "126109",
+      "name": "Johannes Müller Regiomontanus",
+      "school": "Universität Leipzig and Universität Wien",
+      "year": "1457"
+    },
+    {
+      "id": "126087",
+      "name": "Georg  von Peuerbach",
+      "school": "Universität Wien",
+      "year": "1440"
+    },
+    {
+      "id": "126887",
+      "name": "Johannes  von Gmunden",
+      "school": "Universität Wien",
+      "year": "1406"
+    },
+    {
+      "id": "127264",
+      "name": "Heinrich  von Langenstein",
+      "school": "Université de Paris",
+      "year": "1363"
+    },
+    {
+      "id": "199357",
+      "name": "Nicole  Oresme",
+      "school": "Université de Paris",
+      "year": "1356"
+    },
+    {
+      "id": "126888",
+      "name": "Luca  Pacioli",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "184935",
+      "name": "Johann  Hoffmann",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "143859",
+      "name": "Bartholomäus Leonhard Schwendendörffer",
+      "school": "Universität Leipzig",
+      "year": "1656"
+    },
+    {
+      "id": "125561",
+      "name": "Christiaan  Huygens",
+      "school": "Universiteit Leiden",
+      "year": "1647"
+    },
+    {
+      "id": "125450",
+      "name": "Frans  van Schooten, Jr.",
+      "school": "Universiteit Leiden",
+      "year": "1635"
+    },
+    {
+      "id": "125408",
+      "name": "Jacobus  Golius",
+      "school": "Universiteit Leiden",
+      "year": "1612"
+    },
+    {
+      "id": "125302",
+      "name": "Willebrord (Snel van Royen) Snellius",
+      "school": "Universiteit Leiden",
+      "year": "1607"
+    },
+    {
+      "id": "125232",
+      "name": "Ludolph  van Ceulen",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "125181",
+      "name": "Rudolph (Snel van Royen) Snellius",
+      "school": "Ruprecht-Karls-Universität Heidelberg and Universität zu Köln",
+      "year": "1572"
+    },
+    {
+      "id": "125160",
+      "name": "Valentine  Naibod",
+      "school": "Martin-Luther-Universität Halle-Wittenberg and Universität Erfurt",
+      "year": "????"
+    },
+    {
+      "id": "126736",
+      "name": "Erasmus  Reinhold",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1535"
+    },
+    {
+      "id": "126667",
+      "name": "Jakob  Milich",
+      "school": "Albert-Ludwigs-Universität Freiburg im Breisgau",
+      "year": "1520"
+    },
+    {
+      "id": "125159",
+      "name": "Immanuel  Tremellius",
+      "school": "University of Cambridge",
+      "year": "1549"
+    },
+    {
+      "id": "141571",
+      "name": "Thomas  Cranmer",
+      "school": "University of Cambridge",
+      "year": "1515"
+    },
+    {
+      "id": "125378",
+      "name": "Thomas  Erpenius",
+      "school": "Universiteit Leiden",
+      "year": "1608"
+    },
+    {
+      "id": "131577",
+      "name": "Joseph Justus Scaliger",
+      "school": "Collège de France",
+      "year": "1563"
+    },
+    {
+      "id": "131606",
+      "name": "Adrien  Turnèbe",
+      "school": "Collège de France",
+      "year": "1532"
+    },
+    {
+      "id": "131546",
+      "name": "Jacques  Toussain",
+      "school": "Université de Paris",
+      "year": "1521"
+    },
+    {
+      "id": "131517",
+      "name": "Guillaume  Budé",
+      "school": "Université d'Orléans and Université de Paris",
+      "year": "1486"
+    },
+    {
+      "id": "131443",
+      "name": "Georgius  Hermonymus",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "131541",
+      "name": "Janus  Lascaris",
+      "school": "Università degli Studi di Padova",
+      "year": "1472"
+    },
+    {
+      "id": "131576",
+      "name": "Demetrios  Chalcocondyles",
+      "school": "Mystras and Accademia Romana",
+      "year": "1452"
+    },
+    {
+      "id": "125434",
+      "name": "Marin  Mersenne",
+      "school": "Université de Paris",
+      "year": "1611"
+    },
+    {
+      "id": "125416",
+      "name": "Jan Jansz Stampioen, Jr.",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "129628",
+      "name": "Nikolaus  Eglinger",
+      "school": "Universität Basel",
+      "year": "1660"
+    },
+    {
+      "id": "125125",
+      "name": "Emmanuel  Stupanus",
+      "school": "Universität Basel",
+      "year": "1613"
+    },
+    {
+      "id": "130248",
+      "name": "Petrus  Ryff",
+      "school": "Universität Basel",
+      "year": "1584"
+    },
+    {
+      "id": "182090",
+      "name": "Felix  Plater",
+      "school": "Université de Montpellier",
+      "year": "1557"
+    },
+    {
+      "id": "158329",
+      "name": "Guillaume  Rondelet",
+      "school": "Université de Paris",
+      "year": "1529"
+    },
+    {
+      "id": "119159",
+      "name": "Johannes Winter von Andernach",
+      "school": "Université Catholique de Louvain",
+      "year": "1527"
+    },
+    {
+      "id": "126571",
+      "name": "Rutger  Rescius",
+      "school": "Université de Paris",
+      "year": "1513"
+    },
+    {
+      "id": "127181",
+      "name": "Girolamo (Hieronymus Aleander) Aleandro",
+      "school": "Università degli Studi di Padova",
+      "year": "1499"
+    },
+    {
+      "id": "131446",
+      "name": "Moses  Perez",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "131447",
+      "name": "Scipione  Fortiguerra",
+      "school": "Università degli Studi di Firenze",
+      "year": "1493"
+    },
+    {
+      "id": "131535",
+      "name": "Angelo  Poliziano",
+      "school": "Università degli Studi di Firenze",
+      "year": "1477"
+    },
+    {
+      "id": "131539",
+      "name": "Marsilio  Ficino",
+      "school": "Università degli Studi di Firenze",
+      "year": "1462"
+    },
+    {
+      "id": "131540",
+      "name": "Cristoforo  Landino",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "298288",
+      "name": "George  of Trebizond",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "125422",
+      "name": "Jacobus (Jacques Dubois) Sylvius",
+      "school": "Université de Paris",
+      "year": "1529"
+    },
+    {
+      "id": "128987",
+      "name": "François  Dubois",
+      "school": "Université de Paris",
+      "year": "1516"
+    },
+    {
+      "id": "128921",
+      "name": "Jean  Tagault",
+      "school": "Sorbonne Université",
+      "year": "1524"
+    },
+    {
+      "id": "129708",
+      "name": "Johann Caspar Bauhin",
+      "school": "Universität Basel",
+      "year": "1649"
+    },
+    {
+      "id": "146036",
+      "name": "Giovanni Battista (Giambattista) Beccaria",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "108295",
+      "name": "Pierre-Simon  Laplace",
+      "school": "Université de Caen Normandie",
+      "year": "1769"
+    },
+    {
+      "id": "108266",
+      "name": "Jean Le Rond d'Alembert",
+      "school": "Collège Mazarin",
+      "year": "1735"
+    },
+    {
+      "id": "294942",
+      "name": "Léonor  Caron",
+      "school": "Collège Mazarin",
+      "year": "1710"
+    },
+    {
+      "id": "112689",
+      "name": "Pierre  Varignon",
+      "school": "Académie royale des sciences de Paris",
+      "year": "1687"
+    },
+    {
+      "id": "34260",
+      "name": "Jules  Tannery",
+      "school": "École Normale Supérieure Paris",
+      "year": "1874"
+    },
+    {
+      "id": "32960",
+      "name": "Charles  Hermite",
+      "school": "École Polytechnique",
+      "year": "1847"
+    },
+    {
+      "id": "100550",
+      "name": "Eugène-Charles  Catalan",
+      "school": "Université de Paris",
+      "year": "1841"
+    },
+    {
+      "id": "55185",
+      "name": "Joseph  Liouville",
+      "school": "Faculté des Sciences, Paris",
+      "year": "1836"
+    },
+    {
+      "id": "104652",
+      "name": "Louis Jacques Thenard",
+      "school": "École Polytechnique",
+      "year": "????"
+    },
+    {
+      "id": "158571",
+      "name": "Nicolas Louis Vauquelin",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "158735",
+      "name": "Antoine Francois de Fourcroy",
+      "school": "Université de Paris",
+      "year": "????"
+    },
+    {
+      "id": "158900",
+      "name": "Jean Baptiste Michel Bucquet",
+      "school": "Université de Paris",
+      "year": "1768"
+    },
+    {
+      "id": "159761",
+      "name": "Pierre Joseph Macquer",
+      "school": "Université de Paris",
+      "year": "1742"
+    },
+    {
+      "id": "167450",
+      "name": "Gillaume-Francois  Rouelle",
+      "school": "Université de Paris",
+      "year": "1725"
+    },
+    {
+      "id": "168615",
+      "name": "Johann Gottlob Spitzley",
+      "school": "Jardin du Roi",
+      "year": "????"
+    },
+    {
+      "id": "169018",
+      "name": "Nicolas  Lemery",
+      "school": "Jardin du Roi",
+      "year": "????"
+    },
+    {
+      "id": "170525",
+      "name": "Christoph Jacob Glaser",
+      "school": "Universität Altdorf",
+      "year": "1688"
+    },
+    {
+      "id": "17240",
+      "name": "Johann Christoph Sturm",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1662"
+    },
+    {
+      "id": "115139",
+      "name": "Johannes  de Raey",
+      "school": "Universiteit Leiden and Universiteit Utrecht",
+      "year": "1641"
+    },
+    {
+      "id": "115030",
+      "name": "Henricus (Hendrik de Roy) Regius",
+      "school": "Universiteit Franeker",
+      "year": "1617"
+    },
+    {
+      "id": "125173",
+      "name": "Otho (Otto van Heurne) Heurnius",
+      "school": "Universiteit Leiden",
+      "year": "1599"
+    },
+    {
+      "id": "125124",
+      "name": "Johannes (Johan van Heurne) Heurnius",
+      "school": "Collège de France",
+      "year": "1566"
+    },
+    {
+      "id": "125047",
+      "name": "Petrus (Pierre de La Ramée) Ramus",
+      "school": "Collège de Navarre",
+      "year": "1536"
+    },
+    {
+      "id": "125665",
+      "name": "Johannes (Johann Sturm) Sturmius",
+      "school": "Université Catholique de Louvain",
+      "year": "1527"
+    },
+    {
+      "id": "125658",
+      "name": "Nicolas (Nicolaes Cleynaerts) Clénard",
+      "school": "Université Catholique de Louvain",
+      "year": "1515"
+    },
+    {
+      "id": "125681",
+      "name": "Jacobus (Jacques Masson) Latomus",
+      "school": "Collège de Montaigu",
+      "year": "1502"
+    },
+    {
+      "id": "125682",
+      "name": "Jan (Johannes Campensis) van Campen",
+      "school": "Universität Ingolstadt",
+      "year": "????"
+    },
+    {
+      "id": "125794",
+      "name": "Matthaeus  Adrianus",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "125109",
+      "name": "Hieronymus (Girolamo Fabrici d'Acquapendente) Fabricius",
+      "school": "Università degli Studi di Padova",
+      "year": "1559"
+    },
+    {
+      "id": "125142",
+      "name": "Gabriele  Falloppio",
+      "school": "Università degli Studi di Padova and Università degli Studi di Ferrara",
+      "year": "1547"
+    },
+    {
+      "id": "127245",
+      "name": "Antonio Musa Brasavola",
+      "school": "Università degli Studi di Ferrara",
+      "year": "1520"
+    },
+    {
+      "id": "127166",
+      "name": "Niccolò  Leoniceno",
+      "school": "Scuola Pubblica di Vicenza",
+      "year": "1446"
+    },
+    {
+      "id": "149192",
+      "name": "Ognibene (Omnibonus Leonicenus) Bonisoli da Lonigo",
+      "school": "Università di Mantova",
+      "year": "1433"
+    },
+    {
+      "id": "127144",
+      "name": "Pelope",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "136726",
+      "name": "Pietro  Roccabonella",
+      "school": "Università degli Studi di Padova",
+      "year": "1459"
+    },
+    {
+      "id": "148882",
+      "name": "Gaetano  da Thiene",
+      "school": "Università degli Studi di Padova",
+      "year": "????"
+    },
+    {
+      "id": "232227",
+      "name": "Paolo (Nicoletti) da Venezia",
+      "school": "Università degli Studi di Padova",
+      "year": "1405"
+    },
+    {
+      "id": "164338",
+      "name": "Sigismondo  Polcastro",
+      "school": "Università degli Studi di Padova",
+      "year": "1412"
+    },
+    {
+      "id": "125303",
+      "name": "Matteo Realdo (Renaldus Columbus) Colombo",
+      "school": "Università degli Studi di Padova",
+      "year": "1544"
+    },
+    {
+      "id": "119178",
+      "name": "Andreas (Andries van Wesel) Vesalius",
+      "school": "Università degli Studi di Padova and Université Catholique de Louvain",
+      "year": "1537"
+    },
+    {
+      "id": "119097",
+      "name": "Gemma (Jemme Reinerszoon) Frisius",
+      "school": "Université Catholique de Louvain",
+      "year": "1529"
+    },
+    {
+      "id": "125892",
+      "name": "Petrus (Pieter de Corte) Curtius",
+      "school": "Université Catholique de Louvain",
+      "year": "1513"
+    },
+    {
+      "id": "125894",
+      "name": "Maarten (Martinus Dorpius) van Dorp",
+      "school": "Université Catholique de Louvain",
+      "year": "1504"
+    },
+    {
+      "id": "125897",
+      "name": "Leo  Outers",
+      "school": "Université Catholique de Louvain",
+      "year": "1485"
+    },
+    {
+      "id": "152904",
+      "name": "Giovanni Battista  della Monte",
+      "school": "Università degli Studi di Ferrara",
+      "year": "????"
+    },
+    {
+      "id": "152901",
+      "name": "Marco  Musuro",
+      "school": "Università degli Studi di Firenze",
+      "year": "1486"
+    },
+    {
+      "id": "152903",
+      "name": "Pietro  Pomponazzi",
+      "school": "Università degli Studi di Padova",
+      "year": "1487"
+    },
+    {
+      "id": "152902",
+      "name": "Nicoletto  Vernia",
+      "school": "Università degli Studi di Padova",
+      "year": "1458"
+    },
+    {
+      "id": "232228",
+      "name": "Paolo  da Pergola",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "125233",
+      "name": "Petrus (Pierre du Moulin) Molinaeus",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "125006",
+      "name": "Adriaan  van den Spieghel",
+      "school": "Università degli Studi di Padova and Université Catholique de Louvain",
+      "year": "1603"
+    },
+    {
+      "id": "115095",
+      "name": "Adriaan  Heereboord",
+      "school": "Universiteit Leiden",
+      "year": "1631"
+    },
+    {
+      "id": "115008",
+      "name": "Franck Pieterszoon Burgersdijk",
+      "school": "Universiteit Leiden",
+      "year": "1614"
+    },
+    {
+      "id": "114992",
+      "name": "Gilbert  Jacchaeus",
+      "school": "University of St. Andrews",
+      "year": "1601"
+    },
+    {
+      "id": "128122",
+      "name": "Duncan  Liddel",
+      "school": "Europa-Universität Viadrina Frankfurt an der Oder and Universität Breslau",
+      "year": "1582"
+    },
+    {
+      "id": "128305",
+      "name": "John  Craig",
+      "school": "Universität Basel",
+      "year": "1580"
+    },
+    {
+      "id": "125148",
+      "name": "Theodor  Zwinger",
+      "school": "Collège de France",
+      "year": "1553"
+    },
+    {
+      "id": "152906",
+      "name": "Bassiano  Landi",
+      "school": "Università degli Studi di Padova",
+      "year": "1542"
+    },
+    {
+      "id": "152905",
+      "name": "Vittore  Trincavelli",
+      "school": "Università degli Studi di Padova",
+      "year": "????"
+    },
+    {
+      "id": "128348",
+      "name": "Paul  Wittich",
+      "school": "Martin-Luther-Universität Halle-Wittenberg and Universität Leipzig",
+      "year": "1566"
+    },
+    {
+      "id": "127092",
+      "name": "Valentin  Thau",
+      "school": "Universität Leipzig",
+      "year": "1555"
+    },
+    {
+      "id": "127011",
+      "name": "Johannes  Hommel",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1543"
+    },
+    {
+      "id": "126489",
+      "name": "Jacobus (Jacob Harmensz.) Arminius",
+      "school": "Philipps-Universität Marburg and Universiteit Leiden",
+      "year": "1582"
+    },
+    {
+      "id": "31748",
+      "name": "Jeffrey Outlaw Shallit",
+      "school": "University of California, Berkeley",
+      "year": "1983"
+    },
+    {
+      "id": "6595",
+      "name": "David M. Goldschmidt",
+      "school": "The University of Chicago",
+      "year": "1969"
+    },
+    {
+      "id": "6488",
+      "name": "John Griggs Thompson",
+      "school": "The University of Chicago",
+      "year": "1959"
+    },
+    {
+      "id": "834",
+      "name": "Saunders  Mac Lane",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1934"
+    },
+    {
+      "id": "7373",
+      "name": "Hermann Claus Hugo Weyl",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1908"
+    },
+    {
+      "id": "7298",
+      "name": "David  Hilbert",
+      "school": "Universität Königsberg",
+      "year": "1885"
+    },
+    {
+      "id": "7404",
+      "name": "C. L. Ferdinand (Carl Louis) Lindemann",
+      "school": "Friedrich-Alexander-Universität Erlangen-Nürnberg",
+      "year": "1873"
+    },
+    {
+      "id": "7401",
+      "name": "C. Felix (Christian) Klein",
+      "school": "Rheinische Friedrich-Wilhelms-Universität Bonn",
+      "year": "1868"
+    },
+    {
+      "id": "7402",
+      "name": "Julius  Plücker",
+      "school": "Philipps-Universität Marburg",
+      "year": "1823"
+    },
+    {
+      "id": "29642",
+      "name": "Christian Ludwig Gerling",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1812"
+    },
+    {
+      "id": "18231",
+      "name": "Carl Friedrich Gauß",
+      "school": "Universität Helmstedt",
+      "year": "1799"
+    },
+    {
+      "id": "18230",
+      "name": "Johann Friedrich Pfaff",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1786"
+    },
+    {
+      "id": "66476",
+      "name": "Abraham Gotthelf Kästner",
+      "school": "Universität Leipzig",
+      "year": "1739"
+    },
+    {
+      "id": "57670",
+      "name": "Christian August Hausen",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1713"
+    },
+    {
+      "id": "72669",
+      "name": "Johann Christoph Wichmannshausen",
+      "school": "Universität Leipzig",
+      "year": "1685"
+    },
+    {
+      "id": "21235",
+      "name": "Otto  Mencke",
+      "school": "Universität Leipzig",
+      "year": "1665"
+    },
+    {
+      "id": "128986",
+      "name": "Johann Andreas Planer",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1686"
+    },
+    {
+      "id": "128046",
+      "name": "Johann  Pasch",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1683"
+    },
+    {
+      "id": "127962",
+      "name": "Michael d. J.  Walther",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1656"
+    },
+    {
+      "id": "127801",
+      "name": "Aegidius  Strauch",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1633"
+    },
+    {
+      "id": "127734",
+      "name": "Nicolaus  Zapf",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1622"
+    },
+    {
+      "id": "127424",
+      "name": "Erasmus  Schmidt",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1592"
+    },
+    {
+      "id": "127898",
+      "name": "Sethus  Calvisius",
+      "school": "Universität Leipzig",
+      "year": "1582"
+    },
+    {
+      "id": "127864",
+      "name": "Nikolaus  Selnecker",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1570"
+    },
+    {
+      "id": "127942",
+      "name": "Petrus  Otto",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "189659",
+      "name": "Abraham  Heinecke",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "127848",
+      "name": "Jacobus  Martini",
+      "school": "Universität Helmstedt",
+      "year": "1596"
+    },
+    {
+      "id": "128105",
+      "name": "Cornelius  Martini",
+      "school": "Universität Helmstedt",
+      "year": "1591"
+    },
+    {
+      "id": "200006",
+      "name": "Albert  Clampius",
+      "school": "Ruprecht-Karls-Universität Heidelberg",
+      "year": "????"
+    },
+    {
+      "id": "224249",
+      "name": "Reinhard  Bachoff von Echt",
+      "school": "Ruprecht-Karls-Universität Heidelberg",
+      "year": "1598"
+    },
+    {
+      "id": "230796",
+      "name": "Constantin  Ziegra",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1640"
+    },
+    {
+      "id": "128938",
+      "name": "Rudolf Jakob Camerarius",
+      "school": "Eberhard-Karls-Universität Tübingen",
+      "year": "1684"
+    },
+    {
+      "id": "123974",
+      "name": "Georg Balthasar Metzger",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1646"
+    },
+    {
+      "id": "182089",
+      "name": "Gottfried  Möbius",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1640"
+    },
+    {
+      "id": "125154",
+      "name": "Werner  Rolfinck",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1618"
+    },
+    {
+      "id": "126111",
+      "name": "Daniel  Sennert",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1594"
+    },
+    {
+      "id": "127278",
+      "name": "Jan  Jessenius",
+      "school": "Universität Leipzig",
+      "year": "1588"
+    },
+    {
+      "id": "182088",
+      "name": "Johann Jakob von Brunn",
+      "school": "Universität Basel",
+      "year": "1615"
+    },
+    {
+      "id": "125048",
+      "name": "Johannes Nicolaus Stupanus",
+      "school": "Universität Basel",
+      "year": "1569"
+    },
+    {
+      "id": "76481",
+      "name": "Elias Rudolph Camerarius, Sr.",
+      "school": "Eberhard-Karls-Universität Tübingen",
+      "year": "1663"
+    },
+    {
+      "id": "127710",
+      "name": "Johann Elert Bode",
+      "school": "Handelsakademie Hamburg",
+      "year": "????"
+    },
+    {
+      "id": "127668",
+      "name": "Johann Georg Büsch",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1752"
+    },
+    {
+      "id": "60782",
+      "name": "Johann Andreas Segner",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1725"
+    },
+    {
+      "id": "125886",
+      "name": "Georg Erhard Hamberger",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1684"
+    },
+    {
+      "id": "191279",
+      "name": "Anton Bernhard Lauterbach",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1716"
+    },
+    {
+      "id": "125846",
+      "name": "Johann Adolph Wedel",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1694"
+    },
+    {
+      "id": "125488",
+      "name": "Georg Wolffgang Wedel",
+      "school": "Friedrich-Schiller-Universität Jena and Universiteit Leiden",
+      "year": "1667"
+    },
+    {
+      "id": "101860",
+      "name": "Franciscus de le Boë Sylvius",
+      "school": "Universiteit Leiden and Universität Basel",
+      "year": "1634"
+    },
+    {
+      "id": "125023",
+      "name": "Adolph  Vorstius",
+      "school": "Universiteit Leiden",
+      "year": "1619"
+    },
+    {
+      "id": "125971",
+      "name": "Simon Paul Hilscher",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1704"
+    },
+    {
+      "id": "124000",
+      "name": "Rudolf Wilhelm Krause",
+      "school": "Athenaeum Illustre Amsterdam",
+      "year": "1667"
+    },
+    {
+      "id": "208258",
+      "name": "Gerardus Leonardus Blasius",
+      "school": "Universiteit Leiden",
+      "year": "1648"
+    },
+    {
+      "id": "208259",
+      "name": "Siegmund Jakob Baumgarten",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1726"
+    },
+    {
+      "id": "146035",
+      "name": "Christian Benedict Michaelis",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1706"
+    },
+    {
+      "id": "145770",
+      "name": "Johann Heinrich Michaelis",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1694"
+    },
+    {
+      "id": "146034",
+      "name": "August Hermann Francke",
+      "school": "Universität Leipzig",
+      "year": "1685"
+    },
+    {
+      "id": "145708",
+      "name": "Hiob  Ludolf",
+      "school": "Universität Erfurt",
+      "year": "1645"
+    },
+    {
+      "id": "146374",
+      "name": "Johann  Möller",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "145707",
+      "name": "Constantijn  l’Empereur van Oppyck",
+      "school": "Universiteit Franeker",
+      "year": "1617"
+    },
+    {
+      "id": "130913",
+      "name": "Johannes (van den Driesche) Drusius",
+      "school": "University of Cambridge",
+      "year": "1572"
+    },
+    {
+      "id": "130995",
+      "name": "Raoul (Rodolphus Cavellerius) le Chevalier",
+      "school": "Collège de France and University of Oxford",
+      "year": "????"
+    },
+    {
+      "id": "131235",
+      "name": "François  Vatable",
+      "school": "Université de Paris",
+      "year": "1511"
+    },
+    {
+      "id": "131398",
+      "name": "Jacques (Jacobus Faber) Lefèvre d'Étaples",
+      "school": "Université de Paris and Accademia Romana",
+      "year": "1480"
+    },
+    {
+      "id": "131236",
+      "name": "Paul (Paul Büchlein) Fagius",
+      "school": "Ruprecht-Karls-Universität Heidelberg",
+      "year": "1527"
+    },
+    {
+      "id": "131400",
+      "name": "Elijah ben Asher Levita",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "19964",
+      "name": "Rudolf Otto Sigismund Lipschitz",
+      "school": "Universität Berlin",
+      "year": "1853"
+    },
+    {
+      "id": "17946",
+      "name": "Gustav Peter Lejeune Dirichlet",
+      "school": "Rheinische Friedrich-Wilhelms-Universität Bonn",
+      "year": "1827"
+    },
+    {
+      "id": "17981",
+      "name": "Jean-Baptiste Joseph Fourier",
+      "school": "École Normale Supérieure",
+      "year": "????"
+    },
+    {
+      "id": "47064",
+      "name": "Martin  Ohm",
+      "school": "Friedrich-Alexander-Universität Erlangen-Nürnberg",
+      "year": "1811"
+    },
+    {
+      "id": "47025",
+      "name": "Karl Christian von Langsdorf",
+      "school": "Georg-August-Universität Göttingen and Justus-Liebig-Universität Gießen and Universität Erfurt",
+      "year": "1781"
+    },
+    {
+      "id": "16915",
+      "name": "Heinrich Martin Weber",
+      "school": "Ruprecht-Karls-Universität Heidelberg",
+      "year": "1863"
+    },
+    {
+      "id": "46967",
+      "name": "Otto  Hesse",
+      "school": "Universität Königsberg",
+      "year": "1840"
+    },
+    {
+      "id": "15635",
+      "name": "Carl Gustav Jacob Jacobi",
+      "school": "Humboldt-Universität zu Berlin",
+      "year": "1825"
+    },
+    {
+      "id": "41423",
+      "name": "Enno Heeren Dirksen",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1820"
+    },
+    {
+      "id": "57659",
+      "name": "Johann Tobias Mayer",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1773"
+    },
+    {
+      "id": "65161",
+      "name": "Georg Christoph Lichtenberg",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1765"
+    },
+    {
+      "id": "57667",
+      "name": "Bernhard Friedrich Thibaut",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1796"
+    },
+    {
+      "id": "123967",
+      "name": "Robert Wilhelm Eberhard Bunsen",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1830"
+    },
+    {
+      "id": "123979",
+      "name": "Friedrich  Stromeyer",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1800"
+    },
+    {
+      "id": "76485",
+      "name": "Johann Friedrich Gmelin",
+      "school": "Eberhard-Karls-Universität Tübingen",
+      "year": "1768"
+    },
+    {
+      "id": "76484",
+      "name": "Phillip Friedrich Gmelin",
+      "school": "Eberhard-Karls-Universität Tübingen",
+      "year": "1742"
+    },
+    {
+      "id": "76483",
+      "name": "Burchard David Mauchart",
+      "school": "Eberhard-Karls-Universität Tübingen",
+      "year": "1722"
+    },
+    {
+      "id": "76482",
+      "name": "Elias Rudolph Camerarius, Jr.",
+      "school": "Eberhard-Karls-Universität Tübingen",
+      "year": "1691"
+    },
+    {
+      "id": "123957",
+      "name": "Ferdinand Christoph Oetinger",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1739"
+    },
+    {
+      "id": "123968",
+      "name": "Michael  Alberti",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1703"
+    },
+    {
+      "id": "123977",
+      "name": "Georg Ernst Stahl",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1684"
+    },
+    {
+      "id": "46968",
+      "name": "Gustav Robert Kirchhoff",
+      "school": "Universität Königsberg",
+      "year": "1847"
+    },
+    {
+      "id": "18600",
+      "name": "Franz Ernst Neumann",
+      "school": "Universität Berlin",
+      "year": "1825"
+    },
+    {
+      "id": "66319",
+      "name": "Christian Samuel Weiss",
+      "school": "Universität Leipzig",
+      "year": "1801"
+    },
+    {
+      "id": "124285",
+      "name": "Abraham Gottlob Werner",
+      "school": "Universität Leipzig",
+      "year": "1774"
+    },
+    {
+      "id": "124490",
+      "name": "Johann Carl Gehler",
+      "school": "Universität Leipzig",
+      "year": "1758"
+    },
+    {
+      "id": "124845",
+      "name": "Christian Gottlieb Ludwig",
+      "school": "Universität Leipzig",
+      "year": "1737"
+    },
+    {
+      "id": "125001",
+      "name": "Christoph Friedrich Haase",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "125002",
+      "name": "Augustin Friedrich Walther",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1712"
+    },
+    {
+      "id": "125107",
+      "name": "Johann Gottfried von Berger",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1682"
+    },
+    {
+      "id": "125143",
+      "name": "Augustin Heinrich Fasch",
+      "school": "Friedrich-Schiller-Universität Jena",
+      "year": "1663"
+    },
+    {
+      "id": "124286",
+      "name": "René Just Haüy",
+      "school": "",
+      "year": "????"
+    },
+    {
+      "id": "57706",
+      "name": "Friedrich Julius Richelot",
+      "school": "Universität Königsberg",
+      "year": "1831"
+    },
+    {
+      "id": "7863",
+      "name": "Paul Isaak Bernays",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1912"
+    },
+    {
+      "id": "7862",
+      "name": "Edmund  Landau",
+      "school": "Universität Berlin",
+      "year": "1899"
+    },
+    {
+      "id": "4642",
+      "name": "Ferdinand Georg Frobenius",
+      "school": "Humboldt-Universität zu Berlin",
+      "year": "1870"
+    },
+    {
+      "id": "7486",
+      "name": "Karl Theodor Wilhelm Weierstraß",
+      "school": "Universität Münster",
+      "year": "1841"
+    },
+    {
+      "id": "29458",
+      "name": "Christoph  Gudermann",
+      "school": "Humboldt-Universität zu Berlin",
+      "year": "1823"
+    },
+    {
+      "id": "18331",
+      "name": "Ernst Eduard Kummer",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1831"
+    },
+    {
+      "id": "25484",
+      "name": "Heinrich Ferdinand Scherk",
+      "school": "Universität Berlin",
+      "year": "1823"
+    },
+    {
+      "id": "18603",
+      "name": "Friedrich Wilhelm Bessel",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1810"
+    },
+    {
+      "id": "65162",
+      "name": "Heinrich Wilhelm Brandes",
+      "school": "Georg-August-Universität Göttingen",
+      "year": "1800"
+    },
+    {
+      "id": "11370",
+      "name": "Lazarus Immanuel Fuchs",
+      "school": "Universität Berlin",
+      "year": "1858"
+    },
+    {
+      "id": "13373",
+      "name": "Manuel  Blum",
+      "school": "Massachusetts Institute of Technology",
+      "year": "1964"
+    },
+    {
+      "id": "6869",
+      "name": "Marvin Lee Minsky",
+      "school": "Princeton University",
+      "year": "1954"
+    },
+    {
+      "id": "8581",
+      "name": "Albert William Tucker",
+      "school": "Princeton University",
+      "year": "1932"
+    },
+    {
+      "id": "7461",
+      "name": "Solomon  Lefschetz",
+      "school": "Clark University",
+      "year": "1911"
+    },
+    {
+      "id": "7451",
+      "name": "William Edward Story",
+      "school": "Universität Leipzig",
+      "year": "1875"
+    },
+    {
+      "id": "32858",
+      "name": "Carl Gottfried Neumann",
+      "school": "Universität Königsberg",
+      "year": "1856"
+    },
+    {
+      "id": "18589",
+      "name": "Wilhelm  Scheibner",
+      "school": "Martin-Luther-Universität Halle-Wittenberg",
+      "year": "1848"
+    }
+  ],
+  "links": [
+    {
+      "source": "333575",
+      "target": "181006"
+    },
+    {
+      "source": "333575",
+      "target": "333577"
+    },
+    {
+      "source": "181006",
+      "target": "133627"
+    },
+    {
+      "source": "133627",
+      "target": "174151"
+    },
+    {
+      "source": "333577",
+      "target": "333578"
+    },
+    {
+      "source": "216861",
+      "target": "35436"
+    },
+    {
+      "source": "35436",
+      "target": "56559"
+    },
+    {
+      "source": "56559",
+      "target": "59354"
+    },
+    {
+      "source": "59354",
+      "target": "25287"
+    },
+    {
+      "source": "25287",
+      "target": "17947"
+    },
+    {
+      "source": "17947",
+      "target": "24555"
+    },
+    {
+      "source": "24555",
+      "target": "34266"
+    },
+    {
+      "source": "24555",
+      "target": "34260"
+    },
+    {
+      "source": "34266",
+      "target": "34254"
+    },
+    {
+      "source": "34254",
+      "target": "26995"
+    },
+    {
+      "source": "26995",
+      "target": "17865"
+    },
+    {
+      "source": "17865",
+      "target": "17864"
+    },
+    {
+      "source": "17865",
+      "target": "108295"
+    },
+    {
+      "source": "17864",
+      "target": "38586"
+    },
+    {
+      "source": "17864",
+      "target": "146036"
+    },
+    {
+      "source": "38586",
+      "target": "53410"
+    },
+    {
+      "source": "53410",
+      "target": "54440"
+    },
+    {
+      "source": "53410",
+      "target": "129628"
+    },
+    {
+      "source": "54440",
+      "target": "143084"
+    },
+    {
+      "source": "54440",
+      "target": "143011"
+    },
+    {
+      "source": "143084",
+      "target": "143083"
+    },
+    {
+      "source": "143083",
+      "target": "143082"
+    },
+    {
+      "source": "143082",
+      "target": "143045"
+    },
+    {
+      "source": "143045",
+      "target": "182092"
+    },
+    {
+      "source": "143045",
+      "target": "143044"
+    },
+    {
+      "source": "182092",
+      "target": "131399"
+    },
+    {
+      "source": "182092",
+      "target": "182045"
+    },
+    {
+      "source": "131399",
+      "target": "126659"
+    },
+    {
+      "source": "131399",
+      "target": "125938"
+    },
+    {
+      "source": "125938",
+      "target": "125888"
+    },
+    {
+      "source": "125938",
+      "target": "125898"
+    },
+    {
+      "source": "125898",
+      "target": "128012"
+    },
+    {
+      "source": "125898",
+      "target": "140181"
+    },
+    {
+      "source": "128012",
+      "target": "131584"
+    },
+    {
+      "source": "131584",
+      "target": "134873"
+    },
+    {
+      "source": "134873",
+      "target": "298290"
+    },
+    {
+      "source": "134873",
+      "target": "298304"
+    },
+    {
+      "source": "134873",
+      "target": "134931"
+    },
+    {
+      "source": "134931",
+      "target": "135185"
+    },
+    {
+      "source": "134931",
+      "target": "298304"
+    },
+    {
+      "source": "135185",
+      "target": "134780"
+    },
+    {
+      "source": "134780",
+      "target": "146365"
+    },
+    {
+      "source": "146365",
+      "target": "176844"
+    },
+    {
+      "source": "176844",
+      "target": "184631"
+    },
+    {
+      "source": "184631",
+      "target": "184632"
+    },
+    {
+      "source": "184632",
+      "target": "201288"
+    },
+    {
+      "source": "201288",
+      "target": "204293"
+    },
+    {
+      "source": "204293",
+      "target": "217509"
+    },
+    {
+      "source": "217509",
+      "target": "223724"
+    },
+    {
+      "source": "217509",
+      "target": "287480"
+    },
+    {
+      "source": "223724",
+      "target": "230926"
+    },
+    {
+      "source": "223724",
+      "target": "287466"
+    },
+    {
+      "source": "287466",
+      "target": "295739"
+    },
+    {
+      "source": "295739",
+      "target": "287468"
+    },
+    {
+      "source": "287468",
+      "target": "298616"
+    },
+    {
+      "source": "287480",
+      "target": "223724"
+    },
+    {
+      "source": "287480",
+      "target": "287479"
+    },
+    {
+      "source": "287479",
+      "target": "287478"
+    },
+    {
+      "source": "287478",
+      "target": "287466"
+    },
+    {
+      "source": "140181",
+      "target": "179836"
+    },
+    {
+      "source": "140181",
+      "target": "179837"
+    },
+    {
+      "source": "182045",
+      "target": "125760"
+    },
+    {
+      "source": "182045",
+      "target": "126956"
+    },
+    {
+      "source": "125760",
+      "target": "131444"
+    },
+    {
+      "source": "125760",
+      "target": "125755"
+    },
+    {
+      "source": "131444",
+      "target": "131561"
+    },
+    {
+      "source": "131561",
+      "target": "131575"
+    },
+    {
+      "source": "131575",
+      "target": "134780"
+    },
+    {
+      "source": "131575",
+      "target": "134781"
+    },
+    {
+      "source": "126956",
+      "target": "127107"
+    },
+    {
+      "source": "126956",
+      "target": "125760"
+    },
+    {
+      "source": "143044",
+      "target": "152648"
+    },
+    {
+      "source": "152648",
+      "target": "152647"
+    },
+    {
+      "source": "143011",
+      "target": "60985"
+    },
+    {
+      "source": "60985",
+      "target": "137705"
+    },
+    {
+      "source": "60985",
+      "target": "60984"
+    },
+    {
+      "source": "60985",
+      "target": "143859"
+    },
+    {
+      "source": "60985",
+      "target": "125561"
+    },
+    {
+      "source": "137705",
+      "target": "143630"
+    },
+    {
+      "source": "60984",
+      "target": "144221"
+    },
+    {
+      "source": "144221",
+      "target": "144220"
+    },
+    {
+      "source": "144220",
+      "target": "127790"
+    },
+    {
+      "source": "127790",
+      "target": "126827"
+    },
+    {
+      "source": "127790",
+      "target": "184935"
+    },
+    {
+      "source": "126827",
+      "target": "126730"
+    },
+    {
+      "source": "126827",
+      "target": "126177"
+    },
+    {
+      "source": "126730",
+      "target": "126724"
+    },
+    {
+      "source": "126177",
+      "target": "126113"
+    },
+    {
+      "source": "126177",
+      "target": "126112"
+    },
+    {
+      "source": "126112",
+      "target": "126109"
+    },
+    {
+      "source": "126112",
+      "target": "126888"
+    },
+    {
+      "source": "126109",
+      "target": "126087"
+    },
+    {
+      "source": "126109",
+      "target": "131561"
+    },
+    {
+      "source": "126087",
+      "target": "126887"
+    },
+    {
+      "source": "126887",
+      "target": "127264"
+    },
+    {
+      "source": "127264",
+      "target": "199357"
+    },
+    {
+      "source": "125561",
+      "target": "125450"
+    },
+    {
+      "source": "125561",
+      "target": "125416"
+    },
+    {
+      "source": "125450",
+      "target": "125408"
+    },
+    {
+      "source": "125450",
+      "target": "125434"
+    },
+    {
+      "source": "125408",
+      "target": "125302"
+    },
+    {
+      "source": "125408",
+      "target": "125378"
+    },
+    {
+      "source": "125302",
+      "target": "125232"
+    },
+    {
+      "source": "125302",
+      "target": "125181"
+    },
+    {
+      "source": "125181",
+      "target": "125160"
+    },
+    {
+      "source": "125181",
+      "target": "125159"
+    },
+    {
+      "source": "125160",
+      "target": "126736"
+    },
+    {
+      "source": "126736",
+      "target": "126667"
+    },
+    {
+      "source": "126667",
+      "target": "125938"
+    },
+    {
+      "source": "126667",
+      "target": "126659"
+    },
+    {
+      "source": "125159",
+      "target": "141571"
+    },
+    {
+      "source": "125378",
+      "target": "131577"
+    },
+    {
+      "source": "131577",
+      "target": "131606"
+    },
+    {
+      "source": "131606",
+      "target": "131546"
+    },
+    {
+      "source": "131546",
+      "target": "131517"
+    },
+    {
+      "source": "131517",
+      "target": "131443"
+    },
+    {
+      "source": "131517",
+      "target": "131541"
+    },
+    {
+      "source": "131541",
+      "target": "131561"
+    },
+    {
+      "source": "131541",
+      "target": "131576"
+    },
+    {
+      "source": "131576",
+      "target": "131584"
+    },
+    {
+      "source": "129628",
+      "target": "125125"
+    },
+    {
+      "source": "129628",
+      "target": "129708"
+    },
+    {
+      "source": "125125",
+      "target": "130248"
+    },
+    {
+      "source": "130248",
+      "target": "182090"
+    },
+    {
+      "source": "182090",
+      "target": "158329"
+    },
+    {
+      "source": "158329",
+      "target": "119159"
+    },
+    {
+      "source": "119159",
+      "target": "126571"
+    },
+    {
+      "source": "119159",
+      "target": "125422"
+    },
+    {
+      "source": "126571",
+      "target": "127181"
+    },
+    {
+      "source": "127181",
+      "target": "131446"
+    },
+    {
+      "source": "127181",
+      "target": "131447"
+    },
+    {
+      "source": "131447",
+      "target": "131535"
+    },
+    {
+      "source": "131535",
+      "target": "131539"
+    },
+    {
+      "source": "131535",
+      "target": "131540"
+    },
+    {
+      "source": "131539",
+      "target": "131444"
+    },
+    {
+      "source": "131540",
+      "target": "298288"
+    },
+    {
+      "source": "298288",
+      "target": "134873"
+    },
+    {
+      "source": "125422",
+      "target": "128987"
+    },
+    {
+      "source": "125422",
+      "target": "128921"
+    },
+    {
+      "source": "129708",
+      "target": "125125"
+    },
+    {
+      "source": "108295",
+      "target": "108266"
+    },
+    {
+      "source": "108266",
+      "target": "294942"
+    },
+    {
+      "source": "294942",
+      "target": "112689"
+    },
+    {
+      "source": "112689",
+      "target": "143011"
+    },
+    {
+      "source": "34260",
+      "target": "32960"
+    },
+    {
+      "source": "32960",
+      "target": "100550"
+    },
+    {
+      "source": "100550",
+      "target": "55185"
+    },
+    {
+      "source": "55185",
+      "target": "17865"
+    },
+    {
+      "source": "55185",
+      "target": "104652"
+    },
+    {
+      "source": "104652",
+      "target": "158571"
+    },
+    {
+      "source": "158571",
+      "target": "158735"
+    },
+    {
+      "source": "158735",
+      "target": "158900"
+    },
+    {
+      "source": "158900",
+      "target": "159761"
+    },
+    {
+      "source": "159761",
+      "target": "167450"
+    },
+    {
+      "source": "167450",
+      "target": "168615"
+    },
+    {
+      "source": "168615",
+      "target": "169018"
+    },
+    {
+      "source": "169018",
+      "target": "170525"
+    },
+    {
+      "source": "170525",
+      "target": "17240"
+    },
+    {
+      "source": "17240",
+      "target": "60984"
+    },
+    {
+      "source": "17240",
+      "target": "115139"
+    },
+    {
+      "source": "115139",
+      "target": "115030"
+    },
+    {
+      "source": "115139",
+      "target": "115095"
+    },
+    {
+      "source": "115030",
+      "target": "125173"
+    },
+    {
+      "source": "115030",
+      "target": "125006"
+    },
+    {
+      "source": "125173",
+      "target": "125124"
+    },
+    {
+      "source": "125173",
+      "target": "125233"
+    },
+    {
+      "source": "125124",
+      "target": "125047"
+    },
+    {
+      "source": "125124",
+      "target": "125109"
+    },
+    {
+      "source": "125047",
+      "target": "125665"
+    },
+    {
+      "source": "125047",
+      "target": "131546"
+    },
+    {
+      "source": "125665",
+      "target": "125658"
+    },
+    {
+      "source": "125665",
+      "target": "119159"
+    },
+    {
+      "source": "125658",
+      "target": "125681"
+    },
+    {
+      "source": "125658",
+      "target": "125682"
+    },
+    {
+      "source": "125681",
+      "target": "125888"
+    },
+    {
+      "source": "125682",
+      "target": "125760"
+    },
+    {
+      "source": "125682",
+      "target": "125794"
+    },
+    {
+      "source": "125109",
+      "target": "125142"
+    },
+    {
+      "source": "125142",
+      "target": "127245"
+    },
+    {
+      "source": "125142",
+      "target": "125303"
+    },
+    {
+      "source": "127245",
+      "target": "127166"
+    },
+    {
+      "source": "127166",
+      "target": "149192"
+    },
+    {
+      "source": "127166",
+      "target": "127144"
+    },
+    {
+      "source": "127166",
+      "target": "136726"
+    },
+    {
+      "source": "149192",
+      "target": "134873"
+    },
+    {
+      "source": "136726",
+      "target": "148882"
+    },
+    {
+      "source": "136726",
+      "target": "164338"
+    },
+    {
+      "source": "148882",
+      "target": "232227"
+    },
+    {
+      "source": "125303",
+      "target": "119178"
+    },
+    {
+      "source": "119178",
+      "target": "119159"
+    },
+    {
+      "source": "119178",
+      "target": "119097"
+    },
+    {
+      "source": "119178",
+      "target": "152904"
+    },
+    {
+      "source": "119097",
+      "target": "125892"
+    },
+    {
+      "source": "125892",
+      "target": "125894"
+    },
+    {
+      "source": "125894",
+      "target": "125897"
+    },
+    {
+      "source": "152904",
+      "target": "127166"
+    },
+    {
+      "source": "152904",
+      "target": "152901"
+    },
+    {
+      "source": "152904",
+      "target": "152903"
+    },
+    {
+      "source": "152901",
+      "target": "131541"
+    },
+    {
+      "source": "152903",
+      "target": "152902"
+    },
+    {
+      "source": "152903",
+      "target": "136726"
+    },
+    {
+      "source": "152902",
+      "target": "148882"
+    },
+    {
+      "source": "152902",
+      "target": "232228"
+    },
+    {
+      "source": "232228",
+      "target": "232227"
+    },
+    {
+      "source": "125006",
+      "target": "125109"
+    },
+    {
+      "source": "115095",
+      "target": "115008"
+    },
+    {
+      "source": "115008",
+      "target": "114992"
+    },
+    {
+      "source": "114992",
+      "target": "128122"
+    },
+    {
+      "source": "114992",
+      "target": "126489"
+    },
+    {
+      "source": "128122",
+      "target": "128305"
+    },
+    {
+      "source": "128122",
+      "target": "128348"
+    },
+    {
+      "source": "128305",
+      "target": "125148"
+    },
+    {
+      "source": "125148",
+      "target": "125047"
+    },
+    {
+      "source": "125148",
+      "target": "152906"
+    },
+    {
+      "source": "125148",
+      "target": "152905"
+    },
+    {
+      "source": "152906",
+      "target": "152904"
+    },
+    {
+      "source": "152906",
+      "target": "152905"
+    },
+    {
+      "source": "152905",
+      "target": "152903"
+    },
+    {
+      "source": "128348",
+      "target": "127092"
+    },
+    {
+      "source": "127092",
+      "target": "127011"
+    },
+    {
+      "source": "127011",
+      "target": "126736"
+    },
+    {
+      "source": "127011",
+      "target": "126956"
+    },
+    {
+      "source": "126489",
+      "target": "125181"
+    },
+    {
+      "source": "31748",
+      "target": "6595"
+    },
+    {
+      "source": "31748",
+      "target": "13373"
+    },
+    {
+      "source": "6595",
+      "target": "6488"
+    },
+    {
+      "source": "6488",
+      "target": "834"
+    },
+    {
+      "source": "834",
+      "target": "7373"
+    },
+    {
+      "source": "834",
+      "target": "7863"
+    },
+    {
+      "source": "7373",
+      "target": "7298"
+    },
+    {
+      "source": "7298",
+      "target": "7404"
+    },
+    {
+      "source": "7298",
+      "target": "16915"
+    },
+    {
+      "source": "7404",
+      "target": "7401"
+    },
+    {
+      "source": "7401",
+      "target": "7402"
+    },
+    {
+      "source": "7401",
+      "target": "19964"
+    },
+    {
+      "source": "7402",
+      "target": "29642"
+    },
+    {
+      "source": "29642",
+      "target": "18231"
+    },
+    {
+      "source": "18231",
+      "target": "18230"
+    },
+    {
+      "source": "18230",
+      "target": "66476"
+    },
+    {
+      "source": "18230",
+      "target": "127710"
+    },
+    {
+      "source": "66476",
+      "target": "57670"
+    },
+    {
+      "source": "57670",
+      "target": "72669"
+    },
+    {
+      "source": "57670",
+      "target": "128986"
+    },
+    {
+      "source": "72669",
+      "target": "21235"
+    },
+    {
+      "source": "21235",
+      "target": "137705"
+    },
+    {
+      "source": "128986",
+      "target": "128046"
+    },
+    {
+      "source": "128986",
+      "target": "128938"
+    },
+    {
+      "source": "128046",
+      "target": "127962"
+    },
+    {
+      "source": "127962",
+      "target": "127801"
+    },
+    {
+      "source": "127962",
+      "target": "230796"
+    },
+    {
+      "source": "127801",
+      "target": "127734"
+    },
+    {
+      "source": "127734",
+      "target": "127424"
+    },
+    {
+      "source": "127734",
+      "target": "189659"
+    },
+    {
+      "source": "127734",
+      "target": "127848"
+    },
+    {
+      "source": "127424",
+      "target": "127898"
+    },
+    {
+      "source": "127424",
+      "target": "127942"
+    },
+    {
+      "source": "127898",
+      "target": "127864"
+    },
+    {
+      "source": "127898",
+      "target": "127790"
+    },
+    {
+      "source": "127848",
+      "target": "128105"
+    },
+    {
+      "source": "128105",
+      "target": "200006"
+    },
+    {
+      "source": "128105",
+      "target": "128122"
+    },
+    {
+      "source": "200006",
+      "target": "224249"
+    },
+    {
+      "source": "128938",
+      "target": "123974"
+    },
+    {
+      "source": "128938",
+      "target": "76481"
+    },
+    {
+      "source": "123974",
+      "target": "182089"
+    },
+    {
+      "source": "123974",
+      "target": "182088"
+    },
+    {
+      "source": "182089",
+      "target": "125154"
+    },
+    {
+      "source": "125154",
+      "target": "126111"
+    },
+    {
+      "source": "125154",
+      "target": "125006"
+    },
+    {
+      "source": "126111",
+      "target": "127848"
+    },
+    {
+      "source": "126111",
+      "target": "127278"
+    },
+    {
+      "source": "127278",
+      "target": "125109"
+    },
+    {
+      "source": "182088",
+      "target": "125048"
+    },
+    {
+      "source": "125048",
+      "target": "125148"
+    },
+    {
+      "source": "76481",
+      "target": "123974"
+    },
+    {
+      "source": "127710",
+      "target": "127668"
+    },
+    {
+      "source": "127668",
+      "target": "60782"
+    },
+    {
+      "source": "127668",
+      "target": "208259"
+    },
+    {
+      "source": "60782",
+      "target": "125886"
+    },
+    {
+      "source": "60782",
+      "target": "125886"
+    },
+    {
+      "source": "60782",
+      "target": "125971"
+    },
+    {
+      "source": "60782",
+      "target": "125971"
+    },
+    {
+      "source": "125886",
+      "target": "191279"
+    },
+    {
+      "source": "125886",
+      "target": "125846"
+    },
+    {
+      "source": "125846",
+      "target": "125488"
+    },
+    {
+      "source": "125488",
+      "target": "125154"
+    },
+    {
+      "source": "125488",
+      "target": "101860"
+    },
+    {
+      "source": "101860",
+      "target": "125023"
+    },
+    {
+      "source": "101860",
+      "target": "125125"
+    },
+    {
+      "source": "125023",
+      "target": "114992"
+    },
+    {
+      "source": "125023",
+      "target": "125006"
+    },
+    {
+      "source": "125971",
+      "target": "124000"
+    },
+    {
+      "source": "124000",
+      "target": "208258"
+    },
+    {
+      "source": "124000",
+      "target": "101860"
+    },
+    {
+      "source": "208259",
+      "target": "146035"
+    },
+    {
+      "source": "146035",
+      "target": "145770"
+    },
+    {
+      "source": "145770",
+      "target": "146034"
+    },
+    {
+      "source": "145770",
+      "target": "145708"
+    },
+    {
+      "source": "145708",
+      "target": "146374"
+    },
+    {
+      "source": "145708",
+      "target": "125408"
+    },
+    {
+      "source": "145708",
+      "target": "145707"
+    },
+    {
+      "source": "145707",
+      "target": "130913"
+    },
+    {
+      "source": "130913",
+      "target": "130995"
+    },
+    {
+      "source": "130995",
+      "target": "131235"
+    },
+    {
+      "source": "130995",
+      "target": "131236"
+    },
+    {
+      "source": "131235",
+      "target": "127181"
+    },
+    {
+      "source": "131235",
+      "target": "131398"
+    },
+    {
+      "source": "131398",
+      "target": "131443"
+    },
+    {
+      "source": "131398",
+      "target": "131444"
+    },
+    {
+      "source": "131236",
+      "target": "131399"
+    },
+    {
+      "source": "131236",
+      "target": "131400"
+    },
+    {
+      "source": "19964",
+      "target": "17946"
+    },
+    {
+      "source": "19964",
+      "target": "47064"
+    },
+    {
+      "source": "17946",
+      "target": "17865"
+    },
+    {
+      "source": "17946",
+      "target": "17981"
+    },
+    {
+      "source": "17981",
+      "target": "17864"
+    },
+    {
+      "source": "47064",
+      "target": "47025"
+    },
+    {
+      "source": "47025",
+      "target": "66476"
+    },
+    {
+      "source": "16915",
+      "target": "46967"
+    },
+    {
+      "source": "16915",
+      "target": "46967"
+    },
+    {
+      "source": "16915",
+      "target": "123967"
+    },
+    {
+      "source": "16915",
+      "target": "46968"
+    },
+    {
+      "source": "46967",
+      "target": "15635"
+    },
+    {
+      "source": "15635",
+      "target": "41423"
+    },
+    {
+      "source": "41423",
+      "target": "57659"
+    },
+    {
+      "source": "41423",
+      "target": "57667"
+    },
+    {
+      "source": "57659",
+      "target": "66476"
+    },
+    {
+      "source": "57659",
+      "target": "65161"
+    },
+    {
+      "source": "65161",
+      "target": "66476"
+    },
+    {
+      "source": "57667",
+      "target": "66476"
+    },
+    {
+      "source": "57667",
+      "target": "65161"
+    },
+    {
+      "source": "123967",
+      "target": "123979"
+    },
+    {
+      "source": "123979",
+      "target": "76485"
+    },
+    {
+      "source": "123979",
+      "target": "65161"
+    },
+    {
+      "source": "76485",
+      "target": "76484"
+    },
+    {
+      "source": "76485",
+      "target": "123957"
+    },
+    {
+      "source": "76484",
+      "target": "76483"
+    },
+    {
+      "source": "76483",
+      "target": "76482"
+    },
+    {
+      "source": "76482",
+      "target": "76481"
+    },
+    {
+      "source": "123957",
+      "target": "123968"
+    },
+    {
+      "source": "123968",
+      "target": "123977"
+    },
+    {
+      "source": "123977",
+      "target": "124000"
+    },
+    {
+      "source": "46968",
+      "target": "18600"
+    },
+    {
+      "source": "46968",
+      "target": "57706"
+    },
+    {
+      "source": "18600",
+      "target": "66319"
+    },
+    {
+      "source": "66319",
+      "target": "124285"
+    },
+    {
+      "source": "66319",
+      "target": "124286"
+    },
+    {
+      "source": "124285",
+      "target": "124490"
+    },
+    {
+      "source": "124490",
+      "target": "124845"
+    },
+    {
+      "source": "124845",
+      "target": "125001"
+    },
+    {
+      "source": "124845",
+      "target": "125002"
+    },
+    {
+      "source": "125002",
+      "target": "125107"
+    },
+    {
+      "source": "125107",
+      "target": "125143"
+    },
+    {
+      "source": "125143",
+      "target": "125154"
+    },
+    {
+      "source": "57706",
+      "target": "15635"
+    },
+    {
+      "source": "7863",
+      "target": "7862"
+    },
+    {
+      "source": "7862",
+      "target": "4642"
+    },
+    {
+      "source": "7862",
+      "target": "11370"
+    },
+    {
+      "source": "4642",
+      "target": "7486"
+    },
+    {
+      "source": "4642",
+      "target": "18331"
+    },
+    {
+      "source": "7486",
+      "target": "29458"
+    },
+    {
+      "source": "29458",
+      "target": "57667"
+    },
+    {
+      "source": "18331",
+      "target": "25484"
+    },
+    {
+      "source": "25484",
+      "target": "18603"
+    },
+    {
+      "source": "25484",
+      "target": "65162"
+    },
+    {
+      "source": "18603",
+      "target": "18231"
+    },
+    {
+      "source": "65162",
+      "target": "66476"
+    },
+    {
+      "source": "65162",
+      "target": "65161"
+    },
+    {
+      "source": "11370",
+      "target": "7486"
+    },
+    {
+      "source": "11370",
+      "target": "18331"
+    },
+    {
+      "source": "13373",
+      "target": "6869"
+    },
+    {
+      "source": "6869",
+      "target": "8581"
+    },
+    {
+      "source": "8581",
+      "target": "7461"
+    },
+    {
+      "source": "7461",
+      "target": "7451"
+    },
+    {
+      "source": "7451",
+      "target": "32858"
+    },
+    {
+      "source": "7451",
+      "target": "18589"
+    },
+    {
+      "source": "32858",
+      "target": "57706"
+    },
+    {
+      "source": "32858",
+      "target": "46967"
+    },
+    {
+      "source": "18589",
+      "target": "15635"
+    },
+    {
+      "source": "1",
+      "target": "333575"
+    },
+    {
+      "source": "1",
+      "target": "216861"
+    },
+    {
+      "source": "1",
+      "target": "31748"
+    }
+  ]
+}
