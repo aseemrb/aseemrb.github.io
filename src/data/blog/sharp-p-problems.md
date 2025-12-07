@@ -24,7 +24,9 @@ Before we begin, it is strongly recommended to familiarize yourself with the fol
 
 So let's begin with the permanent, which is defined for an *n x n matrix A* as:
 
-$${\rm Perm}\ A = \sum_{\sigma}{\prod_{i=1}^{n}{A_{i,\sigma(i)}}} $$
+$$
+{\rm Perm}\ A = \sum_{\sigma}{\prod_{i=1}^{n}{A_{i,\sigma(i)}}} 
+$$
 
 Before proceeding, let's understand what this means, and what we want to compute.
 $\sigma$ is a permutation of the numbers {1, 2, 3, ... n}.

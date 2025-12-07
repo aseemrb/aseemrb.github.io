@@ -92,7 +92,8 @@
   }
 
   /* Katex text color */
-  .prose .katex-display {
+  .prose .katex-display,
+  .app-prose .katex-display {
     @apply text-foreground;
   }
 
