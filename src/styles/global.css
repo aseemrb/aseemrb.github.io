@@ -33,7 +33,7 @@ html[data-theme="midnight"] {
 html[data-theme="obsidian"] {
   --background: #000000;
   --foreground: #ededed;
-  --accent: #f59e0b;
+  --accent: #f6a924df;
   --muted: #262626;
   --border: #262626;
 }
