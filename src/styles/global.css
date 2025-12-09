@@ -92,15 +92,15 @@ html[data-theme="carbon"] {
     @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
   }
 
-  p a, #news a {
+  p a, #pubs a, #news a, .cv a {
     color: var(--accent);
   }
 
-  #pubs a {
+  #pubs a, .cv a {
     text-decoration: none;
   }
 
-  p a:hover, #news a:hover, #pubs a:hover {
+  p a:hover, #news a:hover, #pubs a:hover, .cv a:hover {
     @apply underline decoration-dashed;
   }
 
