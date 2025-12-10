@@ -165,8 +165,7 @@ html[data-theme="astro"] body::before {
   opacity: 1; 
   /* Using opacity 1 because we want to fully cover the base color or blend nicely.
      Ocean uses 0.3 to blend with base #001e3c.
-     Here we can just use the gradient as is or tune opacity. 
-     User said "just white instead of being harmonious". 
+     Here we can just use the gradient as is or tune opacity.
      The gradient #020617 to #1e293b is dark. 
      Let's use opacity 1 to ensure it's visible. */
 }
