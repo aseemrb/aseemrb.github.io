@@ -1,10 +1,10 @@
 @import "tailwindcss";
 @import "./typography.css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=midnight], [data-theme=midnight] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=midnight], [data-theme=midnight] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *, [data-theme=astro], [data-theme=astro] *, [data-theme=ocean], [data-theme=ocean] *));
 
 :root,
-html[data-theme="light"] {
+html[data-theme="default"] {
   --background: #fdfdfd;
   --foreground: #282728;
   --accent: #006cac;
@@ -12,19 +12,11 @@ html[data-theme="light"] {
   --border: #ece9e9;
 }
 
-html[data-theme="dark"] {
-  --background: #0d0d10;
-  --foreground: #eaedf3;
-  --accent: #5ba8d5;
-  --muted: #3d3d3d;
-  --border: hsl(0, 0%, 24%);
-}
-
 /* Option 1: Midnight Void (Cool & Deep) */
 html[data-theme="midnight"] {
-  --background: #0f172a;
+  --background: #080c17;
   --foreground: #e2e8f0;
-  --accent: #38bdf8;
+  --accent: #43c4e1;
   --muted: #334155;
   --border: #1e293b;
 }
@@ -63,6 +55,237 @@ html[data-theme="carbon"] {
   --accent: #fb7185;
   --muted: #3f3f46;
   --border: #27272a;
+}
+
+/* Option 6: Snow (Cool & Crisp) */
+html[data-theme="snow"] {
+  --background: #f0f8ff;
+  --foreground: #0f2c4c;
+  --accent: #0077be;
+  --muted: #dbeafe;
+  --border: #bfdbfe;
+}
+
+/* Option 7: Sakura (Soft & Floral) */
+html[data-theme="sakura"] {
+  --background: #fff0f5;
+  --foreground: #592e38;
+  --accent: #d65d7a;
+  --muted: #fce7f3;
+  --border: #fbcfe8;
+}
+
+/* Option 8: Astro (Deep & Starry) */
+html[data-theme="astro"] {
+  --background: #0B1026;
+  --foreground: #e2e8f0;
+  --accent: #fbbf24;
+  --muted: #1e293b;
+  --border: #334155;
+}
+
+/* Option 9: Deep Sea (Abyssal & Calm) */
+html[data-theme="ocean"] {
+  --background: #001e3c;
+  --foreground: #e0f7fa;
+  --accent: #00e5ff;
+  --muted: #004d40;
+  --border: #006064;
+}
+
+/* Animations */
+@keyframes snow {
+  0% { transform: translateY(-10vh); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0.3; }
+}
+
+@keyframes sakura {
+  0% { transform: translateY(-10%) rotate(0deg) translateX(0); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(100vh) rotate(360deg) translateX(50px); opacity: 0; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+@keyframes shooting-star {
+  50% { transform: translateX(600vw) translateY(50vh) rotate(-30deg) scale(1); opacity: 1; }
+  100% { transform: translateX(1200vw) translateY(100vh) rotate(-60deg) scale(1); opacity: 0; }
+}
+
+@keyframes bubbles {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100vh); }
+}
+
+/* Background Elements */
+html[data-theme="snow"] body::before,
+html[data-theme="sakura"] body::before,
+html[data-theme="astro"] body::before,
+html[data-theme="ocean"] body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Snow Implementation */
+html[data-theme="snow"] body::before {
+  background-image: 
+    radial-gradient(4px 4px at 10% 10%, rgba(255, 255, 255, 0.8) 50%, transparent),
+    radial-gradient(3px 3px at 20% 40%, rgba(255, 255, 255, 0.6) 50%, transparent),
+    radial-gradient(5px 5px at 60% 30%, rgba(255, 255, 255, 0.7) 50%, transparent),
+    radial-gradient(3px 3px at 80% 70%, rgba(255, 255, 255, 0.5) 50%, transparent);
+  background-size: 50% 50%, 40% 60%, 60% 40%, 45% 55%;
+  animation: snow 15s linear infinite;
+}
+
+/* Sakura Implementation */
+html[data-theme="sakura"] body::before {
+  background-image: 
+    radial-gradient(10px 10px at 15% 15%, #ffb7b2 50%, transparent),
+    radial-gradient(8px 8px at 45% 25%, #ffdac1 50%, transparent),
+    radial-gradient(12px 12px at 75% 65%, #ff9aa2 50%, transparent);
+  background-size: 60% 60%, 50% 70%, 70% 50%;
+  animation: sakura 12s linear infinite;
+}
+
+/* Astro Implementation */
+/* Astro Gradient Background (Replaces Star Layer 1) */
+html[data-theme="astro"] body::before {
+  background-image: linear-gradient(to bottom, #020617 0%, #1e293b 100%);
+  opacity: 1; 
+  /* Using opacity 1 because we want to fully cover the base color or blend nicely.
+     Ocean uses 0.3 to blend with base #001e3c.
+     Here we can just use the gradient as is or tune opacity. 
+     User said "just white instead of being harmonious". 
+     The gradient #020617 to #1e293b is dark. 
+     Let's use opacity 1 to ensure it's visible. */
+}
+/* Second Star Layer (Desynchronized) */
+html[data-theme="astro"] body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 40% 40%, white 50%, transparent),
+    radial-gradient(2px 2px at 25% 10%, white 50%, transparent),
+    radial-gradient(1px 1px at 60% 80%, white 50%, transparent),
+    radial-gradient(2px 2px at 85% 55%, white 50%, transparent);
+  background-size: 550px 550px;
+  animation: twinkle 3s ease-in-out infinite alternate-reverse;
+}
+
+/* @keyframes shooting-star {
+  0% { transform: translateX(0) translateY(0) rotate(215deg) scale(0); opacity: 0; }
+  10% { opacity: 1; transform: translateX(-5vw) translateY(-5vh) rotate(215deg) scale(1); }
+  100% { transform: translateX(-120vw) translateY(-120vh) rotate(215deg) scale(1); opacity: 0; }
+} */
+
+/* Shooting Star (Moved to overlay) */
+/* Third Star Layer */
+html[data-theme="astro"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  background-image: 
+    radial-gradient(1px 1px at 15% 45%, white 50%, transparent),
+    radial-gradient(1.5px 1.5px at 65% 15%, white 50%, transparent),
+    radial-gradient(1px 1px at 35% 85%, white 50%, transparent),
+    radial-gradient(1.5px 1.5px at 95% 35%, white 50%, transparent);
+  background-size: 450px 450px;
+  animation: twinkle 4s ease-in-out infinite alternate-reverse;
+}
+
+/* Fourth Star Layer */
+html[data-theme="astro"]::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  background-image: 
+    radial-gradient(1px 1px at 5% 90%, white 50%, transparent),
+    radial-gradient(1.5px 1.5px at 55% 55%, white 50%, transparent),
+    radial-gradient(1px 1px at 85% 5%, white 50%, transparent),
+    radial-gradient(1.5px 1.5px at 45% 25%, white 50%, transparent);
+  background-size: 350px 350px;
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+
+
+
+/* Deep Sea Implementation */
+html[data-theme="ocean"] body::before {
+  background: linear-gradient(to top, #001e3c, #004d40);
+  opacity: 0.3;
+}
+html[data-theme="ocean"] body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 
+    /* Set 1: Random Placement 0-100vh */
+    10vw 10vh 2px 2px rgba(255, 255, 255, 0.2), 
+    85vw 25vh 1px 1px rgba(255, 255, 255, 0.15),
+    30vw 45vh 3px 0px rgba(255, 255, 255, 0.25),
+    60vw 60vh 1px 2px rgba(255, 255, 255, 0.1),
+    15vw 80vh 2px 1px rgba(255, 255, 255, 0.3),
+    70vw 90vh 1px 1px rgba(255, 255, 255, 0.2),
+    45vw 15vh 1px 0px rgba(255, 255, 255, 0.15),
+    95vw 55vh 2px 2px rgba(255, 255, 255, 0.25),
+    25vw 75vh 1px 1px rgba(255, 255, 255, 0.1),
+    50vw 35vh 2px 1px rgba(255, 255, 255, 0.3),
+    40vw 95vh 1px 0px rgba(255, 255, 255, 0.2),
+    80vw 5vh 2px 2px rgba(255, 255, 255, 0.15),
+    5vw 50vh 1px 1px rgba(255, 255, 255, 0.25),
+    55vw 20vh 3px 0px rgba(255, 255, 255, 0.2),
+    20vw 85vh 1px 2px rgba(255, 255, 255, 0.15),
+
+    /* Set 2: Duplicate of Set 1 shifted +100vh for seamless loop */
+    10vw 110vh 2px 2px rgba(255, 255, 255, 0.2), 
+    85vw 125vh 1px 1px rgba(255, 255, 255, 0.15),
+    30vw 145vh 3px 0px rgba(255, 255, 255, 0.25),
+    60vw 160vh 1px 2px rgba(255, 255, 255, 0.1),
+    15vw 180vh 2px 1px rgba(255, 255, 255, 0.3),
+    70vw 190vh 1px 1px rgba(255, 255, 255, 0.2),
+    45vw 115vh 1px 0px rgba(255, 255, 255, 0.15),
+    95vw 155vh 2px 2px rgba(255, 255, 255, 0.25),
+    25vw 175vh 1px 1px rgba(255, 255, 255, 0.1),
+    50vw 135vh 2px 1px rgba(255, 255, 255, 0.3),
+    40vw 195vh 1px 0px rgba(255, 255, 255, 0.2),
+    80vw 105vh 2px 2px rgba(255, 255, 255, 0.15),
+    5vw 150vh 1px 1px rgba(255, 255, 255, 0.25),
+    55vw 120vh 3px 0px rgba(255, 255, 255, 0.2),
+    20vw 185vh 1px 2px rgba(255, 255, 255, 0.15);
+  animation: bubbles 10s linear infinite;
+  pointer-events: none;
+  z-index: -1;
 }
 
 @theme inline {
@@ -121,6 +344,11 @@ html[data-theme="carbon"] {
 
 @utility max-w-app {
   @apply max-w-3xl xl:max-w-4xl;
+}
+
+html[data-theme="ocean"] #top-nav-wrap,
+html[data-theme="astro"] #top-nav-wrap {
+  background-color: transparent;
 }
 
 .active-nav {
