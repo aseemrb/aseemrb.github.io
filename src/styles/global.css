@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "./typography.css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=midnight], [data-theme=midnight] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *, [data-theme=astro], [data-theme=astro] *, [data-theme=ocean], [data-theme=ocean] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=midnight], [data-theme=midnight] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *, [data-theme=space], [data-theme=space] *, [data-theme=ocean], [data-theme=ocean] *));
 
 :root,
 html[data-theme="default"] {
@@ -75,11 +75,11 @@ html[data-theme="sakura"] {
   --border: #fbcfe8;
 }
 
-/* Option 8: Astro (Deep & Starry) */
-html[data-theme="astro"] {
+/* Option 8: Space (Deep & Starry) */
+html[data-theme="space"] {
   --background: #0B1026;
   --foreground: #e2e8f0;
-  --accent: #fbbf24;
+  --accent: #e0c05e;
   --muted: #1e293b;
   --border: #334155;
 }
@@ -116,15 +116,15 @@ html[data-theme="ocean"] {
   100% { transform: translateX(1200vw) translateY(100vh) rotate(-60deg) scale(1); opacity: 0; }
 }
 
-@keyframes bubbles {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-100vh); }
+@keyframes waves {
+  0% { background-position: 50% 120%, 30% 110%, 70% 100%, 0 0; }
+  100% { background-position: 45% 120%, 35% 110%, 65% 100%, 0 0; }
 }
 
 /* Background Elements */
 html[data-theme="snow"] body::before,
 html[data-theme="sakura"] body::before,
-html[data-theme="astro"] body::before,
+html[data-theme="space"] body::before,
 html[data-theme="ocean"] body::before {
   content: "";
   position: fixed;
@@ -158,10 +158,10 @@ html[data-theme="sakura"] body::before {
   animation: sakura 12s linear infinite;
 }
 
-/* Astro Implementation */
-/* Astro Gradient Background (Replaces Star Layer 1) */
-html[data-theme="astro"] body::before {
-  background-image: linear-gradient(to bottom, #020617 0%, #1e293b 100%);
+/* Space Implementation */
+/* Space Gradient Background (Replaces Star Layer 1) */
+html[data-theme="space"] body::before {
+  background-image: linear-gradient(to bottom, #040914 0%, #162044 100%);
   opacity: 1; 
   /* Using opacity 1 because we want to fully cover the base color or blend nicely.
      Ocean uses 0.3 to blend with base #001e3c.
@@ -170,7 +170,7 @@ html[data-theme="astro"] body::before {
      Let's use opacity 1 to ensure it's visible. */
 }
 /* Second Star Layer (Desynchronized) */
-html[data-theme="astro"] body::after {
+html[data-theme="space"] body::after {
   content: "";
   position: fixed;
   top: 0;
@@ -196,7 +196,7 @@ html[data-theme="astro"] body::after {
 
 /* Shooting Star (Moved to overlay) */
 /* Third Star Layer */
-html[data-theme="astro"]::before {
+html[data-theme="space"]::before {
   content: "";
   position: fixed;
   top: 0;
@@ -215,7 +215,7 @@ html[data-theme="astro"]::before {
 }
 
 /* Fourth Star Layer */
-html[data-theme="astro"]::after {
+html[data-theme="space"]::after {
   content: "";
   position: fixed;
   top: 0;
@@ -237,55 +237,15 @@ html[data-theme="astro"]::after {
 
 /* Deep Sea Implementation */
 html[data-theme="ocean"] body::before {
-  background: linear-gradient(to top, #001e3c, #004d40);
-  opacity: 0.3;
+  background-color: #02040a;
+  background-image: 
+    radial-gradient(ellipse 100% 60% at 50% 100%, #0d9488 0%, transparent 100%),
+    radial-gradient(ellipse 70% 50% at 10% 100%, #006064 0%, transparent 100%),
+    radial-gradient(ellipse 90% 40% at 90% 100%, #004d40 0%, transparent 100%),
+    linear-gradient(to bottom, #02040a 0%, #001e3c 100%);
+  opacity: 1;
 }
-html[data-theme="ocean"] body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 1px;
-  background: transparent;
-  box-shadow: 
-    /* Set 1: Random Placement 0-100vh */
-    10vw 10vh 2px 2px rgba(255, 255, 255, 0.2), 
-    85vw 25vh 1px 1px rgba(255, 255, 255, 0.15),
-    30vw 45vh 3px 0px rgba(255, 255, 255, 0.25),
-    60vw 60vh 1px 2px rgba(255, 255, 255, 0.1),
-    15vw 80vh 2px 1px rgba(255, 255, 255, 0.3),
-    70vw 90vh 1px 1px rgba(255, 255, 255, 0.2),
-    45vw 15vh 1px 0px rgba(255, 255, 255, 0.15),
-    95vw 55vh 2px 2px rgba(255, 255, 255, 0.25),
-    25vw 75vh 1px 1px rgba(255, 255, 255, 0.1),
-    50vw 35vh 2px 1px rgba(255, 255, 255, 0.3),
-    40vw 95vh 1px 0px rgba(255, 255, 255, 0.2),
-    80vw 5vh 2px 2px rgba(255, 255, 255, 0.15),
-    5vw 50vh 1px 1px rgba(255, 255, 255, 0.25),
-    55vw 20vh 3px 0px rgba(255, 255, 255, 0.2),
-    20vw 85vh 1px 2px rgba(255, 255, 255, 0.15),
 
-    /* Set 2: Duplicate of Set 1 shifted +100vh for seamless loop */
-    10vw 110vh 2px 2px rgba(255, 255, 255, 0.2), 
-    85vw 125vh 1px 1px rgba(255, 255, 255, 0.15),
-    30vw 145vh 3px 0px rgba(255, 255, 255, 0.25),
-    60vw 160vh 1px 2px rgba(255, 255, 255, 0.1),
-    15vw 180vh 2px 1px rgba(255, 255, 255, 0.3),
-    70vw 190vh 1px 1px rgba(255, 255, 255, 0.2),
-    45vw 115vh 1px 0px rgba(255, 255, 255, 0.15),
-    95vw 155vh 2px 2px rgba(255, 255, 255, 0.25),
-    25vw 175vh 1px 1px rgba(255, 255, 255, 0.1),
-    50vw 135vh 2px 1px rgba(255, 255, 255, 0.3),
-    40vw 195vh 1px 0px rgba(255, 255, 255, 0.2),
-    80vw 105vh 2px 2px rgba(255, 255, 255, 0.15),
-    5vw 150vh 1px 1px rgba(255, 255, 255, 0.25),
-    55vw 120vh 3px 0px rgba(255, 255, 255, 0.2),
-    20vw 185vh 1px 2px rgba(255, 255, 255, 0.15);
-  animation: bubbles 10s linear infinite;
-  pointer-events: none;
-  z-index: -1;
-}
 
 @theme inline {
   --color-background: var(--background);
@@ -346,7 +306,7 @@ html[data-theme="ocean"] body::after {
 }
 
 html[data-theme="ocean"] #top-nav-wrap,
-html[data-theme="astro"] #top-nav-wrap {
+html[data-theme="space"] #top-nav-wrap {
   background-color: transparent;
 }
 
