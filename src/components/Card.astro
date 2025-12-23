@@ -1,35 +1,18 @@
 ---
-import { slugifyStr } from "@/utils/slugify";
 import type { CollectionEntry } from "astro:content";
 import { getPath } from "@/utils/getPath";
 import Datetime from "./Datetime.astro";
+import LinkButton from "./LinkButton.astro";
 
-export interface Props extends CollectionEntry<"blog"> {
-  variant?: "h2" | "h3";
-}
+export interface Props extends CollectionEntry<"blog"> {}
 
-const { variant = "h2", data, id, filePath } = Astro.props;
+const { data, id, filePath } = Astro.props;
 
 const { title, description, pubDatetime, timezone } = data;
-
-const headerProps = {
-  class: "text-lg font-medium decoration-dashed hover:underline",
-};
 ---
 
-<li class="my-6">
-  <a
-    href={getPath(id, filePath)}
-    class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
-  >
-    {
-      variant === "h2" ? (
-        <h2 {...headerProps}>{title}</h2>
-      ) : (
-        <h3 {...headerProps}>{title}</h3>
-      )
-    }
-  </a>
+<li id="pubs" class="my-6" style="padding-inline-start: 0">
+  <h4><LinkButton href={getPath(id, filePath)}>{title}</LinkButton></h4>
   <Datetime {pubDatetime} {timezone} />
   <p>{description}</p>
 </li>

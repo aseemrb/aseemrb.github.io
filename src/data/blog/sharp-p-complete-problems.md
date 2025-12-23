@@ -8,12 +8,12 @@ draft: false
 tags:
   - computer science
 description:
-  A discussion on #P-Complete problems, specifically #SAT and counting 3-colorings in a graph. Includes proofs of their completeness and reductions from known NP-Complete problems.
+  "A discussion on #P-Complete problems, specifically #SAT and counting 3-colorings in a graph. Includes proofs of their completeness and relevant reductions."
 ---
 
-I will be discussing two #P-Complete problems in this post: #SAT (Finding the number of satisfying assignments for a boolean formula) and finding the number of 3-colorings in a graph.
+I will be discussing two \#P-Complete problems in this post: \#SAT (Finding the number of satisfying assignments for a boolean formula) and finding the number of 3-colorings in a graph.
 
-Both SAT and 3-coloring are NP Complete problems, so understanding why their counting versions are #P-Complete is very easy compared to the counting version of a more easy problem like finding a perfect matching in a bipartite graph, which is synonymous to the 01-permanent problem as discussed in my previous post.
+Both SAT and 3-coloring are NP Complete problems, so understanding why their counting versions are \#P-Complete is very easy compared to the counting version of a more easy problem like finding a perfect matching in a bipartite graph, which is synonymous to the 01-permanent problem as discussed in my previous post.
 
 Proving any problem to be #P-Complete requires two things
 

@@ -91,12 +91,13 @@ const nextPost =
     ]}
     data-pagefind-body
   >
-    <h1
+    <h2
       transition:name={slugifyStr(title)}
-      class="inline-block text-2xl font-bold text-accent sm:text-3xl"
+      class="inline-block text-xl text-accent sm:text-2xl"
+      style="margin-top: 1rem;"
     >
       {title}
-    </h1>
+    </h2>
     <div class="my-2 flex items-center gap-2">
       <Datetime {pubDatetime} {timezone} size="lg" />
       <span
