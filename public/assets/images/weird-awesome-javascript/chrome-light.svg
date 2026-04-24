@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 680" role="img" aria-label="Diagram of a JavaScript runtime environment in a browser: a V8 engine containing a Heap and a Stack, external Web APIs (AJAX, Events, Timing), a Callback queue, and an Event loop.">
+  <style>
+    svg { font-family: sans-serif; color: #282728; }
+  </style>
+  <defs>
+    <marker id="wa-arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f5a623"/>
+    </marker>
+    <marker id="wa-arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#22c55e"/>
+    </marker>
+    <marker id="wa-arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <text x="250" y="24" fill="currentColor" font-size="18">JS runtime engine</text>
+
+  <path d="M 60 60 Q 60 42, 78 42 L 238 42 Q 250 42, 250 30 Q 250 42, 262 42 L 425 42 Q 443 42, 443 60"
+        stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <rect x="60" y="75" width="165" height="245" stroke="currentColor" stroke-width="2" fill="none" rx="2"/>
+  <text x="142" y="125" fill="currentColor" font-size="22" text-anchor="middle">Heap</text>
+  <text x="142" y="150" fill="currentColor" font-size="14" text-anchor="middle" font-style="italic">(memory)</text>
+  <rect x="88" y="215" width="20" height="20" fill="#e85a18"/>
+  <rect x="175" y="258" width="20" height="20" fill="#4ade80"/>
+  <rect x="95" y="295" width="20" height="20" fill="#3b82f6"/>
+
+  <rect x="255" y="75" width="190" height="245" stroke="currentColor" stroke-width="2" fill="none" rx="2"/>
+  <text x="350" y="125" fill="currentColor" font-size="22" text-anchor="middle">Stack</text>
+  <text x="350" y="150" fill="currentColor" font-size="14" text-anchor="middle" font-style="italic">(functions)</text>
+  <rect x="275" y="210" width="150" height="30" fill="#f5a623" rx="2"/>
+  <text x="350" y="231" fill="#ffffff" font-size="14" text-anchor="middle" font-family="monospace">setTimeout()</text>
+  <rect x="275" y="245" width="150" height="30" fill="#f5a623" rx="2"/>
+  <text x="350" y="266" fill="#ffffff" font-size="14" text-anchor="middle" font-family="monospace">showText()</text>
+  <rect x="275" y="280" width="150" height="30" fill="#f5a623" rx="2"/>
+  <text x="350" y="301" fill="#ffffff" font-size="14" text-anchor="middle" font-family="monospace">main()</text>
+
+  <path d="M 60 335 Q 60 353, 78 353 L 238 353 Q 250 353, 250 365 Q 250 353, 262 353 L 425 353 Q 443 353, 443 335"
+        stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <text x="540" y="108" fill="#16a34a" font-size="18">Web APIs</text>
+  <rect x="485" y="120" width="195" height="150" fill="#86efac" fill-opacity="0.25" stroke="#22c55e" stroke-width="1.5" rx="3"/>
+  <rect x="505" y="135" width="155" height="32" fill="#22c55e" rx="3"/>
+  <text x="582" y="156" fill="#ffffff" font-size="15" text-anchor="middle">AJAX</text>
+  <rect x="505" y="175" width="155" height="32" fill="#22c55e" rx="3"/>
+  <text x="582" y="196" fill="#ffffff" font-size="15" text-anchor="middle">Events</text>
+  <rect x="505" y="215" width="155" height="32" fill="#22c55e" rx="3"/>
+  <text x="582" y="236" fill="#ffffff" font-size="15" text-anchor="middle">Timing</text>
+
+  <line x1="428" y1="225" x2="500" y2="231" stroke="#f5a623" stroke-width="3" marker-end="url(#wa-arrow-orange)"/>
+  <line x1="583" y1="270" x2="500" y2="530" stroke="#22c55e" stroke-width="3" marker-end="url(#wa-arrow-green)"/>
+
+  <text x="60" y="435" fill="currentColor" font-size="18">Event loop</text>
+  <path d="M 200 435 a 16 16 0 1 0 4 -11" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 205 420 l -4 6 l 7 1" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="55" y="590" fill="#2563eb" font-size="18">Callback</text>
+  <text x="55" y="612" fill="#2563eb" font-size="18">queue</text>
+
+  <rect x="160" y="540" width="470" height="85" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1.5" rx="3"/>
+  <rect x="180" y="555" width="55" height="55" fill="#2563eb" rx="2"/>
+  <rect x="260" y="555" width="55" height="55" fill="#2563eb" rx="2"/>
+  <rect x="340" y="555" width="55" height="55" fill="#2563eb" rx="2"/>
+
+  <line x1="207" y1="555" x2="207" y2="450" stroke="#3b82f6" stroke-width="3" marker-end="url(#wa-arrow-blue)"/>
+</svg>

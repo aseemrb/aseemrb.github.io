@@ -53,10 +53,10 @@ For closure let's look at what happens when
 - **Alice (in red) is moving towards Bob (in blue) with speed `a m/s`** and
 - **Bob is moving away from Alice with speed `b m/s`**.
 
-<svg height="138" width="490">
+<svg height="138" width="490" style="color: var(--foreground)">
    <defs>
       <marker id="triangle" viewBox="0 0 14 14" refX="0" refY="5" markerUnits="strokeWidth" markerWidth="10" markerHeight="10" orient="auto">
-         <path d="M 0 0 L 10 5 L 0 10 z" />
+         <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
       </marker>
    </defs>
    <path d="M 24 8 A 16 16 0 0 0 12 16" stroke="red" stroke-width="2" fill="transparent" />
@@ -73,7 +73,7 @@ For closure let's look at what happens when
    <path d="M 94 45 A 5 5 0 0 0 89 40" stroke="gray" stroke-width="10" fill="transparent" />
    <path d="M 85 44 A 5 5 0 0 0 90 49" stroke="gray" stroke-width="10" fill="transparent" />
    <path d="M 89 49 A 5 5 0 0 0 94 44" stroke="gray" stroke-width="10" fill="transparent" />
-   <text x="110" y="44" style="font-size:14px;font-family:monospace">c m/s</text>
+   <text x="110" y="44" fill="currentColor" style="font-size:14px;font-family:monospace">c m/s</text>
    <path d="M 388 32 A 16 16 0 0 0 400 40" stroke="blue" stroke-width="2" fill="transparent" />
    <path d="M 400 40 A 16 16 0 0 0 404 48" stroke="blue" stroke-width="2" fill="transparent" />
    <path d="M 400 48 A 16 16 0 0 0 408 48" stroke="blue" stroke-width="2" fill="transparent" />
@@ -83,34 +83,34 @@ For closure let's look at what happens when
    <path d="M 24 40 A 16 16 0 0 0 28 48" stroke="red" stroke-width="2" fill="transparent" />
    <line x1="28" x2="28" y1="48" y2="64" stroke="rgb(250,0,0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
    <line x1="32" x2="40" y1="48" y2="64" stroke="rgb(250,0,0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
-   <line x1="112" x2="120" y1="56" y2="56" stroke="rgb(0,0,0)" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
-   <line x1="120" x2="128" y1="56" y2="56" stroke="rgb(0,0,0)" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
-   <line x1="128" x2="132" y1="56" y2="56" style="stroke: rgb(0,0,0);stroke-width:1" marker-end="url(#triangle)" />
+   <line x1="112" x2="120" y1="56" y2="56" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
+   <line x1="120" x2="128" y1="56" y2="56" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
+   <line x1="128" x2="132" y1="56" y2="56" style="stroke: currentColor;stroke-width:1" marker-end="url(#triangle)" />
    <line x1="392" x2="400" y1="64" y2="48" stroke="rgb(0,0,250)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
    <line x1="404" x2="404" y1="48" y2="64" stroke="rgb(0,0,250)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
    <line x1="408" x2="416" y1="48" y2="64" stroke="rgb(0,0,250)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
    <path d="M 28 68 A 16 16 0 0 0 30 76" stroke="red" stroke-width="2" fill="transparent" />
    <line x1="28" x2="28" y1="64" y2="68" stroke="rgb(250,0,0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
    <line x1="32" x2="30" y1="80" y2="76" stroke="rgb(250,0,0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
-   <text x="200" y="76" style="font-size:14px;font-family:monospace">d meters</text>
+   <text x="200" y="76" fill="currentColor" style="font-size:14px;font-family:monospace">d meters</text>
    <path d="M 402 76 A 16 16 0 0 0 404 68" stroke="blue" stroke-width="2" fill="transparent" />
    <line x1="404" x2="404" y1="64" y2="68" stroke="rgb(0,0,250)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
    <line x1="400" x2="402" y1="80" y2="76" stroke="rgb(0,0,250)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
    <line x1="24" x2="32" y1="96" y2="80" stroke="rgb(250,0,0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
    <line x1="32" x2="40" y1="80" y2="96" stroke="rgb(250,0,0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
-   <line x1="56" x2="52" y1="88" y2="88" style="stroke: rgb(0,0,0);stroke-width:1" marker-end="url(#triangle)"></line>
-   <line x1="52" x2="378" y1="88" y2="88" stroke="rgb(0,0,0)" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter"></line>
-   <line x1="378" x2="382" y1="88" y2="88" style="stroke: rgb(0,0,0);stroke-width:1" marker-end="url(#triangle)"></line>
+   <line x1="56" x2="52" y1="88" y2="88" style="stroke: currentColor;stroke-width:1" marker-end="url(#triangle)"></line>
+   <line x1="52" x2="378" y1="88" y2="88" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter"></line>
+   <line x1="378" x2="382" y1="88" y2="88" style="stroke: currentColor;stroke-width:1" marker-end="url(#triangle)"></line>
    <line x1="392" x2="400" y1="96" y2="80" stroke="rgb(0,0,250)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
    <line x1="400" x2="408" y1="80" y2="96" stroke="rgb(0,0,250)" stroke-width="2" stroke-linecap="round" stroke-linejoin="mitter" />
-   <text y="124" style="font-size:14px;font-family:monospace">a m/s</text>
-   <line x1="48" x2="56" y1="120" y2="120" stroke="rgb(0,0,0)" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
-   <line x1="56" x2="64" y1="120" y2="120" stroke="rgb(0,0,0)" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
-   <line x1="64" x2="68" y1="120" y2="120" style="stroke: rgb(0,0,0);stroke-width:1" marker-end="url(#triangle)" />
-   <text x="376" y="124" style="font-size:14px;font-family:monospace">b m/s</text>
-   <line x1="426" x2="434" y1="120" y2="120" stroke="rgb(0,0,0)" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
-   <line x1="434" x2="442" y1="120" y2="120" stroke="rgb(0,0,0)" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
-   <line x1="442" x2="446" y1="120" y2="120" style="stroke: rgb(0,0,0);stroke-width:1" marker-end="url(#triangle)" />
+   <text y="124" fill="currentColor" style="font-size:14px;font-family:monospace">a m/s</text>
+   <line x1="48" x2="56" y1="120" y2="120" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
+   <line x1="56" x2="64" y1="120" y2="120" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
+   <line x1="64" x2="68" y1="120" y2="120" style="stroke: currentColor;stroke-width:1" marker-end="url(#triangle)" />
+   <text x="376" y="124" fill="currentColor" style="font-size:14px;font-family:monospace">b m/s</text>
+   <line x1="426" x2="434" y1="120" y2="120" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
+   <line x1="434" x2="442" y1="120" y2="120" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="mitter" />
+   <line x1="442" x2="446" y1="120" y2="120" style="stroke: currentColor;stroke-width:1" marker-end="url(#triangle)" />
 </svg>
 
 ## Observations

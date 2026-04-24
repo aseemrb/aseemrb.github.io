@@ -19,7 +19,8 @@ As Wikipedia puts it, [Javascript](https://en.wikipedia.org/wiki/Javascript) is 
 
 As it turns out, the Javascript runtimes (like V8) only have a heap for memory allocation, and a stack for contextual execution. The other things are the Web APIs in the browser, for instance the `setTimeout`, `AJAX`, `DOM` etc. So in a browser, Javascript has the following structure:
 
-![jsRunTime](@/assets/images/weird-awesome-javascript/chrome.png)
+<img src="/assets/images/weird-awesome-javascript/chrome-light.svg" alt="JS runtime diagram" class="chrome-svg-light" />
+<img src="/assets/images/weird-awesome-javascript/chrome-dark.svg" alt="JS runtime diagram" class="chrome-svg-dark" />
 
 - A runtime like Chrome's V8, which has a heap and the call stack
 - Web APIs provided by the browser, like `AJAX`, `setTimeout`, `DOM`

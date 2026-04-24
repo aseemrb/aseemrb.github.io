@@ -1,9 +1,7 @@
 ---
-import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
 import "@/styles/global.css";
-import WaveBackground from "@/components/WaveBackground.astro";
 
 export interface Props {
   title?: string;
@@ -129,8 +127,6 @@ const structuredData = {
       )
     }
 
-    <ClientRouter />
-
     <script is:inline src="/toggle-theme.js"></script>
     <link
       rel="stylesheet"
@@ -139,7 +135,6 @@ const structuredData = {
   </head>
   <body>
     <slot />
-    <WaveBackground />
   </body>
 </html>
 

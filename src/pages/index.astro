@@ -183,11 +183,9 @@ const featuredPublications = publicationsData.filter(pub => pub.featured);
 </Layout>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
-      ?.dataset?.layout;
-    if (indexLayout) {
-      sessionStorage.setItem("backUrl", "/");
-    }
-  });
+  const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+    ?.dataset?.layout;
+  if (indexLayout) {
+    sessionStorage.setItem("backUrl", "/");
+  }
 </script>

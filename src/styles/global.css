@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "./typography.css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=midnight], [data-theme=midnight] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *, [data-theme=space], [data-theme=space] *, [data-theme=ocean], [data-theme=ocean] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *));
 
 :root,
 html[data-theme="default"] {
@@ -10,15 +10,6 @@ html[data-theme="default"] {
   --accent: #006cac;
   --muted: #e6e6e6;
   --border: #ece9e9;
-}
-
-/* Option 1: Midnight Void (Cool & Deep) */
-html[data-theme="midnight"] {
-  --background: #080c17;
-  --foreground: #e2e8f0;
-  --accent: #43c4e1;
-  --muted: #334155;
-  --border: #1e293b;
 }
 
 /* Option 2: Obsidian & Gold (Elegant & High Contrast) */
@@ -66,32 +57,7 @@ html[data-theme="snow"] {
   --border: #bfdbfe;
 }
 
-/* Option 7: Sakura (Soft & Floral) */
-html[data-theme="sakura"] {
-  --background: #fff0f5;
-  --foreground: #592e38;
-  --accent: #d65d7a;
-  --muted: #fce7f3;
-  --border: #fbcfe8;
-}
-
-/* Option 8: Space (Deep & Starry) */
-html[data-theme="space"] {
-  --background: #0B1026;
-  --foreground: #e2e8f0;
-  --accent: #e0c05e;
-  --muted: #1e293b;
-  --border: #334155;
-}
-
-/* Option 9: Deep Sea (Abyssal & Calm) */
-html[data-theme="ocean"] {
-  --background: #001e3c;
-  --foreground: #e0f7fa;
-  --accent: #00e5ff;
-  --muted: #004d40;
-  --border: #006064;
-}
+/* Option 6: Snow (Cool & Crisp) — kept for optional reuse */
 
 /* Animations */
 @keyframes snow {
@@ -100,32 +66,8 @@ html[data-theme="ocean"] {
   100% { transform: translateY(100vh); opacity: 0.3; }
 }
 
-@keyframes sakura {
-  0% { transform: translateY(-10%) rotate(0deg) translateX(0); opacity: 0; }
-  50% { opacity: 0.8; }
-  100% { transform: translateY(100vh) rotate(360deg) translateX(50px); opacity: 0; }
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 1; }
-}
-
-@keyframes shooting-star {
-  50% { transform: translateX(600vw) translateY(50vh) rotate(-30deg) scale(1); opacity: 1; }
-  100% { transform: translateX(1200vw) translateY(100vh) rotate(-60deg) scale(1); opacity: 0; }
-}
-
-@keyframes waves {
-  0% { background-position: 50% 120%, 30% 110%, 70% 100%, 0 0; }
-  100% { background-position: 45% 120%, 35% 110%, 65% 100%, 0 0; }
-}
-
 /* Background Elements */
-html[data-theme="snow"] body::before,
-html[data-theme="sakura"] body::before,
-html[data-theme="space"] body::before,
-html[data-theme="ocean"] body::before {
+html[data-theme="snow"] body::before {
   content: "";
   position: fixed;
   top: 0;
@@ -135,11 +77,7 @@ html[data-theme="ocean"] body::before {
   pointer-events: none;
   z-index: -1;
   overflow: hidden;
-}
-
-/* Snow Implementation */
-html[data-theme="snow"] body::before {
-  background-image: 
+  background-image:
     radial-gradient(4px 4px at 10% 10%, rgba(255, 255, 255, 0.8) 50%, transparent),
     radial-gradient(3px 3px at 20% 40%, rgba(255, 255, 255, 0.6) 50%, transparent),
     radial-gradient(5px 5px at 60% 30%, rgba(255, 255, 255, 0.7) 50%, transparent),
@@ -147,105 +85,6 @@ html[data-theme="snow"] body::before {
   background-size: 50% 50%, 40% 60%, 60% 40%, 45% 55%;
   animation: snow 15s linear infinite;
 }
-
-/* Sakura Implementation */
-html[data-theme="sakura"] body::before {
-  background-image: 
-    radial-gradient(10px 10px at 15% 15%, #ffb7b2 50%, transparent),
-    radial-gradient(8px 8px at 45% 25%, #ffdac1 50%, transparent),
-    radial-gradient(12px 12px at 75% 65%, #ff9aa2 50%, transparent);
-  background-size: 60% 60%, 50% 70%, 70% 50%;
-  animation: sakura 12s linear infinite;
-}
-
-/* Space Implementation */
-/* Space Gradient Background (Replaces Star Layer 1) */
-html[data-theme="space"] body::before {
-  background-image: linear-gradient(to bottom, #040914 0%, #162044 100%);
-  opacity: 1; 
-  /* Using opacity 1 because we want to fully cover the base color or blend nicely.
-     Ocean uses 0.3 to blend with base #001e3c.
-     Here we can just use the gradient as is or tune opacity.
-     The gradient #020617 to #1e293b is dark. 
-     Let's use opacity 1 to ensure it's visible. */
-}
-/* Second Star Layer (Desynchronized) */
-html[data-theme="space"] body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: -1;
-  background-image: 
-    radial-gradient(1.5px 1.5px at 40% 40%, white 50%, transparent),
-    radial-gradient(2px 2px at 25% 10%, white 50%, transparent),
-    radial-gradient(1px 1px at 60% 80%, white 50%, transparent),
-    radial-gradient(2px 2px at 85% 55%, white 50%, transparent);
-  background-size: 550px 550px;
-  animation: twinkle 3s ease-in-out infinite alternate-reverse;
-}
-
-/* @keyframes shooting-star {
-  0% { transform: translateX(0) translateY(0) rotate(215deg) scale(0); opacity: 0; }
-  10% { opacity: 1; transform: translateX(-5vw) translateY(-5vh) rotate(215deg) scale(1); }
-  100% { transform: translateX(-120vw) translateY(-120vh) rotate(215deg) scale(1); opacity: 0; }
-} */
-
-/* Shooting Star (Moved to overlay) */
-/* Third Star Layer */
-html[data-theme="space"]::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: -1;
-  background-image: 
-    radial-gradient(1px 1px at 15% 45%, white 50%, transparent),
-    radial-gradient(1.5px 1.5px at 65% 15%, white 50%, transparent),
-    radial-gradient(1px 1px at 35% 85%, white 50%, transparent),
-    radial-gradient(1.5px 1.5px at 95% 35%, white 50%, transparent);
-  background-size: 450px 450px;
-  animation: twinkle 4s ease-in-out infinite alternate-reverse;
-}
-
-/* Fourth Star Layer */
-html[data-theme="space"]::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: -1;
-  background-image: 
-    radial-gradient(1px 1px at 5% 90%, white 50%, transparent),
-    radial-gradient(1.5px 1.5px at 55% 55%, white 50%, transparent),
-    radial-gradient(1px 1px at 85% 5%, white 50%, transparent),
-    radial-gradient(1.5px 1.5px at 45% 25%, white 50%, transparent);
-  background-size: 350px 350px;
-  animation: twinkle 5s ease-in-out infinite alternate;
-}
-
-
-
-/* Deep Sea Implementation */
-html[data-theme="ocean"] body::before {
-  background-color: #02040a;
-  background-image: 
-    radial-gradient(ellipse 100% 60% at 50% 100%, #0d9488 0%, transparent 100%),
-    radial-gradient(ellipse 70% 50% at 10% 100%, #006064 0%, transparent 100%),
-    radial-gradient(ellipse 90% 40% at 90% 100%, #004d40 0%, transparent 100%),
-    linear-gradient(to bottom, #02040a 0%, #001e3c 100%);
-  opacity: 1;
-}
-
 
 @theme inline {
   --color-background: var(--background);
@@ -305,14 +144,22 @@ html[data-theme="ocean"] body::before {
   @apply max-w-3xl xl:max-w-4xl;
 }
 
-html[data-theme="ocean"] #top-nav-wrap,
-html[data-theme="space"] #top-nav-wrap {
-  background-color: transparent;
-}
-
 .active-nav {
   @apply underline decoration-wavy decoration-2 underline-offset-4;
 }
+
+/* Theme-swapped diagrams: show light variant on default theme, dark variant on dark themes. */
+.chrome-svg-dark { display: none; }
+html[data-theme="dark"] .chrome-svg-light,
+html[data-theme="obsidian"] .chrome-svg-light,
+html[data-theme="forest"] .chrome-svg-light,
+html[data-theme="cyber"] .chrome-svg-light,
+html[data-theme="carbon"] .chrome-svg-light { display: none; }
+html[data-theme="dark"] .chrome-svg-dark,
+html[data-theme="obsidian"] .chrome-svg-dark,
+html[data-theme="forest"] .chrome-svg-dark,
+html[data-theme="cyber"] .chrome-svg-dark,
+html[data-theme="carbon"] .chrome-svg-dark { display: block; }
 
 /* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
 /* Anything that has been anchored to should have extra scroll margin */
