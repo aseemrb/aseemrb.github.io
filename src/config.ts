@@ -1,9 +1,9 @@
 export const SITE = {
   website: "https://aseemrb.me/", // replace this with your deployed domain
-  author: "Aseem Baranwal",
+  author: "Aseem Raj Baranwal",
   profile: "https://aseemrb.me/",
   desc: "Machine Learning Researcher in Quantitative Finance",
-  title: "Aseem Baranwal",
+  title: "Aseem Raj Baranwal",
   ogImage: "",
   lightAndDarkMode: true,
   postPerIndex: 3,
