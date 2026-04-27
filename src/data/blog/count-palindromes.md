@@ -35,7 +35,57 @@ Note that there could be a border edge for each possible letter, but there will 
 
 Whenever we append a new letter to an already processed string, it takes amortized constant time to maintain this graph. Below is an example graph for the string `aababba`.
 
-![graph](@/assets/images/count-palindromes/graph.png)
+<svg viewBox="0 0 700 510" xmlns="http://www.w3.org/2000/svg" style="color: var(--foreground); width: 100%; height: auto; max-width: 700px; display: block; margin: 1.5rem auto;" role="img" aria-label="Palindrome tree for the string aababba. Nodes are unique palindromic substrings; solid edges are border edges (extending a palindrome by a letter on both sides); dashed edges are suffix edges (pointing to the longest proper palindromic suffix).">
+  <defs>
+    <marker id="cp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker>
+  </defs>
+  <g stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3" fill="none">
+    <line x1="418" y1="338" x2="325" y2="435" marker-end="url(#cp-arrow)"/>
+    <line x1="181" y1="315" x2="407" y2="320" marker-end="url(#cp-arrow)"/>
+    <line x1="526" y1="108" x2="446" y2="294" marker-end="url(#cp-arrow)"/>
+    <line x1="133" y1="190" x2="151" y2="287" marker-end="url(#cp-arrow)"/>
+    <line x1="603" y1="296" x2="545" y2="112" marker-end="url(#cp-arrow)"/>
+    <line x1="326" y1="185" x2="178" y2="298" marker-end="url(#cp-arrow)"/>
+    <line x1="305" y1="62" x2="508" y2="82" marker-end="url(#cp-arrow)"/>
+    <line x1="496" y1="446" x2="182" y2="325" marker-end="url(#cp-arrow)"/>
+  </g>
+  <g stroke="currentColor" stroke-width="1.5" fill="none">
+    <line x1="288" y1="438" x2="176" y2="334" marker-end="url(#cp-arrow)"/>
+    <line x1="319" y1="434" x2="521" y2="109" marker-end="url(#cp-arrow)"/>
+    <line x1="413" y1="309" x2="153" y2="178" marker-end="url(#cp-arrow)"/>
+    <line x1="460" y1="320" x2="583" y2="320" marker-end="url(#cp-arrow)"/>
+    <line x1="167" y1="292" x2="268" y2="85" marker-end="url(#cp-arrow)"/>
+    <line x1="513" y1="95" x2="372" y2="159" marker-end="url(#cp-arrow)"/>
+    <line x1="597" y1="341" x2="535" y2="432" marker-end="url(#cp-arrow)"/>
+  </g>
+  <g font-size="14" font-style="italic" fill="currentColor" font-family="ui-serif, Georgia, serif" text-anchor="middle">
+    <text x="245" y="420">a</text>
+    <text x="432" y="279">b</text>
+    <text x="305" y="230">a</text>
+    <text x="495" y="305">b</text>
+    <text x="232" y="196">b</text>
+    <text x="437" y="114">a</text>
+    <text x="582" y="394">a</text>
+  </g>
+  <circle cx="280" cy="60" r="25" fill="var(--background)" stroke="currentColor" stroke-width="1.5"/>
+  <text x="280" y="66" text-anchor="middle" font-size="13" font-style="italic" fill="currentColor" font-family="ui-serif, Georgia, serif">bab</text>
+  <circle cx="536" cy="85" r="25" fill="var(--background)" stroke="currentColor" stroke-width="1.5"/>
+  <text x="536" y="91" text-anchor="middle" font-size="16" font-style="italic" fill="currentColor" font-family="ui-serif, Georgia, serif">b</text>
+  <circle cx="128" cy="165" r="25" fill="var(--background)" stroke="currentColor" stroke-width="1.5"/>
+  <text x="128" y="171" text-anchor="middle" font-size="14" font-style="italic" fill="currentColor" font-family="ui-serif, Georgia, serif">aa</text>
+  <circle cx="346" cy="170" r="25" fill="var(--background)" stroke="currentColor" stroke-width="1.5"/>
+  <text x="346" y="176" text-anchor="middle" font-size="13" font-style="italic" fill="currentColor" font-family="ui-serif, Georgia, serif">aba</text>
+  <circle cx="156" cy="315" r="25" fill="var(--background)" stroke="currentColor" stroke-width="1.5"/>
+  <text x="156" y="321" text-anchor="middle" font-size="16" font-style="italic" fill="currentColor" font-family="ui-serif, Georgia, serif">a</text>
+  <circle cx="435" cy="320" r="25" fill="var(--background)" stroke="currentColor" stroke-width="1.5"/>
+  <text x="435" y="326" text-anchor="middle" font-size="16" font-style="italic" fill="currentColor" font-family="ui-serif, Georgia, serif">ε</text>
+  <circle cx="611" cy="320" r="25" fill="var(--background)" stroke="currentColor" stroke-width="1.5"/>
+  <text x="611" y="326" text-anchor="middle" font-size="14" font-style="italic" fill="currentColor" font-family="ui-serif, Georgia, serif">bb</text>
+  <circle cx="306" cy="455" r="25" fill="var(--background)" stroke="currentColor" stroke-width="1.5"/>
+  <text x="306" y="461" text-anchor="middle" font-size="16" font-style="italic" fill="currentColor" font-family="ui-serif, Georgia, serif">γ</text>
+  <circle cx="519" cy="455" r="25" fill="var(--background)" stroke="currentColor" stroke-width="1.5"/>
+  <text x="519" y="461" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor" font-family="ui-serif, Georgia, serif">abba</text>
+</svg>
 
 Here $$\epsilon$$ denotes the empty string and $$\gamma$$ is an imaginary palindrome of length $$-1$$. The *suffix edges* are shown by dashed lines, while the *border edges* are shown by solid lines with labels. We say that a palindrome consisting of a single letter *borders* $$\gamma$$, which makes the implementation of the algorithm easy.
 

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "./typography.css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=midnight], [data-theme=midnight] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *));
 
 :root,
 html[data-theme="default"] {
@@ -19,6 +19,33 @@ html[data-theme="obsidian"] {
   --accent: #f6a924df;
   --muted: #262626;
   --border: #262626;
+}
+
+/* Option: Sand (Warm & Cozy) */
+html[data-theme="sand"] {
+  --background: #faf6ef;
+  --foreground: #3a2e1f;
+  --accent: #b4541e;
+  --muted: #ece4d3;
+  --border: #e3d9c2;
+}
+
+/* Option: Sage (Calm & Botanical) */
+html[data-theme="sage"] {
+  --background: #f4f7f3;
+  --foreground: #1f2d24;
+  --accent: #3f7a52;
+  --muted: #dce6dd;
+  --border: #cddbcf;
+}
+
+/* Option: Midnight (Cool & Focused) */
+html[data-theme="midnight"] {
+  --background: #060f1f;
+  --foreground: #e6edf5;
+  --accent: #60a5fa;
+  --muted: #1e2f48;
+  --border: #1a2940;
 }
 
 /* Option 3: Deep Forest (Natural & Calm) */
@@ -152,11 +179,13 @@ html[data-theme="snow"] body::before {
 .chrome-svg-dark { display: none; }
 html[data-theme="dark"] .chrome-svg-light,
 html[data-theme="obsidian"] .chrome-svg-light,
+html[data-theme="midnight"] .chrome-svg-light,
 html[data-theme="forest"] .chrome-svg-light,
 html[data-theme="cyber"] .chrome-svg-light,
 html[data-theme="carbon"] .chrome-svg-light { display: none; }
 html[data-theme="dark"] .chrome-svg-dark,
 html[data-theme="obsidian"] .chrome-svg-dark,
+html[data-theme="midnight"] .chrome-svg-dark,
 html[data-theme="forest"] .chrome-svg-dark,
 html[data-theme="cyber"] .chrome-svg-dark,
 html[data-theme="carbon"] .chrome-svg-dark { display: block; }

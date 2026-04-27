@@ -3,7 +3,7 @@ author: Aseem Baranwal
 pubDatetime: 2025-01-16T15:22:00Z
 title: Optimal message passing on sparse graphs
 slug: optimal-message-passing-sparse-graphs
-featured: true
+featured: false
 draft: false
 tags:
   - machine learning
