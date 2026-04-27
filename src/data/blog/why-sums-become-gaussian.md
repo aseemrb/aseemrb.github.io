@@ -1,6 +1,6 @@
 ---
 author: Aseem Baranwal
-pubDatetime: 2026-04-28T15:22:00Z
+pubDatetime: 2026-04-26T15:22:00Z
 title: Central Limit Theorem - why sums become Gaussian
 slug: why-sums-become-gaussian
 featured: false

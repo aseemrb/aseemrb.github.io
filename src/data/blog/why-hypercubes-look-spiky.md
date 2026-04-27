@@ -1,6 +1,6 @@
 ---
 author: Aseem Baranwal
-pubDatetime: 2026-04-26T15:22:00Z
+pubDatetime: 2026-04-25T15:22:00Z
 title: Why hypercubes look spiky
 slug: why-hypercubes-look-spiky
 featured: false
