@@ -1,6 +1,6 @@
 ---
 author: Aseem Baranwal
-pubDatetime: 2026-04-25T15:22:00Z
+pubDatetime: 2026-04-11T15:22:00Z
 title: Why hypercubes look spiky
 slug: why-hypercubes-look-spiky
 featured: false
@@ -135,7 +135,7 @@ That's the spike. The drawing has sharp points at the top and bottom because the
 A few observations follow immediately:
 
 - **Almost all corners have roughly $n/2$ ones.** The fraction of corners with $|\ell - n/2| > t \sqrt{n}$ falls off Gaussian-fast in $t$.
-- **The "tips" are vanishingly rare.** Out of $2^n$ corners, only two (the all-zero and the all-one) sit at the extreme levels. They are the spike points that give the drawing its name.
+- **The *tips* are vanishingly rare.** Out of $2^n$ corners, only two (the all-zero and the all-one) sit at the extreme levels. They are the spike points that give the drawing its name.
 - **Two random corners are typically at Hamming distance $\approx n/2$**, which drops out of the same binomial picture for free.
 
 ## References

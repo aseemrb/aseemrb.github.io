@@ -1,6 +1,6 @@
 ---
 author: Aseem Baranwal
-pubDatetime: 2026-04-26T15:22:00Z
+pubDatetime: 2026-04-12T15:22:00Z
 title: Central Limit Theorem - why sums become Gaussian
 slug: why-sums-become-gaussian
 featured: false
@@ -165,13 +165,13 @@ Three complementary intuitions, each capturing a different aspect of why this ha
 
 **(2) Entropy maximization.** Among all densities on $\mathbb{R}$ with a given mean and variance, the one with maximum [differential entropy](https://en.wikipedia.org/wiki/Differential_entropy) is the Gaussian. Convolution monotonically increases the entropy of the standardized sum (Barron, 1986). Repeated convolution therefore drives the standardized distribution toward the entropy maximizer with the matching moments. This is the *entropic CLT*, and it gives a thermodynamic flavor to convergence: the Gaussian is the thermal equilibrium of independent additive noise.
 
-**(3) Self-similarity.** The Gaussian is the unique distribution with finite variance that's preserved under "add an independent copy and rescale by $1/\sqrt{2}$":
+**(3) Self-similarity.** The Gaussian is the unique distribution with finite variance that is preserved under the operation **add an independent copy and rescale by $1/\sqrt{2}$**:
 
 $$
 X + Y \;\stackrel{d}{=}\; \sqrt{2} \cdot X \quad\text{when } X, Y \stackrel{\text{iid}}{\sim} \mathcal{N}(0, 1).
 $$
 
-For any other finite-variance distribution, this operation moves the shape *closer* to Gaussian. The "add and rescale" map is a contraction toward the Gaussian fixed point, and the CLT is its convergence.
+For any other finite-variance distribution, this operation moves the shape *closer* to Gaussian. The **add and rescale** map is a contraction toward the Gaussian fixed point, and the CLT is its convergence.
 
 (Without finite variance, the same fixed-point logic gives non-Gaussian limits called *[stable distributions](https://en.wikipedia.org/wiki/Stable_distribution)*: [Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution), [Lévy](https://en.wikipedia.org/wiki/L%C3%A9vy_distribution), and others. The Gaussian is just the most familiar member of an infinite family of self-similar limit laws.)
 
@@ -197,7 +197,7 @@ In the widget, the rate-of-convergence comparison is easy to feel: the symmetric
 
 The standard CLT has two requirements: i.i.d. (or close to it) and finite variance. Drop either and the limit can change shape.
 
-- **Drop independence.** There are CLTs for [martingales](https://en.wikipedia.org/wiki/Martingale_%28probability_theory%29), for mixing/weakly-dependent sequences, for [U-statistics](https://en.wikipedia.org/wiki/U-statistic), and so on. The variance in the limit gets corrected to a "long-run variance" that accounts for autocorrelation.
+- **Drop independence.** There are CLTs for [martingales](https://en.wikipedia.org/wiki/Martingale_%28probability_theory%29), for mixing/weakly-dependent sequences, for [U-statistics](https://en.wikipedia.org/wiki/U-statistic), and so on. The variance in the limit gets corrected to a **long-run variance** that accounts for autocorrelation.
 - **Drop identical distribution.** The [Lindeberg](https://en.wikipedia.org/wiki/Lindeberg%27s_condition) / [Lyapunov](https://en.wikipedia.org/wiki/Lyapunov%27s_central_limit_theorem) conditions ensure no single $X_i$'s variance dominates the sum. As long as everyone contributes, the limit is still Gaussian.
 - **Drop finite variance.** The limit is no longer Gaussian. For variables in the domain of attraction of a non-Gaussian stable law (e.g., when $\mathbb{E}|X|^\alpha = \infty$ for some $\alpha < 2$), the limit is a stable distribution with index $\alpha$, with infinite variance and (for $\alpha < 1$) infinite mean. The rescaling itself changes from $\sqrt{n}$ to $n^{1/\alpha}$.
 

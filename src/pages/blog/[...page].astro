@@ -26,6 +26,7 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
   <main id="main-content" data-backurl={backUrl}>
     <section class="app-prose mb-28 max-w-app prose-img:border-0">
       <h2>Blog</h2>
+      <a href="/tags">filter by tags</a>
       <ul style="padding-left: 0">
         {page.data.map(data => <Card {...data} />)}
       </ul>
