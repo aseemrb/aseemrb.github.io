@@ -1,0 +1,156 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Datetime from "@/components/Datetime.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import { getPath } from "@/utils/getPath";
+import getSortedPosts from "@/utils/getSortedPosts";
+import { SITE } from "@/config";
+
+const posts = await getCollection("blog", ({ data }) => !data.draft);
+const sorted = getSortedPosts(posts);
+const allTags = Array.from(
+  new Set(sorted.flatMap(({ data }) => data.tags.map(t => t.toLowerCase())))
+).sort();
+const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
+---
+
+<Layout title={`Blog | ${SITE.title}`}>
+  <Header />
+  <Breadcrumb />
+  <main id="main-content" data-backurl={backUrl}>
+    <section class="app-prose mb-28 max-w-app prose-img:border-0">
+      <h2>Blog</h2>
+      <label for="tag-filter" class="sr-only">Filter by tag</label>
+      <div class="relative my-4 w-full sm:max-w-sm">
+        <input
+          id="tag-filter"
+          type="search"
+          placeholder="filter by tag"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="tag-options"
+          aria-expanded="false"
+          aria-autocomplete="list"
+          role="combobox"
+          class="w-full rounded border border-border bg-background px-3 py-2 font-mono text-sm text-foreground placeholder:opacity-60 focus:border-accent focus:outline-none"
+        />
+        <ul
+          id="tag-options"
+          role="listbox"
+          class="absolute left-0 right-0 top-full z-10 mt-1 hidden max-h-64 overflow-auto rounded border border-border bg-background py-1 font-mono text-sm shadow"
+        >
+          {allTags.map(tag => (
+            <li
+              role="option"
+              data-tag={tag}
+              class="cursor-pointer px-3 py-1.5 hover:bg-muted"
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p id="tag-empty" class="hidden text-sm opacity-70">No posts match that tag.</p>
+      <ul id="post-list" style="padding-left: 0">
+        {sorted.map(({ id, filePath, data }) => (
+          <li
+            class="post-item my-6"
+            data-tags={data.tags.map(t => t.toLowerCase()).join("|")}
+            style="padding-inline-start: 0"
+          >
+            <h4><LinkButton href={getPath(id, filePath)}>{data.title}</LinkButton></h4>
+            <Datetime pubDatetime={data.pubDatetime} timezone={data.timezone} />
+            <p>{data.description}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const input = document.querySelector<HTMLInputElement>("#tag-filter");
+  const dropdown = document.querySelector<HTMLUListElement>("#tag-options");
+  const options = dropdown
+    ? Array.from(dropdown.querySelectorAll<HTMLLIElement>("li[data-tag]"))
+    : [];
+  const postList = document.querySelector("#post-list");
+  const empty = document.querySelector("#tag-empty");
+  const items = postList
+    ? Array.from(postList.querySelectorAll<HTMLElement>(".post-item"))
+    : [];
+
+  function applyFilter() {
+    if (!input) return;
+    const q = input.value.trim().toLowerCase();
+    let visible = 0;
+    for (const li of items) {
+      const tags = (li.dataset.tags ?? "").split("|").filter(Boolean);
+      const match = q === "" || tags.some(t => t.includes(q));
+      li.style.display = match ? "" : "none";
+      if (match) visible++;
+    }
+    if (empty) empty.classList.toggle("hidden", visible !== 0);
+  }
+
+  function refreshDropdown() {
+    if (!input || !dropdown) return;
+    const q = input.value.trim().toLowerCase();
+    let anyVisible = false;
+    for (const opt of options) {
+      const tag = opt.dataset.tag ?? "";
+      const match = q === "" || tag.includes(q);
+      opt.style.display = match ? "" : "none";
+      if (match) anyVisible = true;
+    }
+    dropdown.classList.toggle("hidden", !anyVisible);
+    input.setAttribute("aria-expanded", anyVisible ? "true" : "false");
+  }
+
+  function openDropdown() {
+    refreshDropdown();
+  }
+
+  function closeDropdown() {
+    if (!dropdown || !input) return;
+    dropdown.classList.add("hidden");
+    input.setAttribute("aria-expanded", "false");
+  }
+
+  input?.addEventListener("input", () => {
+    applyFilter();
+    refreshDropdown();
+  });
+  input?.addEventListener("focus", openDropdown);
+  input?.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeDropdown();
+  });
+
+  for (const opt of options) {
+    opt.addEventListener("mousedown", e => {
+      e.preventDefault();
+      if (!input) return;
+      input.value = opt.dataset.tag ?? "";
+      applyFilter();
+      closeDropdown();
+      input.focus();
+    });
+  }
+
+  document.addEventListener("click", e => {
+    const target = e.target as Node;
+    if (input?.contains(target) || dropdown?.contains(target)) return;
+    closeDropdown();
+  });
+
+  const mainContent = document.querySelector("#main-content") as HTMLElement;
+  const backUrl = mainContent?.dataset?.backurl;
+  if (backUrl) {
+    sessionStorage.setItem("backUrl", backUrl);
+  }
+</script>

@@ -24,19 +24,19 @@ $$
 [converges in distribution](https://en.wikipedia.org/wiki/Convergence_of_random_variables#Convergence_in_distribution) to $\mathcal{N}(0, 1)$ as $n \to \infty$.<br/>
 I've written more on this mode of convergence [here](https://notes.aseemrb.me/probability-theory/convergence/weak-convergence/).
 
-A more visual restatement: **summing independent random variables is [convolving](https://en.wikipedia.org/wiki/Convolution) their densities.** If $X$ has density $f$ and $Y$ has an independent copy with density $g$, then $X + Y$ has density
+A more visual restatement: **summing independent random variables is [convolving](https://en.wikipedia.org/wiki/Convolution) their densities.** Why? For the sum $X + Y$ to land at a particular value $z$, the two summands have to take values that add up to $z$: if $X$ takes value $x$, then $Y$ must take the complementary value $z - x$. By independence, the joint density at any pair $(x, y)$ is the product $f(x)\,g(y)$. The density of $X + Y$ at $z$ is therefore what you get by summing (integrating) the joint density over every valid split $(x, z-x)$ that produces this $z$:
 
 $$
-(f \star g)(z) \;=\; \int f(x)\, g(z - x)\, dx.
+f_{X+Y}(z) \;=\; \int f(x)\, g(z - x)\, dx \;=:\; (f \star g)(z).
 $$
 
-So summing $n$ i.i.d. copies of $X$ corresponds to convolving its density with itself $n$ times. The CLT becomes a statement about repeated self-convolution: under the right rescaling, it converges to a Gaussian.
+That integral is, by definition, the convolution of $f$ and $g$. So summing $n$ i.i.d. copies of $X$ corresponds to convolving its density with itself $n$ times. The CLT becomes a statement about repeated self-convolution: under the right rescaling, it converges to a Gaussian.
 
 ## Watch it happen
 
 Pick a base distribution and slide $n$. The blue bars are the exact distribution of the sum after $n$ convolutions; the red curve is the Gaussian with mean $n\mu$ and variance $n\sigma^2$.
 
-<div class="clt-widget" style="margin: 1.5rem 0; padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.75rem 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.5rem;">base <select id="clt-dist" style="padding: 0.2rem 0.4rem; background: var(--background); color: currentColor; border: 1px solid currentColor;"><option value="bernoulli">Bernoulli(0.3)</option><option value="die" selected>uniform die {1..6}</option><option value="triangular">triangular</option><option value="bimodal">bimodal</option></select></label><label style="display: flex; align-items: center; gap: 0.5rem; flex: 1 1 200px;"><em>n</em><input type="range" id="clt-n" min="1" max="40" value="1" style="flex: 1;"></label><span><em>n</em> = <strong id="clt-n-disp">1</strong></span><span><em>μ<sub>n</sub></em> = <strong id="clt-mean">3.50</strong></span><span><em>σ<sub>n</sub></em> = <strong id="clt-std">1.71</strong></span></div><svg id="clt-svg" viewBox="0 0 720 300" style="width: 100%; height: auto;" aria-label="Histogram of the n-fold sum's distribution with a Gaussian overlay."></svg></div>
+<div class="clt-widget" style="margin: 1.5rem 0; padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.75rem 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.5rem;"><select id="clt-dist" style="padding: 0.2rem 0.4rem; background: var(--background); color: currentColor; border: 1px solid currentColor;"><option value="bernoulli">Bernoulli(0.3)</option><option value="die" selected>uniform die {1..6}</option><option value="triangular">triangular</option><option value="bimodal">bimodal</option></select></label><label style="display: flex; align-items: center; gap: 0.5rem; flex: 1 1 200px;"><em>n</em><input type="range" id="clt-n" min="1" max="40" value="1" style="flex: 1;"></label><span><em>n</em> = <strong id="clt-n-disp">1</strong></span><span><em>μ<sub>n</sub></em> = <strong id="clt-mean">3.50</strong></span><span><em>σ<sub>n</sub></em> = <strong id="clt-std">1.71</strong></span></div><svg id="clt-svg" viewBox="0 0 720 300" style="width: 100%; height: auto;" aria-label="Histogram of the n-fold sum's distribution with a Gaussian overlay."></svg></div>
 <script>
 (function () {
   var slider = document.getElementById('clt-n');

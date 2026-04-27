@@ -37,9 +37,9 @@ $$
 
 This is the [chi distribution](https://en.wikipedia.org/wiki/Chi_distribution) with $d$ degrees of freedom (just a name for the law of $\|X\|$ when $X$ is a standard $d$-dim Gaussian). The Gaussian factor $\exp(-r^2/2)$ wants $r$ small; the volume factor $r^{d-1}$ wants $r$ large. They balance at $r = \sqrt{d-1} \approx \sqrt{d}$, which is the mode of the radial distribution.
 
-Slide $d$ and watch where Gaussian samples actually land:
+Slide $d$ and watch the cloud collapse onto the sphere. Each blue dot is one sample from $\mathcal{N}(0, I_d)$, plotted at *normalized* radius $\|X\|/\sqrt{d}$ at a uniformly random angle. With this scaling the predicted shell sits at radius $1$ for every $d$ (the dashed red ring), so the ring stays put and only the *cloud* moves. At $d = 1$ the points are scattered all over: some near the origin, some past the ring, almost none on it. As $d$ grows, the relative spread $\mathrm{std}(\|X\|)/\mathbb{E}[\|X\|] \approx 1/\sqrt{2d}$ shrinks, and the cloud collapses onto the ring.
 
-<div class="gs-widget" style="margin: 1.5rem 0; padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.75rem 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.6rem; flex: 1 1 220px;">dimension <em>d</em><input type="range" id="gs-slider" min="1" max="200" value="3" style="flex: 1;"></label><span><em>d</em> = <strong id="gs-d">3</strong></span><span>√<em>d</em> = <strong id="gs-sqrtd">1.73</strong></span><span>mean ‖<em>X</em>‖ = <strong id="gs-mean">1.60</strong></span><span>std ‖<em>X</em>‖ = <strong id="gs-std">0.67</strong></span></div><svg id="gs-svg" viewBox="0 0 720 280" style="width: 100%; height: auto;" aria-label="Histogram of the norm of X for X drawn from a d-dimensional standard Gaussian, with a red line at sqrt(d)."></svg></div>
+<div class="gs-widget" style="margin: 1.5rem 0; padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.75rem 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.6rem; flex: 1 1 220px;"><input type="range" id="gs-slider" min="1" max="200" value="3" style="flex: 1;"></label><span><em>d</em> = <strong id="gs-d">3</strong></span><span>√<em>d</em> = <strong id="gs-sqrtd">1.73</strong></span><span>mean ‖<em>X</em>‖ = <strong id="gs-mean">1.60</strong></span><span>std ‖<em>X</em>‖ = <strong id="gs-std">0.67</strong></span></div><svg id="gs-svg" viewBox="0 0 720 720" style="width: 100%; height: auto; max-width: 720px; display: block; margin: 0 auto;" aria-label="Scatter of Gaussian samples in 2D, each plotted at radius ||X|| and a random angle. As d grows, the cloud collapses onto a ring of radius sqrt(d)."></svg></div>
 <script>
 (function () {
   var slider = document.getElementById('gs-slider');
@@ -57,68 +57,43 @@ Slide $d$ and watch where Gaussian samples actually land:
   }
   function update() {
     var d = parseInt(slider.value, 10);
-    var N = 800;
-    var norms = new Array(N);
+    var N = 600;
+    var radii = new Array(N);
+    var angles = new Array(N);
+    var sumR = 0;
     for (var i = 0; i < N; i++) {
       var s = 0;
       for (var j = 0; j < d; j++) { var x = gauss(); s += x * x; }
-      norms[i] = Math.sqrt(s);
+      var r = Math.sqrt(s);
+      radii[i] = r;
+      angles[i] = Math.random() * 2 * Math.PI;
+      sumR += r;
     }
-    var mean = 0;
-    for (var i = 0; i < N; i++) mean += norms[i];
-    mean /= N;
-    var v = 0;
-    for (var i = 0; i < N; i++) { var t = norms[i] - mean; v += t * t; }
-    v /= N;
-    var std = Math.sqrt(v);
+    var meanR = sumR / N;
+    var sumV = 0;
+    for (var i = 0; i < N; i++) { var t = radii[i] - meanR; sumV += t * t; }
+    var stdR = Math.sqrt(sumV / N);
     var sqrtD = Math.sqrt(d);
     dDisp.textContent = d;
     sqrtDisp.textContent = sqrtD.toFixed(2);
-    meanDisp.textContent = mean.toFixed(2);
-    stdDisp.textContent = std.toFixed(2);
-    var w = 720, h = 280;
-    var padL = 50, padR = 20, padT = 20, padB = 50;
-    var plotW = w - padL - padR;
-    var plotH = h - padT - padB;
-    var xMin = 0;
-    var xMax = Math.max(sqrtD * 1.45 + 1, 5);
-    var nBins = 60;
-    var binW = (xMax - xMin) / nBins;
-    var bins = new Array(nBins);
-    for (var i = 0; i < nBins; i++) bins[i] = 0;
+    meanDisp.textContent = meanR.toFixed(2);
+    stdDisp.textContent = stdR.toFixed(2);
+    var size = 720;
+    var cx = size / 2;
+    var cy = size / 2;
+    var refRpx = 150;
+    var out = '';
+    out += '<line x1="20" y1="' + cy + '" x2="' + (size - 20) + '" y2="' + cy + '" stroke="currentColor" stroke-opacity="0.12"/>';
+    out += '<line x1="' + cx + '" y1="20" x2="' + cx + '" y2="' + (size - 20) + '" stroke="currentColor" stroke-opacity="0.12"/>';
+    out += '<circle cx="' + cx + '" cy="' + cy + '" r="' + refRpx + '" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 3"/>';
     for (var i = 0; i < N; i++) {
-      var b = Math.floor((norms[i] - xMin) / binW);
-      if (b >= 0 && b < nBins) bins[b]++;
+      var rNorm = radii[i] / sqrtD;
+      var px = cx + rNorm * Math.cos(angles[i]) * refRpx;
+      var py = cy - rNorm * Math.sin(angles[i]) * refRpx;
+      out += '<circle cx="' + px.toFixed(1) + '" cy="' + py.toFixed(1) + '" r="1.8" fill="#2563eb" fill-opacity="0.6"/>';
     }
-    var maxB = 0;
-    for (var i = 0; i < nBins; i++) if (bins[i] > maxB) maxB = bins[i];
-    if (maxB === 0) maxB = 1;
-    function xPx(x) { return padL + (x - xMin) / (xMax - xMin) * plotW; }
-    function yPx(y) { return (h - padB) - y / maxB * plotH; }
-    var s = '';
-    s += '<line x1="' + padL + '" y1="' + (h - padB) + '" x2="' + (w - padR) + '" y2="' + (h - padB) + '" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.7"/>';
-    s += '<line x1="' + padL + '" y1="' + padT + '" x2="' + padL + '" y2="' + (h - padB) + '" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.7"/>';
-    var slot = plotW / nBins;
-    var bw = slot * 0.92;
-    for (var i = 0; i < nBins; i++) {
-      if (bins[i] === 0) continue;
-      var bx = padL + i * slot + (slot - bw) / 2;
-      var by = yPx(bins[i]);
-      var bh = (h - padB) - by;
-      s += '<rect x="' + bx.toFixed(1) + '" y="' + by.toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + bh.toFixed(1) + '" fill="#2563eb" fill-opacity="0.7"/>';
-    }
-    var sx = xPx(sqrtD);
-    s += '<line x1="' + sx.toFixed(1) + '" y1="' + padT + '" x2="' + sx.toFixed(1) + '" y2="' + (h - padB) + '" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 3"/>';
-    s += '<text x="' + (sx + 6).toFixed(1) + '" y="' + (padT + 14) + '" font-size="11" font-style="italic" fill="#dc2626">√d</text>';
-    var step = xMax > 12 ? 2 : 1;
-    for (var t = 0; t <= xMax; t += step) {
-      var tx = xPx(t);
-      s += '<line x1="' + tx + '" y1="' + (h - padB) + '" x2="' + tx + '" y2="' + (h - padB + 4) + '" stroke="currentColor" stroke-opacity="0.4"/>';
-      s += '<text x="' + tx + '" y="' + (h - padB + 18) + '" text-anchor="middle" font-size="11" fill="currentColor" fill-opacity="0.7">' + t + '</text>';
-    }
-    s += '<text x="' + (w / 2) + '" y="' + (h - 8) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor" fill-opacity="0.75">‖X‖</text>';
-    s += '<text x="14" y="' + (h / 2) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor" fill-opacity="0.75" transform="rotate(-90 14 ' + (h / 2) + ')">count</text>';
-    svg.innerHTML = s;
+    out += '<text x="' + (cx + refRpx + 26) + '" y="' + (cy - 4) + '" font-size="16" fill="#dc2626">║X║ / √d = 1</text>';
+    svg.innerHTML = out;
   }
   slider.addEventListener('input', update);
   update();
