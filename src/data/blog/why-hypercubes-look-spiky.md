@@ -28,7 +28,7 @@ The unit cube in $n$ dimensions is the set $[0,1]^n$. Its **corners** are the po
 Now group the corners by **Hamming weight**, the number of coordinates equal to $1$. Define
 
 $$
-C_\ell \;=\; \#\{\text{corners with exactly $\ell$ ones and $n - \ell$ zeros}\}.
+C_\ell \;=\; \#\{\text{corners with $\ell$ $1$s and $n - \ell$ $0$s}\}.
 $$
 
 How many such corners are there? You're picking which $\ell$ of the $n$ slots get the $1$, so
