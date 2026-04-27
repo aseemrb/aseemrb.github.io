@@ -7,6 +7,7 @@ featured: false
 draft: false
 tags:
   - machine learning
+  - computer science
 description:
   A condensed walkthrough of our NeurIPS 2023 paper deriving the asymptotically Bayes-optimal classifier for node classification on sparse contextual stochastic block models, and what it implies for the design of graph neural networks.
 ---

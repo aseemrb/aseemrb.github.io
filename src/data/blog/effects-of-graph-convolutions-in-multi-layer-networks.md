@@ -7,6 +7,7 @@ featured: false
 draft: false
 tags:
   - machine learning
+  - computer science
 description:
   A walkthrough of our ICLR 2023 paper on how graph convolutions provably lower the feature-signal threshold for node classification in contextual stochastic block models, and why two convolutions help much more than one.
 ---
