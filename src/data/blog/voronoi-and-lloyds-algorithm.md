@@ -33,7 +33,7 @@ At each step:
 
 This is **Lloyd's algorithm** (Lloyd, 1957/1982). It decreases the total squared distance from each point in the plane to its nearest generator at every step (a Lyapunov / energy function), so it converges to a local minimum.
 
-The fixed points are configurations where every generator is *already* at the centroid of its own cell. These are called **centroidal Voronoi tessellations** (CVTs). On flat domains, the cells of a CVT are nearly hexagonal: hexagons are the polygon shape that minimizes the second moment of area per unit area, so the algorithm seeks them out.
+The fixed points are configurations where every generator is *already* at the centroid of its own cell. These are called **centroidal Voronoi tessellations** (CVTs). On flat domains, the cells of a CVT are nearly hexagonal: hexagons are the polygon shape that minimizes the second moment of area per unit area, so the algorithm seeks them out (see [The bees](#the-bees) for more details on this minimization).
 
 Click on the canvas to add generators. Drag a generator to move it. Press **step** to run one Lloyd iteration, or **run** to step until convergence. Watch the cells round out and the configuration regularize.
 
@@ -223,7 +223,18 @@ $$
 \frac{1}{|V|} \int_V \|x - p\|^2 \, dx,
 $$
 
-where $p$ is the centroid of $V$. Among polygons that tile the plane, the regular hexagon minimizes this too (L. Fejes Tóth, 1959). The analogous statement in $d \ge 3$, that the optimal tiling for moment of inertia is by truncated octahedra, is **Gersho's conjecture**, still open in general dimensions.
+where $p$ is the centroid of $V$.
+
+The integrand $\|x - p\|^2$ is the squared distance from a point of the cell to its centroid. Its integral $\int_V \|x - p\|^2 \, dx$ is the [second moment of area](https://en.wikipedia.org/wiki/Second_moment_of_area) of $V$ about its centroid: a measure of how spread out the cell is, small for compact round cells and large for elongated or branching ones. Dividing by $|V|$ gives the average value of $\|x - p\|^2$ over a uniformly random point of $V$.
+
+For shapes of fixed area, this average depends only on the shape of $V$, not its size. The minimum over *all* shapes of a given area is achieved by the disk (round cells have the lowest spread), but disks do not tile the plane. The relevant question for Lloyd's algorithm is therefore: among shapes that *do* tile the plane, which one is closest to a disk in this sense? With cells of unit area, the comparison among the three regular polygons that tile, plus the disk for reference, is
+
+- disk: $\dfrac{1}{2\pi} \approx 0.1592$ (the absolute minimum over all shapes),
+- regular hexagon: $\dfrac{5}{18\sqrt{3}} \approx 0.1604$,
+- square: $\dfrac{1}{6} \approx 0.1667$,
+- equilateral triangle: $\dfrac{\sqrt{3}}{9} \approx 0.1925$.
+
+The hexagon comes within $0.7\%$ of the disk lower bound; the square is about $5\%$ over, the triangle about $21\%$ over. Among polygons that tile the plane (not only the regular ones), the regular hexagon minimizes this functional (L. Fejes Tóth, 1959). The analogous statement in $d \ge 3$, that the optimal tiling for moment of inertia is by truncated octahedra, is **Gersho's conjecture**, still open in general dimensions.
 
 So the perimeter minimum and the moment-of-inertia minimum are mathematically distinct objectives, but they happen to be solved by the same shape in 2D. That is the reason bees and k-means converge on hexagons through completely unrelated processes.
 
