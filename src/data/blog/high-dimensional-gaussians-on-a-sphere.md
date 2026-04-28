@@ -147,7 +147,7 @@ A few non-trivial consequences:
 3. **Random projections.** A uniformly random unit vector in $\mathbb{R}^d$ projected onto a single axis gives a value with std $\sim 1/\sqrt{d}$. High-dim spheres **look Gaussian** in low-dim projections, which connects this story back to the [central limit theorem](/blog/why-sums-become-gaussian).
 4. **[Concentration of measure](https://en.wikipedia.org/wiki/Concentration_of_measure).** The Gaussian shell is one face of a much more general fact: in high dimensions, Lipschitz functions of independent variables concentrate sharply around their median. Lévy's lemma on the sphere is the same idea in spherical clothing.
 
-## Why this gets missed
+## A common pitfall
 
 The 1D bell curve is so canonical that it overwrites our intuition for higher dimensions. Even researchers in high-dimensional probability slip into **mass near the mean** thinking when working informally. The right picture: in $d$ dimensions, a typical Gaussian sample is at distance $\sqrt{d}$ from the mean. The mean itself is essentially never sampled.
 

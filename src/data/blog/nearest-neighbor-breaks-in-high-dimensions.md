@@ -1,6 +1,6 @@
 ---
 author: Aseem Baranwal
-pubDatetime: 2026-04-19T10:00:00Z
+pubDatetime: 2023-07-22T10:00:00Z
 title: Nearest neighbor breaks in high dimensions
 slug: nearest-neighbor-breaks-in-high-dimensions
 featured: false
@@ -48,7 +48,7 @@ $$
 
 as $d \to \infty$ for fixed $n$, under mild moment conditions on the coordinate distribution. Maximum and minimum pairwise distances are within an arbitrarily small relative gap.
 
-## Why the math works
+## The derivation
 
 Let $D_d := \|X - Y\|^2 / d$ be the average squared coordinate difference between $X, Y \stackrel{\text{iid}}{\sim} \mathrm{Unif}[0,1]^d$. By construction, $D_d$ is the average of $d$ i.i.d. random variables with mean $\tfrac{1}{6}$ and variance $\sigma^2 = \tfrac{7}{180}$.
 

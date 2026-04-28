@@ -1,6 +1,6 @@
 ---
 author: Aseem Baranwal
-pubDatetime: 2026-04-19T15:22:00Z
+pubDatetime: 2024-04-19T15:22:00Z
 title: Stein's paradox
 slug: steins-paradox
 featured: false
