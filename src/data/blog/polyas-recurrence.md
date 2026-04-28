@@ -181,7 +181,7 @@ $$
 
 So the dichotomy reduces to convergence vs. divergence of $\sum_n \Pr[S_n = 0]$.
 
-For the simple symmetric random walk on $\mathbb{Z}^d$, a [local central limit theorem](https://en.wikipedia.org/wiki/Local_central_limit_theorem) gives
+For the simple symmetric random walk on $\mathbb{Z}^d$, a local [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) gives
 
 $$
 \Pr[S_{2n} = 0] \;\sim\; \frac{C_d}{n^{d/2}} \quad \text{as } n \to \infty,

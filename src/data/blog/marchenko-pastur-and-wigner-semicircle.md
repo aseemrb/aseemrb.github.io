@@ -245,7 +245,7 @@ The blue histogram is the empirical eigenvalue distribution of a fresh draw; the
 
 The Marchenko-Pastur law is for a structured random matrix: $X^\top X$, which is positive semidefinite by construction. The simpler sibling drops the structure and just takes a symmetric matrix whose entries are i.i.d. (above the diagonal).
 
-Let $W$ be an $n \times n$ symmetric real matrix with $W_{ij} \sim \mathcal{N}(0, 1)$ for $i < j$, $W_{ji} = W_{ij}$, and $W_{ii} \sim \mathcal{N}(0, 2)$. (The diagonal variance choice gives the [Gaussian Orthogonal Ensemble](https://en.wikipedia.org/wiki/Random_matrix#Gaussian_orthogonal_ensemble) but the limit theorem holds for arbitrary i.i.d. entries with finite variance.)
+Let $W$ be an $n \times n$ symmetric real matrix with $W_{ij} \sim \mathcal{N}(0, 1)$ for $i < j$, $W_{ji} = W_{ij}$, and $W_{ii} \sim \mathcal{N}(0, 2)$. (The diagonal variance choice gives the [Gaussian Orthogonal Ensemble](https://en.wikipedia.org/wiki/Random_matrix#Gaussian_ensembles) but the limit theorem holds for arbitrary i.i.d. entries with finite variance.)
 
 Wigner (1955) proved: the empirical distribution of the eigenvalues of $W / \sqrt{n}$ converges to the **semicircle density**
 
