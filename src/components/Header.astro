@@ -8,7 +8,6 @@ import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
 import ThemeSelector from "./ThemeSelector.astro";
-import Logo from "@/assets/logo.svg";
 import { SITE } from "@/config";
 
 const { pathname } = Astro.url;
@@ -39,13 +38,13 @@ const isActive = (path: string) => {
   >
     <div
       id="top-nav-wrap"
-      class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-2"
+      class="relative flex w-full items-center justify-between bg-background pt-6 px-4 pb-4 sm:py-4"
     >
       <a
         href="/"
-        class="relative py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
+        class="relative flex items-center whitespace-nowrap font-semibold hover:text-accent"
       >
-        <Logo class="scale-90 dark:invert" />
+        <span class="text-lg sm:text-xl">{SITE.title}</span>
       </a>
       <nav
         id="nav-menu"

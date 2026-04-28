@@ -75,7 +75,7 @@ The MLE has MSE $d$. So at $\theta = 0$, JS is a factor of $d/2$ better. For $d 
 
 Slide $d$ to see the full curve as $\|\theta\|$ varies:
 
-<div class="sp-widget" style="margin: 1.5rem 0; padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.75rem 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.6rem; flex: 1 1 220px;">dimension <em>d</em><input type="range" id="sp-slider" min="1" max="50" value="3" style="flex: 1;"></label><span><em>d</em> = <strong id="sp-d">3</strong></span><span>MSE<sub>MLE</sub> = <strong id="sp-mle">3</strong></span><span>MSE<sub>JS</sub>(θ=0) = <strong id="sp-js0">2</strong></span><span>JS savings at θ=0: <strong id="sp-save">×1.5</strong></span></div><svg id="sp-svg" viewBox="0 0 720 320" style="width: 100%; height: auto;" aria-label="MSE of MLE and James-Stein estimators as a function of the true mean's norm."></svg></div>
+<div class="sp-widget" style="margin: 1.5rem 0; color: var(--foreground); padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.75rem 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.6rem; flex: 1 1 220px;">dimension <em>d</em><input type="range" id="sp-slider" min="1" max="50" value="3" style="flex: 1;"></label><span><em>d</em> = <strong id="sp-d">3</strong></span><span>MSE<sub>MLE</sub> = <strong id="sp-mle">3</strong></span><span>MSE<sub>JS</sub>(θ=0) = <strong id="sp-js0">2</strong></span><span>JS savings at θ=0: <strong id="sp-save">×1.5</strong></span></div><svg id="sp-svg" viewBox="0 0 720 320" style="width: 100%; height: auto;" aria-label="MSE of MLE and James-Stein estimators as a function of the true mean's norm."></svg></div>
 <script>
 (function () {
   var slider = document.getElementById('sp-slider');
@@ -154,12 +154,12 @@ Slide $d$ to see the full curve as $\|\theta\|$ varies:
     for (var y = 0; y <= yMax; y += yStep) {
       var py = yPx(y);
       s += '<line x1="' + padL + '" y1="' + py + '" x2="' + (w - padR) + '" y2="' + py + '" stroke="currentColor" stroke-opacity="0.08"/>';
-      s += '<text x="' + (padL - 6) + '" y="' + (py + 4) + '" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.7">' + y + '</text>';
+      s += '<text x="' + (padL - 6) + '" y="' + (py + 4) + '" text-anchor="end" font-size="11" fill="currentColor">' + y + '</text>';
     }
     for (var x = 0; x <= xMax; x += 2) {
       var px = xPx(x);
       s += '<line x1="' + px + '" y1="' + (h - padB) + '" x2="' + px + '" y2="' + (h - padB + 4) + '" stroke="currentColor" stroke-opacity="0.4"/>';
-      s += '<text x="' + px + '" y="' + (h - padB + 18) + '" text-anchor="middle" font-size="11" fill="currentColor" fill-opacity="0.7">' + x + '</text>';
+      s += '<text x="' + px + '" y="' + (h - padB + 18) + '" text-anchor="middle" font-size="11" fill="currentColor">' + x + '</text>';
     }
     function path(vals, color, dash) {
       var p = '';
@@ -173,9 +173,9 @@ Slide $d$ to see the full curve as $\|\theta\|$ varies:
       s += '<circle cx="' + xPx(thetas[i]).toFixed(1) + '" cy="' + yPx(mleVals[i]).toFixed(1) + '" r="2.5" fill="#f97316"/>';
       s += '<circle cx="' + xPx(thetas[i]).toFixed(1) + '" cy="' + yPx(jsVals[i]).toFixed(1) + '" r="2.5" fill="#2563eb"/>';
     }
-    s += '<text x="' + (w / 2) + '" y="' + (h - 10) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor" fill-opacity="0.75">‖θ‖</text>';
-    s += '<text x="14" y="' + (h / 2) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor" fill-opacity="0.75" transform="rotate(-90 14 ' + (h / 2) + ')">MSE</text>';
-    s += '<g transform="translate(' + (w - padR + 10) + ',' + (padT + 10) + ')" font-size="11" fill="currentColor" fill-opacity="0.85"><rect x="-6" y="-12" width="86" height="60" fill="var(--background)" stroke="currentColor" stroke-opacity="0.25" rx="3"/><line x1="0" y1="0" x2="22" y2="0" stroke="#f97316" stroke-width="2.2"/><circle cx="11" cy="0" r="2.5" fill="#f97316"/><text x="28" y="4">MLE</text><line x1="0" y1="22" x2="22" y2="22" stroke="#2563eb" stroke-width="2.2"/><circle cx="11" cy="22" r="2.5" fill="#2563eb"/><text x="28" y="26">JS</text></g>';
+    s += '<text x="' + (w / 2) + '" y="' + (h - 10) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor">‖θ‖</text>';
+    s += '<text x="14" y="' + (h / 2) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor" transform="rotate(-90 14 ' + (h / 2) + ')">MSE</text>';
+    s += '<g transform="translate(' + (w - padR + 10) + ',' + (padT + 10) + ')" font-size="11" fill="currentColor"><rect x="-6" y="-12" width="86" height="60" fill="var(--background)" stroke="currentColor" stroke-opacity="0.25" rx="3"/><line x1="0" y1="0" x2="22" y2="0" stroke="#f97316" stroke-width="2.2"/><circle cx="11" cy="0" r="2.5" fill="#f97316"/><text x="28" y="4">MLE</text><line x1="0" y1="22" x2="22" y2="22" stroke="#2563eb" stroke-width="2.2"/><circle cx="11" cy="22" r="2.5" fill="#2563eb"/><text x="28" y="26">JS</text></g>';
     svg.innerHTML = s;
   }
   slider.addEventListener('input', update);

@@ -21,6 +21,11 @@ if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
     `${breadcrumbList[1]} ${Number(breadcrumbList[2]) === 1 ? "" : "(page " + breadcrumbList[2] + ")"}`
   );
 }
+
+// Path segments rendered fully uppercased (acronyms).
+const upperCaseSegments = new Set(["cv"]);
+const isAcronym = (segment: string) =>
+  upperCaseSegments.has(segment.toLowerCase());
 ---
 
 <nav class="mx-auto mt-8 mb-1 w-full max-w-app px-4" aria-label="breadcrumb">
@@ -36,7 +41,12 @@ if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
         index + 1 === breadcrumbList.length ? (
           <li>
             <span
-              class:list={["capitalize opacity-75", { lowercase: index > 0 }]}
+              class:list={[
+                "opacity-75",
+                isAcronym(breadcrumb)
+                  ? "uppercase"
+                  : ["capitalize", { lowercase: index > 0 }],
+              ]}
               aria-current="page"
             >
               {/* make the last part lowercase in Home > Tags > some-tag */}
@@ -45,7 +55,13 @@ if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
           </li>
         ) : (
           <li>
-            <a href={`/${breadcrumb}/`} class="capitalize opacity-70">
+            <a
+              href={`/${breadcrumb}/`}
+              class:list={[
+                "opacity-70",
+                isAcronym(breadcrumb) ? "uppercase" : "capitalize",
+              ]}
+            >
               {breadcrumb}
             </a>
             <span aria-hidden="true">&raquo;</span>

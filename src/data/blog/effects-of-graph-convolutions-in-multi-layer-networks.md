@@ -53,30 +53,30 @@ In words:
 So two convolutions are *much* better than one in the dense regime. (Past two, oversmoothing is a well-known issue, so we do not recommend stacking further unless you have a specific reason.)
 
 <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" style="color: var(--foreground); width: 100%; height: auto; max-width: 720px; display: block; margin: 1.5rem auto;" role="img" aria-label="Classification thresholds for MLP, MLP plus one convolution, and MLP plus two convolutions. Adding convolutions shifts the threshold left, by factor (E[deg])^(-1/4) for one conv and n^(-1/4) for two.">
-  <text x="660" y="32" text-anchor="end" font-size="11" font-style="italic" fill="currentColor" fill-opacity="0.65">larger feature signal γ →</text>
+  <text x="660" y="32" text-anchor="end" font-size="11" font-style="italic" fill="currentColor">larger feature signal γ →</text>
   <text x="195" y="74" text-anchor="end" font-size="13" font-weight="600" fill="currentColor">MLP</text>
-  <rect x="220" y="58" width="340" height="22" fill="currentColor" fill-opacity="0.07" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.7"/>
-  <text x="390" y="74" text-anchor="middle" font-size="11" fill="currentColor" fill-opacity="0.55">fails</text>
+  <rect x="220" y="58" width="340" height="22" fill="currentColor" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.7"/>
+  <text x="390" y="74" text-anchor="middle" font-size="11" fill="currentColor">fails</text>
   <rect x="560" y="58" width="120" height="22" fill="#bbf7d0" fill-opacity="0.55" stroke="#16a34a" stroke-width="1"/>
   <text x="620" y="74" text-anchor="middle" font-size="11" fill="#16a34a">succeeds</text>
   <line x1="560" y1="50" x2="560" y2="88" stroke="#ef4444" stroke-width="2"/>
   <text x="560" y="44" text-anchor="middle" font-size="11" font-style="italic" fill="#ef4444" font-family="ui-serif, Georgia, serif">γ★ (MLP)</text>
   <text x="195" y="148" text-anchor="end" font-size="13" font-weight="600" fill="currentColor">+ 1 graph conv</text>
-  <rect x="220" y="132" width="180" height="22" fill="currentColor" fill-opacity="0.07" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.7"/>
-  <text x="310" y="148" text-anchor="middle" font-size="11" fill="currentColor" fill-opacity="0.55">fails</text>
+  <rect x="220" y="132" width="180" height="22" fill="currentColor" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.7"/>
+  <text x="310" y="148" text-anchor="middle" font-size="11" fill="currentColor">fails</text>
   <rect x="400" y="132" width="280" height="22" fill="#bbf7d0" fill-opacity="0.55" stroke="#16a34a" stroke-width="1"/>
   <text x="540" y="148" text-anchor="middle" font-size="11" fill="#16a34a">succeeds</text>
   <line x1="400" y1="124" x2="400" y2="162" stroke="#ef4444" stroke-width="2"/>
   <text x="400" y="118" text-anchor="middle" font-size="11" font-style="italic" fill="#ef4444" font-family="ui-serif, Georgia, serif">÷ (𝔼[deg])¹⁄⁴</text>
   <text x="195" y="222" text-anchor="end" font-size="13" font-weight="600" fill="currentColor">+ 2 graph convs</text>
-  <rect x="220" y="206" width="20" height="22" fill="currentColor" fill-opacity="0.07" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.7"/>
+  <rect x="220" y="206" width="20" height="22" fill="currentColor" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.7"/>
   <rect x="240" y="206" width="440" height="22" fill="#bbf7d0" fill-opacity="0.55" stroke="#16a34a" stroke-width="1"/>
   <text x="460" y="222" text-anchor="middle" font-size="11" fill="#16a34a">succeeds</text>
   <line x1="240" y1="198" x2="240" y2="236" stroke="#ef4444" stroke-width="2"/>
   <text x="240" y="192" text-anchor="middle" font-size="11" font-style="italic" fill="#ef4444" font-family="ui-serif, Georgia, serif">÷ n¹⁄⁴</text>
   <line x1="220" y1="270" x2="680" y2="270" stroke="currentColor" stroke-opacity="0.4" stroke-width="0.8"/>
   <path d="M 678 266 L 684 270 L 678 274" stroke="currentColor" stroke-opacity="0.4" stroke-width="0.8" fill="none"/>
-  <text x="450" y="290" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor" fill-opacity="0.75">feature signal γ</text>
+  <text x="450" y="290" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor">feature signal γ</text>
 </svg>
 
 *Each graph convolution shifts the classification threshold left along the $\gamma$ axis: one convolution by a factor of $(\mathbb{E}[\deg])^{1/4}$, two convolutions by a much bigger factor of $n^{1/4}$. The wider the green "succeeds" region for an architecture, the noisier the features it can still classify.*

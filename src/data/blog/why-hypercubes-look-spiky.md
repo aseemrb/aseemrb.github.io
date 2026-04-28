@@ -59,7 +59,7 @@ For small $n$ this is a chunky diamond. For large $n$ it is a vertical bell curv
 
 Try it yourself. Slide $n$ and watch the chunky diamond at $n = 4$ sharpen into a needle-tipped spindle:
 
-<div class="hc-widget" style="margin: 1.5rem 0; padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.75rem 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.6rem; flex: 1 1 220px;">dimension <em>n</em><input type="range" id="hc-slider" min="2" max="100" value="8" style="flex: 1;"></label><span><em>n</em> = <strong id="hc-n">8</strong></span><span>2<sup><em>n</em></sup> corners = <strong id="hc-total">256</strong></span><span>peak <em>C</em><sub>⌊<em>n</em>/2⌋</sub> = <strong id="hc-max">70</strong></span></div><div style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1rem; align-items: center;"><svg id="hc-bars" viewBox="0 0 420 280" style="width: 100%; height: auto;" aria-label="Bar chart of binomial coefficients C(n, l) versus level l."></svg><svg id="hc-silhouette" viewBox="0 0 220 280" style="width: 100%; height: auto;" aria-label="Vertical silhouette of the n-cube cross-section. Width at level l is proportional to C(n, l)."></svg></div></div>
+<div class="hc-widget" style="margin: 1.5rem 0; color: var(--foreground); padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.75rem 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.6rem; flex: 1 1 220px;">dimension <em>n</em><input type="range" id="hc-slider" min="2" max="100" value="8" style="flex: 1;"></label><span><em>n</em> = <strong id="hc-n">8</strong></span><span>2<sup><em>n</em></sup> corners = <strong id="hc-total">256</strong></span><span>peak <em>C</em><sub>⌊<em>n</em>/2⌋</sub> = <strong id="hc-max">70</strong></span></div><div style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1rem; align-items: center;"><svg id="hc-bars" viewBox="0 0 420 280" style="width: 100%; height: auto;" aria-label="Bar chart of binomial coefficients C(n, l) versus level l."></svg><svg id="hc-silhouette" viewBox="0 0 220 280" style="width: 100%; height: auto;" aria-label="Vertical silhouette of the n-cube cross-section. Width at level l is proportional to C(n, l)."></svg></div></div>
 <script>
 (function () {
   var slider = document.getElementById('hc-slider');
@@ -102,8 +102,8 @@ Try it yourself. Slide $n$ and watch the chunky diamond at $n = 4$ sharpen into 
       var by = (h - padB) - bh;
       s += '<rect x="' + bx.toFixed(2) + '" y="' + by.toFixed(2) + '" width="' + barW.toFixed(2) + '" height="' + bh.toFixed(2) + '" fill="#2563eb" fill-opacity="0.75"/>';
     }
-    s += '<text x="' + (w / 2) + '" y="' + (h - 10) + '" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor" fill-opacity="0.75">level ℓ (number of 1s)</text>';
-    s += '<text x="14" y="' + (h / 2) + '" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor" fill-opacity="0.75" transform="rotate(-90 14 ' + (h / 2) + ')">C(n,ℓ)</text>';
+    s += '<text x="' + (w / 2) + '" y="' + (h - 10) + '" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">level ℓ (number of 1s)</text>';
+    s += '<text x="14" y="' + (h / 2) + '" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor" transform="rotate(-90 14 ' + (h / 2) + ')">C(n,ℓ)</text>';
     bars.innerHTML = s;
     var sw = 220, sh = 280;
     var padTS = 14, padBS = 14;
@@ -121,8 +121,8 @@ Try it yourself. Slide $n$ and watch the chunky diamond at $n = 4$ sharpen into 
     var pts = left.concat(right.reverse()).map(function (p) { return p.join(','); }).join(' ');
     var ss = '';
     ss += '<polygon points="' + pts + '" fill="#2563eb" fill-opacity="0.22" stroke="#2563eb" stroke-width="1.5"/>';
-    ss += '<text x="' + cx + '" y="9" text-anchor="middle" font-size="10" font-style="italic" fill="currentColor" fill-opacity="0.7">ℓ = 0</text>';
-    ss += '<text x="' + cx + '" y="' + (sh - 2) + '" text-anchor="middle" font-size="10" font-style="italic" fill="currentColor" fill-opacity="0.7">ℓ = ' + n + '</text>';
+    ss += '<text x="' + cx + '" y="9" text-anchor="middle" font-size="10" font-style="italic" fill="currentColor">ℓ = 0</text>';
+    ss += '<text x="' + cx + '" y="' + (sh - 2) + '" text-anchor="middle" font-size="10" font-style="italic" fill="currentColor">ℓ = ' + n + '</text>';
     sil.innerHTML = ss;
   }
   slider.addEventListener('input', update);

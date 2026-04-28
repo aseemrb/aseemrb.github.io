@@ -1,39 +1,143 @@
 ---
 import IconPalette from "@/assets/icons/IconPalette.svg";
 import { SITE } from "@/config";
+
+const themes = [
+  { value: "default", label: "Ocean" },
+  { value: "sand", label: "Sand" },
+  { value: "sage", label: "Sage" },
+  { value: "midnight", label: "Midnight" },
+  { value: "forest", label: "Forest" },
+  { value: "cyber", label: "Grape" },
+  { value: "carbon", label: "Coral" },
+];
 ---
 
 {
   SITE.lightAndDarkMode && (
-    <div class="relative">
-      <div class="flex h-9 w-9 items-center justify-center rounded p-2 transition-all hover:text-accent">
-        <IconPalette class="h-6 w-6" />
-      </div>
-      <label for="theme-selector" class="sr-only">
-        Select Theme
-      </label>
-      <select
-        id="theme-selector"
-        class="absolute inset-0 h-full w-full cursor-pointer appearance-none opacity-0"
+    <div id="theme-picker" class="relative">
+      <button
+        id="theme-picker-button"
+        type="button"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        aria-controls="theme-picker-list"
         aria-label="Select Theme"
+        title="Select Theme"
+        class="flex h-9 w-9 items-center justify-center rounded p-2 transition-all hover:text-accent"
       >
-        <option value="default">Ocean</option>
-        <option value="sand">Sand</option>
-        <option value="sage">Sage</option>
-        <option value="midnight">Midnight</option>
-        {/* <option value="obsidian">Obsidian Lava</option> */}
-        <option value="forest">Forest</option>
-        <option value="cyber">Grape</option>
-        <option value="carbon">Coral</option>
-        {/* <option value="snow">Snow</option> */}
+        <IconPalette class="h-6 w-6" />
+      </button>
+      <ul
+        id="theme-picker-list"
+        role="listbox"
+        aria-label="Select Theme"
+        class="absolute right-0 top-full z-20 mt-1 hidden min-w-[8.5rem] overflow-hidden rounded border border-border bg-background py-1 text-sm shadow-lg"
+      >
+        {themes.map(({ value, label }) => (
+          <li
+            role="option"
+            aria-selected="false"
+            data-theme-value={value}
+            class="theme-option flex cursor-pointer items-center gap-2 px-3 py-1.5 hover:bg-muted"
+          >
+            <span
+              class="h-3 w-3 rounded-full border border-border"
+              data-swatch={value}
+              aria-hidden="true"
+            />
+            <span>{label}</span>
+          </li>
+        ))}
+      </ul>
+      <select id="theme-selector" class="sr-only" tabindex="-1" aria-hidden="true">
+        {themes.map(({ value, label }) => (
+          <option value={value}>{label}</option>
+        ))}
       </select>
     </div>
   )
 }
 
 <style>
-  /* Custom arrow styling wrapper */
-  div.relative {
-    position: relative;
+  [data-swatch="default"] { background: #006cac; }
+  [data-swatch="sand"] { background: #b4541e; }
+  [data-swatch="sage"] { background: #3f7a52; }
+  [data-swatch="midnight"] { background: #60a5fa; }
+  [data-swatch="forest"] { background: #4ade80; }
+  [data-swatch="cyber"] { background: #a78bfa; }
+  [data-swatch="carbon"] { background: #fb7185; }
+
+  .theme-option[aria-selected="true"] {
+    background: var(--muted);
+    color: var(--accent);
   }
 </style>
+
+<script>
+  function setupThemePicker() {
+    const root = document.querySelector<HTMLElement>("#theme-picker");
+    if (!root) return;
+    const button = root.querySelector<HTMLButtonElement>("#theme-picker-button");
+    const list = root.querySelector<HTMLUListElement>("#theme-picker-list");
+    const select = root.querySelector<HTMLSelectElement>("#theme-selector");
+    const options = list
+      ? Array.from(list.querySelectorAll<HTMLLIElement>(".theme-option"))
+      : [];
+    if (!button || !list || !select) return;
+
+    function syncActive() {
+      const current = select?.value ?? "";
+      for (const opt of options) {
+        const match = opt.dataset.themeValue === current;
+        opt.setAttribute("aria-selected", match ? "true" : "false");
+      }
+    }
+
+    function open() {
+      syncActive();
+      list?.classList.remove("hidden");
+      button?.setAttribute("aria-expanded", "true");
+    }
+
+    function close() {
+      list?.classList.add("hidden");
+      button?.setAttribute("aria-expanded", "false");
+    }
+
+    function toggle() {
+      if (list?.classList.contains("hidden")) open();
+      else close();
+    }
+
+    button.addEventListener("click", e => {
+      e.stopPropagation();
+      toggle();
+    });
+
+    for (const opt of options) {
+      opt.addEventListener("click", () => {
+        const value = opt.dataset.themeValue ?? "";
+        if (!select) return;
+        select.value = value;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        syncActive();
+        close();
+      });
+    }
+
+    document.addEventListener("click", e => {
+      if (!root) return;
+      if (!root.contains(e.target as Node)) close();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") close();
+    });
+
+    syncActive();
+  }
+
+  setupThemePicker();
+  document.addEventListener("astro:after-swap", setupThemePicker);
+</script>

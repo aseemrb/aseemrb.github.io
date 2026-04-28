@@ -39,7 +39,7 @@ Yes, and it's a message-passing architecture.
   <defs>
     <marker id="omp-arr-A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker>
     <marker id="omp-arr-B" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/></marker>
-    <marker id="omp-arr-fade" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" fill-opacity="0.55"/></marker>
+    <marker id="omp-arr-fade" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker>
   </defs>
   <g stroke="currentColor" stroke-opacity="0.3" fill="none">
     <line x1="240" y1="220" x2="330" y2="191" stroke-width="1.2"/>
@@ -81,17 +81,17 @@ Yes, and it's a message-passing architecture.
   <text x="240" y="225" text-anchor="middle" font-size="15" font-style="italic" font-weight="700" fill="var(--background)" font-family="ui-serif, Georgia, serif">v</text>
   <text x="262" y="180" font-size="12" font-style="italic" fill="#2563eb" font-family="ui-serif, Georgia, serif">m⁽¹⁾(Xᵤ)</text>
   <text x="245" y="78" font-size="12" font-style="italic" fill="#2563eb" font-family="ui-serif, Georgia, serif">m⁽²⁾(Xᵤ)</text>
-  <text x="240" y="380" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor" fill-opacity="0.6">distance-k messages decay as Γᵏ</text>
+  <text x="240" y="380" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">distance-k messages decay as Γᵏ</text>
   <path d="M 258 218 C 330 218, 410 110, 505 95" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.4" fill="none" stroke-dasharray="2 4" marker-end="url(#omp-arr-fade)"/>
-  <text x="380" y="172" font-size="11" font-style="italic" fill="currentColor" fill-opacity="0.7">aggregate</text>
-  <text x="605" y="50" text-anchor="middle" font-size="13" font-style="italic" fill="currentColor" fill-opacity="0.85">score per class</text>
-  <rect x="525" y="76" width="170" height="14" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-opacity="0.2" stroke-width="0.6" rx="2"/>
-  <rect x="525" y="106" width="170" height="14" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-opacity="0.2" stroke-width="0.6" rx="2"/>
+  <text x="380" y="172" font-size="11" font-style="italic" fill="currentColor">aggregate</text>
+  <text x="605" y="50" text-anchor="middle" font-size="13" font-style="italic" fill="currentColor">score per class</text>
+  <rect x="525" y="76" width="170" height="14" fill="currentColor" stroke="currentColor" stroke-opacity="0.2" stroke-width="0.6" rx="2"/>
+  <rect x="525" y="106" width="170" height="14" fill="currentColor" stroke="currentColor" stroke-opacity="0.2" stroke-width="0.6" rx="2"/>
   <text x="518" y="88" text-anchor="end" font-size="13" font-weight="700" fill="#2563eb" font-family="ui-serif, Georgia, serif">A</text>
   <rect x="525" y="76" width="156" height="14" fill="#93c5fd" stroke="#2563eb" stroke-width="1" rx="2"/>
   <text x="518" y="118" text-anchor="end" font-size="13" font-weight="700" fill="#d97706" font-family="ui-serif, Georgia, serif">B</text>
   <rect x="525" y="106" width="82" height="14" fill="#fcd34d" stroke="#d97706" stroke-width="1" rx="2"/>
-  <text x="603" y="148" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor" fill-opacity="0.75">argmax</text>
+  <text x="603" y="148" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">argmax</text>
   <line x1="603" y1="153" x2="603" y2="180" stroke="currentColor" stroke-opacity="0.55" stroke-width="1.4" marker-end="url(#omp-arr-fade)"/>
   <rect x="528" y="195" width="150" height="44" fill="#93c5fd" fill-opacity="0.18" stroke="#2563eb" stroke-width="1.5" rx="6"/>
   <text x="603" y="224" text-anchor="middle" font-size="20" font-style="italic" font-family="ui-serif, Georgia, serif" fill="currentColor">ŷ(v) = <tspan font-weight="700" font-style="normal" fill="#2563eb">A</tspan></text>
@@ -160,7 +160,7 @@ This is the cleanest consequence and, I think, the most useful one in practice.
     <line x1="467" y1="60" x2="467" y2="320"/>
     <line x1="563" y1="60" x2="563" y2="320"/>
   </g>
-  <g font-size="11" fill="currentColor" fill-opacity="0.7">
+  <g font-size="11" fill="currentColor">
     <text x="74" y="324" text-anchor="end">0.5</text>
     <text x="74" y="272" text-anchor="end">0.6</text>
     <text x="74" y="220" text-anchor="end">0.7</text>
@@ -168,7 +168,7 @@ This is the cleanest consequence and, I think, the most useful one in practice.
     <text x="74" y="116" text-anchor="end">0.9</text>
     <text x="74" y="64" text-anchor="end">1.0</text>
   </g>
-  <g font-size="11" fill="currentColor" fill-opacity="0.7" text-anchor="middle">
+  <g font-size="11" fill="currentColor" text-anchor="middle">
     <text x="80" y="338">0.0</text>
     <text x="177" y="338">0.1</text>
     <text x="273" y="338">0.2</text>
