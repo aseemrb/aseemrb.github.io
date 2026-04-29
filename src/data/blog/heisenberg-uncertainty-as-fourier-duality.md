@@ -30,7 +30,7 @@ $$
 \lambda \;=\; \frac{h}{p},
 $$
 
-where $p$ is the particle's momentum. This is confirmed in many experiments, from [electron diffraction through nickel crystals](https://en.wikipedia.org/wiki/Davisson%E2%80%93Germer_experiment) (Davisson and Germer, 1927) to [interference fringes for buckyballs](https://en.wikipedia.org/wiki/Matter_wave#Wave_behavior_of_large_molecules) (Zeilinger et al., 1999) and recently for molecules of more than $25{,}000$ atomic mass units.
+where $p$ is the particle's momentum. This is confirmed in many experiments, from [electron diffraction through nickel crystals](https://en.wikipedia.org/wiki/Davisson%E2%80%93Germer_experiment) (Davisson and Germer, 1927) to [interference fringes for buckyballs](https://en.wikipedia.org/wiki/Matter_wave#Molecules) (Zeilinger et al., 1999) and recently for molecules of more than $25{,}000$ atomic mass units.
 
 > We don't read this as an electron is sometimes a particle and sometimes a wave. We read it as: the **wave** is the fundamental object, and what we call the **particle** is just the localized point on a detector where a measurement of the wave is recorded.
 
