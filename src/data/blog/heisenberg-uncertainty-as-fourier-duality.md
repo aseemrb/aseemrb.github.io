@@ -34,7 +34,7 @@ where $p$ is the particle's momentum. This is confirmed in many experiments, fro
 
 > We don't read this as an electron is sometimes a particle and sometimes a wave. We read it as: the **wave** is the fundamental object, and what we call the **particle** is just the localized point on a detector where a measurement of the wave is recorded.
 
-In one space dimension, the wave function is a complex-valued function $\psi(x)$ defined for every $x \in \mathbb R$. The **Born rule** assigns it a physical meaning:
+In one dimensional space, the wave function is a complex-valued function $\psi(x)$ defined for every $x \in \mathbb R$. The **Born rule** assigns it a physical meaning:
 
 $$
 |\psi(x)|^2 \;=\; \text{probability density of finding the particle at } x.

@@ -13,15 +13,101 @@ description:
   "In three or more dimensions, the sample mean is dominated everywhere by a shrinkage estimator. The geometric reason is the Gaussian shell: noise pushes you outward, and pulling back is uniformly better. A precursor of ridge regression and most modern regularization."
 ---
 
-In the 1950s, the statistical orthodoxy was clear: to estimate the mean of a Gaussian, use the sample mean. It is the [maximum-likelihood estimator](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation), the minimum-variance unbiased estimator, and (in one dimension) [admissible](https://en.wikipedia.org/wiki/Admissible_decision_rule): no other estimator beats it for every value of the parameter.
+The orthodoxy was clear: to estimate the mean of a [Gaussian](https://en.wikipedia.org/wiki/Normal_distribution), use the sample mean. Grading estimators by their [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error)
 
-In 1961, Charles Stein and Willard James proved that in *three or more dimensions*, the sample mean is *not* admissible. There is a different estimator that beats it everywhere: for every choice of the true mean $\theta \in \mathbb{R}^d$, simultaneously, in [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error). Even when the components are completely unrelated.
+$$
+\mathrm{MSE}(\hat\theta) \;=\; \mathbb{E}\bigl[\|\hat\theta - \theta\|^2\bigr],
+$$
+
+the sample mean is the [maximum-likelihood estimator](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation), the [minimum-variance unbiased estimator](https://en.wikipedia.org/wiki/Minimum-variance_unbiased_estimator), and, in one dimension, [admissible](https://en.wikipedia.org/wiki/Admissible_decision_rule): no other estimator beats it for every value of the parameter. For two centuries this read as the end of the story.
+
+In 1961, Charles Stein and Willard James proved that in *three or more dimensions*, the sample mean is *not* admissible. There is a different estimator with strictly smaller MSE for every $\theta \in \mathbb{R}^d$, simultaneously. Even when the components correspond to completely unrelated quantities.
 
 The estimator is famous and, when first encountered, jarring. It is also a precursor of [ridge regression](https://en.wikipedia.org/wiki/Ridge_regression), [empirical Bayes](https://en.wikipedia.org/wiki/Empirical_Bayes_method), and a great deal of modern machine learning.
 
-## The setup
+## The case for the sample mean in one dimension
 
-You observe a single sample $X \sim \mathcal{N}(\theta, I_d)$ in $\mathbb{R}^d$ and want to estimate $\theta$. The sample mean (here, just $X$) has
+You observe $n$ i.i.d. samples $X_1, \ldots, X_n \sim \mathcal{N}(\theta, \sigma^2)$ with known $\sigma^2$ and unknown mean $\theta \in \mathbb{R}$. Three properties make the sample mean $\bar X = \tfrac{1}{n}\sum_i X_i$ the textbook answer.
+
+**It maximizes the likelihood.** The joint density of the data, viewed as a function of $\theta$ with the data held fixed, is
+
+$$
+L(\theta) \;\propto\; \exp\!\left(-\frac{1}{2\sigma^2}\sum_{i=1}^{n} (X_i - \theta)^2\right).
+$$
+
+Maximizing $L$ over $\theta$ is the same as minimizing $\sum_i (X_i - \theta)^2$, a quadratic in $\theta$ minimized at $\bar X$. Of all values of $\theta$, the sample mean is the one that makes the observed data most plausible under the Gaussian model.
+
+**It is unbiased.** $\mathbb{E}[\bar X] = \theta$ by linearity of expectation. On average, $\bar X$ hits the truth exactly.
+
+**It has the smallest possible MSE among unbiased estimators.** The [Cramér–Rao lower bound](https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound) says any unbiased $\tilde\theta(X_1, \ldots, X_n)$ satisfies
+
+$$
+\mathrm{Var}(\tilde\theta) \;\ge\; \frac{1}{n\, I(\theta)},
+$$
+
+where $I(\theta)$ is the [Fisher information](https://en.wikipedia.org/wiki/Fisher_information) per observation, a measure of how sharply the likelihood peaks around the truth. For the Gaussian, $I(\theta) = 1/\sigma^2$, so the bound is $\sigma^2/n$, and $\bar X$ saturates it. So $\mathrm{MSE}(\bar X) = \mathrm{Var}(\bar X) = \sigma^2/n$, the lowest MSE achievable by any unbiased estimator.
+
+**In one dimension, it is admissible.** No estimator (biased or not) has strictly smaller MSE than $\bar X$ at *every* $\theta$ simultaneously. You can find rivals that win at specific values (the constant $\hat\theta = 0$ has zero MSE at $\theta = 0$ but MSE $\theta^2$ everywhere else), but never one that wins everywhere. This is the substantive property among the four; the proof is below.
+
+The MLE, the minimum-variance unbiased estimator, and unbeatable-everywhere — all three lining up convinced generations of statisticians that the sample mean was the only defensible default.
+
+## Proving admissibility in one dimension
+
+The first three properties were direct calculations. Admissibility is the substantive one. Take the canonical case $X \sim \mathcal{N}(\theta, 1)$ on $\mathbb{R}$ (one observation, unit variance, after rescaling). The sample mean is just $X$, and its MSE is $\mathbb{E}[(X - \theta)^2] = 1$ at every $\theta$. The claim is that no estimator strictly beats $1$ everywhere.
+
+The standard proof, due to [Hodges and Lehmann](https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-21/issue-2/Some-Problems-in-Minimax-Point-Estimation/10.1214/aoms/1177729838.full) (1950) and Blyth (1951), is by contradiction, using a wide Gaussian prior on $\theta$.
+
+Suppose some $\tilde\theta$ dominated $X$: its **risk function** $R(\theta) := \mathbb{E}\bigl[(\tilde\theta - \theta)^2\bigr]$ satisfies $R(\theta) \le 1$ for every $\theta$, with strict inequality $R(\theta_0) < 1$ at some $\theta_0$. Assuming $R$ is continuous in $\theta$ (true for any reasonable $\tilde\theta$), there is a small interval $[\theta_0 - a, \theta_0 + a]$ on which $R(\theta) \le 1 - \delta$ for some $\delta > 0$.
+
+**A wide Gaussian prior.** Place a prior $\theta \sim \pi_\tau := \mathcal{N}(0, \tau^2)$ for a large variance $\tau^2$. Standard Gaussian conjugacy gives the posterior
+
+$$
+\theta \mid X \;\sim\; \mathcal{N}\!\left(\frac{\tau^2}{1+\tau^2} X,\; \frac{\tau^2}{1+\tau^2}\right),
+$$
+
+so the [Bayes estimator](https://en.wikipedia.org/wiki/Bayes_estimator) under squared-error loss (the posterior mean) is $\hat\theta_{\pi_\tau} = \frac{\tau^2}{1+\tau^2} X$. Its **Bayes risk** — the prior-averaged MSE — is
+
+$$
+\int \mathbb{E}\bigl[(\hat\theta_{\pi_\tau} - \theta)^2 \mid \theta\bigr]\, \pi_\tau(\theta)\, d\theta \;=\; \frac{\tau^2}{1+\tau^2}.
+$$
+
+The defining property of the Bayes estimator is that it minimizes prior-averaged MSE. So *any* estimator — including our hypothetical $\tilde\theta$ — has Bayes risk at least $\frac{\tau^2}{1+\tau^2}$:
+
+$$
+\int R(\theta)\, \pi_\tau(\theta)\, d\theta \;\ge\; \frac{\tau^2}{1+\tau^2}.
+$$
+
+**Squeezing to a contradiction.** The sample mean has $R(\theta, X) = 1$ everywhere, so its prior-averaged MSE is $\int 1 \cdot \pi_\tau(\theta)\, d\theta = 1$. The Bayes risk gap between $X$ and $\tilde\theta$ is therefore squeezed:
+
+$$
+\int \bigl[1 - R(\theta)\bigr]\, \pi_\tau(\theta)\, d\theta \;\le\; 1 - \frac{\tau^2}{1+\tau^2} \;=\; \frac{1}{1+\tau^2}.
+$$
+
+The integrand is non-negative everywhere (by domination) and at least $\delta$ on the interval where $\tilde\theta$ does strictly better, so
+
+$$
+\int \bigl[1 - R(\theta)\bigr]\, \pi_\tau(\theta)\, d\theta \;\ge\; \delta \cdot \pi_\tau\bigl([\theta_0 - a, \theta_0 + a]\bigr).
+$$
+
+For $\tau$ large, the prior density near $\theta_0$ is approximately $\frac{1}{\sqrt{2\pi\tau^2}}$, so the interval mass is $\approx \frac{2a}{\sqrt{2\pi\tau^2}}$. Putting the two bounds together,
+
+$$
+\frac{2a\delta}{\sqrt{2\pi\tau^2}} \;\le\; \frac{1}{1+\tau^2}.
+$$
+
+The left side decays like $\tau^{-1}$; the right side like $\tau^{-2}$. For $\tau$ large enough, $\tau^{-1} > \tau^{-2}$, contradicting the inequality. So no dominating $\tilde\theta$ exists, and $X$ is admissible.
+
+**Where the proof breaks in higher dimensions.** Repeat the same argument in $\mathbb{R}^d$ with a $\mathcal{N}(0, \tau^2 I_d)$ prior. The prior spreads its mass over a $d$-dimensional region, so the density at any fixed $\theta_0$ scales like $\tau^{-d}$, and the ball-mass contribution decays at the same rate. The Bayes risk gap, computed coordinate-by-coordinate, is at most $\frac{d}{1+\tau^2} \sim \tau^{-2}$. The contradiction requires the ball-mass to decay *slower* than the Bayes gap — which only happens at $d = 1$. (Admissibility actually still holds at $d = 2$, via a more carefully chosen prior; at $d \ge 3$ admissibility genuinely fails, and Stein's estimator is what walks through the open door.)
+
+## The Stein setup
+
+By [sufficiency](https://en.wikipedia.org/wiki/Sufficient_statistic), all the information about $\theta$ in $X_1, \ldots, X_n$ is concentrated in $\bar X \sim \mathcal{N}(\theta, \sigma^2/n)$. The original problem reduces to: observe a single Gaussian sample with known variance and unknown mean. Rescaling sets the variance to one, and the multivariate version is the same story coordinate-by-coordinate. So without loss of generality, work with a single observation
+
+$$
+X \;\sim\; \mathcal{N}(\theta, I_d) \qquad \text{in } \mathbb{R}^d,
+$$
+
+and try to estimate $\theta \in \mathbb{R}^d$. The sample mean (here, just $X$) has
 
 $$
 \mathrm{MSE}_{\mathrm{MLE}} \;=\; \mathbb{E}[\|X - \theta\|^2] \;=\; d.
@@ -37,7 +123,15 @@ $$
 \hat\theta_{\mathrm{JS}} \;=\; \left(1 - \frac{d - 2}{\|X\|^2}\right) X.
 $$
 
-The shrinkage factor $\bigl(1 - (d-2)/\|X\|^2\bigr)$ pulls $X$ toward the origin. (When $\|X\|^2$ is small, the factor can go negative; the *positive-part* version $\hat\theta_{\mathrm{JS}^+} = \max\{0, 1 - (d-2)/\|X\|^2\}\,X$ is a strict improvement, and is what people use in practice.)
+The shrinkage factor $\bigl(1 - (d-2)/\|X\|^2\bigr)$ pulls $X$ toward the origin, with the amount of shrinkage decided by the data: when $\|X\|^2$ is large, barely shrink; when it is small, shrink hard. (When $\|X\|^2$ is small enough that the factor goes negative, the *positive-part* version $\hat\theta_{\mathrm{JS}^+} = \max\{0, 1 - (d-2)/\|X\|^2\}\,X$ is a strict improvement, and is what people use in practice.)
+
+**Where the formula comes from.** Try the simpler family $\hat\theta = c X$ for a fixed scalar $c \in [0, 1]$. The bias-variance decomposition gives
+
+$$
+\mathrm{MSE}(cX) \;=\; (c-1)^2 \|\theta\|^2 + c^2 d,
+$$
+
+minimized at $c^\star = \|\theta\|^2 / (\|\theta\|^2 + d)$. That is the optimal shrinkage if you knew $\|\theta\|$. You don't, but the data hands you an estimate: $\mathbb{E}[\|X\|^2] = \|\theta\|^2 + d$, so $\|X\|^2 - d$ is an unbiased estimator of $\|\theta\|^2$. Substituting and simplifying produces a shrinkage factor of $1 - d/\|X\|^2$. James and Stein replace $d$ with $d - 2$ — a correction that drops out of an integration-by-parts identity called Stein's lemma — and that swap is exactly what makes the dominance proof go through.
 
 **Theorem (James and Stein, 1961).** For every $\theta \in \mathbb{R}^d$ and every $d \ge 3$,
 
@@ -49,9 +143,7 @@ The sample mean is dominated *uniformly*. For $d \le 2$ the estimator degenerate
 
 ## The geometric reason
 
-Why should shrinkage help?
-
-If $X \sim \mathcal{N}(\theta, I_d)$, then $\|X\|^2$ has a non-central chi-squared distribution with non-centrality $\|\theta\|^2$, so
+The mechanism behind shrinkage is a fact about the magnitude of $X$. If $X \sim \mathcal{N}(\theta, I_d)$, then $\|X\|^2$ has a non-central chi-squared distribution with non-centrality $\|\theta\|^2$, so
 
 $$
 \mathbb{E}[\|X\|^2] \;=\; \|\theta\|^2 + d.
@@ -193,7 +285,7 @@ Suppose you want to estimate three independent things: the speed of light, the p
 
 The three estimation problems have nothing to do with each other. The three measurements are independent. And yet, *coupling* the three estimators by shrinking together reduces the joint risk. This is profoundly counterintuitive: the cost of independence in MSE terms is real.
 
-The reason this confounds intuition is that unbiasedness was the wrong objective. MSE = bias$^2$ + variance, and the sample mean trades zero bias for high variance. In $d \ge 3$, accepting a bit of bias (shrinkage) buys a much larger reduction in variance, every time.
+The reason this confounds intuition is that unbiasedness was the wrong objective. By the [bias-variance decomposition](/blog/bias-variance-pythagorean-decomposition), MSE = bias$^2$ + variance, and the sample mean trades zero bias for high variance. In $d \ge 3$, accepting a bit of bias (shrinkage) buys a much larger reduction in variance, every time.
 
 ## What this led to
 
