@@ -4,7 +4,7 @@ pubDatetime: 2026-04-29T00:22:00Z
 title: Heisenberg uncertainty as Fourier duality
 slug: heisenberg-uncertainty-as-fourier-duality
 featured: false
-draft: false
+draft: true
 tags:
   - physics
   - mathematics

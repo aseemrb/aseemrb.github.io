@@ -4,7 +4,7 @@ pubDatetime: 2026-04-30T18:00:00Z
 title: Bias-variance is a Pythagorean decomposition
 slug: bias-variance-pythagorean-decomposition
 featured: false
-draft: false
+draft: true
 tags:
   - mathematics
   - machine learning
