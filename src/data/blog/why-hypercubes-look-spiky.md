@@ -37,7 +37,7 @@ $$
 C_\ell \;=\; \binom{n}{\ell}.
 $$
 
-That is the punchline: the level distribution of cube corners is exactly the binomial coefficient.
+That is the point: the level distribution of cube corners is exactly the binomial coefficient.
 
 ## What does $\binom{n}{\ell}$ look like?
 
@@ -59,7 +59,7 @@ For small $n$ this is a chunky diamond. For large $n$ it is a vertical bell curv
 
 Try it yourself. Slide $n$ and watch the chunky diamond at $n = 4$ sharpen into a needle-tipped spindle:
 
-<div class="hc-widget" style="margin: 1.5rem 0; color: var(--foreground); padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.75rem 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.6rem; flex: 1 1 220px;">dimension <em>n</em><input type="range" id="hc-slider" min="2" max="100" value="8" style="flex: 1;"></label><span><em>n</em> = <strong id="hc-n">8</strong></span><span>2<sup><em>n</em></sup> corners = <strong id="hc-total">256</strong></span><span>peak <em>C</em><sub>⌊<em>n</em>/2⌋</sub> = <strong id="hc-max">70</strong></span></div><div style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1rem; align-items: center;"><svg id="hc-bars" viewBox="0 0 420 280" style="width: 100%; height: auto;" aria-label="Bar chart of binomial coefficients C(n, l) versus level l."></svg><svg id="hc-silhouette" viewBox="0 0 220 280" style="width: 100%; height: auto;" aria-label="Vertical silhouette of the n-cube cross-section. Width at level l is proportional to C(n, l)."></svg></div></div>
+<div class="hc-widget" style="margin: 1.5rem 0; color: var(--foreground); padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.75rem 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.6rem; flex: 1 1 220px;">dimension <em>n</em><input type="range" id="hc-slider" min="2" max="100" value="3" style="flex: 1;"></label><span><em>n</em> = <strong id="hc-n">3</strong></span><span>2<sup><em>n</em></sup> corners = <strong id="hc-total">8</strong></span><span>peak <em>C</em><sub>⌊<em>n</em>/2⌋</sub> = <strong id="hc-max">3</strong></span></div><div style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1rem; align-items: center;"><svg id="hc-bars" viewBox="0 0 420 280" style="width: 100%; height: auto;" aria-label="Bar chart of binomial coefficients C(n, l) versus level l."></svg><svg id="hc-silhouette" viewBox="0 0 220 280" style="width: 100%; height: auto;" aria-label="Vertical silhouette of the n-cube cross-section. Width at level l is proportional to C(n, l)."></svg></div></div>
 <script>
 (function () {
   var slider = document.getElementById('hc-slider');
@@ -114,9 +114,14 @@ Try it yourself. Slide $n$ and watch the chunky diamond at $n = 4$ sharpen into 
     var right = [];
     for (var k = 0; k <= n; k++) {
       var yy = padTS + (k / n) * innerH;
-      var halfW = (row[k] / maxC) * halfMax;
-      left.push([(cx - halfW).toFixed(2), yy.toFixed(2)]);
-      right.push([(cx + halfW).toFixed(2), yy.toFixed(2)]);
+      if (k === 0 || k === n) {
+        left.push([cx.toFixed(2), yy.toFixed(2)]);
+        right.push([cx.toFixed(2), yy.toFixed(2)]);
+      } else {
+        var halfW = (row[k] / maxC) * halfMax;
+        left.push([(cx - halfW).toFixed(2), yy.toFixed(2)]);
+        right.push([(cx + halfW).toFixed(2), yy.toFixed(2)]);
+      }
     }
     var pts = left.concat(right.reverse()).map(function (p) { return p.join(','); }).join(' ');
     var ss = '';
@@ -131,6 +136,8 @@ Try it yourself. Slide $n$ and watch the chunky diamond at $n = 4$ sharpen into 
 </script>
 
 That's the spike. The drawing has sharp points at the top and bottom because there is exactly *one* corner at each end, and a dramatic bulge in the middle because the binomial is dramatic about its peak. As $n$ grows, the tips become invisibly thin while the middle balloons out.
+
+The small-$n$ end of the slider gives something more familiar. At $n = 2$ the levels have widths $1, 2, 1$, so the silhouette is a diamond. At $n = 3$ the widths are $1, 3, 3, 1$, giving a hexagonal outline that looks like the way we usually sketch a 3D cube on paper. The spiky cross-section is built the same way; it only starts to *look* spiky once the binomial peak pulls far away from the tips.
 
 A few observations follow immediately:
 
