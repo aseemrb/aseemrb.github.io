@@ -8,7 +8,7 @@ draft: false
 tags:
   - physics
 description:
-  A simple, equation-free analogy to explain the Doppler effect using the concept of throwing balls between two people. Designed to make the physics concept intuitive and accessible to a layperson.
+  A simple analogy to explain the Doppler effect using the concept of throwing balls between two people. Designed to make the physics concept intuitive and accessible to a layperson.
 ---
 
 Some time back I was at home and was reading through the *[L.D. Landau & E.M. Lifshitz The Classical Theory of Fields](https://shop.elsevier.com/books/the-classical-theory-of-fields/landau/978-0-08-050349-3)* where I came across *relativistic Doppler effect* (which is the classical Doppler effect with laws of special relativity taken into consideration). Mom was sitting beside me when she suddenly peeked at what I was reading and asked *"What is the Doppler effect?"*.

@@ -18,7 +18,7 @@ $$
 V_i \;=\; \{x \in \mathbb{R}^2 : \|x - p_i\| \le \|x - p_j\| \text{ for all } j \ne i\}.
 $$
 
-Each cell is a convex polygon, and the cells together partition the plane. Random generators give irregular cells of varying sizes and shapes. Carefully placed generators give regular tilings. There is a procedure that takes any starting configuration and pulls it toward a maximally regular one.
+Each cell is a convex polygon, and the cells together partition the plane. Random generators give cells of varied sizes and shapes. Carefully placed generators give cells that are all similar to each other, like a tiling of identical hexagons. There is a procedure that takes any starting configuration and pulls it toward this kind of uniform tiling.
 
 ## Lloyd's algorithm
 
