@@ -1,15 +1,17 @@
 ---
 import IconPalette from "@/assets/icons/IconPalette.svg";
+import IconMoon from "@/assets/icons/IconMoon.svg";
+import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import { SITE } from "@/config";
 
 const themes = [
-  { value: "default", label: "Ocean" },
-  { value: "sand", label: "Sand" },
-  { value: "sage", label: "Sage" },
-  { value: "midnight", label: "Midnight" },
-  { value: "forest", label: "Forest" },
-  { value: "cyber", label: "Grape" },
-  { value: "carbon", label: "Coral" },
+  { value: "default", label: "Ocean", mode: "light", accent: "#006cac" },
+  { value: "sand", label: "Sand", mode: "light", accent: "#b4541e" },
+  { value: "sage", label: "Sage", mode: "light", accent: "#3f7a52" },
+  { value: "midnight", label: "Midnight", mode: "dark", accent: "#8aa6d6" },
+  { value: "forest", label: "Forest", mode: "dark", accent: "#4ade80" },
+  { value: "cyber", label: "Grape", mode: "dark", accent: "#a78bfa" },
+  { value: "carbon", label: "Coral", mode: "dark", accent: "#fb7185" },
 ];
 ---
 
@@ -34,19 +36,20 @@ const themes = [
         aria-label="Select Theme"
         class="absolute right-0 top-full z-20 mt-1 hidden min-w-[8.5rem] overflow-hidden rounded border border-border bg-background py-1 text-sm shadow-lg"
       >
-        {themes.map(({ value, label }) => (
+        {themes.map(({ value, label, mode, accent }) => (
           <li
             role="option"
             aria-selected="false"
             data-theme-value={value}
             class="theme-option flex cursor-pointer items-center gap-2 px-3 py-1.5 hover:bg-muted"
           >
-            <span
-              class="h-3 w-3 rounded-full border border-border"
-              data-swatch={value}
-              aria-hidden="true"
-            />
+            {mode === "dark" ? (
+              <IconMoon class="size-4" style={`color:${accent}`} aria-hidden="true" />
+            ) : (
+              <IconSunHigh class="size-4" style={`color:${accent}`} aria-hidden="true" />
+            )}
             <span>{label}</span>
+            <span class="sr-only">{mode} theme</span>
           </li>
         ))}
       </ul>
@@ -60,14 +63,6 @@ const themes = [
 }
 
 <style>
-  [data-swatch="default"] { background: #006cac; }
-  [data-swatch="sand"] { background: #b4541e; }
-  [data-swatch="sage"] { background: #3f7a52; }
-  [data-swatch="midnight"] { background: #60a5fa; }
-  [data-swatch="forest"] { background: #4ade80; }
-  [data-swatch="cyber"] { background: #a78bfa; }
-  [data-swatch="carbon"] { background: #fb7185; }
-
   .theme-option[aria-selected="true"] {
     background: var(--muted);
     color: var(--accent);

@@ -39,13 +39,13 @@ html[data-theme="sage"] {
   --border: #cddbcf;
 }
 
-/* Option: Midnight (Cool & Focused) */
+/* Option: Midnight (muted slate-blue on a desaturated cool-grey base) */
 html[data-theme="midnight"] {
-  --background: #060f1f;
-  --foreground: #e6edf5;
-  --accent: #60a5fa;
-  --muted: #1e2f48;
-  --border: #1a2940;
+  --background: #12161e;
+  --foreground: #dfe4ec;
+  --accent: #8aa6d6;
+  --muted: #262c38;
+  --border: #1f242f;
 }
 
 /* Option 3: Deep Forest (Natural & Calm) */

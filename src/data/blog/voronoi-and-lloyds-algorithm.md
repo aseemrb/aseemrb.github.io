@@ -9,7 +9,7 @@ tags:
   - mathematics
   - machine learning
 description:
-  A set of generators in the plane partitions it into regions, each closer to one generator than to any other. Lloyd's algorithm iterates "move each generator to the centroid of its region" and converges to a centroidal Voronoi tessellation. The same algorithm is k-means.
+  A set of generators in the plane partitions it into regions, each closer to one generator than to any other. Lloyd's algorithm iterates "move each generator to the centroid of its region" and converges to a centroidal Voronoi tessellation (k-means).
 ---
 
 Place $k$ points $p_1, \ldots, p_k$ in the plane (called **generators**). The [Voronoi cell](https://en.wikipedia.org/wiki/Voronoi_diagram) of $p_i$ is
