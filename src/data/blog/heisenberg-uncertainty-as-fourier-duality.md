@@ -74,13 +74,13 @@ $$
 
 Read this as: build $\psi$ by adding up plane waves of every momentum $p$, weighted by complex amplitudes $\tilde\psi(p)$. The function $\tilde\psi(p)$ tells you how much of each momentum is in the mix.
 
-By the **Fourier inversion theorem**, this relation is invertible:
+By the **Fourier inversion theorem** (the same integral, run backwards to recover $\tilde\psi$ from $\psi$), this relation is invertible:
 
 $$
 \tilde\psi(p) \;=\; \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \psi(x) \, e^{-ipx/\hbar} \, dx.
 $$
 
-So $\psi(x)$ and $\tilde\psi(p)$ are determined by each other. They are the same physical state written in two different bases: position and momentum.
+So $\psi(x)$ and $\tilde\psi(p)$ are determined by each other. They are the same physical state written in two different bases: position and momentum (the same way one vector can be written in two coordinate systems).
 
 The Born rule applies in both bases. $|\tilde\psi(p)|^2$ is the probability density for a momentum measurement returning $p$. Its standard deviation,
 
@@ -141,7 +141,7 @@ $$
 This describes a localized blob centered at the origin with width $\sigma_x$, modulated by an oscillation of average momentum $p_0$. Its Fourier transform is
 
 $$
-\tilde\psi(p) \;\propto\; e^{-(p - p_0)^2 / (2 \sigma_p^2)}, \qquad \sigma_p \;=\; \frac{\hbar}{2 \sigma_x}.
+\tilde\psi(p) \;\propto\; e^{-(p - p_0)^2 / (4 \sigma_p^2)}, \qquad \sigma_p \;=\; \frac{\hbar}{2 \sigma_x}.
 $$
 
 The product $\sigma_x \sigma_p$ is locked at exactly $\hbar/2$. Among all wave functions, the Gaussian saturates the Heisenberg inequality at equality. Any other shape has a strictly larger product.
@@ -275,7 +275,7 @@ $$
 
 where $\psi^*$ is the complex conjugate of $\psi$. For $A = X$ this reduces to $\int x |\psi|^2 \, dx$, the average position we already defined. The **standard deviation** of the measurement satisfies $\sigma_A^2 = \langle A^2\rangle - \langle A\rangle^2$, the ordinary statistics formula.
 
-For Hermitian operators (operators that produce real expectation values for any state), the standard deviation has another useful form: $\sigma_A^2 = \langle (A - \langle A\rangle)^2\rangle$. Both $X$ and $P$ are Hermitian.
+For Hermitian operators (operators that produce real expectation values for any state, the operator analogue of a real number), the standard deviation has another useful form: $\sigma_A^2 = \langle (A - \langle A\rangle)^2\rangle$. Both $X$ and $P$ are Hermitian.
 
 **(iii) Commutators.** Two operators $A$ and $B$ generally do not commute, in the sense that $AB$ and $BA$ act differently on a state. Their **commutator**
 
@@ -297,7 +297,7 @@ $$
 \biggl|\int \varphi^* \chi \, dx\biggr|^2 \;\le\; \biggl(\int |\varphi|^2 \, dx\biggr) \biggl(\int |\chi|^2 \, dx\biggr).
 $$
 
-Set $\varphi = A'\psi$ and $\chi = B'\psi$. The right side is $\langle A'^2\rangle \langle B'^2\rangle = \sigma_A^2 \sigma_B^2$. The left side is $|\langle A' B'\rangle|^2$. So
+Set $\varphi = A'\psi$ and $\chi = B'\psi$. The right side is $\langle A'^2\rangle \langle B'^2\rangle = \sigma_A^2 \sigma_B^2$. The left side is $|\langle A' B'\rangle|^2$ (moving the Hermitian $A'$ across the integral turns $\int (A'\psi)^* (B'\psi)\,dx$ into $\int \psi^* A'B'\psi\,dx$). So
 
 $$
 \sigma_A^2 \, \sigma_B^2 \;\ge\; |\langle A' B'\rangle|^2.
@@ -309,7 +309,7 @@ $$
 A' B' \;=\; \tfrac{1}{2}\bigl(A'B' + B'A'\bigr) \;+\; \tfrac{1}{2}\bigl(A'B' - B'A'\bigr) \;=\; \tfrac{1}{2}\{A',B'\} \;+\; \tfrac{1}{2}[A',B'].
 $$
 
-The first piece (the **anticommutator**, $\{A',B'\}$) is Hermitian, so its expectation is real. The second piece (the commutator) is anti-Hermitian, so its expectation is purely imaginary. Hence
+The first piece (the **anticommutator**, $\{A',B'\}$) is Hermitian, so its expectation is real. The second piece (the commutator) is anti-Hermitian, so its expectation is purely imaginary. So $|\langle A' B'\rangle|^2$ is a real part squared plus an imaginary part squared, and dropping the real (anticommutator) part can only lower it. Hence
 
 $$
 |\langle A' B'\rangle|^2 \;\ge\; \biggl|\tfrac{1}{2}\langle [A', B']\rangle\biggr|^2 \;=\; \tfrac{1}{4}|\langle [A, B]\rangle|^2,
@@ -337,7 +337,7 @@ $$
 P'\psi \;=\; i\lambda \, X'\psi
 $$
 
-for some real $\lambda$. (The factor of $i$ comes from a second condition required for full saturation: the symmetric piece $\langle\{X', P'\}\rangle$ must also vanish.) With $P = -i\hbar \, d/dx$, this is the first-order linear ODE
+for some real $\lambda$. (The factor of $i$ comes from a second condition required for full saturation: the symmetric piece $\langle\{X', P'\}\rangle$, the real part dropped in the proof above, must also vanish, which is what forces the proportionality constant to be imaginary.) With $P = -i\hbar \, d/dx$, this is the first-order linear ODE
 
 $$
 -i\hbar \, \psi'(x) \;-\; \langle p\rangle \, \psi(x) \;=\; i\lambda \, (x - \langle x\rangle) \, \psi(x).
@@ -345,7 +345,7 @@ $$
 
 Separating variables and integrating, $\psi(x)$ is a Gaussian envelope multiplied by a complex exponential. The **minimum-uncertainty wave packet** is exactly the Gaussian wave packet shown in the widget. That is why the readout never strays from $\sigma_x \sigma_p = 0.5$ no matter where you put the sliders.
 
-The Gaussian's recurring role across probability theory and harmonic analysis is not a coincidence: it is the unique (up to scaling) fixed point of the Fourier transform, and the limit law of the [central limit theorem](/blog/why-sums-become-gaussian).
+The Gaussian's recurring role across probability theory and harmonic analysis is not a coincidence: it is the unique (up to scaling) fixed point of the Fourier transform (its own Fourier transform is again a Gaussian), and the limit law of the [central limit theorem](/blog/why-sums-become-gaussian).
 
 A square pulse, a Lorentzian, a triangular bump: all obey $\sigma_x \sigma_p > \hbar/2$ strictly. The Gaussian sits exactly on the boundary.
 

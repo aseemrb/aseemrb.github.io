@@ -31,9 +31,9 @@ At each step:
    $$
 3. Repeat.
 
-This is **Lloyd's algorithm** (Lloyd, 1957/1982). It decreases the total squared distance from each point in the plane to its nearest generator at every step (a Lyapunov / energy function), so it converges to a local minimum.
+This is **Lloyd's algorithm** (Lloyd, 1957/1982). It decreases the total squared distance from each point in the plane to its nearest generator at every step (an **energy function**, also called a **Lyapunov function**: a quantity that only ever goes down, so the configuration cannot cycle and must settle), so it converges to a local minimum.
 
-The fixed points are configurations where every generator is *already* at the centroid of its own cell. These are called **centroidal Voronoi tessellations** (CVTs). On flat domains, the cells of a CVT are nearly hexagonal: hexagons are the polygon shape that minimizes the second moment of area per unit area, so the algorithm seeks them out (see [The bees](#the-bees) for more details on this minimization).
+The fixed points are configurations where every generator is *already* at the centroid of its own cell. These are called **centroidal Voronoi tessellations** (CVTs). On flat domains, the cells of a CVT are nearly hexagonal: among polygons that tile the plane, hexagons minimize the second moment of area per unit area, so the algorithm seeks them out (see [The bees](#the-bees) for more details on this minimization).
 
 Click on the canvas to add generators. Drag a generator to move it. Press **step** to run one Lloyd iteration, or **run** to step until convergence. Watch the cells round out and the configuration regularize.
 
@@ -206,10 +206,10 @@ the total squared distance to the nearest generator. Each step strictly decrease
 
 ## Where this connects
 
-- **k-means clustering.** Lloyd's algorithm is the algorithm typically called "k-means". Given a finite point cloud and $k$ cluster centers, [k-means](https://en.wikipedia.org/wiki/K-means_clustering) alternates "assign each point to the nearest center" (the discrete analog of computing Voronoi cells) and "move each center to the centroid of its cluster" (the discrete analog of step 2). Continuous Lloyd's is the limiting case where the point cloud is replaced by a uniform measure on a domain. k-means inherits its convergence properties from the same energy-decrease argument.
-- **Vector quantization.** Designing optimal codebooks for compressing continuous signals. The optimal $k$-point codebook for squared error is exactly a CVT of the source distribution.
+- **k-means clustering.** Lloyd's algorithm is the algorithm typically called "k-means". Given a finite point cloud and $k$ cluster centers, [k-means](https://en.wikipedia.org/wiki/K-means_clustering) alternates "assign each point to the nearest center" (the discrete analog of computing Voronoi cells) and "move each center to the centroid of its cluster" (the discrete analog of step 2). Continuous Lloyd's is the limiting case where the finite point cloud is replaced by a **uniform measure** on a domain: instead of summing over discrete points, you integrate uniformly over the whole region. k-means inherits its convergence properties from the same energy-decrease argument.
+- **Vector quantization.** Designing optimal **codebooks** (a small fixed set of representative values used to approximate a signal) for compressing continuous signals. The optimal $k$-point codebook for squared error is exactly a CVT of the source distribution.
 - **Mesh generation.** CVT meshes are popular for finite-element methods because they have well-conditioned cells (no slivers, near-uniform sizes).
-- **Stippling and natural patterns.** Lloyd's algorithm produces visually pleasing "blue noise" point distributions used in computer graphics; biological tissues and bee compound eyes settle into similar hexagonal arrangements through different mechanisms but for similar reasons.
+- **Stippling and natural patterns.** Lloyd's algorithm produces visually pleasing **blue noise** point distributions (points spread out evenly with no clumps or regular grid pattern) used in computer graphics; biological tissues and bee compound eyes settle into similar hexagonal arrangements through different mechanisms but for similar reasons.
 
 ## The bees
 
@@ -234,7 +234,7 @@ For shapes of fixed area, this average depends only on the shape of $V$, not its
 - square: $\dfrac{1}{6} \approx 0.1667$,
 - equilateral triangle: $\dfrac{\sqrt{3}}{9} \approx 0.1925$.
 
-The hexagon comes within $0.7\%$ of the disk lower bound; the square is about $5\%$ over, the triangle about $21\%$ over. Among polygons that tile the plane (not only the regular ones), the regular hexagon minimizes this functional (L. Fejes Tóth, 1959). The analogous statement in $d \ge 3$, that the optimal tiling for moment of inertia is by truncated octahedra, is **Gersho's conjecture**, still open in general dimensions.
+The hexagon comes within $0.7\%$ of the disk lower bound; the square is about $5\%$ over, the triangle about $21\%$ over. Among polygons that tile the plane (not only the regular ones), the regular hexagon minimizes this functional (L. Fejes Tóth, 1959). The analogous statement in $d \ge 3$, that the optimal tiling for moment of inertia is by **truncated octahedra** (the 14-faced space-filling solid), is **Gersho's conjecture**, still open in general dimensions.
 
 So the perimeter minimum and the moment-of-inertia minimum are mathematically distinct objectives, but they happen to be solved by the same shape in 2D. That is the reason bees and k-means converge on hexagons through completely unrelated processes.
 

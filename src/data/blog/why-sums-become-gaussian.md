@@ -11,7 +11,7 @@ description:
   A geometric look at the central limit theorem. Adding random variables is convolving their densities. Convolution smooths. Watch a Bernoulli, a die roll, or a bimodal distribution become Gaussian as you slide the number of summands.
 ---
 
-Most things in nature, when you measure them carefully, look roughly [Gaussian](https://en.wikipedia.org/wiki/Normal_distribution). Heights, exam scores, voltage noise, sample averages of pretty much any quantity. This is, famously, the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) (CLT). The textbook statement uses [characteristic functions](https://en.wikipedia.org/wiki/Characteristic_function_%28probability_theory%29) and analytic limits, but here I try to present the underlying picture in a purely geometric way.
+Most things in nature, when you measure them carefully, look roughly [Gaussian](https://en.wikipedia.org/wiki/Normal_distribution). Heights, exam scores, voltage noise, sample averages of pretty much any quantity. This is, famously, the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) (CLT). The textbook statement uses [characteristic functions](https://en.wikipedia.org/wiki/Characteristic_function_%28probability_theory%29) (the Fourier transform of a distribution) and analytic limits, but here I try to present the underlying picture in a purely geometric way.
 
 ## The setup
 
@@ -21,7 +21,7 @@ $$
 Z_n \;=\; \frac{X_1 + X_2 + \cdots + X_n - n\mu}{\sigma\sqrt{n}}
 $$
 
-[converges in distribution](https://en.wikipedia.org/wiki/Convergence_of_random_variables#Convergence_in_distribution) to $\mathcal{N}(0, 1)$ as $n \to \infty$.<br/>
+[converges in distribution](https://en.wikipedia.org/wiki/Convergence_of_random_variables#Convergence_in_distribution) to $\mathcal{N}(0, 1)$ as $n \to \infty$ (its histogram settles onto the bell curve).<br/>
 I've written more on this mode of convergence [here](https://notes.aseemrb.me/probability-theory/convergence/weak-convergence/).
 
 A more visual restatement: **summing independent random variables is [convolving](https://en.wikipedia.org/wiki/Convolution) their densities.** Why? For the sum $X + Y$ to land at a particular value $z$, the two summands have to take values that add up to $z$: if $X$ takes value $x$, then $Y$ must take the complementary value $z - x$. By independence, the joint density at any pair $(x, y)$ is the product $f(x)\,g(y)$. The density of $X + Y$ at $z$ is therefore what you get by summing (integrating) the joint density over every valid split $(x, z-x)$ that produces this $z$:
@@ -165,7 +165,7 @@ Three complementary intuitions, each capturing a different aspect of why this ha
 
 **(1) Convolution is smoothing.** Each convolution averages out sharp features of the densities being combined. Spikes get blurred, gaps get filled, rough edges get rounded. After enough convolutions, only the smoothest distribution with the right mean and variance survives. That happens to be the Gaussian.
 
-**(2) Entropy maximization.** Among all densities on $\mathbb{R}$ with a given mean and variance, the one with maximum [differential entropy](https://en.wikipedia.org/wiki/Differential_entropy) is the Gaussian. Convolution monotonically increases the entropy of the standardized sum (Barron, 1986). Repeated convolution therefore drives the standardized distribution toward the entropy maximizer with the matching moments. This is the *entropic CLT*, and it gives a thermodynamic flavor to convergence: the Gaussian is the thermal equilibrium of independent additive noise.
+**(2) Entropy maximization.** Among all densities on $\mathbb{R}$ with a given mean and variance, the one with maximum [differential entropy](https://en.wikipedia.org/wiki/Differential_entropy) (a measure of how spread out a density is) is the Gaussian. Convolution drives the entropy of the standardized sum up toward that maximum, so repeated convolution pushes the distribution toward the entropy maximizer with the matching moments. This is the *entropic CLT* (Barron, 1986); the entropy is in fact monotone in $n$ (Artstein, Ball, Barthe, and Naor, 2004). It gives a thermodynamic flavor to convergence: the Gaussian is the thermal equilibrium of independent additive noise.
 
 **(3) Self-similarity.** The Gaussian is the unique distribution with finite variance that is preserved under the operation **add an independent copy and rescale by $1/\sqrt{2}$**:
 
@@ -191,15 +191,15 @@ Three takeaways:
 
 - The convergence rate is the canonical $1/\sqrt{n}$.
 - The factor $\rho/\sigma^3$ measures how skewed/heavy-tailed the base is. Heavy tails slow it down; thin tails speed it up.
-- The bound is uniform over $z$. Sharper *local* statements ([Edgeworth expansions](https://en.wikipedia.org/wiki/Edgeworth_series)) give higher-order corrections in $1/n$ that depend on higher cumulants of $X$.
+- The bound is uniform over $z$. Sharper *local* statements ([Edgeworth expansions](https://en.wikipedia.org/wiki/Edgeworth_series)) give higher-order corrections in $1/n$ that depend on higher cumulants of $X$ (skewness, then kurtosis, and so on).
 
-In the widget, the rate-of-convergence comparison is easy to feel: the symmetric uniform die approaches Gaussian faster than asymmetric Bernoulli(0.3), which has a larger $\rho/\sigma^3$.
+In the widget, the rate-of-convergence comparison is easy to feel: the symmetric uniform die approaches Gaussian faster than the asymmetric Bernoulli(0.3). The two have nearly the same $\rho/\sigma^3$, so what separates them is symmetry: the die has zero skewness, which kills the leading $1/\sqrt{n}$ Edgeworth correction, while the skewed Bernoulli still carries that term.
 
 ## What can go wrong?
 
 The standard CLT has two requirements: i.i.d. (or close to it) and finite variance. Drop either and the limit can change shape.
 
-- **Drop independence.** There are CLTs for [martingales](https://en.wikipedia.org/wiki/Martingale_%28probability_theory%29), for mixing/weakly-dependent sequences, for [U-statistics](https://en.wikipedia.org/wiki/U-statistic), and so on. The variance in the limit gets corrected to a **long-run variance** that accounts for autocorrelation.
+- **Drop independence.** There are CLTs for [martingales](https://en.wikipedia.org/wiki/Martingale_%28probability_theory%29), for mixing/weakly-dependent sequences, for [U-statistics](https://en.wikipedia.org/wiki/U-statistic), and so on. The variance in the limit gets corrected to a **long-run variance** that accounts for autocorrelation (nearby terms move together, so the sum's spread is not just the sum of individual variances).
 - **Drop identical distribution.** The [Lindeberg](https://en.wikipedia.org/wiki/Lindeberg%27s_condition) / [Lyapunov](https://en.wikipedia.org/wiki/Lyapunov%27s_central_limit_theorem) conditions ensure no single $X_i$'s variance dominates the sum. As long as everyone contributes, the limit is still Gaussian.
 - **Drop finite variance.** The limit is no longer Gaussian. For variables in the domain of attraction of a non-Gaussian stable law (e.g., when $\mathbb{E}|X|^\alpha = \infty$ for some $\alpha < 2$), the limit is a stable distribution with index $\alpha$, with infinite variance and (for $\alpha < 1$) infinite mean. The rescaling itself changes from $\sqrt{n}$ to $n^{1/\alpha}$.
 
@@ -211,11 +211,12 @@ $$
 \frac{1}{\sqrt{n}}\sum_{i=1}^{n} (X_i - \mu) \;\xrightarrow{\,d\,}\; \mathcal{N}(0, \Sigma).
 $$
 
-A lot of high-dimensional statistics is what happens to this picture when the dimension $d$ grows along with $n$. The covariance matrix becomes a random object itself; [concentration of measure](https://en.wikipedia.org/wiki/Concentration_of_measure) phenomena take over; the spectral edge of the empirical covariance follows the [Marchenko–Pastur](https://en.wikipedia.org/wiki/Marchenko%E2%80%93Pastur_distribution) law instead of staying at the deterministic $\Sigma$. The relevant geometry stops being about a single Gaussian limit and becomes about *many* Gaussian-ish marginals interacting through [random matrix theory](https://en.wikipedia.org/wiki/Random_matrix). A topic for a separate post.
+A lot of high-dimensional statistics is what happens to this picture when the dimension $d$ grows along with $n$. The covariance matrix becomes a random object itself; [concentration of measure](https://en.wikipedia.org/wiki/Concentration_of_measure) phenomena take over; the eigenvalues of the empirical covariance follow the [Marchenko–Pastur](https://en.wikipedia.org/wiki/Marchenko%E2%80%93Pastur_distribution) law instead of staying at the deterministic $\Sigma$. The relevant geometry stops being about a single Gaussian limit and becomes about *many* Gaussian-ish marginals interacting through [random matrix theory](https://en.wikipedia.org/wiki/Random_matrix). A topic for a separate post.
 
 ## References
 
 - Roman Vershynin, *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. Chapter 2 has a clean treatment of CLT and Berry–Esseen.
 - Andrew R. Barron. *Entropy and the central limit theorem*. The Annals of Probability, 14(1):336–342, 1986.
+- Shiri Artstein, Keith M. Ball, Franck Barthe, Assaf Naor. *Solution of Shannon's problem on the monotonicity of entropy*. Journal of the American Mathematical Society, 17(4):975–982, 2004.
 - Irina Shevtsova. *On the absolute constants in the Berry–Esseen type inequalities for identically distributed summands*. arXiv:1111.6554, 2011.
 - Stéphane Boucheron, Gábor Lugosi, Pascal Massart. *Concentration Inequalities: A Nonasymptotic Theory of Independence*. Oxford University Press, 2013.

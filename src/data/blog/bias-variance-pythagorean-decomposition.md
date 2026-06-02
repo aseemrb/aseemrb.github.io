@@ -73,7 +73,7 @@ The derivation is correct, but it reads like a lucky cancellation. The cross ter
 
 ## What the cancellation actually says
 
-Treat random variables as vectors. The natural [inner product on $L^2$](https://en.wikipedia.org/wiki/Lp_space#The_p-norm_in_finite_dimensions) is
+Treat random variables as vectors: they can be added and scaled, and the space of square-integrable ones (those with $\mathbb{E}[U^2] < \infty$) is called $L^2$. The natural [inner product on $L^2$](https://en.wikipedia.org/wiki/Lp_space#The_p-norm_in_finite_dimensions) is
 
 $$
 \langle U, V \rangle \;:=\; \mathbb{E}[UV],
@@ -135,7 +135,7 @@ $$
 
 In the $(|\text{bias}|, \sigma_{\text{res}})$ plane, the family traces the line segment from $(0, \sigma)$ at $\lambda = 0$ (unbiased, full variance) to $(|\theta|, 0)$ at $\lambda = 1$ (the zero estimator, all bias).
 
-Minimizing MSE is minimizing distance to origin over the segment. The minimum is the perpendicular foot, occurring at
+Minimizing MSE is minimizing distance to origin over the segment. The minimum is the **perpendicular foot**, the point where the perpendicular from the origin meets the line, occurring at
 
 $$
 \lambda^* \;=\; \frac{\sigma^2}{\theta^2 + \sigma^2}, \qquad \text{MSE}^* \;=\; \frac{\theta^2 \sigma^2}{\theta^2 + \sigma^2}.
@@ -256,7 +256,7 @@ A few things to read off the picture:
 
 - **The legs are independent axes.** Bias and residual are orthogonal vectors, so trading one for the other can move you in any direction in this plane. Reducing bias does not mechanically increase variance; it depends on the shape of the frontier you are constrained to.
 - **The optimal estimator is a perpendicular foot.** For the shrinkage family, the frontier is a line, and the closest point on it to the origin is the foot of perpendicular. For richer families the frontier bends, but the principle is the same: $\lambda^*$ is wherever the smallest MSE-circle is tangent to the frontier.
-- **Optimal $\lambda^*$ depends on the unknown $\theta$.** This is why [empirical Bayes](https://en.wikipedia.org/wiki/Empirical_Bayes_method) and cross-validation exist. They estimate the right shrinkage from data instead of assuming knowledge of the signal-to-noise ratio.
+- **Optimal $\lambda^*$ depends on the unknown $\theta$.** This is why [empirical Bayes](https://en.wikipedia.org/wiki/Empirical_Bayes_method) (estimating the prior from the data) and cross-validation exist. They estimate the right shrinkage from data instead of assuming knowledge of the signal-to-noise ratio.
 
 ## What this buys you
 
@@ -274,14 +274,14 @@ $$
 
 Same proof, applied coordinate by coordinate. The constant bias vector is orthogonal to the mean-zero residual in $L^2(\mathbb{R}^d)$, and Pythagoras applies.
 
-The picture survives, with the legs now being the bias *vector*'s norm and the *trace* of the covariance matrix.
+The picture survives, with the legs now being the bias *vector*'s norm and the *trace* of the covariance matrix (the sum of the per-coordinate variances).
 
 ## Familiar Pythagoreans
 
 Once you internalize the $L^2$ inner product, several other identities are the same theorem in different costumes:
 
-- **Total law of variance.** $\mathrm{Var}(Y) = \mathbb{E}[\mathrm{Var}(Y \mid X)] + \mathrm{Var}(\mathbb{E}[Y \mid X])$. Decompose $Y - \mathbb{E}[Y]$ into the conditional residual and the conditional mean's deviation. Orthogonal in $L^2$.
-- **OLS sum-of-squares decomposition.** $\|y - \bar y\|^2 = \|\hat y - \bar y\|^2 + \|y - \hat y\|^2$. The fitted vector is the projection onto the column space; the residual is perpendicular. Same right triangle.
+- **Law of total variance.** $\mathrm{Var}(Y) = \mathbb{E}[\mathrm{Var}(Y \mid X)] + \mathrm{Var}(\mathbb{E}[Y \mid X])$. Decompose $Y - \mathbb{E}[Y]$ into the conditional residual and the conditional mean's deviation. Orthogonal in $L^2$.
+- **OLS sum-of-squares decomposition.** $\|y - \bar y\|^2 = \|\hat y - \bar y\|^2 + \|y - \hat y\|^2$. The fitted vector is the projection onto the column space (the vectors the model can produce); the residual is perpendicular. Same right triangle.
 - **[ANOVA](https://en.wikipedia.org/wiki/Analysis_of_variance).** $SS_{\text{total}} = SS_{\text{between}} + SS_{\text{within}}$. Group-mean deviations and within-group residuals are orthogonal.
 - **[Conditional expectation as a projection](https://en.wikipedia.org/wiki/Conditional_expectation#As_a_random_variable).** $\mathbb{E}[Y \mid X]$ is the closest function of $X$ to $Y$ in $L^2$, and $Y - \mathbb{E}[Y \mid X]$ is orthogonal to every such function.
 

@@ -13,7 +13,7 @@ description:
 
 If you've flipped through a textbook on high-dimensional probability or geometry, you've seen the obligatory drawing of an $n$-dimensional cube. It is usually rendered as a strange spiky object: a sea urchin, a thorny diamond, a star with way too many points. Why does the high-dimensional cube get drawn like that?
 
-Some of it is concentration of measure, but there is a much simpler counting argument behind a particular family of these drawings. It is just the binomial coefficient in disguise.
+Some of it is **concentration of measure** (the phenomenon where, in high dimensions, almost all of a set's mass sits in a thin shell rather than being spread out), but there is a much simpler counting argument behind a particular family of these drawings. It is just the binomial coefficient in disguise.
 
 ## Counting corners
 
@@ -49,7 +49,7 @@ $$
 \binom{n}{\ell} \;\approx\; \frac{2^n}{\sqrt{\pi n / 2}} \exp\!\left(-\frac{2(\ell - n/2)^2}{n}\right).
 $$
 
-In other words, the count of corners at level $\ell$, viewed as a function of $\ell$, converges to a Gaussian with mean $n/2$ and variance $n/4$.
+In other words, the count of corners at level $\ell$, viewed as a function of $\ell$, converges to a Gaussian with mean $n/2$ and variance $n/4$, exactly the mean and variance of $n$ independent fair coin flips.
 
 ## Drawing the cube
 
@@ -141,9 +141,9 @@ The small-$n$ end of the slider gives something more familiar. At $n = 2$ the le
 
 A few observations follow immediately:
 
-- **Almost all corners have roughly $n/2$ ones.** The fraction of corners with $|\ell - n/2| > t \sqrt{n}$ falls off Gaussian-fast in $t$.
+- **Almost all corners have roughly $n/2$ ones.** Since the standard deviation is $\sqrt{n}/2$, a deviation of $t\sqrt{n}$ is $2t$ standard deviations, so the fraction of corners with $|\ell - n/2| > t \sqrt{n}$ falls off Gaussian-fast in $t$.
 - **The *tips* are vanishingly rare.** Out of $2^n$ corners, only two (the all-zero and the all-one) sit at the extreme levels. They are the spike points that give the drawing its name.
-- **Two random corners are typically at Hamming distance $\approx n/2$**, which drops out of the same binomial picture for free.
+- **Two random corners are typically at Hamming distance $\approx n/2$**: they disagree in each coordinate independently with probability $1/2$, so the number of disagreements is again binomial.
 
 ## References
 

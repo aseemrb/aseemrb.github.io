@@ -169,11 +169,11 @@ Three independent walks running in 1D, 2D, and 3D below. The current walk in eac
 })();
 </script>
 
-Watch the rates after a couple of minutes. The 1D and 2D walks should be returning at well above 90% (they will eventually return with probability 1, given enough time; the cap at $3000$ steps is what occasionally lets one slip through). The 3D walk will settle around $60$–$70\%$ — the asymptotic infinite-time limit is $1 - 0.3405 \approx 0.66$, but the $3000$-step cutoff sometimes counts a wandering walk as a non-return when it would have returned eventually. The qualitative split between the dimensions is the result.
+Watch the rates after a couple of minutes. The 1D walk returns almost every time: a classical identity says the probability of *not* having returned within the first $n$ steps is exactly $\binom{n}{n/2}/2^{n} \sim \sqrt{2/(\pi n)}$, which is only about $1.5\%$ at $n = 3000$, so the 1D rate sits well above $90\%$. The 2D walk also returns with probability $1$ eventually, but far more slowly: the no-return probability after $n$ steps decays only like $\pi/\ln n$, a logarithmic crawl, so even with the $3000$-step cap a real fraction of 2D walks have not yet come back and the rate settles clearly below the 1D one. The 3D walk is the qualitatively different case: it is transient, and its return probability converges to Pólya's constant $\approx 0.3405$, landing just below that value because the cutoff drops the rare walks that would have returned later. The split between the dimensions is the result.
 
 ## The argument
 
-Let $S_n$ denote the position of the walk after $n$ steps. The walk is **recurrent** (returns to the origin infinitely often a.s.) iff the expected number of returns is infinite:
+Let $S_n$ denote the position of the walk after $n$ steps. The walk is **recurrent** (returns to the origin infinitely often almost surely, i.e. with probability $1$) iff the expected number of returns is infinite:
 
 $$
 \mathbb{E}\bigl[\#\{n : S_n = 0\}\bigr] \;=\; \sum_{n=0}^\infty \Pr[S_n = 0].
@@ -181,7 +181,7 @@ $$
 
 So the dichotomy reduces to convergence vs. divergence of $\sum_n \Pr[S_n = 0]$.
 
-For the simple symmetric random walk on $\mathbb{Z}^d$, a local [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) gives
+For the simple symmetric random walk on $\mathbb{Z}^d$, a **local** version of the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) (which estimates the chance of landing on one specific lattice point, not just the spread of the position) gives
 
 $$
 \Pr[S_{2n} = 0] \;\sim\; \frac{C_d}{n^{d/2}} \quad \text{as } n \to \infty,
@@ -216,7 +216,7 @@ Watson (1939) evaluated this triple integral in terms of elliptic integrals, get
 
 ## Where this matters
 
-- **MCMC and random-walk Metropolis-Hastings** in high-dimensional state spaces are inherently transient unless the chain has a centering force from the target distribution; you cannot rely on diffusive recurrence to revisit important states.
+- **MCMC and random-walk Metropolis-Hastings** (algorithms that sample a distribution by taking random steps through a state space) in high-dimensional state spaces are inherently transient unless the chain has a centering force from the target distribution; you cannot rely on diffusive recurrence to revisit important states.
 - **Resistor networks** on $\mathbb{Z}^d$ have effective resistance from the origin to infinity that is finite iff $d \ge 3$. Recurrence is exactly the statement that this resistance is infinite.
 - **Polymer models** behave qualitatively differently in dimension $\le 2$ vs. $\ge 3$, because random-walk-like polymers have very different self-intersection statistics.
 

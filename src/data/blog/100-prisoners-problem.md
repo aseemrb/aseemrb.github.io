@@ -25,13 +25,13 @@ That is the entire strategy.
 
 ## Where the success rate comes from
 
-The contents of the boxes define a [permutation](https://en.wikipedia.org/wiki/Permutation) $\pi$ of $\{1, \ldots, 100\}$, where $\pi(i)$ is the number in box $i$. Prisoner $i$, following the strategy, traverses the cycle of $\pi$ that contains $i$:
+The contents of the boxes define a [permutation](https://en.wikipedia.org/wiki/Permutation) $\pi$ of $\{1, \ldots, 100\}$, where $\pi(i)$ is the number in box $i$. Prisoner $i$, following the strategy, traverses the **cycle** of $\pi$ that contains $i$, the chain of boxes reached by repeatedly following the number inside, which loops back to box $i$:
 
 $$
 i \;\to\; \pi(i) \;\to\; \pi^2(i) \;\to\; \cdots \;\to\; \pi^k(i) = i,
 $$
 
-where $k$ is the length of that cycle. Prisoner $i$ finds their own number at step $k$, which fits in the $50$-box budget iff $k \le 50$.
+where $k$ is the length of that cycle. Prisoner $i$ finds their own number at step $k$, where the cycle closes: $\pi^k(i) = i$ means box $\pi^{k-1}(i)$ holds $i$. This fits in the $50$-box budget iff $k \le 50$.
 
 Because every prisoner uses the same strategy, *all* prisoners succeed iff *every* cycle of $\pi$ has length at most $50$. The fate of all $100$ prisoners is determined by a single property of one random permutation: whether its longest cycle exceeds $50$.
 
@@ -39,13 +39,13 @@ Because every prisoner uses the same strategy, *all* prisoners succeed iff *ever
 
 For a uniformly random permutation of $\{1, \ldots, n\}$, the probability that there is at least one cycle of length exactly $\ell$ is $1/\ell$ when $\ell > n/2$. The counting argument: the number of permutations of $\{1, \ldots, n\}$ that contain a fixed $\ell$-element subset arranged as a single cycle is $(\ell - 1)! \cdot (n - \ell)!$. The number of such $\ell$-subsets is $\binom{n}{\ell}$. Multiplying and dividing by $n!$ gives $1/\ell$.
 
-When $\ell > n/2$, at most one cycle of that length can exist (two would overflow the permutation). So the events "permutation has a cycle of length $\ell$" for distinct $\ell > n/2$ are disjoint, and
+When $\ell > n/2$, at most one cycle of that length can exist (two disjoint cycles of length $\ell$ would need more than $n$ elements between them). So the events "permutation has a cycle of length $\ell$" for distinct $\ell > n/2$ are disjoint, and
 
 $$
 \Pr[L > k] \;=\; \sum_{\ell = k+1}^{n} \frac{1}{\ell} \;=\; H_n - H_k, \qquad k > n/2,
 $$
 
-where $L$ is the length of the longest cycle and $H_m = 1 + 1/2 + \cdots + 1/m$ is the $m$-th [harmonic number](https://en.wikipedia.org/wiki/Harmonic_number). As $n \to \infty$ with $k = n/2$, this approaches $\ln 2 \approx 0.6931$, so
+where $L$ is the length of the longest cycle and $H_m = 1 + 1/2 + \cdots + 1/m$ is the $m$-th [harmonic number](https://en.wikipedia.org/wiki/Harmonic_number). As $n \to \infty$ with $k = n/2$, using $H_m \approx \ln m$ gives $H_n - H_{n/2} \approx \ln n - \ln(n/2) = \ln 2 \approx 0.6931$, so
 
 $$
 \Pr[\text{success}] \;=\; 1 - \Pr[L > 50] \;\xrightarrow[n \to \infty]{}\; 1 - \ln 2 \;\approx\; 0.3069.
