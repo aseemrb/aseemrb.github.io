@@ -1,6 +1,8 @@
 ---
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
+import Starfield from "@/components/Starfield.astro";
+import Nebula from "@/components/Nebula.astro";
 import "@/styles/global.css";
 
 export interface Props {
@@ -134,6 +136,8 @@ const structuredData = {
     />
   </head>
   <body>
+    <Starfield />
+    <Nebula />
     <slot />
   </body>
 </html>

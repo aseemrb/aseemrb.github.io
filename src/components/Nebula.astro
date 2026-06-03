@@ -1,0 +1,127 @@
+---
+// Static nebula gradient for the Grape (cyber) theme.
+// A few large, dim purple clouds (additive radial gradients) painted once as a
+// fixed background — no motion, no pointer interaction.
+---
+
+<canvas id="nebula" aria-hidden="true"></canvas>
+
+<style>
+  #nebula {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    display: none;
+  }
+  html[data-theme="cyber"] #nebula {
+    display: block;
+  }
+</style>
+
+<script>
+  type Blob = {
+    fx: number; // position, fraction of viewport
+    fy: number;
+    fr: number; // radius, fraction of the viewport diagonal
+    alpha: number; // peak alpha at the cloud's core
+  };
+
+  let teardown: (() => void) | null = null;
+
+  function setupNebula() {
+    teardown?.();
+    teardown = null;
+
+    const canvas = document.getElementById("nebula") as HTMLCanvasElement | null;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+
+    // Low alphas keep it dulled; clouds add together (lighter) where they overlap.
+    const COLOR = "91, 75, 138"; // muted deep violet
+
+    let blobs: Blob[] = [];
+    let w = 0;
+    let h = 0;
+    let diag = 0;
+
+    const isCyber = () =>
+      document.documentElement.getAttribute("data-theme") === "cyber";
+
+    function generate() {
+      blobs = Array.from({ length: 6 }, () => ({
+        fx: Math.random(),
+        fy: Math.random(),
+        fr: 0.2 + Math.random() * 0.18,
+        alpha: 0.1 + Math.random() * 0.1,
+      }));
+    }
+
+    function render() {
+      ctx!.clearRect(0, 0, w, h);
+      ctx!.globalCompositeOperation = "lighter";
+      for (const b of blobs) {
+        const cx = b.fx * w;
+        const cy = b.fy * h;
+        const r = b.fr * diag;
+        const g = ctx!.createRadialGradient(cx, cy, 0, cx, cy, r);
+        g.addColorStop(0, `rgba(${COLOR}, ${b.alpha})`);
+        g.addColorStop(1, `rgba(${COLOR}, 0)`);
+        ctx!.fillStyle = g;
+        ctx!.fillRect(cx - r, cy - r, r * 2, r * 2);
+      }
+      ctx!.globalCompositeOperation = "source-over";
+    }
+
+    function resize() {
+      // Render at CSS resolution (no devicePixelRatio): soft gradients don't
+      // need retina pixels. Blob positions are fractions, so they scale to fit.
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas!.width = w;
+      canvas!.height = h;
+      canvas!.style.width = `${w}px`;
+      canvas!.style.height = `${h}px`;
+      diag = Math.hypot(w, h);
+      if (!blobs.length) generate();
+      render();
+    }
+
+    // ---- activation gated on the Grape (cyber) theme -------------------
+    let active = false;
+
+    function activate() {
+      if (active) return;
+      active = true;
+      resize();
+      window.addEventListener("resize", resize);
+    }
+
+    function deactivate() {
+      if (!active) return;
+      active = false;
+      window.removeEventListener("resize", resize);
+      ctx!.clearRect(0, 0, w, h);
+    }
+
+    const syncTheme = () => (isCyber() ? activate() : deactivate());
+
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    syncTheme();
+
+    teardown = () => {
+      observer.disconnect();
+      deactivate();
+    };
+  }
+
+  setupNebula();
+  document.addEventListener("astro:after-swap", setupNebula);
+</script>

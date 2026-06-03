@@ -48,6 +48,13 @@ html[data-theme="midnight"] {
   --border: #1f242f;
 }
 
+/* Let the themed backgrounds (Starfield.astro, Nebula.astro) show through the
+   navbar so the pointer effect reads as one continuous surface from the top. */
+html[data-theme="midnight"] #top-nav-wrap,
+html[data-theme="cyber"] #top-nav-wrap {
+  background-color: transparent;
+}
+
 /* Option 3: Deep Forest (Natural & Calm) */
 html[data-theme="forest"] {
   --background: #051a12;

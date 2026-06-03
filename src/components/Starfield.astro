@@ -1,0 +1,218 @@
+---
+// Interactive starfield for the Midnight theme.
+// Dim stars by default; a soft spotlight follows the pointer and brightens
+// stars within a radius, falling off smoothly with distance.
+---
+
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<style>
+  #starfield {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    display: none;
+  }
+  html[data-theme="midnight"] #starfield {
+    display: block;
+  }
+</style>
+
+<script>
+  type Star = { x: number; y: number; r: number; base: number };
+
+  let teardown: (() => void) | null = null;
+
+  function setupStarfield() {
+    // Tear down any previous instance so re-init (e.g. view transitions) is safe.
+    teardown?.();
+    teardown = null;
+
+    const canvas = document.getElementById("starfield") as HTMLCanvasElement | null;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // Spotlight radius (CSS px) and brightness ceiling for lit stars.
+    const RADIUS = 80;
+    const MAX_ALPHA = 0.95;
+    const STAR_COLOR = "220, 228, 244";
+    const GLOW_COLOR = "rgba(170, 195, 240, 0.9)";
+
+    let stars: Star[] = [];
+    let w = 0;
+    let h = 0;
+
+    // Pointer + animation state. Off-screen until the first move.
+    let targetX = -9999;
+    let targetY = -9999;
+    let curX = -9999;
+    let curY = -9999;
+    let intensity = 0;
+    let targetIntensity = 0;
+    let rafId = 0;
+    let running = false;
+
+    const isMidnight = () =>
+      document.documentElement.getAttribute("data-theme") === "midnight";
+
+    function generate() {
+      const count = Math.min(280, Math.round((w * h) / 5000));
+      stars = Array.from({ length: count }, () => {
+        const bright = Math.random() < 0.12; // a few standout stars
+        return {
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: bright ? 1.1 + Math.random() * 0.9 : 0.5 + Math.random() * 0.7,
+          base: bright ? 0.22 + Math.random() * 0.18 : 0.08 + Math.random() * 0.16,
+        };
+      });
+    }
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas!.width = Math.floor(w * dpr);
+      canvas!.height = Math.floor(h * dpr);
+      canvas!.style.width = `${w}px`;
+      canvas!.style.height = `${h}px`;
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+      generate();
+      draw();
+    }
+
+    function draw() {
+      ctx!.clearRect(0, 0, w, h);
+
+      const lit = intensity > 0.001 && curX > -9000;
+
+      for (const s of stars) {
+        let a = s.base;
+        let glow = 0;
+
+        if (lit) {
+          const dx = s.x - curX;
+          const dy = s.y - curY;
+          const d = Math.hypot(dx, dy);
+          if (d < RADIUS) {
+            let t = 1 - d / RADIUS;
+            t = t * t * (3 - 2 * t); // smoothstep falloff
+            t *= intensity;
+            a = s.base + (MAX_ALPHA - s.base) * t;
+            glow = t;
+          }
+        }
+
+        if (glow > 0.35) {
+          ctx!.shadowBlur = 6 * glow;
+          ctx!.shadowColor = GLOW_COLOR;
+        } else {
+          ctx!.shadowBlur = 0;
+        }
+
+        ctx!.beginPath();
+        ctx!.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx!.fillStyle = `rgba(${STAR_COLOR}, ${a})`;
+        ctx!.fill();
+      }
+      ctx!.shadowBlur = 0;
+    }
+
+    function tick() {
+      // Lock the spotlight to the pointer (no positional trailing). Only the
+      // brightness eases, so it fades in/out instead of sliding into place.
+      const intEase = reduceMotion ? 1 : 0.12;
+      curX = targetX;
+      curY = targetY;
+      intensity += (targetIntensity - intensity) * intEase;
+
+      const settled = Math.abs(targetIntensity - intensity) < 0.005;
+
+      if (settled) {
+        curX = targetX;
+        curY = targetY;
+        intensity = targetIntensity;
+        draw();
+        running = false;
+      } else {
+        draw();
+        rafId = requestAnimationFrame(tick);
+      }
+    }
+
+    function ensureRunning() {
+      if (!running) {
+        running = true;
+        rafId = requestAnimationFrame(tick);
+      }
+    }
+
+    function onMove(e: PointerEvent) {
+      if (!isMidnight()) return;
+      targetX = e.clientX;
+      targetY = e.clientY;
+      // Avoid a fly-in from the corner on the very first move.
+      if (curX < -9000) {
+        curX = targetX;
+        curY = targetY;
+      }
+      targetIntensity = 1;
+      ensureRunning();
+    }
+
+    function onLeave() {
+      targetIntensity = 0;
+      ensureRunning();
+    }
+
+    // ---- activation gated on the midnight theme -------------------------
+    let active = false;
+
+    function activate() {
+      if (active) return;
+      active = true;
+      resize();
+      window.addEventListener("resize", resize);
+      window.addEventListener("pointermove", onMove, { passive: true });
+      document.addEventListener("pointerleave", onLeave);
+      window.addEventListener("blur", onLeave);
+    }
+
+    function deactivate() {
+      if (!active) return;
+      active = false;
+      cancelAnimationFrame(rafId);
+      running = false;
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("pointermove", onMove);
+      document.removeEventListener("pointerleave", onLeave);
+      window.removeEventListener("blur", onLeave);
+      ctx!.clearRect(0, 0, w, h);
+    }
+
+    const syncTheme = () => (isMidnight() ? activate() : deactivate());
+
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    syncTheme();
+
+    teardown = () => {
+      observer.disconnect();
+      deactivate();
+    };
+  }
+
+  setupStarfield();
+  document.addEventListener("astro:after-swap", setupStarfield);
+</script>
