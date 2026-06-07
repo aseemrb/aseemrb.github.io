@@ -101,7 +101,7 @@ Let $U = \mu - \theta$ and $V = \hat\theta - \mu$. Their sum is $\hat\theta - \t
 - $\|V\|^2 = \mathbb{E}\big[(\hat\theta - \mu)^2\big] = \text{Var}(\hat\theta)$,
 - $\|U + V\|^2 = \mathbb{E}\big[(\hat\theta - \theta)^2\big] = \text{MSE}(\hat\theta)$.
 
-Pythagoras hands you the identity in one line:
+Pythagoras gives the identity immediately:
 
 $$
 \text{MSE}(\hat\theta) \;=\; \text{bias}(\hat\theta)^2 + \text{Var}(\hat\theta).

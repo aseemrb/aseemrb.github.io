@@ -327,7 +327,7 @@ $$
 \sigma_x \, \sigma_p \;\ge\; \tfrac{\hbar}{2}.
 $$
 
-The right-hand side is the constant $\hbar/2$ for *every* state $\psi$, because the commutator $[X, P]$ is itself a state-independent constant. That state-independence is the punchline: no matter how cleverly you prepare a particle, this product cannot drop below $\hbar/2$.
+The right-hand side is the constant $\hbar/2$ for *every* state $\psi$, because the commutator $[X, P]$ is itself a state-independent constant. No matter how cleverly you prepare a particle, then, this product cannot drop below $\hbar/2$.
 
 ## Why the Gaussian saturates
 
