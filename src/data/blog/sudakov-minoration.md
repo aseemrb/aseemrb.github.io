@@ -9,7 +9,7 @@ tags:
   - mathematics
   - machine learning
 description:
-  "Averages shrink, but maxima grow. Sudakov's minoration inequality is the clean tool for the harder direction: a guaranteed lower bound on the maximum of many Gaussians. Far-apart options behave like independent ones, so the best of them is at least ε times the square root of log N. This is the engine behind a lot of impossibility proofs."
+  "Averages shrink, but maxima grow. Sudakov's minoration inequality is the clean tool for the harder direction: a lower bound on the expected maximum of many Gaussians. As long as no two of them are too alike, that maximum is at least ε times the square root of log N. This is the engine behind a lot of impossibility proofs."
 ---
 
 We have a good instinct for averages (or equivalently, sums) of random variables. Add up many (say $N$) independent random numbers, divide by $N$, and the result is pretty stable (barely moves): that is the law of large numbers. The [central limit theorem](/blog/why-sums-become-gaussian) is a second-order extension to this result that tells us exactly how small/large that deviation is.
@@ -132,34 +132,37 @@ Sudakov's minoration turns pairwise separation directly into a lower bound on th
 > $$
 > where $c > 0$ is a universal constant.
 
-Read it as: a set of $N$ options, no two of which are too similar, is forced to contain one option of size at least $\varepsilon \sqrt{\log N}$. The only thing we have to check is a pairwise separation, which is usually easy. We do not need the variables to actually be independent, and we do not need to compute anything about the joint distribution beyond the pairwise gaps.
+So if no two of the $N$ variables are nearly identical, their expected maximum is at least $\varepsilon \sqrt{\log N}$. The only thing we have to check is a pairwise separation, which is usually easy. We do not need the variables to actually be independent, and we do not need to compute anything about the joint distribution beyond the pairwise gaps.
 
-Let me sanity-check it on the case we already solved. For independent standard Gaussians, $\mathbb{E}[(X_i - X_j)^2] = \operatorname{Var}(X_i) + \operatorname{Var}(X_j) = 2$, so every pair is exactly $\varepsilon = \sqrt{2}$ apart. Sudakov then gives
+Let us do a sanity-check on the case we already solved. For independent standard Gaussians, $\mathbb{E}[(X_i - X_j)^2] = \operatorname{Var}(X_i) + \operatorname{Var}(X_j) = 2$, so every pair is exactly $\varepsilon = \sqrt{2}$ apart. Sudakov then gives
 
 $$
 \mathbb{E}\Big[\max_i X_i\Big] \;\ge\; c\sqrt{2}\,\sqrt{\log N},
 $$
 
-and we know the true answer is $\sqrt{2\log N} = \sqrt{2}\,\sqrt{\log N}$. The inequality has exactly the right shape and recovers the true growth rate up to the constant $c$. Sudakov has thrown away the convenient independence and kept only a pairwise-distance bookkeeping, yet lost nothing but a constant.
+and we know the true answer is $\sqrt{2\log N}$. The inequality has exactly the right shape and recovers the true growth rate up to the constant $c$. Sudakov has managed to get rid of the convenient independence requirement and work with only a pairwise-distance bookkeeping, yet, the result did not lose anything but a constant.
 
-A few remarks for the curious, none of which we need for the rest of the post:
-
-- The general statement is phrased for a supremum over a possibly infinite index set $T$, using **covering numbers**: $\mathbb{E}[\sup_{t \in T} X_t] \ge c \sup_{\varepsilon > 0} \varepsilon \sqrt{\log N(T, d, \varepsilon)}$, where $N(T, d, \varepsilon)$ counts how many balls of radius $\varepsilon$ are needed to cover $T$. The finite, separated-points version above is the one we actually reach for.
+A few remarks for the curious:
+- The general statement is phrased for a supremum over a possibly infinite index set $T$, using [covering numbers](https://en.wikipedia.org/wiki/Covering_number):
+  $$
+  \mathbb{E}\Big[\sup_{t \in T} X_t\Big] \;\ge\; c \sup_{\varepsilon > 0} \varepsilon \sqrt{\log N(T, d, \varepsilon)},
+  $$
+  where $N(T, d, \varepsilon)$ counts how many balls of radius $\varepsilon$ are needed to cover $T$.
 - There is a twin inequality in the other direction. [Dudley's inequality](https://en.wikipedia.org/wiki/Dudley%27s_theorem) bounds the same expected supremum from *above* by an integral of $\sqrt{\log N(T, d, \varepsilon)}$ over all scales. Sudakov is a single scale of that integral, used as a lower bound. For many natural processes the two match up to constants, so Sudakov is not just a crude floor; it often pins down the right order.
 
 Separation rules out near-duplicates, non-duplicate points are genuinely different tries, and enough genuinely different tries force the maximum to be large. Sudakov turns that chain into a quantitative exchange rate between how far apart the points are and how large the maximum must be.
 
-## Why the lower-bound direction is the one we fight for
+## Why the lower-bound direction matters
 
-It is worth dwelling on why we would want a lower bound on a maximum at all. Upper bounds are reassuring: they say our worst case is not that bad, our estimator concentrates, our algorithm's error is controlled. Lower bounds are where the interesting impossibility lives. If we can show some noise quantity is *at least* this large no matter what, we have shown that no method can drive the corresponding error below it. Minimax lower bounds, hardness of detection, and non-separability results all run on this fuel.
+Why would we want a lower bound on a maximum? Note that upper bounds are reassuring: i.e., they say the worst case is not that bad, the estimator concentrates, the error is controlled. Lower bounds on the other hand are the source of impossibility results. If we can show some noise is quantitatively *at least* this large no matter what, then no method can drive the corresponding error below it. Minimax lower bounds, hardness-of-detection results, and non-separability results all rest on exactly this kind of statement.
 
-And a supremum is exactly the right object for a worst case. "Can any direction separate these points?" is a statement about $\sup$ over directions. "Is there any test function that detects the signal?" is a $\sup$ over test functions. To prove such a worst case is unavoidably bad, we lower-bound a supremum, and Sudakov is built for that.
+And a supremum is exactly the right object for a worst case. "Can any direction separate these points?" is a statement about $\sup$ over directions. "Is there any test function that detects the signal?" is a $\sup$ over test functions. To prove such a worst case is unavoidably bad, we lower-bound a supremum, which is exactly what Sudakov does.
 
-## A toy: when does a faint signal vanish into noise?
+## A toy example: when does a faint signal vanish into noise?
 
-Here is the smallest self-contained problem where Sudakov does real work. No machine learning required; just a signal and some noise.
+Here I try to model a problem where Sudakov's application is observable.
 
-We take $N$ noisy readings $Y_1, \dots, Y_N$. We suspect that exactly one of them, we do not know which, carries a faint extra signal of size $s$: that reading is $Y_{i_0} = s + X_{i_0}$, while all the others are pure noise, $Y_i = X_i$. The noises $X_i$ are jointly Gaussian, and they need *not* be independent. Readings taken close together, or sharing a sensor, are correlated, and that is allowed. The obvious way to guess which reading is the special one is to point at the largest. When does that work?
+We take $N$ noisy readings $Y_1, \dots, Y_N$. We suspect that exactly one of them, we do not know which, carries a faint extra signal of size $s > 0$: that reading is $Y_{i_0} = s + X_{i_0}$, while all the others are pure noise, $Y_i = X_i$. The noises $X_i$ are jointly Gaussian, and they need *not* be independent. Readings taken close together, or, for example, sharing a sensor, are correlated, and that is allowed. The obvious way to guess which reading is the special one is to point at the largest. When does that work?
 
 It works only if the planted reading really does rise above all the noise, that is, if its signal clears the loudest of the pure-noise readings,
 
@@ -264,14 +267,14 @@ Play with the trade-off. The blue curve is the noise floor $\varepsilon\sqrt{2\l
 
 Two things to read off the picture.
 
-- **More readings make detection harder.** The floor rises with $N$. Every extra reading is another chance for the noise to throw up a large value, and the planted signal has to clear all of them. A worst case over more options can only grow; this is the cost of multiple comparisons, in one clean formula.
-- **Averaging lowers the floor.** If we can repeat each reading $m$ times and average, the noise scale shrinks from $\varepsilon$ to $\varepsilon/\sqrt{m}$, and the floor drops with it. Slide $m$ up and the detectable region stretches to the right. We buy the detection of fainter signals at the price of $m$ times as many measurements, and Sudakov is what certifies that the floor is really there, so the gain is a genuine threshold and not an artifact of a loose bound.
+- **More readings make detection harder.** The floor rises with $N$. Every extra reading is another chance for the noise to throw up a large value, and the planted signal has to clear all of them. A maximum taken over more readings can only grow; this is the cost of multiple comparisons, in one clean formula.
+- **Averaging lowers the floor.** If we can repeat each reading $m$ times and average, the noise scale shrinks from $\varepsilon$ to $\varepsilon/\sqrt{m}$, and the floor drops with it. Slide $m$ up and the detectable region stretches to the right. We get the detection of fainter signals at the cost of making $m$ times as many measurements, and Sudakov is what certifies that the noise floor is where we would want, so the gain is a genuine threshold and not an artifact of a loose bound.
 
-The shape of this argument, lower-bound a worst-case noise to show that *nothing* below some level can be detected, is why Sudakov is worth knowing. The same skeleton drives a non-separability threshold in [a paper of mine](https://arxiv.org/abs/2102.06966), where the readings are data points and a smoothing operation plays the role of the averaging above. Different dressing, identical engine.
+The shape of this argument, lower-bound a worst-case noise to show that *nothing* below some level can be detected, is why Sudakov is worth knowing. The same skeleton drives a non-separability threshold in [an old paper that I co-authored](https://arxiv.org/abs/2102.06966) (see Theorem 1 part 3), where the readings are data points and a smoothing graph operation plays the role of the averaging above. Different dressing, identical engine.
 
 ## References
 
-- Roman Vershynin. *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. Section 7.4 states and proves Sudakov minoration; Section 7.2 covers the Dudley upper bound.
+- Roman Vershynin. *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. Section 7.4 states and proves Sudakov's minoration inequality; the Dudley upper bound is in Section 8.1, in the chapter on chaining.
 - Martin J. Wainwright. *High-Dimensional Statistics: A Non-Asymptotic Viewpoint*. Cambridge University Press, 2019. Chapter 5 develops covering and packing numbers and the supremum bounds built on them.
 - Michel Talagrand. *Upper and Lower Bounds for Stochastic Processes*. Springer, 2014. The definitive account of how far the lower and upper bounds for suprema can be pushed, via generic chaining.
 - Aseem Baranwal, Kimon Fountoulakis, Aukosh Jagannath. *Graph Convolution for Semi-Supervised Classification: Improved Linear Separability and Out-of-Distribution Generalization*. International Conference on Machine Learning (ICML), 2021. [arXiv:2102.06966](https://arxiv.org/abs/2102.06966). The non-separability threshold (Theorem 1, part 3) is where the supremum lower bound above does its work.
