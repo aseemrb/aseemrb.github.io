@@ -25,7 +25,7 @@ The lower-bound direction (question 2) is the useful one and is also harder to a
 - these two clouds of points cannot be separated,
 - this noise cannot be filtered out, etc.
 
-For Gaussian variables, the simplest tool for that direction is **Sudakov's minoration inequality**. It is rarely explained outside of graduate textbooks, so I will try my best to explain it intuitively.
+For Gaussian variables, the simplest tool for that direction is **Sudakov's minoration inequality**. It is rarely explained outside of graduate textbooks, so I will try my best to explain it intuitively. I first ran into it while working on [an old paper I co-authored](https://arxiv.org/abs/2102.06966), where I needed exactly this kind of lower bound on a maximum.
 
 ## The maximum of N Gaussians
 
