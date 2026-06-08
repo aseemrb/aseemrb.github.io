@@ -1,6 +1,6 @@
 ---
 author: Aseem Baranwal
-pubDatetime: 2026-06-08T15:22:00Z
+pubDatetime: 2026-06-07T15:22:00Z
 title: Covering the sphere with ε-nets
 slug: epsilon-nets-on-the-sphere
 featured: false
