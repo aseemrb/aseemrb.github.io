@@ -37,9 +37,9 @@ $$
 
 Color each starting point in a region of the plane by which root it ends up at, with darker shades for points that take more iterations to converge. The result is the Newton fractal.
 
-Slide $n$ to change the polynomial. Click anywhere on the picture to launch a Newton iteration from that point and watch the iterates converge.
+Slide $n$ to change the polynomial. Click anywhere on the picture to launch a Newton iteration from that point and watch the iterates converge. The picture shows the square $-2 \le \operatorname{Re} z, \operatorname{Im} z \le 2$ of the complex plane, with the roots (white dots) sitting on the unit circle.
 
-<div class="nw-widget" style="margin: 1.5rem 0; color: var(--foreground); padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.6rem 1.2rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.92em;"><label style="display: flex; align-items: center; gap: 0.5rem; flex: 1 1 200px;">degree <em>n</em><input type="range" id="nw-slider" min="2" max="6" value="3" step="1" style="flex: 1;"></label><span><em>n</em> = <strong id="nw-n">3</strong></span><button id="nw-clear" type="button" style="padding: 0.3rem 0.7rem; background: var(--background); color: currentColor; border: 1px solid currentColor; border-radius: 4px; cursor: pointer;">clear path</button><span style="font-style: italic;">click on the canvas to launch a Newton iteration from that point</span></div><div style="position: relative; max-width: 480px; margin: 0 auto;"><canvas id="nw-canvas" width="480" height="480" style="width: 100%; height: auto; cursor: crosshair; display: block;" aria-label="Newton fractal for the polynomial z^n - 1; click to launch an iteration from the chosen point."></canvas><svg id="nw-overlay" viewBox="0 0 480 480" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></svg></div></div>
+<div class="nw-widget" style="margin: 1.5rem 0; color: var(--foreground); padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.6rem 1.2rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.92em;"><label style="display: flex; align-items: center; gap: 0.5rem; flex: 1 1 200px;">degree <em>n</em><input type="range" id="nw-slider" min="2" max="6" value="3" step="1" style="flex: 1;"></label><span><em>n</em> = <strong id="nw-n">3</strong></span><button id="nw-clear" type="button" style="padding: 0.3rem 0.7rem; background: var(--background); color: currentColor; border: 1px solid currentColor; border-radius: 4px; cursor: pointer;">clear path</button><span style="font-style: italic;">click on the canvas to launch a Newton iteration from that point</span></div><div style="position: relative; max-width: 480px; margin: 0 auto;"><canvas id="nw-canvas" width="480" height="480" style="width: 100%; height: auto; cursor: crosshair; display: block;" aria-label="Newton fractal for the polynomial z^n - 1; click to launch an iteration from the chosen point."></canvas><svg id="nw-overlay" viewBox="0 0 480 480" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></svg></div><div style="margin-top: 0.75rem; font-size: 0.85em; line-height: 1.7; display: flex; flex-wrap: wrap; column-gap: 1.6rem; row-gap: 0.2rem;"><span style="white-space: nowrap;"><svg width="13" height="13" viewBox="0 0 13 13" style="display: inline-block; vertical-align: -2px;"><circle cx="6.5" cy="6.5" r="4" fill="#ffffff" stroke="#000000" stroke-width="1.5"/></svg> roots of <em>z</em><sup><em>n</em></sup> &minus; 1</span><span>cell color = root reached from that starting point; darker = more iterations needed</span><span>clicked path: <svg width="13" height="13" viewBox="0 0 13 13" style="display: inline-block; vertical-align: -2px;"><circle cx="6.5" cy="6.5" r="5" fill="#ffffff" stroke="#000000" stroke-width="1"/></svg> start &rarr; <svg width="11" height="11" viewBox="0 0 11 11" style="display: inline-block; vertical-align: -1px;"><circle cx="5.5" cy="5.5" r="2.5" fill="#000000" stroke="#ffffff" stroke-width="1"/></svg> iterates &rarr; <svg width="13" height="13" viewBox="0 0 13 13" style="display: inline-block; vertical-align: -2px;"><circle cx="6.5" cy="6.5" r="5" fill="#dc2626" stroke="#000000" stroke-width="1"/></svg> root reached</span></div></div>
 <script>
 (function () {
   var slider = document.getElementById('nw-slider');
@@ -141,6 +141,39 @@ Slide $n$ to change the polynomial. Click anywhere on the picture to launch a Ne
       ctx.lineWidth = 1.5;
       ctx.stroke();
     }
+    drawAxes();
+  }
+  function drawAxes() {
+    ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, H / 2); ctx.lineTo(W, H / 2);
+    ctx.moveTo(W / 2, 0); ctx.lineTo(W / 2, H);
+    [-1, 1].forEach(function (t) {
+      var px = (t + range) / (2 * range) * W;
+      var py = (range - t) / (2 * range) * H;
+      ctx.moveTo(px, H / 2 - 4); ctx.lineTo(px, H / 2 + 4);
+      ctx.moveTo(W / 2 - 4, py); ctx.lineTo(W / 2 + 4, py);
+    });
+    ctx.stroke();
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'rgba(0,0,0,0.85)';
+    ctx.fillStyle = '#ffffff';
+    var labels = [
+      ['1', (1 + range) / (2 * range) * W, H / 2 + 14],
+      ['−1', (-1 + range) / (2 * range) * W, H / 2 + 14],
+      ['i', W / 2 + 13, (range - 1) / (2 * range) * H],
+      ['−i', W / 2 + 17, (range + 1) / (2 * range) * H],
+      ['Re', W - 15, H / 2 - 12],
+      ['Im', W / 2 + 17, 10]
+    ];
+    labels.forEach(function (L) {
+      ctx.strokeText(L[0], L[1], L[2]);
+      ctx.fillText(L[0], L[1], L[2]);
+    });
   }
   function pixelToComplex(px, py) {
     var x = -range + (2 * range) * px / W;
