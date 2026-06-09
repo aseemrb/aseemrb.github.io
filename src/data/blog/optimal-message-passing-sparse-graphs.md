@@ -136,7 +136,7 @@ Theorem 1 gives an explicit message-passing architecture and proves it asymptoti
 
 ## Closed-form generalization error (Theorem 2)
 
-For the symmetric two-class Gaussian case, we compute the asymptotic generalization error in closed form, in terms of $(\gamma, \Gamma)$. The key observation is that, on the Galton–Watson tree that the CSBM neighborhood converges to, the distribution of the optimal message can be characterized by a fixed-point recursion on the branching process. This collapses what would otherwise be pages of integrals into a tractable distributional equation. The full statement (and the multi-class extension) is in Section 4.
+For the symmetric two-class Gaussian case, we compute the asymptotic generalization error in closed form, in terms of $(\gamma, \Gamma)$. On the Galton–Watson tree that the CSBM neighborhood converges to (a random tree in which each node draws its number of children independently from a fixed distribution), the distribution of the optimal message can be characterized by a fixed-point recursion on the branching process. This collapses what would otherwise be pages of integrals into a tractable distributional equation. The full statement (and the multi-class extension) is in Section 4.
 
 ## The MLP–GCN interpolation (Theorem 3)
 
@@ -242,9 +242,9 @@ Asymptotic statements are clean, but the operational question is "does this pred
 
 On synthetic CSBM graphs with $n = 10{,}000$ and $d = 4$, the architecture predicted by the theory smoothly interpolates between a feature-only MLP and a vanilla GCN as $\Gamma$ varies, and outperforms both at intermediate $\Gamma$. At $\Gamma = 0$ it matches the MLP; at $\Gamma = 1$ it matches the GCN. Exactly what Theorem 3 predicts. Plots in Section 6.
 
-## Takeaways for GNN design
+## Implications for GNN design
 
-Distilled to four:
+Four follow from the analysis:
 
 1. **Shallow is usually right on sparse graphs.** Distance-$k$ messages decay as $\Gamma^k$. Two or three hops is most of the available information.
 2. **Decouple depth from receptive field.** The theory wants the architecture's *number of trainable layers* and *number of hops aggregated* to be independent knobs, not the same knob the way they are in vanilla GCNs. Stacking layers should not be the only way to see further.

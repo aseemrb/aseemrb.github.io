@@ -187,13 +187,13 @@ $$
 
 where $F_n$ is the CDF of $Z_n$, $\Phi$ is the standard normal CDF, and $\rho = \mathbb{E}|X - \mu|^3$ is the third absolute central moment. The best known universal constant is $C \le 0.4748$ (Shevtsova, 2011).
 
-Three takeaways:
+Three things to read off the bound:
 
-- The convergence rate is the canonical $1/\sqrt{n}$.
+- The convergence rate is $1/\sqrt{n}$.
 - The factor $\rho/\sigma^3$ measures how skewed/heavy-tailed the base is. Heavy tails slow it down; thin tails speed it up.
 - The bound is uniform over $z$. Sharper *local* statements ([Edgeworth expansions](https://en.wikipedia.org/wiki/Edgeworth_series)) give higher-order corrections in $1/n$ that depend on higher cumulants of $X$ (skewness, then kurtosis, and so on).
 
-In the widget, the rate-of-convergence comparison is easy to feel: the symmetric uniform die approaches Gaussian faster than the asymmetric Bernoulli(0.3). The two have nearly the same $\rho/\sigma^3$, so what separates them is symmetry: the die has zero skewness, which kills the leading $1/\sqrt{n}$ Edgeworth correction, while the skewed Bernoulli still carries that term.
+In the widget, the rate-of-convergence comparison is easy to feel: the symmetric uniform die approaches Gaussian faster than the asymmetric Bernoulli(0.3). The two have nearly the same $\rho/\sigma^3$, so what separates them is symmetry: the die has zero skewness, which removes the leading $1/\sqrt{n}$ Edgeworth correction, while the skewed Bernoulli still carries that term.
 
 ## What can go wrong?
 

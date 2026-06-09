@@ -152,7 +152,7 @@ A random $m \times n$ Gaussian matrix has $\|A\| \lesssim \sqrt{m} + \sqrt{n}$, 
 
 The balance is the whole content of the method. Below, the curve is the exponent $n \ln 5 - s^2/2$ of the bound $5^{n} e^{-s^2/2}$. Where it is positive the bound exceeds $1$ and says nothing; once it crosses below zero the bound is exponentially small. Slide $n$ and watch the crossover $s^\star = \sqrt{2n\ln 5}$ move outward like $\sqrt{n}$.
 
-<div class="en2-widget" style="margin: 1.5rem 0; color: var(--foreground); padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.75rem 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.6rem; flex: 1 1 260px;">dimension <em>n</em><input type="range" id="en2-n" min="2" max="400" step="1" value="100" style="flex: 1;"></label><span><em>n</em> = <strong id="en2-n-val">100</strong></span><span>net size 5<sup><em>n</em></sup> = <strong id="en2-net">e<sup>161</sup></strong></span><span>crossover <em>s</em><sup>★</sup> = √(2<em>n</em> ln5) = <strong id="en2-sstar">17.9</strong></span></div><svg id="en2-svg" viewBox="0 0 720 340" style="width: 100%; height: auto;" aria-label="The exponent n ln5 minus s squared over two as a function of the deviation s. It is positive (union bound useless) until the crossover s-star, then negative (bound exponentially small)."></svg></div>
+<div class="en2-widget" style="margin: 1.5rem 0; color: var(--foreground); padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.6rem; align-items: center; margin-bottom: 0.5rem; font-size: 0.95em;"><label style="display: flex; align-items: center; gap: 0.6rem; flex: 1;">dimension <em>n</em><input type="range" id="en2-n" min="2" max="400" step="1" value="100" style="flex: 1;"></label><span style="white-space: nowrap;"><em>n</em> = <strong id="en2-n-val" style="display: inline-block; min-width: 2.2em;">100</strong></span></div><div style="display: flex; gap: 0.5rem 1.5rem; flex-wrap: wrap; margin-bottom: 1rem; font-size: 0.95em;"><span style="white-space: nowrap;">net size 5<sup><em>n</em></sup> = <strong id="en2-net" style="display: inline-block; min-width: 3.5em;">e<sup>161</sup></strong></span><span style="white-space: nowrap;">crossover <em>s</em><sup>★</sup> = √(2<em>n</em> ln5) = <strong id="en2-sstar" style="display: inline-block; min-width: 2.8em;">17.9</strong></span></div><svg id="en2-svg" viewBox="0 0 720 340" style="width: 100%; height: auto;" aria-label="The exponent n ln5 minus s squared over two as a function of the deviation s. It is positive (union bound useless) until the crossover s-star, then negative (bound exponentially small)."></svg></div>
 <script>
 (function () {
   var slider = document.getElementById('en2-n');
@@ -184,6 +184,8 @@ The balance is the whole content of the method. Below, the curve is the exponent
     var y0 = yPx(0);
     out += '<line x1="' + padL + '" y1="' + y0.toFixed(1) + '" x2="' + (w - padR) + '" y2="' + y0.toFixed(1) + '" stroke="currentColor" stroke-opacity="0.45" stroke-dasharray="4 3"/>';
     out += '<text x="' + (w - padR - 4) + '" y="' + (y0 - 5).toFixed(1) + '" text-anchor="end" font-size="11" fill="currentColor" fill-opacity="0.7">bound = 1</text>';
+    out += '<text x="' + ((padL + xs) / 2).toFixed(1) + '" y="' + (y0 + 24).toFixed(1) + '" text-anchor="middle" font-size="11" fill="#dc2626">bound &#8805; 1: says nothing</text>';
+    out += '<text x="' + ((xs + w - padR) / 2).toFixed(1) + '" y="' + (y0 - 12).toFixed(1) + '" text-anchor="middle" font-size="11" fill="#16a34a">bound &lt; 1: exponentially small</text>';
     // axes
     out += '<line x1="' + padL + '" y1="' + padT + '" x2="' + padL + '" y2="' + (h - padB) + '" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.7"/>';
     out += '<line x1="' + padL + '" y1="' + (h - padB) + '" x2="' + (w - padR) + '" y2="' + (h - padB) + '" stroke="currentColor" stroke-opacity="0.3" stroke-width="0.7"/>';
@@ -204,7 +206,7 @@ The balance is the whole content of the method. Below, the curve is the exponent
     out += '<line x1="' + xs.toFixed(1) + '" y1="' + padT + '" x2="' + xs.toFixed(1) + '" y2="' + (h - padB) + '" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="3 3"/>';
     out += '<circle cx="' + xs.toFixed(1) + '" cy="' + y0.toFixed(1) + '" r="4" fill="#dc2626"/>';
     out += '<text x="' + (xs + 6).toFixed(1) + '" y="' + (padT + 14) + '" font-size="12" fill="#dc2626"><tspan font-style="italic">s</tspan><tspan baseline-shift="super" font-size="9">★</tspan> = √(2<tspan font-style="italic">n</tspan> ln5)</text>';
-    out += '<text x="' + (w / 2) + '" y="' + (h - 6) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor">deviation s</text>';
+    out += '<text x="' + (w / 2) + '" y="' + (h - 6) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor">deviation s of the net maximum above √m</text>';
     out += '<text x="15" y="' + (h / 2) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor" transform="rotate(-90 15 ' + (h / 2) + ')">exponent of the bound, n ln5 − s²/2</text>';
     svg.innerHTML = out;
   }

@@ -6,6 +6,8 @@ import Footer from "@/components/Footer.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import Datetime from "@/components/Datetime.astro";
 import LinkButton from "@/components/LinkButton.astro";
+import IconArrowLeft from "@/assets/icons/IconArrowLeft.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { getPath } from "@/utils/getPath";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { SITE } from "@/config";
@@ -24,37 +26,54 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
   <main id="main-content" data-backurl={backUrl}>
     <section class="app-prose mb-28 max-w-app prose-img:border-0">
       <h2>Blog</h2>
-      <label for="tag-filter" class="sr-only">Filter by tag</label>
-      <div class="relative my-4 w-full sm:max-w-sm">
-        <input
-          id="tag-filter"
-          type="search"
-          placeholder="filter by tag"
-          autocomplete="off"
-          spellcheck="false"
-          aria-controls="tag-options"
-          aria-expanded="false"
-          aria-autocomplete="list"
-          role="combobox"
-          class="w-full rounded border border-border bg-background px-3 py-2 font-mono text-sm text-foreground placeholder:opacity-60 focus:border-accent focus:outline-none"
-        />
-        <ul
-          id="tag-options"
-          role="listbox"
-          class="absolute left-0 right-0 top-full z-10 mt-1 hidden max-h-64 overflow-auto rounded border border-border bg-background py-1 font-mono text-sm shadow"
-        >
-          {allTags.map(tag => (
-            <li
-              role="option"
-              data-tag={tag}
-              class="cursor-pointer px-3 py-1.5 hover:bg-muted"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
+      <div class="my-4 flex w-full flex-col gap-3 sm:flex-row">
+        <div class="w-full sm:max-w-sm">
+          <label for="post-search" class="sr-only">Search posts</label>
+          <input
+            id="post-search"
+            type="search"
+            placeholder="search"
+            autocomplete="off"
+            spellcheck="false"
+            class="w-full rounded border border-border bg-background px-3 py-2 font-mono text-sm text-foreground placeholder:opacity-60 focus:border-accent focus:outline-none"
+          />
+        </div>
+        <div class="relative w-full sm:max-w-sm">
+          <label for="tag-filter" class="sr-only">Filter by tag</label>
+          <input
+            id="tag-filter"
+            type="search"
+            placeholder="filter by tag"
+            autocomplete="off"
+            spellcheck="false"
+            aria-controls="tag-options"
+            aria-expanded="false"
+            aria-autocomplete="list"
+            role="combobox"
+            class="w-full rounded border border-border bg-background px-3 py-2 font-mono text-sm text-foreground placeholder:opacity-60 focus:border-accent focus:outline-none"
+          />
+          <ul
+            id="tag-options"
+            role="listbox"
+            class="absolute left-0 right-0 top-full z-10 mt-1 hidden max-h-64 overflow-auto rounded border border-border bg-background py-1 font-mono text-sm shadow"
+          >
+            {allTags.map(tag => (
+              <li
+                role="option"
+                data-tag={tag}
+                class="cursor-pointer px-3 py-1.5 hover:bg-muted"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <p id="tag-empty" class="hidden text-sm opacity-70">No posts match that tag.</p>
+      <div id="search-results-wrap" class="hidden">
+        <p id="search-status" class="text-sm opacity-70"></p>
+        <ul id="search-results" style="padding-left: 0"></ul>
+      </div>
       <ul id="post-list" style="padding-left: 0">
         {sorted.map(({ id, filePath, data }) => (
           <li
@@ -68,6 +87,31 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
           </li>
         ))}
       </ul>
+      <nav
+        id="blog-pagination"
+        class="mt-8 hidden items-center justify-center"
+        aria-label="Pagination"
+      >
+        <button
+          id="page-prev"
+          type="button"
+          class="group me-4 inline-flex cursor-pointer items-center select-none hover:text-accent disabled:cursor-default disabled:opacity-50 disabled:hover:text-foreground"
+          aria-label="Previous page"
+        >
+          <IconArrowLeft class="inline-block rtl:rotate-180" />
+          Prev
+        </button>
+        <span id="page-status" class="font-mono text-sm"></span>
+        <button
+          id="page-next"
+          type="button"
+          class="group ms-4 inline-flex cursor-pointer items-center select-none hover:text-accent disabled:cursor-default disabled:opacity-50 disabled:hover:text-foreground"
+          aria-label="Next page"
+        >
+          Next
+          <IconArrowRight class="inline-block rtl:rotate-180" />
+        </button>
+      </nav>
     </section>
   </main>
   <Footer />
@@ -85,18 +129,182 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
     ? Array.from(postList.querySelectorAll<HTMLElement>(".post-item"))
     : [];
 
-  function applyFilter() {
-    if (!input) return;
-    const q = input.value.trim().toLowerCase();
-    let visible = 0;
-    for (const li of items) {
+  const PAGE_SIZE = 10;
+  let currentPage = 1;
+  const pagination = document.querySelector<HTMLElement>("#blog-pagination");
+  const prevBtn = document.querySelector<HTMLButtonElement>("#page-prev");
+  const nextBtn = document.querySelector<HTMLButtonElement>("#page-next");
+  const status = document.querySelector<HTMLElement>("#page-status");
+
+  function matchedItems(): HTMLElement[] {
+    const q = input?.value.trim().toLowerCase() ?? "";
+    return items.filter(li => {
       const tags = (li.dataset.tags ?? "").split("|").filter(Boolean);
-      const match = q === "" || tags.some(t => t.includes(q));
-      li.style.display = match ? "" : "none";
-      if (match) visible++;
-    }
-    if (empty) empty.classList.toggle("hidden", visible !== 0);
+      return q === "" || tags.some(t => t.includes(q));
+    });
   }
+
+  function syncUrl() {
+    const params = new URLSearchParams(window.location.search);
+    params.delete("q"); // list mode implies no active full-text search
+    const q = input?.value.trim().toLowerCase() ?? "";
+    if (q) params.set("tag", q);
+    else params.delete("tag");
+    if (currentPage > 1) params.set("page", String(currentPage));
+    else params.delete("page");
+    const qs = params.toString();
+    history.replaceState(
+      null,
+      "",
+      window.location.pathname + (qs ? `?${qs}` : "")
+    );
+  }
+
+  function render() {
+    // filter across ALL posts, then show the current page of the filtered set
+    const matched = matchedItems();
+    const totalPages = Math.max(1, Math.ceil(matched.length / PAGE_SIZE));
+    currentPage = Math.min(Math.max(1, currentPage), totalPages);
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const pageSet = new Set(matched.slice(start, start + PAGE_SIZE));
+    for (const li of items) {
+      li.style.display = pageSet.has(li) ? "" : "none";
+    }
+    if (empty) empty.classList.toggle("hidden", matched.length !== 0);
+    if (pagination) {
+      pagination.classList.toggle("hidden", totalPages <= 1);
+      pagination.classList.toggle("flex", totalPages > 1);
+    }
+    if (status) status.textContent = `${currentPage} / ${totalPages}`;
+    if (prevBtn) prevBtn.disabled = currentPage <= 1;
+    if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
+    syncUrl();
+  }
+
+  function applyFilter() {
+    currentPage = 1;
+    render();
+  }
+
+  function goTo(page: number) {
+    currentPage = page;
+    render();
+    postList?.closest("section")?.scrollIntoView({ behavior: "instant", block: "start" });
+  }
+
+  prevBtn?.addEventListener("click", () => goTo(currentPage - 1));
+  nextBtn?.addEventListener("click", () => goTo(currentPage + 1));
+
+  /* ---------- full-text search (same pagefind index as the old /search page) ---------- */
+  const searchInput = document.querySelector<HTMLInputElement>("#post-search");
+  const resultsWrap = document.querySelector<HTMLElement>("#search-results-wrap");
+  const resultsList = document.querySelector<HTMLElement>("#search-results");
+  const searchStatus = document.querySelector<HTMLElement>("#search-status");
+
+  let pagefind: any = null;
+  let pagefindFailed = false;
+  async function getPagefind() {
+    if (pagefind || pagefindFailed) return pagefind;
+    try {
+      // /pagefind/ lives in /public (synced there by the build script), so it
+      // must load as a plain browser import, outside Vite's module graph.
+      // A statically analyzable import() gets rewritten by the dev server and
+      // fails; this opaque form reaches the browser untouched in dev and prod.
+      pagefind = await new Function('return import("/pagefind/pagefind.js")')();
+      await pagefind.init();
+    } catch {
+      pagefind = null;
+      pagefindFailed = true;
+    }
+    return pagefind;
+  }
+
+  function setSearchMode(on: boolean) {
+    resultsWrap?.classList.toggle("hidden", !on);
+    (postList as HTMLElement | null)?.classList.toggle("hidden", on);
+    if (on) {
+      pagination?.classList.add("hidden");
+      pagination?.classList.remove("flex");
+      empty?.classList.add("hidden");
+    }
+  }
+
+  function syncSearchUrl(term: string) {
+    const params = new URLSearchParams(window.location.search);
+    params.delete("tag");
+    params.delete("page");
+    if (term) params.set("q", term);
+    else params.delete("q");
+    const qs = params.toString();
+    history.replaceState(
+      null,
+      "",
+      window.location.pathname + (qs ? `?${qs}` : "")
+    );
+  }
+
+  let searchSeq = 0;
+  async function runSearch() {
+    const term = searchInput?.value.trim() ?? "";
+    const seq = ++searchSeq;
+    if (!term) {
+      setSearchMode(false);
+      render();
+      return;
+    }
+    if (input && input.value !== "") {
+      input.value = "";
+      currentPage = 1;
+    }
+    const pf = await getPagefind();
+    if (seq !== searchSeq) return;
+    if (!pf) {
+      if (searchStatus)
+        searchStatus.textContent =
+          "Search index not found. Run a build once to generate it.";
+      if (resultsList) resultsList.innerHTML = "";
+      setSearchMode(true);
+      syncSearchUrl(term);
+      return;
+    }
+    const res = await pf.debouncedSearch(term);
+    if (res === null || seq !== searchSeq) return; // superseded by newer input
+    const data = await Promise.all(
+      res.results.map((r: any) => r.data())
+    );
+    if (seq !== searchSeq) return;
+    if (resultsList) {
+      resultsList.innerHTML = "";
+      for (const d of data) {
+        const li = document.createElement("li");
+        li.className = "my-6";
+        li.style.paddingInlineStart = "0";
+        const h4 = document.createElement("h4");
+        const a = document.createElement("a");
+        a.href = d.url;
+        a.textContent = (d.meta?.title ?? d.url).split(" | ")[0];
+        a.className = "hover:text-accent";
+        h4.appendChild(a);
+        const p = document.createElement("p");
+        p.className = "search-excerpt text-sm";
+        p.innerHTML = d.excerpt ?? "";
+        li.appendChild(h4);
+        li.appendChild(p);
+        resultsList.appendChild(li);
+      }
+    }
+    if (searchStatus) {
+      const n = res.results.length;
+      searchStatus.textContent =
+        n === 0
+          ? `No results for "${term}".`
+          : `${n} result${n === 1 ? "" : "s"} for "${term}"`;
+    }
+    setSearchMode(true);
+    syncSearchUrl(term);
+  }
+
+  searchInput?.addEventListener("input", runSearch);
 
   function refreshDropdown() {
     if (!input || !dropdown) return;
@@ -123,6 +331,12 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
   }
 
   input?.addEventListener("input", () => {
+    // tag filtering and full-text search are mutually exclusive modes
+    if (searchInput && searchInput.value !== "") {
+      searchInput.value = "";
+      searchSeq++;
+      setSearchMode(false);
+    }
     applyFilter();
     refreshDropdown();
   });
@@ -153,4 +367,27 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
   if (backUrl) {
     sessionStorage.setItem("backUrl", backUrl);
   }
+
+  // initial state from the URL: /blog?q=... or /blog?tag=...&page=N
+  {
+    const params = new URLSearchParams(window.location.search);
+    const tag = params.get("tag");
+    if (tag && input) input.value = tag;
+    const page = parseInt(params.get("page") ?? "1", 10);
+    if (Number.isFinite(page) && page > 1) currentPage = page;
+    render();
+    const q = params.get("q");
+    if (q && searchInput) {
+      searchInput.value = q;
+      runSearch();
+    }
+  }
 </script>
+
+<style is:global>
+  #search-results .search-excerpt mark {
+    background-color: transparent;
+    color: var(--accent);
+    font-weight: 600;
+  }
+</style>

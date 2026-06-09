@@ -4,7 +4,7 @@ pubDatetime: 2026-04-30T18:00:00Z
 title: Bias-variance is a Pythagorean decomposition
 slug: bias-variance-pythagorean-decomposition
 featured: false
-draft: true
+draft: false
 tags:
   - mathematics
   - machine learning
@@ -12,7 +12,7 @@ description:
   The textbook derivation of MSE = bias² + variance reads as a cancellation in algebra. Geometrically, it is the Pythagorean theorem in L². A constant bias and a mean-zero residual are orthogonal, and their squared lengths add. The bias-variance tradeoff lives on a right triangle.
 ---
 
-Most stats and machine learning courses introduce the bias-variance decomposition as a piece of algebra. The textbook derivation feels like a lucky cancellation — write down the mean squared error, expand with a clever insertion, watch a cross term vanish. What is left is
+Most stats and machine learning courses introduce the bias-variance decomposition as a piece of algebra. The textbook derivation feels like a lucky cancellation: write down the mean squared error, expand with a clever insertion, watch a cross term vanish. What is left is
 
 $$
 \text{MSE} \;=\; \text{bias}^2 + \text{variance}.
@@ -33,7 +33,7 @@ The expectation averages over the randomness in the data. Smaller is better.
 Two further quantities describe how $\hat\theta$ behaves under that randomness. Let $\mu := \mathbb{E}[\hat\theta]$ be the estimator's mean value across all possible datasets. Then:
 
 - **Bias.** $\text{bias}(\hat\theta) \;:=\; \mu - \theta \;=\; \mathbb{E}[\hat\theta] - \theta$. The systematic offset between where the estimator centers and the truth. An *unbiased* estimator has bias zero: it hits the truth on average.
-- **Variance.** $\text{Var}(\hat\theta) \;:=\; \mathbb{E}\big[(\hat\theta - \mu)^2\big]$. The average squared spread of $\hat\theta$ around its own mean — how jittery it is across datasets, ignoring whether it centers on the truth.
+- **Variance.** $\text{Var}(\hat\theta) \;:=\; \mathbb{E}\big[(\hat\theta - \mu)^2\big]$. The average squared spread of $\hat\theta$ around its own mean: how jittery it is across datasets, ignoring whether it centers on the truth.
 
 MSE measures the total error from the truth, bias measures the systematic part, and variance measures the random part. The textbook identity says these three are connected by the simplest possible relation.
 
@@ -55,7 +55,7 @@ $$
 \underbrace{\mathbb{E}\big[(\hat\theta - \theta)^2\big]}_{\text{MSE}(\hat\theta)} \;=\; \underbrace{\mathbb{E}\big[(\hat\theta - \mu)^2\big]}_{\text{Var}(\hat\theta)} \;+\; \underbrace{\mathbb{E}\big[2(\hat\theta - \mu)(\mu - \theta)\big]}_{\text{cross term}} \;+\; \underbrace{\mathbb{E}\big[(\mu - \theta)^2\big]}_{\text{bias}(\hat\theta)^2}.
 $$
 
-The first term is the variance by definition. The third is $(\mu - \theta)^2 = \text{bias}^2$ — both $\mu$ and $\theta$ are constants, so $(\mu - \theta)^2$ has no randomness and equals its own expectation. The cross term takes one extra step:
+The first term is the variance by definition. The third is $(\mu - \theta)^2 = \text{bias}^2$: both $\mu$ and $\theta$ are constants, so $(\mu - \theta)^2$ has no randomness and equals its own expectation. The cross term takes one extra step:
 
 $$
 \mathbb{E}\big[2(\hat\theta - \mu)(\mu - \theta)\big] \;=\; 2(\mu - \theta)\,\mathbb{E}[\hat\theta - \mu] \;=\; 2(\mu - \theta) \cdot 0 \;=\; 0.
@@ -81,7 +81,7 @@ $$
 
 with squared norm $\|U\|^2 = \mathbb{E}[U^2]$. Two random variables are **orthogonal** in $L^2$ when $\langle U, V \rangle = 0$. (For mean-zero variables this reduces to being uncorrelated; the $L^2$ inner product generalizes correlation.)
 
-The cross term in the derivation is exactly the inner product of two specific random variables — the constant $\mu - \theta$ and the mean-zero residual $\hat\theta - \mu$:
+The cross term in the derivation is exactly the inner product of two specific random variables, the constant $\mu - \theta$ and the mean-zero residual $\hat\theta - \mu$:
 
 $$
 \langle \mu - \theta,\; \hat\theta - \mu \rangle \;=\; \mathbb{E}\big[(\mu - \theta)(\hat\theta - \mu)\big] \;=\; (\mu - \theta)\,\mathbb{E}[\hat\theta - \mu] \;=\; 0.
@@ -219,8 +219,8 @@ Slide $\theta$, $\sigma$, $\lambda$ and watch the right triangle morph. The dash
     s += '<line x1="' + xPx(0) + '" y1="' + yPx(sigma) + '" x2="' + xPx(theta) + '" y2="' + yPx(0) + '" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.5"/>';
     s += '<circle cx="' + xPx(0) + '" cy="' + yPx(sigma) + '" r="3.5" fill="currentColor" fill-opacity="0.55"/>';
     s += '<circle cx="' + xPx(theta) + '" cy="' + yPx(0) + '" r="3.5" fill="currentColor" fill-opacity="0.55"/>';
-    s += '<text x="' + (xPx(0) + 8) + '" y="' + (yPx(sigma) - 6) + '" font-size="11" fill="currentColor">λ = 0  (X)</text>';
-    s += '<text x="' + (xPx(theta) - 6) + '" y="' + (yPx(0) - 8) + '" text-anchor="end" font-size="11" fill="currentColor">λ = 1  (0)</text>';
+    s += '<text x="' + (xPx(0) + 8) + '" y="' + (yPx(sigma) - 6) + '" font-size="11" fill="currentColor">λ = 0: keep X (unbiased, full variance)</text>';
+    s += '<text x="' + (xPx(theta) - 6) + '" y="' + (yPx(0) - 8) + '" text-anchor="end" font-size="11" fill="currentColor">λ = 1: estimate 0 (no variance, all bias)</text>';
     var px0 = xPx(0), py0 = yPx(0);
     var pBx = xPx(bias), pBy = yPx(0);
     var pTx = xPx(bias), pTy = yPx(std);
@@ -242,7 +242,7 @@ Slide $\theta$, $\sigma$, $\lambda$ and watch the right triangle morph. The dash
     if (Math.sqrt(mse) > 0.05 * maxAxis) s += '<text x="' + (midHypX - 14) + '" y="' + (midHypY - 4) + '" text-anchor="end" font-size="11" fill="#2563eb">√MSE</text>';
     s += '<text x="' + (w / 2) + '" y="' + (h - 8) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor">|bias| = λ |θ|</text>';
     s += '<text x="16" y="' + (h / 2) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor" transform="rotate(-90 16 ' + (h / 2) + ')">σ_res = (1 − λ) σ</text>';
-    s += '<g transform="translate(' + (w - padR - 130) + ',' + (padT + 4) + ')" font-size="11" fill="currentColor"><rect x="-8" y="-12" width="138" height="84" fill="var(--background)" stroke="currentColor" stroke-opacity="0.25" rx="3"/><circle cx="6" cy="0" r="4" fill="#dc2626"/><text x="16" y="4">current λ</text><circle cx="6" cy="22" r="4" fill="#16a34a"/><text x="16" y="26">optimal λ*</text><line x1="0" y1="44" x2="14" y2="44" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.5"/><text x="20" y="48">frontier</text><line x1="0" y1="60" x2="14" y2="60" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" stroke-opacity="0.5"/><text x="20" y="64">√MSE level</text></g>';
+    s += '<g transform="translate(' + (w - padR - 130) + ',' + (padT + 4) + ')" font-size="11" fill="currentColor"><rect x="-8" y="-12" width="156" height="100" fill="var(--background)" stroke="currentColor" stroke-opacity="0.25" rx="3"/><circle cx="6" cy="0" r="4" fill="#dc2626"/><text x="16" y="4">current λ</text><circle cx="6" cy="22" r="4" fill="#16a34a"/><text x="16" y="26">optimal λ*</text><line x1="0" y1="44" x2="14" y2="44" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.5"/><text x="20" y="48">frontier (all λ)</text><line x1="0" y1="60" x2="14" y2="60" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" stroke-opacity="0.5"/><text x="20" y="64">equal-MSE arc</text><line x1="0" y1="76" x2="14" y2="76" stroke="#16a34a" stroke-width="1" stroke-dasharray="4 3" stroke-opacity="0.7"/><text x="20" y="80">smallest reachable MSE</text></g>';
     svg.innerHTML = s;
   }
   thetaSlider.addEventListener('input', update);

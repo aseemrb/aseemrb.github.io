@@ -6,7 +6,7 @@ slug: machine-level-obfuscation
 featured: false
 draft: false
 tags:
-  - code
+  - computer science
 description:
   A demonstration of how to obfuscate strings in C using floating-point numbers and machine endianness. Includes a code example that prints "ILOVEYOU" through seemingly random double values.
 ---

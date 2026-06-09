@@ -1,10 +1,10 @@
 ---
 author: Aseem Baranwal
-pubDatetime: 2026-04-29T00:22:00Z
+pubDatetime: 2026-03-15T00:22:00Z
 title: Heisenberg uncertainty as Fourier duality
 slug: heisenberg-uncertainty-as-fourier-duality
 featured: false
-draft: true
+draft: false
 tags:
   - physics
   - mathematics
@@ -30,9 +30,9 @@ $$
 \lambda \;=\; \frac{h}{p},
 $$
 
-where $p$ is the particle's momentum. This is confirmed in many experiments, from [electron diffraction through nickel crystals](https://en.wikipedia.org/wiki/Davisson%E2%80%93Germer_experiment) (Davisson and Germer, 1927) to [interference fringes for buckyballs](https://en.wikipedia.org/wiki/Matter_wave#Molecules) (Zeilinger et al., 1999) and recently for molecules of more than $25{,}000$ atomic mass units.
+where $p$ is the particle's momentum. This is confirmed in many experiments, from [electron diffraction through nickel crystals](https://en.wikipedia.org/wiki/Davisson%E2%80%93Germer_experiment) (Davisson and Germer, 1927) to [interference fringes for buckyballs](https://en.wikipedia.org/wiki/Matter_wave#Molecules) (Arndt et al., 1999) and, more recently, for molecules of more than $25{,}000$ atomic mass units (Fein et al., 2019).
 
-> We don't read this as an electron is sometimes a particle and sometimes a wave. We read it as: the **wave** is the fundamental object, and what we call the **particle** is just the localized point on a detector where a measurement of the wave is recorded.
+> We don't read this as saying that an electron is sometimes a particle and sometimes a wave. We read it as: the **wave** is the fundamental object, and what we call the **particle** is just the localized point on a detector where a measurement of the wave is recorded.
 
 In one dimensional space, the wave function is a complex-valued function $\psi(x)$ defined for every $x \in \mathbb R$. The **Born rule** assigns it a physical meaning:
 
@@ -110,13 +110,13 @@ Realistic wave functions sit between these two extremes. Squeezing the position 
 
 This tradeoff is well known from contexts that have nothing to do with quantum mechanics:
 
-- A radio engineer designing a transmitter knows that a pulse of duration $T$ contains frequencies spread over at least $\sim 1/T$. This is the constraint behind [channel bandwidth](https://en.wikipedia.org/wiki/Bandwidth_(signal_processing)) allocation: faster Morse keying or higher digital data rates need proportionally wider bands. The 22 MHz channel widths in Wi-Fi 802.11 are sized for the symbol rates [QAM modulation](https://en.wikipedia.org/wiki/Quadrature_amplitude_modulation) actually carries.
+- A radio engineer designing a transmitter knows that a pulse of duration $T$ contains frequencies spread over at least $\sim 1/T$. This is the constraint behind [channel bandwidth](https://en.wikipedia.org/wiki/Bandwidth_(signal_processing)) allocation: faster Morse keying or higher digital data rates need proportionally wider bands, which is why a Wi-Fi channel (tens of MHz) is thousands of times wider than an AM radio channel (about 10 kHz).
 - A pianist knows that hitting a key for $50$ ms gives a percussive thud with no clean pitch, while a sustained tone has a well-defined pitch. The difference is visible on a [spectrogram](https://en.wikipedia.org/wiki/Spectrogram): vertical streaks at the attack ([transients](https://en.wikipedia.org/wiki/Transient_(acoustics)) are broad in frequency, narrow in time) and clean horizontal lines once the note settles (narrow in frequency, extended in time).
 - An optical engineer knows that a small aperture diffracts a broad spot. Confining a beam in space spreads it in angle. This is the [Airy disk](https://en.wikipedia.org/wiki/Airy_disk) seen through a telescope and the diffraction-limited spot size of a laser focused through a lens.
 
 Each of these is the same mathematical statement, applied to time and frequency, or to space and angle, instead of position and wavenumber.
 
-The precise quantitative version, established with the constant $\tfrac{1}{2}$ by Hermann Weyl and others around 1928, is
+The precise quantitative version, first proved with the constant $\tfrac{1}{2}$ by Kennard (1927), is
 
 $$
 \sigma_x \, \sigma_k \;\ge\; \tfrac{1}{2}.
@@ -130,7 +130,7 @@ $$
 
 This is the **Heisenberg uncertainty relation**. The single factor of $\hbar$ that distinguishes it from a textbook signal-processing identity is just unit conversion.
 
-## See for yourself
+## The Gaussian wave packet
 
 The Gaussian wave packet has a particularly clean Fourier transform: another Gaussian. Take
 
@@ -146,9 +146,9 @@ $$
 
 The product $\sigma_x \sigma_p$ is locked at exactly $\hbar/2$. Among all wave functions, the Gaussian saturates the Heisenberg inequality at equality. Any other shape has a strictly larger product.
 
-In the widget below, $\hbar = 1$. Slide $\sigma_x$ and watch the position packet narrow while the momentum distribution widens, with the product fixed. The carrier momentum $p_0$ shifts the momentum peak sideways without changing its width; in position space, increasing $p_0$ packs more oscillations into the same envelope. The result is the **wave packet** picture: a localized blob whose internal oscillations have de Broglie wavelength $h/p_0$.
+In the widget below, $\hbar = 1$. Slide $\sigma_x$ and watch the position packet narrow while the momentum distribution widens, with the product fixed. The **carrier momentum** $p_0$, the packet's average momentum, shifts the momentum peak sideways without changing its width; in position space, increasing $p_0$ packs more oscillations into the same envelope. The result is the **wave packet** picture: a localized blob whose internal oscillations have de Broglie wavelength $h/p_0$.
 
-<div class="hu-widget" style="margin: 1.5rem 0; color: var(--foreground); padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.6rem 1.5rem; flex-wrap: wrap; align-items: flex-end; margin-bottom: 1rem; font-size: 0.9em;"><label style="display: flex; flex-direction: column; gap: 0.25rem; flex: 1 1 240px;"><span>position width: σ<sub>x</sub> = <strong id="hu-sx-val">1.00</strong></span><input id="hu-sx" type="range" min="0.3" max="4" step="0.02" value="1"></label><label style="display: flex; flex-direction: column; gap: 0.25rem; flex: 1 1 240px;"><span>carrier momentum: p<sub>0</sub> = <strong id="hu-p0-val">2.0</strong></span><input id="hu-p0" type="range" min="-3" max="3" step="0.05" value="2"></label></div><svg id="hu-svg" viewBox="0 0 720 380" style="width: 100%; max-width: 720px; height: auto; display: block; margin: 0 auto;" aria-label="Top panel: position-space wave packet with oscillating real part inside a Gaussian envelope. Bottom panel: momentum-space probability density. As σ_x shrinks, σ_p grows; the product is locked at ℏ/2."></svg><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.4rem 1rem; margin-top: 0.9rem; font-size: 0.92em;"><div>σ<sub>x</sub> = <strong id="hu-sx-disp">1.00</strong></div><div>σ<sub>p</sub> = <strong id="hu-sp-disp">0.50</strong></div><div>σ<sub>x</sub> · σ<sub>p</sub> = <strong id="hu-prod">0.50</strong> = ℏ/2</div><div style="opacity: 0.7;">(ℏ = 1 in these units)</div></div></div>
+<div class="hu-widget" style="margin: 1.5rem 0; color: var(--foreground); padding: 1.25rem; border: 1px solid currentColor; border-radius: 8px;"><div style="display: flex; gap: 0.6rem 1.5rem; flex-wrap: wrap; align-items: flex-end; margin-bottom: 1rem; font-size: 0.9em;"><label style="display: flex; flex-direction: column; gap: 0.25rem; flex: 1 1 240px;"><span>position width: σ<sub>x</sub> = <strong id="hu-sx-val">1.00</strong></span><input id="hu-sx" type="range" min="0.3" max="4" step="0.02" value="1"></label><label style="display: flex; flex-direction: column; gap: 0.25rem; flex: 1 1 240px;"><span>carrier momentum: p<sub>0</sub> = <strong id="hu-p0-val">2.0</strong></span><input id="hu-p0" type="range" min="-3" max="3" step="0.05" value="2"></label></div><svg id="hu-svg" viewBox="0 0 720 380" style="width: 100%; max-width: 720px; height: auto; display: block; margin: 0 auto;" aria-label="Top panel: position-space wave packet with oscillating real part inside a Gaussian envelope. Bottom panel: momentum-space probability density. As σ_x shrinks, σ_p grows; the product is locked at ℏ/2."></svg><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.4rem 1rem; margin-top: 0.9rem; font-size: 0.92em;"><div>σ<sub>x</sub> = <strong id="hu-sx-disp">1.00</strong></div><div>σ<sub>p</sub> = <strong id="hu-sp-disp">0.50</strong></div><div>σ<sub>x</sub> · σ<sub>p</sub> = <strong id="hu-prod">0.50</strong> = ℏ/2</div></div><div style="margin-top: 0.45rem; font-size: 0.88em; font-style: italic;">(units with ℏ = 1, so the bound ℏ/2 reads 0.50)</div></div>
 <script>
 (function () {
   var svg = document.getElementById('hu-svg');
@@ -201,8 +201,8 @@ In the widget below, $\hbar = 1$. Slide $\sigma_x$ and watch the position packet
     spDisp.textContent = sp.toFixed(2);
     prodDisp.textContent = (sx * sp).toFixed(2);
     var s = '';
-    s += '<text x="' + pad + '" y="' + (topY0 - 12) + '" font-size="12" fill="currentColor">position-space wave packet: Re <tspan font-style="italic">ψ</tspan>(<tspan font-style="italic">x</tspan>) inside Gaussian envelope</text>';
-    s += '<text x="' + pad + '" y="' + (botY0 - 12) + '" font-size="12" fill="currentColor">momentum-space probability density: |<tspan font-style="italic">ψ̃</tspan>(<tspan font-style="italic">p</tspan>)|²</text>';
+    s += '<text x="' + pad + '" y="' + (topY0 - 12) + '" font-size="12" fill="currentColor">position space (where the particle is): Re <tspan font-style="italic">ψ</tspan>(<tspan font-style="italic">x</tspan>) inside its Gaussian envelope</text>';
+    s += '<text x="' + pad + '" y="' + (botY0 - 12) + '" font-size="12" fill="currentColor">momentum space (how fast it moves): probability density |<tspan font-style="italic">ψ̃</tspan>(<tspan font-style="italic">p</tspan>)|²</text>';
     s += axes(topY0, topY1, xMin, xMax, 'x', 5);
     s += axes(botY0, botY1, pMin, pMax, 'p', 1);
     s += '<line x1="' + pad + '" y1="' + topMid + '" x2="' + (W - pad) + '" y2="' + topMid + '" stroke="currentColor" stroke-opacity="0.15"/>';
@@ -251,7 +251,7 @@ In the widget below, $\hbar = 1$. Slide $\sigma_x$ and watch the position packet
 
 ## A two-line proof, with the scaffolding spelled out
 
-The proof of $\sigma_x \sigma_p \ge \hbar/2$ uses three ingredients from the wave-function picture. Each looks heavy at first; each maps to something familiar.
+The proof of $\sigma_x \sigma_p \ge \hbar/2$ uses three ingredients from the wave-function picture.
 
 **(i) Operators.** A measurement is represented by a linear map on wave functions. The **position operator** is **multiply by $x$**:
 
@@ -289,7 +289,7 @@ $$
 [X, P]\psi(x) \;=\; x\bigl(-i\hbar \, \psi'(x)\bigr) \;-\; \bigl(-i\hbar \, (x\psi(x))'\bigr) \;=\; i\hbar \, \psi(x).
 $$
 
-So $[X, P] = i\hbar$ as an operator identity, holding on every state $\psi$. This is the fact that ultimately produces the $\hbar/2$ on the right of Heisenberg.
+So $[X, P] = i\hbar$ as an operator identity, holding on every state $\psi$. This is the fact that ultimately produces the $\hbar/2$ on the right-hand side of Heisenberg's inequality.
 
 With these ingredients, the proof is two lines. Define the centered operators $A' = A - \langle A\rangle$ and $B' = B - \langle B\rangle$ (these are also Hermitian). Apply the [Cauchy-Schwarz inequality](https://en.wikipedia.org/wiki/Cauchy%E2%80%93Schwarz_inequality), which says that for any two square-integrable functions $\varphi$ and $\chi$,
 
@@ -327,9 +327,9 @@ $$
 \sigma_x \, \sigma_p \;\ge\; \tfrac{\hbar}{2}.
 $$
 
-The right-hand side is the constant $\hbar/2$ for *every* state $\psi$, because the commutator $[X, P]$ is itself a state-independent constant. No matter how cleverly you prepare a particle, then, this product cannot drop below $\hbar/2$.
+The right-hand side is the constant $\hbar/2$ for *every* state $\psi$, because the commutator $[X, P]$ is itself a state-independent constant. No preparation of the particle brings the product below $\hbar/2$.
 
-## Why the Gaussian saturates
+## Equality holds only for Gaussians
 
 Cauchy-Schwarz becomes an equality precisely when one vector is a scalar multiple of the other. So the uncertainty bound is hit with equality only for states satisfying
 
@@ -345,13 +345,13 @@ $$
 
 Separating variables and integrating, $\psi(x)$ is a Gaussian envelope multiplied by a complex exponential. The **minimum-uncertainty wave packet** is exactly the Gaussian wave packet shown in the widget. That is why the readout never strays from $\sigma_x \sigma_p = 0.5$ no matter where you put the sliders.
 
-The Gaussian's recurring role across probability theory and harmonic analysis is not a coincidence: it is the unique (up to scaling) fixed point of the Fourier transform (its own Fourier transform is again a Gaussian), and the limit law of the [central limit theorem](/blog/why-sums-become-gaussian).
+The Gaussian's recurring role across probability theory and harmonic analysis is not a coincidence: its Fourier transform is again a Gaussian, and it is the limit law of the [central limit theorem](/blog/why-sums-become-gaussian).
 
-A square pulse, a Lorentzian, a triangular bump: all obey $\sigma_x \sigma_p > \hbar/2$ strictly. The Gaussian sits exactly on the boundary.
+A square pulse, a Lorentzian profile $1/(1+x^2)$, a triangular bump: all obey $\sigma_x \sigma_p > \hbar/2$ strictly. The Gaussian sits exactly on the boundary.
 
 ## Implications
 
-Some physical consequences whose status as Heisenberg corollaries is sometimes obscured:
+Several physical facts are direct corollaries of the inequality, though they are not usually presented that way:
 
 1. **Atomic stability.** Confining an electron to a region of size $r$ forces a momentum spread of order $\hbar/r$ by the inequality, hence a kinetic energy of order $\hbar^2/(2 m r^2)$. Coulomb attraction contributes potential energy $-e^2/r$. Minimizing the sum
 
@@ -363,7 +363,7 @@ Some physical consequences whose status as Heisenberg corollaries is sometimes o
 
 3. **Time-frequency duality.** The same inequality applied to time and angular frequency (a Fourier-conjugate pair, with $\hbar = 1$ since they are dimensionally inverse already) says a musical note of duration $T$ has its pitch defined to about $1/T$. Audio codecs like [MP3](https://en.wikipedia.org/wiki/MP3) and [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) face this tradeoff in their FFT [window length](https://en.wikipedia.org/wiki/Short-time_Fourier_transform): short windows preserve drum attacks but blur frequency, long windows resolve frequencies cleanly but smear transients into pre-echo artifacts. The codec switches between window sizes in response to the signal for exactly this reason.
 
-4. **Diffraction limit in microscopy.** Resolving features smaller than $\lambda/(2\,\mathrm{NA})$ requires light with a correspondingly large transverse momentum spread, which is what the numerical aperture controls. This is [Abbe's diffraction limit](https://en.wikipedia.org/wiki/Diffraction-limited_system#The_Abbe_diffraction_limit_for_a_microscope) of classical microscopy, and the obstacle that [super-resolution methods](https://en.wikipedia.org/wiki/Super-resolution_microscopy) like STED and PALM had to engineer around: work that won the 2014 Nobel Prize in Chemistry.
+4. **Diffraction limit in microscopy.** Resolving features smaller than $\lambda/(2\,\mathrm{NA})$ requires light with a correspondingly large transverse momentum spread, which is what the **numerical aperture** $\mathrm{NA}$ (a measure of the range of angles over which the lens accepts light) controls. This is [Abbe's diffraction limit](https://en.wikipedia.org/wiki/Diffraction-limited_system#The_Abbe_diffraction_limit_for_a_microscope) of classical microscopy, and the obstacle that [super-resolution methods](https://en.wikipedia.org/wiki/Super-resolution_microscopy) like STED and PALM had to engineer around: work that won the 2014 Nobel Prize in Chemistry.
 
 ## A common pitfall
 
@@ -376,6 +376,8 @@ The disturbance interpretation is fine pedagogy as long as it is taken as illust
 - Werner Heisenberg. *Über den anschaulichen Inhalt der quantentheoretischen Kinematik und Mechanik.* Zeitschrift für Physik, 43:172-198, 1927. The original (semi-rigorous) statement.
 - Earle Hesse Kennard. *Zur Quantenmechanik einfacher Bewegungstypen.* Zeitschrift für Physik, 44:326-352, 1927. The first explicit $\sigma_x \sigma_p \ge \hbar/2$.
 - H. P. Robertson. *The uncertainty principle.* Physical Review, 34(1):163-164, 1929. The general two-operator inequality used above.
+- Markus Arndt, Olaf Nairz, Julian Vos-Andreae, Claudia Keller, Gerbrand van der Zouw, Anton Zeilinger. *Wave-particle duality of C60 molecules.* Nature, 401(6754):680-682, 1999.
+- Yaakov Y. Fein, Philipp Geyer, Patrick Zwick, Filip Kiałka, Sebastian Pedalino, Marcel Mayor, Stefan Gerlich, Markus Arndt. *Quantum superposition of molecules beyond 25 kDa.* Nature Physics, 15(12):1242-1245, 2019.
 - John Stewart Bell. *Speakable and Unspeakable in Quantum Mechanics.* Cambridge University Press, 1987. Conceptual critique of the disturbance interpretation.
 - David J. Griffiths and Darrell F. Schroeter. *Introduction to Quantum Mechanics.* 3rd ed., Cambridge University Press, 2018. Sections 1.6 and 3.5 for the textbook proof.
 - Leon Cohen. *Time-Frequency Analysis: Theory and Applications.* Prentice Hall, 1995. The signal-processing reading of the same inequality.

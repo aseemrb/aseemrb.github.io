@@ -137,10 +137,11 @@ The crossover between the two sits at $t^\star = \|A\|_F^2 / \|A\|$. Below it th
       s += '<circle cx="' + xs.toFixed(1) + '" cy="' + yPx(hCross).toFixed(1) + '" r="3.5" fill="currentColor"/>';
       s += '<text x="' + xs.toFixed(1) + '" y="' + (padT - 8) + '" text-anchor="middle" font-size="11" fill="currentColor"><tspan font-style="italic">t</tspan><tspan baseline-shift="super" font-size="8">★</tspan></text>';
     }
-    s += '<text x="' + (padL + 8) + '" y="' + (padT + 14) + '" font-size="11" fill="' + SUBG + '">Gaussian: <tspan font-style="italic">t</tspan>²/‖A‖<tspan baseline-shift="sub" font-size="8">F</tspan><tspan baseline-shift="super" font-size="8">2</tspan></text>';
-    s += '<text x="' + (w - padR - 8) + '" y="' + (padT + 14) + '" text-anchor="end" font-size="11" fill="' + EXP + '">exponential: <tspan font-style="italic">t</tspan>/‖A‖</text>';
+    s += '<text x="' + (padL + 8) + '" y="' + (padT + 14) + '" font-size="11" fill="' + SUBG + '">Gaussian regime: rate <tspan font-style="italic">t</tspan>²/‖A‖<tspan baseline-shift="sub" font-size="8">F</tspan><tspan baseline-shift="super" font-size="8">2</tspan></text>';
+    s += '<text x="' + (w - padR - 8) + '" y="' + (padT + 14) + '" text-anchor="end" font-size="11" fill="' + EXP + '">exponential regime: rate <tspan font-style="italic">t</tspan>/‖A‖</text>';
+    s += '<text x="' + (w - padR - 8) + '" y="' + (h - padB - 10) + '" text-anchor="end" font-size="11" fill="' + POS + '">solid: the actual rate, the smaller of the two</text>';
     s += '<text x="' + (w / 2) + '" y="' + (h - 6) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor">deviation t</text>';
-    s += '<text x="13" y="' + (h / 2) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor" transform="rotate(-90 13 ' + (h / 2) + ')">rate in the exponent</text>';
+    s += '<text x="13" y="' + (h / 2) + '" text-anchor="middle" font-size="12" font-style="italic" fill="currentColor" transform="rotate(-90 13 ' + (h / 2) + ')">rate: tail probability ≤ 2 exp(−c · rate)</text>';
     svg.innerHTML = s;
   }
   froIn.addEventListener('input', update);

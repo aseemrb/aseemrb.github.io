@@ -1,5 +1,8 @@
 ---
 import { getCollection } from "astro:content";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -8,6 +11,7 @@ import LinkButton from "@/components/LinkButton.astro";
 import Card from "@/components/Card.astro";
 import Hr from "@/components/Hr.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
+import { getPath } from "@/utils/getPath";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
@@ -23,6 +27,11 @@ const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const featuredPublications = publicationsData.filter(pub => pub.featured);
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+const postDate = (pubDatetime: string | Date, tz: string | undefined) =>
+  dayjs(pubDatetime).tz(tz || SITE.timezone);
 ---
 
 <Layout>
@@ -81,10 +90,33 @@ const featuredPublications = publicationsData.filter(pub => pub.featured);
         <>
           <section id="recent-posts" class="pt-12 pb-6">
             <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
-            <ul>
+            <ul class="mt-4">
               {recentPosts.map(
-                (data, index) =>
-                  index < SITE.postPerIndex && <Card {...data} />
+                ({ id, filePath, data }, index) =>
+                  index < SITE.postPerIndex && (
+                    <li
+                      class="my-3 grid grid-cols-[1fr_auto] items-baseline gap-x-4"
+                      style="padding-inline-start: 0"
+                    >
+                      <LinkButton
+                        class="underline-offset-4 hover:text-accent"
+                        href={getPath(id, filePath)}
+                      >
+                        {data.title}
+                      </LinkButton>
+                      <time
+                        class="text-right font-mono text-sm whitespace-nowrap opacity-80"
+                        datetime={postDate(
+                          data.pubDatetime,
+                          data.timezone
+                        ).toISOString()}
+                      >
+                        {postDate(data.pubDatetime, data.timezone).format(
+                          "MMM D, YYYY"
+                        )}
+                      </time>
+                    </li>
+                  )
               )}
             </ul>
             <p class="mt-4">

@@ -100,8 +100,10 @@ Try it yourself. Slide $n$ and watch the chunky diamond at $n = 4$ sharpen into 
       var bh = (row[l] / maxC) * plotH;
       var bx = padL + l * barStep + (barStep - barW) / 2;
       var by = (h - padB) - bh;
-      s += '<rect x="' + bx.toFixed(2) + '" y="' + by.toFixed(2) + '" width="' + barW.toFixed(2) + '" height="' + bh.toFixed(2) + '" fill="#2563eb" fill-opacity="0.75"/>';
+      var isPeak = row[l] === maxC;
+      s += '<rect x="' + bx.toFixed(2) + '" y="' + by.toFixed(2) + '" width="' + barW.toFixed(2) + '" height="' + bh.toFixed(2) + '" fill="' + (isPeak ? '#dc2626' : '#2563eb') + '" fill-opacity="0.75"/>';
     }
+    s += '<text x="' + (padL + (n / 2 + 0.5) * barStep).toFixed(1) + '" y="' + (padT - 5) + '" text-anchor="middle" font-size="10" fill="#dc2626">peak at ℓ = n/2</text>';
     s += '<text x="' + (w / 2) + '" y="' + (h - 10) + '" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">level ℓ (number of 1s)</text>';
     s += '<text x="14" y="' + (h / 2) + '" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor" transform="rotate(-90 14 ' + (h / 2) + ')">C(n,ℓ)</text>';
     bars.innerHTML = s;

@@ -6,8 +6,8 @@ export const SITE = {
   title: "Aseem Raj Baranwal",
   ogImage: "",
   lightAndDarkMode: true,
-  postPerIndex: 4,
-  postPerPage: 6,
+  postPerIndex: 10,
+  postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: false,
   showBackButton: false, // show back button in post detail
