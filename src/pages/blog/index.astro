@@ -74,7 +74,7 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
         <p id="search-status" class="text-sm opacity-70"></p>
         <ul id="search-results" style="padding-left: 0"></ul>
       </div>
-      <ul id="post-list" style="padding-left: 0">
+      <ul id="post-list" style="padding-left: 0" data-page-size={SITE.postPerPage}>
         {sorted.map(({ id, filePath, data }) => (
           <li
             class="post-item my-6"
@@ -129,7 +129,8 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
     ? Array.from(postList.querySelectorAll<HTMLElement>(".post-item"))
     : [];
 
-  const PAGE_SIZE = 10;
+  const PAGE_SIZE =
+    parseInt((postList as HTMLElement | null)?.dataset.pageSize ?? "", 10) || 10;
   let currentPage = 1;
   const pagination = document.querySelector<HTMLElement>("#blog-pagination");
   const prevBtn = document.querySelector<HTMLButtonElement>("#page-prev");
