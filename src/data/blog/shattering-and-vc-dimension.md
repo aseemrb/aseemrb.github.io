@@ -63,16 +63,18 @@ The counting is exact, and the widget below makes it concrete. Click a point to 
     var pos = [], neg = [];
     for (var i = 0; i < P.length; i++) { (lab[i] > 0 ? pos : neg).push(P[i]); }
     if (pos.length === 0 || neg.length === 0) return { trivial: true };
-    var STEPS = 720;
+    var STEPS = 720, best = null, bestMargin = 1e-6;
     for (var k = 0; k < STEPS; k++) {
       var th = Math.PI * k / STEPS, wx = Math.cos(th), wy = Math.sin(th);
       var maxN = -1e18, minN = 1e18, maxP = -1e18, minP = 1e18;
       for (var a = 0; a < pos.length; a++) { var pp = wx * pos[a][0] + wy * pos[a][1]; if (pp > maxP) maxP = pp; if (pp < minP) minP = pp; }
       for (var b = 0; b < neg.length; b++) { var nn = wx * neg[b][0] + wy * neg[b][1]; if (nn > maxN) maxN = nn; if (nn < minN) minN = nn; }
-      if (maxN < minP) return { wx: wx, wy: wy, t: (maxN + minP) / 2 };
-      if (maxP < minN) { var m = (maxP + minN) / 2; return { wx: -wx, wy: -wy, t: -m }; }
+      // Keep the widest-margin separating direction so the drawn line sits in the
+      // middle of the gap rather than grazing a point (the first match can be degenerate).
+      if (minP - maxN > bestMargin) { bestMargin = minP - maxN; best = { wx: wx, wy: wy, t: (maxN + minP) / 2 }; }
+      if (minN - maxP > bestMargin) { bestMargin = minN - maxP; best = { wx: -wx, wy: -wy, t: -(maxP + minN) / 2 }; }
     }
-    return null;
+    return best;
   }
   function countReal() {
     var n = pts.length, c = 0;
