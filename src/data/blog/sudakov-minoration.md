@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2026-06-06T15:22:00Z
 title: Sudakov minoration, or how big a maximum must be
 slug: sudakov-minoration

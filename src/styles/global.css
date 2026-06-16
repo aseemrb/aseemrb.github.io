@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "./typography.css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=midnight], [data-theme=midnight] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=midnight], [data-theme=midnight] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *, [data-theme=rays], [data-theme=rays] *));
 
 :root,
 html[data-theme="default"] {
@@ -48,10 +48,10 @@ html[data-theme="midnight"] {
   --border: #1f242f;
 }
 
-/* Let the themed backgrounds (Starfield.astro, Nebula.astro) show through the
-   navbar so the pointer effect reads as one continuous surface from the top. */
-html[data-theme="midnight"] #top-nav-wrap,
-html[data-theme="cyber"] #top-nav-wrap {
+/* Let the themed backgrounds (Nebula.astro, LightRays.astro) show through the
+   navbar so it reads as one continuous surface from the top. */
+html[data-theme="cyber"] #top-nav-wrap,
+html[data-theme="rays"] #top-nav-wrap {
   background-color: transparent;
 }
 
@@ -80,6 +80,16 @@ html[data-theme="carbon"] {
   --accent: #fb7185;
   --muted: #3f3f46;
   --border: #27272a;
+}
+
+/* Light Rays: a near-black cool base so the volumetric rays (LightRays.astro)
+   read clearly from the top of the viewport. */
+html[data-theme="rays"] {
+  --background: #070b12;
+  --foreground: #e6ecf5;
+  --accent: #7cc4ff;
+  --muted: #1a2130;
+  --border: #1a2130;
 }
 
 /* Option 6: Snow (Cool & Crisp) */
@@ -189,13 +199,15 @@ html[data-theme="obsidian"] .chrome-svg-light,
 html[data-theme="midnight"] .chrome-svg-light,
 html[data-theme="forest"] .chrome-svg-light,
 html[data-theme="cyber"] .chrome-svg-light,
-html[data-theme="carbon"] .chrome-svg-light { display: none; }
+html[data-theme="carbon"] .chrome-svg-light,
+html[data-theme="rays"] .chrome-svg-light { display: none; }
 html[data-theme="dark"] .chrome-svg-dark,
 html[data-theme="obsidian"] .chrome-svg-dark,
 html[data-theme="midnight"] .chrome-svg-dark,
 html[data-theme="forest"] .chrome-svg-dark,
 html[data-theme="cyber"] .chrome-svg-dark,
-html[data-theme="carbon"] .chrome-svg-dark { display: block; }
+html[data-theme="carbon"] .chrome-svg-dark,
+html[data-theme="rays"] .chrome-svg-dark { display: block; }
 
 /* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
 /* Anything that has been anchored to should have extra scroll margin */

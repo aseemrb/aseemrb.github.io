@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2014-11-23T15:22:00Z
 title: First interview experience
 slug: first-interview-experience

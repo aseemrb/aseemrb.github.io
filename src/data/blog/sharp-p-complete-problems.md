@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2016-03-25T15:22:00Z
 title: "Some more #P complete problems"
 slug: sharp-p-complete-problems

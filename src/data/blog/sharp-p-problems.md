@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2016-03-23T15:22:00Z
 title: "The complexity class of #P problems"
 slug: sharp-p-problems

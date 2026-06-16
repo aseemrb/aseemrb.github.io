@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2023-11-07T15:22:00Z
 title: The Newton fractal
 slug: newton-fractal

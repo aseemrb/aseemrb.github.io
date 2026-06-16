@@ -1,6 +1,6 @@
 ---
 title: St. Petersburg paradox
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2017-08-26T15:22:00Z
 slug: st-petersburg-paradox
 featured: false

@@ -1,0 +1,377 @@
+---
+// Volumetric light rays for the Rays theme. A fullscreen WebGL shader paints
+// god-rays from the top of the viewport; they shimmer slowly and bend a little
+// toward the pointer. Ported from the reactbits "Light Rays" effect (originally
+// React + OGL) to plain WebGL so it slots into the themed-canvas pattern used by
+// Starfield.astro and Nebula.astro — no extra dependencies.
+---
+
+<canvas id="light-rays" aria-hidden="true"></canvas>
+
+<style>
+  #light-rays {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    display: none;
+  }
+  html[data-theme="rays"] #light-rays {
+    display: block;
+  }
+</style>
+
+<script>
+  let teardown: (() => void) | null = null;
+
+  function setupLightRays() {
+    // Tear down any previous instance so re-init (e.g. view transitions) is safe.
+    teardown?.();
+    teardown = null;
+
+    const canvas = document.getElementById("light-rays") as HTMLCanvasElement | null;
+    if (!canvas) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const isRays = () =>
+      document.documentElement.getAttribute("data-theme") === "rays";
+
+    // ---- tunables (mirror the reactbits LightRays props) ----------------
+    const RAYS_COLOR: [number, number, number] = [0.82, 0.9, 1.0]; // cool white
+    const RAYS_SPEED = 0.9; // shimmer rate
+    const LIGHT_SPREAD = 1.0; // beam tightness (smaller = sharper)
+    const RAY_LENGTH = 1.3; // how far down the rays reach
+    const PULSATING = 0.0; // 1 = breathe in/out
+    const FADE_DISTANCE = 1.0;
+    const SATURATION = 1.0;
+    const MOUSE_INFLUENCE = 0.1; // how much the beams lean toward the pointer
+    const NOISE_AMOUNT = 0.05; // faint grain so beams aren't glassy
+    const DISTORTION = 0.0;
+    const INTENSITY = 0.85; // master brightness, keeps text legible underneath
+    const ORIGIN = "top-center";
+
+    // ---- shaders --------------------------------------------------------
+    const VERT = `
+attribute vec2 position;
+void main() {
+  gl_Position = vec4(position, 0.0, 1.0);
+}`;
+
+    const FRAG = `precision highp float;
+
+uniform float iTime;
+uniform vec2  iResolution;
+
+uniform vec2  rayPos;
+uniform vec2  rayDir;
+uniform vec3  raysColor;
+uniform float raysSpeed;
+uniform float lightSpread;
+uniform float rayLength;
+uniform float pulsating;
+uniform float fadeDistance;
+uniform float saturation;
+uniform vec2  mousePos;
+uniform float mouseInfluence;
+uniform float noiseAmount;
+uniform float distortion;
+uniform float intensity;
+
+float noise(vec2 st) {
+  return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+float rayStrength(vec2 raySource, vec2 rayRefDirection, vec2 coord,
+                  float seedA, float seedB, float speed) {
+  vec2 sourceToCoord = coord - raySource;
+  vec2 dirNorm = normalize(sourceToCoord);
+  float cosAngle = dot(dirNorm, rayRefDirection);
+
+  float distortedAngle = cosAngle + distortion * sin(iTime * 2.0 + length(sourceToCoord) * 0.01) * 0.2;
+
+  float spreadFactor = pow(max(distortedAngle, 0.0), 1.0 / max(lightSpread, 0.001));
+
+  float distance = length(sourceToCoord);
+  float maxDistance = iResolution.x * rayLength;
+  float lengthFalloff = clamp((maxDistance - distance) / maxDistance, 0.0, 1.0);
+
+  float fadeFalloff = clamp((iResolution.x * fadeDistance - distance) / (iResolution.x * fadeDistance), 0.5, 1.0);
+  float pulse = pulsating > 0.5 ? (0.8 + 0.2 * sin(iTime * speed * 3.0)) : 1.0;
+
+  float baseStrength = clamp(
+    (0.45 + 0.15 * sin(distortedAngle * seedA + iTime * speed)) +
+    (0.3 + 0.2 * cos(-distortedAngle * seedB + iTime * speed)),
+    0.0, 1.0
+  );
+
+  return baseStrength * lengthFalloff * fadeFalloff * spreadFactor * pulse;
+}
+
+void mainImage(out vec4 fragColor, in vec2 fragCoord) {
+  vec2 coord = vec2(fragCoord.x, iResolution.y - fragCoord.y);
+
+  vec2 finalRayDir = rayDir;
+  if (mouseInfluence > 0.0) {
+    vec2 mouseScreenPos = mousePos * iResolution.xy;
+    vec2 mouseDirection = normalize(mouseScreenPos - rayPos);
+    finalRayDir = normalize(mix(rayDir, mouseDirection, mouseInfluence));
+  }
+
+  vec4 rays1 = vec4(1.0) *
+               rayStrength(rayPos, finalRayDir, coord, 36.2214, 21.11349,
+                           1.5 * raysSpeed);
+  vec4 rays2 = vec4(1.0) *
+               rayStrength(rayPos, finalRayDir, coord, 22.3991, 18.0234,
+                           1.1 * raysSpeed);
+
+  fragColor = rays1 * 0.5 + rays2 * 0.4;
+
+  if (noiseAmount > 0.0) {
+    float n = noise(coord * 0.01 + iTime * 0.1);
+    fragColor.rgb *= (1.0 - noiseAmount + noiseAmount * n);
+  }
+
+  float brightness = 1.0 - (coord.y / iResolution.y);
+  fragColor.x *= 0.1 + brightness * 0.8;
+  fragColor.y *= 0.3 + brightness * 0.6;
+  fragColor.z *= 0.5 + brightness * 0.5;
+
+  if (saturation != 1.0) {
+    float gray = dot(fragColor.rgb, vec3(0.299, 0.587, 0.114));
+    fragColor.rgb = mix(vec3(gray), fragColor.rgb, saturation);
+  }
+
+  fragColor.rgb *= raysColor * intensity;
+}
+
+void main() {
+  vec4 color;
+  mainImage(color, gl_FragCoord.xy);
+  gl_FragColor = color;
+}`;
+
+    // top-center anchor matches reactbits' getAnchorAndDir; rays spill in from
+    // 20% above the top edge and point straight down.
+    function anchorAndDir(w: number, h: number): {
+      anchor: [number, number];
+      dir: [number, number];
+    } {
+      const outside = 0.2;
+      switch (ORIGIN) {
+        default: // top-center
+          return { anchor: [0.5 * w, -outside * h], dir: [0, 1] };
+      }
+    }
+
+    // ---- WebGL state (built lazily on first activation) -----------------
+    let gl: WebGLRenderingContext | null = null;
+    let uni: Record<string, WebGLUniformLocation | null> = {};
+    let bw = 0;
+    let bh = 0;
+    let rafId = 0;
+    let running = false;
+    let built = false;
+    let buildFailed = false;
+
+    const mouse = { x: 0.5, y: 0.5 };
+    const smooth = { x: 0.5, y: 0.5 };
+
+    function compile(g: WebGLRenderingContext, type: number, src: string) {
+      const sh = g.createShader(type);
+      if (!sh) return null;
+      g.shaderSource(sh, src);
+      g.compileShader(sh);
+      if (!g.getShaderParameter(sh, g.COMPILE_STATUS)) {
+        console.warn("LightRays shader compile error:", g.getShaderInfoLog(sh));
+        g.deleteShader(sh);
+        return null;
+      }
+      return sh;
+    }
+
+    function build() {
+      if (built || buildFailed) return;
+      gl = (canvas!.getContext("webgl", {
+        alpha: true,
+        antialias: true,
+        premultipliedAlpha: true,
+        depth: false,
+      }) ||
+        canvas!.getContext(
+          "experimental-webgl"
+        )) as WebGLRenderingContext | null;
+      if (!gl) {
+        buildFailed = true;
+        return;
+      }
+
+      const vs = compile(gl, gl.VERTEX_SHADER, VERT);
+      const fs = compile(gl, gl.FRAGMENT_SHADER, FRAG);
+      if (!vs || !fs) {
+        buildFailed = true;
+        return;
+      }
+      const prog = gl.createProgram();
+      if (!prog) {
+        buildFailed = true;
+        return;
+      }
+      gl.attachShader(prog, vs);
+      gl.attachShader(prog, fs);
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+        console.warn("LightRays link error:", gl.getProgramInfoLog(prog));
+        buildFailed = true;
+        return;
+      }
+      gl.useProgram(prog);
+
+      // Fullscreen triangle (covers the viewport in clip space).
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(
+        gl.ARRAY_BUFFER,
+        new Float32Array([-1, -1, 3, -1, -1, 3]),
+        gl.STATIC_DRAW
+      );
+      const posLoc = gl.getAttribLocation(prog, "position");
+      gl.enableVertexAttribArray(posLoc);
+      gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+      const names = [
+        "iTime", "iResolution", "rayPos", "rayDir", "raysColor", "raysSpeed",
+        "lightSpread", "rayLength", "pulsating", "fadeDistance", "saturation",
+        "mousePos", "mouseInfluence", "noiseAmount", "distortion", "intensity",
+      ];
+      uni = {};
+      for (const n of names) uni[n] = gl.getUniformLocation(prog, n);
+
+      // Static uniforms — set once.
+      gl.uniform3fv(uni.raysColor, RAYS_COLOR);
+      gl.uniform1f(uni.raysSpeed, RAYS_SPEED);
+      gl.uniform1f(uni.lightSpread, LIGHT_SPREAD);
+      gl.uniform1f(uni.rayLength, RAY_LENGTH);
+      gl.uniform1f(uni.pulsating, PULSATING);
+      gl.uniform1f(uni.fadeDistance, FADE_DISTANCE);
+      gl.uniform1f(uni.saturation, SATURATION);
+      gl.uniform1f(uni.mouseInfluence, reduceMotion ? 0 : MOUSE_INFLUENCE);
+      gl.uniform1f(uni.noiseAmount, NOISE_AMOUNT);
+      gl.uniform1f(uni.distortion, DISTORTION);
+      gl.uniform1f(uni.intensity, INTENSITY);
+
+      gl.clearColor(0, 0, 0, 0);
+      built = true;
+    }
+
+    function resize() {
+      if (!gl) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const wCSS = window.innerWidth;
+      const hCSS = window.innerHeight;
+      bw = Math.floor(wCSS * dpr);
+      bh = Math.floor(hCSS * dpr);
+      canvas!.width = bw;
+      canvas!.height = bh;
+      canvas!.style.width = `${wCSS}px`;
+      canvas!.style.height = `${hCSS}px`;
+      gl.viewport(0, 0, bw, bh);
+      gl.uniform2f(uni.iResolution, bw, bh);
+      const { anchor, dir } = anchorAndDir(bw, bh);
+      gl.uniform2f(uni.rayPos, anchor[0], anchor[1]);
+      gl.uniform2f(uni.rayDir, dir[0], dir[1]);
+    }
+
+    function renderFrame(timeMs: number) {
+      if (!gl) return;
+      gl.uniform1f(uni.iTime, timeMs * 0.001);
+      if (!reduceMotion && MOUSE_INFLUENCE > 0) {
+        // Ease the pointer so the beams glide rather than snap.
+        smooth.x = smooth.x * 0.92 + mouse.x * 0.08;
+        smooth.y = smooth.y * 0.92 + mouse.y * 0.08;
+        gl.uniform2f(uni.mousePos, smooth.x, smooth.y);
+      }
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+
+    function loop(t: number) {
+      if (!running) return;
+      renderFrame(t);
+      rafId = requestAnimationFrame(loop);
+    }
+
+    function start() {
+      if (running) return;
+      running = true;
+      rafId = requestAnimationFrame(loop);
+    }
+
+    function stop() {
+      running = false;
+      cancelAnimationFrame(rafId);
+    }
+
+    function onMove(e: PointerEvent) {
+      mouse.x = e.clientX / window.innerWidth;
+      mouse.y = e.clientY / window.innerHeight;
+    }
+
+    function onVisibility() {
+      if (!active) return;
+      if (document.hidden) stop();
+      else if (!reduceMotion) start();
+    }
+
+    // ---- activation gated on the Rays theme -----------------------------
+    let active = false;
+
+    function activate() {
+      if (active) return;
+      active = true;
+      if (!built) build();
+      if (!gl || buildFailed) return;
+      resize();
+      window.addEventListener("resize", resize);
+      document.addEventListener("visibilitychange", onVisibility);
+      if (reduceMotion) {
+        renderFrame(0); // single static frame
+      } else {
+        window.addEventListener("pointermove", onMove, { passive: true });
+        start();
+      }
+    }
+
+    function deactivate() {
+      if (!active) return;
+      active = false;
+      stop();
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("pointermove", onMove);
+      document.removeEventListener("visibilitychange", onVisibility);
+      gl?.clear(gl.COLOR_BUFFER_BIT);
+    }
+
+    const syncTheme = () => (isRays() ? activate() : deactivate());
+
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    syncTheme();
+
+    teardown = () => {
+      observer.disconnect();
+      deactivate();
+    };
+  }
+
+  setupLightRays();
+  document.addEventListener("astro:after-swap", setupLightRays);
+</script>

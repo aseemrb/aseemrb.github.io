@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2016-05-26T15:22:00Z
 title: Weird but awesome Javascript
 slug: weird-awesome-javascript

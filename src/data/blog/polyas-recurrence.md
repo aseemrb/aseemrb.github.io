@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2026-04-25T15:22:00Z
 title: Pólya's recurrence theorem
 slug: polyas-recurrence

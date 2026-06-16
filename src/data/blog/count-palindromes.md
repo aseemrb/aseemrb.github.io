@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2019-07-20T15:22:00Z
 title: Fast and online palindrome counting
 slug: count-palindromes

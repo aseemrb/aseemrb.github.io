@@ -1,6 +1,6 @@
 ---
 title: Common join algorithms
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2017-03-18T15:22:00Z
 slug: common-join-algorithms
 featured: false

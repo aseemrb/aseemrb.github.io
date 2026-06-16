@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2018-10-31T15:22:00Z
 title: Lunch with Donald Knuth
 slug: lunch-with-knuth

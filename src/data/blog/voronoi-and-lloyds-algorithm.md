@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2026-04-26T15:22:00Z
 title: Voronoi tessellations and Lloyd's algorithm
 slug: voronoi-and-lloyds-algorithm

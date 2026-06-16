@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2026-04-18T15:22:00Z
 title: High-dimensional Gaussians live on a sphere
 slug: high-dimensional-gaussians-on-a-sphere

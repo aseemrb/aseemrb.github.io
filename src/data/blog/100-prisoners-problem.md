@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2025-10-12T21:22:00Z
 title: The 100 prisoners problem
 slug: 100-prisoners-problem

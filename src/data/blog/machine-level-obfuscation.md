@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2015-01-25T15:22:00Z
 title: Machine level obfuscation
 slug: machine-level-obfuscation

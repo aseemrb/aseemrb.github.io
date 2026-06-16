@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2018-05-29T15:22:00Z
 title: An analogy for the Doppler effect
 slug: doppler-effect

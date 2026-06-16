@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2024-04-25T15:22:00Z
 title: Marchenko-Pastur and the Wigner semicircle
 slug: marchenko-pastur-and-wigner-semicircle

@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2026-06-07T15:22:00Z
 title: Covering the sphere with ε-nets
 slug: epsilon-nets-on-the-sphere

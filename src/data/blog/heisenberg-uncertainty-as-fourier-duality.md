@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2026-03-15T00:22:00Z
 title: Heisenberg uncertainty as Fourier duality
 slug: heisenberg-uncertainty-as-fourier-duality

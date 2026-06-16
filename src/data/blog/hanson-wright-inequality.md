@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2026-06-07T18:30:00Z
 title: The Hanson–Wright inequality
 slug: hanson-wright-inequality

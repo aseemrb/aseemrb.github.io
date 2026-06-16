@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2023-07-22T10:00:00Z
 title: Nearest neighbor breaks in high dimensions
 slug: nearest-neighbor-breaks-in-high-dimensions

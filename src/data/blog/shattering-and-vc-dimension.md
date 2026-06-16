@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2026-06-09T16:00:00Z
 title: Shattering and the VC dimension
 slug: shattering-and-vc-dimension

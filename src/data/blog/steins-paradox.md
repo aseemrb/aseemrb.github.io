@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2024-04-19T15:22:00Z
 title: Stein's paradox
 slug: steins-paradox

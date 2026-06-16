@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2025-01-16T15:22:00Z
 title: Optimal message passing on sparse graphs
 slug: optimal-message-passing-sparse-graphs

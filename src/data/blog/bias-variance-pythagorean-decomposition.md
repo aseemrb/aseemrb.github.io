@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2026-04-30T18:00:00Z
 title: Bias-variance is a Pythagorean decomposition
 slug: bias-variance-pythagorean-decomposition

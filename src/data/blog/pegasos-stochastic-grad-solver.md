@@ -1,6 +1,6 @@
 ---
 title: Implementing PEGASOS
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2016-06-17T15:22:00Z
 slug: pegasos-stochastic-grad-solver
 featured: false

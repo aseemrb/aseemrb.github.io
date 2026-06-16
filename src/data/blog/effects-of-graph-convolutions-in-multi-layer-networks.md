@@ -1,5 +1,5 @@
 ---
-author: Aseem Baranwal
+author: Aseem Raj Baranwal
 pubDatetime: 2023-02-07T15:22:00Z
 title: Effects of graph convolutions in multi-layer networks
 slug: effects-of-graph-convolutions-in-multi-layer-networks
