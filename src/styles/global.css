@@ -21,13 +21,14 @@ html[data-theme="obsidian"] {
   --border: #262626;
 }
 
-/* Option: Sand (Warm & Cozy) */
+/* Rose (soft red accent on a warm rose-white base) — picker label "Rose".
+   Light counterpart to the dark red Coral theme; legacy value "sand". */
 html[data-theme="sand"] {
-  --background: #faf6ef;
-  --foreground: #3a2e1f;
-  --accent: #b4541e;
-  --muted: #ece4d3;
-  --border: #e3d9c2;
+  --background: #fbf2f1;
+  --foreground: #3a2225;
+  --accent: #c43a3f;
+  --muted: #f1dcdc;
+  --border: #ecd0d0;
 }
 
 /* Option: Sage (Calm & Botanical) */
