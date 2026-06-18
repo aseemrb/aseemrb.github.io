@@ -130,10 +130,9 @@ const structuredData = {
     }
 
     <script is:inline src="/toggle-theme.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
-    />
+    <!-- Self-hosted KaTeX CSS + fonts (public/katex/), so the site makes zero
+         third-party requests. Version matches the installed katex used to render. -->
+    <link rel="stylesheet" href="/katex/katex.min.css" />
   </head>
   <body>
     <Nebula />
