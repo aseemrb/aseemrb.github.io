@@ -95,17 +95,17 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
         <button
           id="page-prev"
           type="button"
-          class="group me-4 inline-flex cursor-pointer items-center select-none hover:text-accent disabled:cursor-default disabled:opacity-50 disabled:hover:text-foreground"
+          class="group me-4 inline-flex cursor-pointer items-center text-foreground select-none hover:text-accent disabled:cursor-default disabled:text-(--muted-foreground) disabled:hover:text-(--muted-foreground)"
           aria-label="Previous page"
         >
           <IconArrowLeft class="inline-block rtl:rotate-180" />
           Prev
         </button>
-        <span id="page-status" class="font-mono text-sm"></span>
+        <span id="page-status" class="font-mono text-sm text-foreground"></span>
         <button
           id="page-next"
           type="button"
-          class="group ms-4 inline-flex cursor-pointer items-center select-none hover:text-accent disabled:cursor-default disabled:opacity-50 disabled:hover:text-foreground"
+          class="group ms-4 inline-flex cursor-pointer items-center text-foreground select-none hover:text-accent disabled:cursor-default disabled:text-(--muted-foreground) disabled:hover:text-(--muted-foreground)"
           aria-label="Next page"
         >
           Next

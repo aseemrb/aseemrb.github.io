@@ -139,6 +139,15 @@ html[data-theme="snow"] body::before {
   --color-border: var(--border);
 }
 
+/* A muted foreground derived from each theme's own fg/bg. De-emphasized text
+   (e.g. disabled controls) should use this so it stays legible on dark themes,
+   rather than being dimmed with opacity (which reads as dull/washed-out when the
+   foreground is light). color-mix resolves --foreground at the using element, so
+   one definition adapts to every theme. */
+:root {
+  --muted-foreground: color-mix(in srgb, var(--foreground) 60%, var(--background));
+}
+
 @layer base {
   * {
     @apply border-border outline-accent/75;
