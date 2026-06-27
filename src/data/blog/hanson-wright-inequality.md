@@ -46,7 +46,7 @@ $$
 \mathbb{E}\,e^{s(g_i^2 - 1)} = \frac{e^{-s}}{\sqrt{1 - 2s}} \;\le\; e^{2 s^2} \qquad \text{for } |s| \le \tfrac{1}{4}.
 $$
 
-Scaling the $i$-th term by $\lambda_i$ and using independence, the cumulant generating function of the whole sum is at most
+Scaling the $i$-th term by $\lambda_i$ and using independence, the cumulant generating function (the logarithm of the moment generating function) of the whole sum is at most
 
 $$
 \ln \mathbb{E}\, e^{\,s \sum_i \lambda_i (g_i^2 - 1)} = \sum_i \ln \mathbb{E}\, e^{\,s \lambda_i (g_i^2 - 1)} \;\le\; 2 s^2 \sum_i \lambda_i^2 = 2 s^2\, \|A\|_F^2,
@@ -55,7 +55,7 @@ $$
 
 where $\|A\|_F^2 = \sum_i \lambda_i^2$ is the squared **Frobenius norm** and the band $|s| \le \tfrac{1}{4\|A\|}$ comes from needing $|s\lambda_i| \le \tfrac{1}{4}$ for every $i$, with $\|A\| = \max_i |\lambda_i|$ the **operator norm** (the largest singular value).
 
-This is the cumulant bound of a Bernstein-type variable: a Gaussian-like $s^2$ term, but valid only inside a band whose width is set by $\|A\|$. Optimizing the Chernoff bound $\Pr[S \ge t] \le \exp(-st + 2 s^2 \|A\|_F^2)$ over $s$ in that band gives the two regimes. For small $t$ the optimal $s$ stays inside the band and the bound is Gaussian; for large $t$ the optimum is pinned at the edge $s = \tfrac{1}{4\|A\|}$ and the bound is exponential. Together,
+This is the cumulant bound of a Bernstein-type variable: a Gaussian-like $s^2$ term, but valid only inside a band whose width is set by $\|A\|$. Optimizing the Chernoff bound $\Pr[S \ge t] \le \exp(-st + 2 s^2 \|A\|_F^2)$ (Markov's inequality applied to $e^{sS}$) over $s$ in that band gives the two regimes. For small $t$ the optimal $s$ stays inside the band and the bound is Gaussian; for large $t$ the optimum is pinned at the edge $s = \tfrac{1}{4\|A\|}$ and the bound is exponential. Together,
 
 $$
 \Pr\big[\,|X^\top A X - \operatorname{tr}(A)| \ge t\,\big] \;\le\; 2\exp\!\left(-\frac{1}{8}\min\!\left(\frac{t^2}{\|A\|_F^2},\; \frac{t}{\|A\|}\right)\right).

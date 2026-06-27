@@ -18,7 +18,7 @@ In our [NeurIPS 2023 paper](https://arxiv.org/abs/2305.10391) with [Kimon Founto
 
 ## The model
 
-We work with the **contextual stochastic block model** (CSBM), a latent-class model with both graph and feature signal. Each of the $n$ nodes is assigned one of $C$ classes; conditional on class assignments, edges are placed independently with class-pair probabilities $q_{ij} = b_{ij}/n$, and node features are drawn i.i.d. from class-conditional distributions $P_1, \ldots, P_C$. Two SNR-like parameters drive everything:
+We work with the **contextual stochastic block model** (CSBM), a latent-class model with both graph and feature signal. Each of the $n$ nodes is assigned one of $C$ classes; conditional on class assignments, edges are placed independently with class-pair probabilities $q_{ij} = b_{ij}/n$, and node features are drawn i.i.d. from class-conditional distributions $P_1, \ldots, P_C$. Two parameters, each behaving like a signal-to-noise ratio (SNR), drive everything:
 
 - **Feature SNR** $\gamma$: how separable the class-conditional feature distributions are. For symmetric Gaussians $\mathcal{N}(\pm\boldsymbol{\mu}, \sigma^2 I)$, $\gamma = \lVert\boldsymbol{\mu}\rVert_2 / \sigma$.
 - **Graph SNR** $\Gamma$: how informative the graph is. For two balanced classes with intra-class edge probability $a/n$ and inter-class $b/n$, $\Gamma = (a-b)/(a+b)$.
@@ -27,7 +27,7 @@ The $1/n$ scaling makes node degrees Poisson with constant mean, which is exactl
 
 ## What "optimal" means
 
-The Bayes-optimal classifier, which minimizes 0-1 risk given the entire graph and all features, is intractable to write down: it depends on every edge and every feature vector. So we ask a slightly weaker question.
+The Bayes-optimal classifier, which minimizes 0-1 risk (the probability of guessing the wrong class) given the entire graph and all features, is intractable to write down: it depends on every edge and every feature vector. So we ask a slightly weaker question.
 
 Fix a node $v$. In the sparse regime, $v$'s $\ell$-hop neighborhood is, with high probability, a tree (a classical fact about locally tree-like sparse random graphs). Define an **$\ell$-locally Bayes optimal** classifier as one that minimizes 0-1 risk among all classifiers depending only on the $\ell$-hop neighborhood of $v$. Then ask: as $\ell$ and $n$ grow, is there a clean form for the limit?
 
@@ -106,7 +106,7 @@ Yes, and it's a message-passing architecture.
 
 *Every neighbor $u$ at distance $k$ from $v$ contributes a per-distance, per-class log-likelihood message $m^{(k)}_c(\mathbf{X}_u)$. Far-away neighbors carry exponentially less weight ($\Gamma^k$ decay, shown as smaller, dimmer arrows). All messages aggregate into a score for each class; the prediction is the argmax.*
 
-The asymptotic $\ell$-locally Bayes optimal predictor at node $v$ is a maximum-a-posteriori classifier over its tree-like neighborhood, schematically:
+The asymptotic $\ell$-locally Bayes optimal predictor at node $v$ is a maximum-a-posteriori classifier (it picks the class with the highest posterior probability) over its tree-like neighborhood, schematically:
 
 $$
 \hat{y}(v) \;=\; \arg\max_{c}\; \sum_{k=0}^{\ell} \sum_{u \in \mathcal{N}_k(v)} m^{(k)}_{c}\!\left(\mathbf{X}_u\right)
@@ -142,8 +142,8 @@ For the symmetric two-class Gaussian case, we compute the asymptotic generalizat
 
 This is the cleanest consequence and, I think, the most useful one in practice.
 
-- When $\Gamma = 0$, the graph carries no class information. The optimal classifier reduces to one that ignores the graph entirely, becoming a feature-only **MLP**. Adding any graph aggregation strictly hurts.
-- When $\Gamma \to 1$, the graph is essentially a perfect community indicator and the optimal classifier matches a standard **graph convolution**.
+- When $\Gamma = 0$, the graph carries no class information. The optimal classifier reduces to one that ignores the graph entirely, becoming a feature-only **MLP** (multi-layer perceptron, a plain feedforward network that never looks at the graph). Adding any graph aggregation strictly hurts.
+- When $\Gamma \to 1$, the graph is essentially a perfect community indicator and the optimal classifier matches a standard **graph convolution** (GCN, which blends each node's features with its neighbors').
 - The threshold at which graph information starts being usable coincides with the **[Kesten–Stigum threshold](https://en.wikipedia.org/wiki/Stochastic_block_model#Detectability)**, the well-known information-theoretic threshold for weak community detection on the SBM.
 
 <svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" style="color: var(--foreground); width: 100%; height: auto; max-width: 720px; display: block; margin: 1.5rem auto;" role="img" aria-label="Accuracy versus graph signal Gamma. The Bayes-optimal classifier coincides with MLP at Gamma=0, coincides with GCN at large Gamma, and dominates both in between.">
@@ -236,7 +236,7 @@ In other words: graph features become useful for node classification *exactly* w
 
 ## From $n = \infty$ to large finite $n$ (Theorem 4)
 
-Asymptotic statements are clean, but the operational question is "does this predict anything for the $n$ I actually have?" Theorem 4 says: yes. For graphs of size $n$, the $\ell$-hop neighborhoods of a $1 - o(1)$ fraction of nodes are tree-like for $\ell$ up to roughly $\log n / \log d$, where $d$ is the average degree. So the asymptotic architecture is approximately optimal at large finite $n$, with the receptive-field budget growing logarithmically. Another reason shallow networks are not just convenient on sparse graphs; they're *enough*.
+Asymptotic statements are clean, but the operational question is "does this predict anything for the $n$ I actually have?" Theorem 4 says: yes. For graphs of size $n$, the $\ell$-hop neighborhoods of a $1 - o(1)$ fraction of nodes are tree-like for $\ell$ up to roughly $\log n / \log d$, where $d$ is the average degree. So the asymptotic architecture is approximately optimal at large finite $n$, with the receptive-field budget (how many hops out a node can usefully look) growing logarithmically. Another reason shallow networks are not just convenient on sparse graphs; they're *enough*.
 
 ## Empirically
 

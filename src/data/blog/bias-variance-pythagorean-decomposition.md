@@ -281,7 +281,7 @@ The picture survives, with the legs now being the bias *vector*'s norm and the *
 Once you internalize the $L^2$ inner product, several other identities are the same theorem in different costumes:
 
 - **Law of total variance.** $\mathrm{Var}(Y) = \mathbb{E}[\mathrm{Var}(Y \mid X)] + \mathrm{Var}(\mathbb{E}[Y \mid X])$. Decompose $Y - \mathbb{E}[Y]$ into the conditional residual and the conditional mean's deviation. Orthogonal in $L^2$.
-- **OLS sum-of-squares decomposition.** $\|y - \bar y\|^2 = \|\hat y - \bar y\|^2 + \|y - \hat y\|^2$. The fitted vector is the projection onto the column space (the vectors the model can produce); the residual is perpendicular. Same right triangle.
+- **OLS (ordinary least squares) sum-of-squares decomposition.** $\|y - \bar y\|^2 = \|\hat y - \bar y\|^2 + \|y - \hat y\|^2$. The fitted vector is the projection onto the column space (the vectors the model can produce); the residual is perpendicular. Same right triangle.
 - **[ANOVA](https://en.wikipedia.org/wiki/Analysis_of_variance).** $SS_{\text{total}} = SS_{\text{between}} + SS_{\text{within}}$. Group-mean deviations and within-group residuals are orthogonal.
 - **[Conditional expectation as a projection](https://en.wikipedia.org/wiki/Conditional_expectation#As_a_random_variable).** $\mathbb{E}[Y \mid X]$ is the closest function of $X$ to $Y$ in $L^2$, and $Y - \mathbb{E}[Y \mid X]$ is orthogonal to every such function.
 

@@ -179,7 +179,7 @@ $$
 \mathbb{E}\bigl[\#\{n : S_n = 0\}\bigr] \;=\; \sum_{n=0}^\infty \Pr[S_n = 0].
 $$
 
-So the dichotomy reduces to convergence vs. divergence of $\sum_n \Pr[S_n = 0]$.
+The equality is just linearity of expectation: the expected number of visits is the sum, over all times $n$, of the probability of being at the origin at time $n$. And the equivalence with recurrence is clean because every return puts the walk back at the origin to start afresh: the number of returns is therefore geometric, with infinite mean exactly when returning at least once is certain. So the dichotomy reduces to convergence vs. divergence of $\sum_n \Pr[S_n = 0]$.
 
 For the simple symmetric random walk on $\mathbb{Z}^d$, a **local** version of the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) (which estimates the chance of landing on one specific lattice point, not just the spread of the position) gives
 

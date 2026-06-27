@@ -282,7 +282,7 @@ For shapes of fixed area, this average depends only on the shape of $V$, not its
 - square: $\dfrac{1}{6} \approx 0.1667$,
 - equilateral triangle: $\dfrac{\sqrt{3}}{9} \approx 0.1925$.
 
-The hexagon comes within $0.7\%$ of the disk lower bound; the square is about $5\%$ over, the triangle about $21\%$ over. Among polygons that tile the plane (not only the regular ones), the regular hexagon minimizes this functional (L. Fejes Tóth, 1959). The analogous statement in $d \ge 3$, that the optimal tiling for moment of inertia is by **truncated octahedra** (the 14-faced space-filling solid), is **Gersho's conjecture**, still open in general dimensions.
+The hexagon comes within $0.7\%$ of the disk lower bound; the square is about $5\%$ over, the triangle about $21\%$ over. Among polygons that tile the plane (not only the regular ones), the regular hexagon minimizes this functional (L. Fejes Tóth, 1959). The analogous statement in $d \ge 3$, that the optimal tiling for this same second-moment functional (the moment of inertia of a uniform cell) is by **truncated octahedra** (the 14-faced space-filling solid), is **Gersho's conjecture**, still open in general dimensions.
 
 So the perimeter minimum and the moment-of-inertia minimum are mathematically distinct objectives, but they happen to be solved by the same shape in 2D. That is the reason bees and k-means converge on hexagons through completely unrelated processes.
 

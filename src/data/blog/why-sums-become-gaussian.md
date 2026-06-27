@@ -32,7 +32,7 @@ $$
 
 That integral is, by definition, the convolution of $f$ and $g$. So summing $n$ i.i.d. copies of $X$ corresponds to convolving its density with itself $n$ times. The CLT becomes a statement about repeated self-convolution: under the right rescaling, it converges to a Gaussian.
 
-## Watch it happen
+## The n-fold convolution
 
 Pick a base distribution and slide $n$. The blue bars are the exact distribution of the sum after $n$ convolutions; the red curve is the Gaussian with mean $n\mu$ and variance $n\sigma^2$.
 
@@ -159,7 +159,7 @@ A few things to notice as you slide:
 
 The uniform die at $n = 2$ is the distribution of two-dice rolls, and you've probably internalized this triangle if you've played [Settlers of Catan](https://boardgamegeek.com/boardgame/13/catan). The peak at $7$ is why rolling it summons the **robber**; $6$ and $8$ sit just below the peak and are the most coveted hex numbers because resources tied to them get produced most often; $2$ and $12$ live in the tails and barely pay out. The game's economy is, quite literally, a single convolution of a uniform die with itself.
 
-## Why convolution → Gaussian?
+## Three reasons the limit is Gaussian
 
 Three complementary intuitions, each capturing a different aspect of why this happens.
 

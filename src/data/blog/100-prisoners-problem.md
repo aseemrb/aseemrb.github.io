@@ -37,7 +37,7 @@ Because every prisoner uses the same strategy, *all* prisoners succeed iff *ever
 
 ## The probability
 
-For a uniformly random permutation of $\{1, \ldots, n\}$, the probability that there is at least one cycle of length exactly $\ell$ is $1/\ell$ when $\ell > n/2$. The counting argument: the number of permutations of $\{1, \ldots, n\}$ that contain a fixed $\ell$-element subset arranged as a single cycle is $(\ell - 1)! \cdot (n - \ell)!$. The number of such $\ell$-subsets is $\binom{n}{\ell}$. Multiplying and dividing by $n!$ gives $1/\ell$.
+For a uniformly random permutation of $\{1, \ldots, n\}$, the probability that there is at least one cycle of length exactly $\ell$ is $1/\ell$ when $\ell > n/2$. The counting argument: the number of permutations of $\{1, \ldots, n\}$ that contain a fixed $\ell$-element subset arranged as a single cycle is $(\ell - 1)! \cdot (n - \ell)!$ (there are $(\ell - 1)!$ ways to string $\ell$ chosen elements into one cycle, times $(n - \ell)!$ ways to permute everything else). The number of such $\ell$-subsets is $\binom{n}{\ell}$. Multiplying and dividing by $n!$ gives $1/\ell$.
 
 When $\ell > n/2$, at most one cycle of that length can exist (two disjoint cycles of length $\ell$ would need more than $n$ elements between them). So the events "permutation has a cycle of length $\ell$" for distinct $\ell > n/2$ are disjoint, and
 
@@ -53,7 +53,7 @@ $$
 
 For $n = 100$ specifically, the exact value is $1 - (H_{100} - H_{50}) \approx 0.3118$.
 
-The strategy converts the prisoners' problem from $(1/2)^{100}$ chaos into a single $31\%$ check on the cycle structure of a random permutation.
+The strategy converts the prisoners' problem from a $(1/2)^{100}$ near-impossibility into a single $31\%$ check on the cycle structure of a random permutation.
 
 Press **new trial** to draw a random permutation. The grid below shows what each prisoner would find inside each box. Boxes are colored by which cycle of the permutation they belong to. The cycle outlined in red is the longest one. The trial succeeds if and only if no cycle exceeds $50$. Press **+ 1000 trials** to accumulate statistics.
 

@@ -102,7 +102,7 @@ Whatever inequality holds between $\sigma_x$ and $\sigma_k$ for arbitrary square
 
 Two extreme examples make the qualitative tradeoff visible.
 
-(a) **A pure plane wave**, $\psi(x) = e^{ik_0 x}$ extended over all $x$. Its Fourier transform is a Dirac delta at $k = k_0$. Spread in $x$: infinite. Spread in $k$: zero.
+(a) **A pure plane wave**, $\psi(x) = e^{ik_0 x}$ extended over all $x$. Its Fourier transform is a Dirac delta at $k = k_0$ (an idealized infinitely narrow spike of unit area). Spread in $x$: infinite. Spread in $k$: zero.
 
 (b) **A Dirac delta at $x_0$**, $\psi(x) = \delta(x - x_0)$. Its Fourier transform is the constant $e^{-ikx_0}/\sqrt{2\pi}$. Spread in $x$: zero. Spread in $k$: infinite.
 

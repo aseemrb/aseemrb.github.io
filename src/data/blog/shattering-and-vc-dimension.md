@@ -223,9 +223,9 @@ Slide $d$ below. The blue line is $2^n$, what shattering would demand; the green
 })();
 </script>
 
-## Why a single integer controls generalization
+## How a single integer controls generalization
 
-Suppose we want every rule in $\mathcal{H}$ to have its error on the training sample close to its true error on the full distribution, all rules at once. For one fixed rule this is a law of large numbers statement, with a Hoeffding tail bounding the gap. For all rules simultaneously we need a union bound, and when $\mathcal{H}$ is infinite, as it is for half-planes or any class with continuous parameters, a union bound over $|\mathcal{H}|$ is vacuous.
+Suppose we want every rule in $\mathcal{H}$ to have its error on the training sample close to its true error on the full distribution, all rules at once. For one fixed rule this is a law of large numbers statement, with a Hoeffding tail (an exponential bound on how far an average of bounded variables strays from its mean) bounding the gap. For all rules simultaneously we need a union bound, and when $\mathcal{H}$ is infinite, as it is for half-planes or any class with continuous parameters, a union bound over $|\mathcal{H}|$ is vacuous.
 
 Vapnik and Chervonenkis observed that the count that belongs in the union bound is not the number of rules but the number of distinct labelings they produce on the $n$ samples, and that count is the growth function $\Pi_{\mathcal{H}}(n)$, which Sauer–Shelah caps at $(en/d)^d$. Two rules that label the sample identically are indistinguishable on the data, so they should count once. Carrying the polynomial growth function through the union bound gives the VC generalization bound: with probability at least $1 - \delta$, every $h \in \mathcal{H}$ satisfies
 $$
@@ -243,5 +243,3 @@ This is the same move as the [ε-net bound on the operator norm](/blog/epsilon-n
 - Thomas M. Cover. *Geometrical and statistical properties of systems of linear inequalities with applications in pattern recognition*. IEEE Transactions on Electronic Computers, EC-14(3):326–334, 1965. Source of the count $2\sum_{k=0}^{d}\binom{n-1}{k}$ for linearly realizable labelings.
 - Shai Shalev-Shwartz and Shai Ben-David. *Understanding Machine Learning: From Theory to Algorithms*. Cambridge University Press, 2014. Chapter 6 develops shattering, VC dimension, and the fundamental theorem of statistical learning.
 - Mehryar Mohri, Afshin Rostamizadeh, and Ameet Talwalkar. *Foundations of Machine Learning*, 2nd edition. MIT Press, 2018. Chapter 3 covers the growth function, Sauer's lemma, and VC generalization bounds.
-</content>
-</invoke>

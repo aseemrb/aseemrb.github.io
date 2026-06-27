@@ -18,7 +18,7 @@ $$
 \|A\| \;=\; \sup_{\|x\| = 1} \|Ax\|,
 $$
 
-the largest factor by which $A$ can stretch a unit vector, equivalently its largest singular value. When $A$ is random, there are usually situations where we want to claim $\|A\|$ is not too large, to satisfy some criteria.
+the largest factor by which $A$ can stretch a unit vector, equivalently its largest singular value. When $A$ is random, we frequently need to show $\|A\|$ is not too large.
 
 For a single fixed direction $x$, this is routine: $\|Ax\|$ is the length of one random vector, and it concentrates. The difficulty is the word *every*. The sphere holds infinitely many directions, so we cannot union-bound over them one at a time. The **ε-net** is the standard device for exactly this situation, and it is one of the most reused arguments in the area.
 
@@ -118,7 +118,7 @@ The supremum over the whole sphere that defines $\|A\|$ is now a maximum over a 
 
 Now the application. Let $A$ be an $m \times n$ matrix with independent standard Gaussian entries, $A_{ij} \sim \mathcal{N}(0,1)$. How large is $\|A\|$?
 
-**One fixed direction.** Fix a unit vector $x \in \mathbb{R}^n$. Each coordinate of $Ax$ is the inner product of a row of $A$ with $x$, a Gaussian of variance $\|x\|^2 = 1$, and the rows are independent, so $Ax \sim \mathcal{N}(0, I_m)$. Then $\|Ax\|^2$ is a sum of $m$ squared standard Gaussians, a [chi-squared](https://en.wikipedia.org/wiki/Chi-squared_distribution) with mean $m$, so by Jensen $\mathbb{E}\|Ax\| \le \sqrt{m}$. Moreover $\|Ax\|$ is a $1$-Lipschitz function of the entries of $A$ (changing $A$ by a small amount in Frobenius norm changes $\|Ax\|$ by at most as much), so [Gaussian concentration](https://en.wikipedia.org/wiki/Concentration_of_measure) gives a sub-Gaussian tail:
+**One fixed direction.** Fix a unit vector $x \in \mathbb{R}^n$. Each coordinate of $Ax$ is the inner product of a row of $A$ with $x$, a Gaussian of variance $\|x\|^2 = 1$, and the rows are independent, so $Ax \sim \mathcal{N}(0, I_m)$. Then $\|Ax\|^2$ is a sum of $m$ squared standard Gaussians, a [chi-squared](https://en.wikipedia.org/wiki/Chi-squared_distribution) with mean $m$, so by Jensen's inequality ($\mathbb{E}\sqrt{Z} \le \sqrt{\mathbb{E}Z}$ for the concave square root) $\mathbb{E}\|Ax\| \le \sqrt{m}$. Moreover $\|Ax\|$ is a $1$-Lipschitz function of the entries of $A$ (changing $A$ by a small amount in Frobenius norm changes $\|Ax\|$ by at most as much), so [Gaussian concentration](https://en.wikipedia.org/wiki/Concentration_of_measure) gives a sub-Gaussian tail:
 
 $$
 \Pr\big[\|Ax\| \ge \sqrt{m} + s\big] \;\le\; e^{-s^2/2}.

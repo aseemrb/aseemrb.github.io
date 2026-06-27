@@ -27,7 +27,7 @@ The estimator is famous and, when first encountered, jarring. It is also a precu
 
 ## The case for the sample mean in one dimension
 
-You observe $n$ i.i.d. samples $X_1, \ldots, X_n \sim \mathcal{N}(\theta, \sigma^2)$ with known $\sigma^2$ and unknown mean $\theta \in \mathbb{R}$. Three properties make the sample mean $\bar X = \tfrac{1}{n}\sum_i X_i$ the textbook answer.
+You observe $n$ i.i.d. samples $X_1, \ldots, X_n \sim \mathcal{N}(\theta, \sigma^2)$ with known $\sigma^2$ and unknown mean $\theta \in \mathbb{R}$. Several properties make the sample mean $\bar X = \tfrac{1}{n}\sum_i X_i$ the textbook answer.
 
 **It maximizes the likelihood.** The joint density of the data, viewed as a function of $\theta$ with the data held fixed, is
 
@@ -49,29 +49,29 @@ where $I(\theta)$ is the [Fisher information](https://en.wikipedia.org/wiki/Fish
 
 **In one dimension, it is admissible.** No estimator (biased or not) has strictly smaller MSE than $\bar X$ at *every* $\theta$ simultaneously. You can find rivals that win at specific values (the constant $\hat\theta = 0$ has zero MSE at $\theta = 0$ but MSE $\theta^2$ everywhere else), but never one that wins everywhere. This is the substantive property among the four; the proof is below.
 
-The MLE, the minimum-variance unbiased estimator, and unbeatable-everywhere — all three lining up convinced generations of statisticians that the sample mean was the only defensible default.
+Maximum likelihood, minimum variance among unbiased estimators, and unbeatable-everywhere: these properties lining up convinced generations of statisticians that the sample mean was the only defensible default.
 
 ## Proving admissibility in one dimension
 
 The first three properties were direct calculations. Admissibility is the substantive one. Take the canonical case $X \sim \mathcal{N}(\theta, 1)$ on $\mathbb{R}$ (one observation, unit variance, after rescaling). The sample mean is just $X$, and its MSE is $\mathbb{E}[(X - \theta)^2] = 1$ at every $\theta$. The claim is that no estimator strictly beats $1$ everywhere.
 
-The standard proof, due to [Hodges and Lehmann](https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-21/issue-2/Some-Problems-in-Minimax-Point-Estimation/10.1214/aoms/1177729838.full) (1950) and Blyth (1951), is by contradiction, using a wide Gaussian prior on $\theta$.
+The standard proof, due to [Hodges and Lehmann](https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-21/issue-2/Some-Problems-in-Minimax-Point-Estimation/10.1214/aoms/1177729838.full) (1950) and Blyth (1951), is by contradiction, using a wide Gaussian prior on $\theta$. The strategy in one line: suppose some estimator beats $X$ everywhere, then average the comparison against a very spread-out prior. When the prior is wide, the best possible estimator for it is almost exactly $X$, which leaves no room for a uniform improvement, and the arithmetic of that squeeze is the contradiction.
 
 Suppose some $\tilde\theta$ dominated $X$: its **risk function** $R(\theta) := \mathbb{E}\bigl[(\tilde\theta - \theta)^2\bigr]$ satisfies $R(\theta) \le 1$ for every $\theta$, with strict inequality $R(\theta_0) < 1$ at some $\theta_0$. Assuming $R$ is continuous in $\theta$ (true for any reasonable $\tilde\theta$), there is a small interval $[\theta_0 - a, \theta_0 + a]$ on which $R(\theta) \le 1 - \delta$ for some $\delta > 0$.
 
-**A wide Gaussian prior.** Place a prior $\theta \sim \pi_\tau := \mathcal{N}(0, \tau^2)$ for a large variance $\tau^2$. Standard Gaussian conjugacy gives the posterior
+**A wide Gaussian prior.** Place a prior $\theta \sim \pi_\tau := \mathcal{N}(0, \tau^2)$ for a large variance $\tau^2$. Standard Gaussian conjugacy (a Gaussian prior combined with Gaussian data produces a Gaussian posterior) gives the posterior
 
 $$
 \theta \mid X \;\sim\; \mathcal{N}\!\left(\frac{\tau^2}{1+\tau^2} X,\; \frac{\tau^2}{1+\tau^2}\right),
 $$
 
-so the [Bayes estimator](https://en.wikipedia.org/wiki/Bayes_estimator) under squared-error loss (the posterior mean) is $\hat\theta_{\pi_\tau} = \frac{\tau^2}{1+\tau^2} X$. Its **Bayes risk** — the prior-averaged MSE — is
+so the [Bayes estimator](https://en.wikipedia.org/wiki/Bayes_estimator) under squared-error loss (the posterior mean) is $\hat\theta_{\pi_\tau} = \frac{\tau^2}{1+\tau^2} X$. Its **Bayes risk**, the prior-averaged MSE, is
 
 $$
 \int \mathbb{E}\bigl[(\hat\theta_{\pi_\tau} - \theta)^2 \mid \theta\bigr]\, \pi_\tau(\theta)\, d\theta \;=\; \frac{\tau^2}{1+\tau^2}.
 $$
 
-The defining property of the Bayes estimator is that it minimizes prior-averaged MSE. So *any* estimator — including our hypothetical $\tilde\theta$ — has Bayes risk at least $\frac{\tau^2}{1+\tau^2}$:
+The defining property of the Bayes estimator is that it minimizes prior-averaged MSE. So *any* estimator, including our hypothetical $\tilde\theta$, has Bayes risk at least $\frac{\tau^2}{1+\tau^2}$:
 
 $$
 \int R(\theta)\, \pi_\tau(\theta)\, d\theta \;\ge\; \frac{\tau^2}{1+\tau^2}.
@@ -97,7 +97,7 @@ $$
 
 The left side decays like $\tau^{-1}$; the right side like $\tau^{-2}$. For $\tau$ large enough, $\tau^{-1} > \tau^{-2}$, contradicting the inequality. So no dominating $\tilde\theta$ exists, and $X$ is admissible.
 
-**Where the proof breaks in higher dimensions.** Repeat the same argument in $\mathbb{R}^d$ with a $\mathcal{N}(0, \tau^2 I_d)$ prior. The prior spreads its mass over a $d$-dimensional region, so the density at any fixed $\theta_0$ scales like $\tau^{-d}$, and the ball-mass contribution decays at the same rate. The Bayes risk gap, computed coordinate-by-coordinate, is at most $\frac{d}{1+\tau^2} \sim \tau^{-2}$. The contradiction requires the ball-mass to decay *slower* than the Bayes gap — which only happens at $d = 1$. (Admissibility actually still holds at $d = 2$, via a more carefully chosen prior; at $d \ge 3$ admissibility genuinely fails, and Stein's estimator is what walks through the open door.)
+**Where the proof breaks in higher dimensions.** Repeat the same argument in $\mathbb{R}^d$ with a $\mathcal{N}(0, \tau^2 I_d)$ prior. The prior spreads its mass over a $d$-dimensional region, so the density at any fixed $\theta_0$ scales like $\tau^{-d}$, and the ball-mass contribution decays at the same rate. The Bayes risk gap, computed coordinate-by-coordinate, is at most $\frac{d}{1+\tau^2} \sim \tau^{-2}$. The contradiction requires the ball-mass to decay *slower* than the Bayes gap, which only happens at $d = 1$. (Admissibility actually still holds at $d = 2$, via a more carefully chosen prior; at $d \ge 3$ admissibility genuinely fails, and Stein's estimator is what exploits the gap.)
 
 ## The Stein setup
 
@@ -131,7 +131,7 @@ $$
 \mathrm{MSE}(cX) \;=\; (c-1)^2 \|\theta\|^2 + c^2 d,
 $$
 
-minimized at $c^\star = \|\theta\|^2 / (\|\theta\|^2 + d)$. That is the optimal shrinkage if you knew $\|\theta\|$. You don't, but the data hands you an estimate: $\mathbb{E}[\|X\|^2] = \|\theta\|^2 + d$, so $\|X\|^2 - d$ is an unbiased estimator of $\|\theta\|^2$. Substituting and simplifying produces a shrinkage factor of $1 - d/\|X\|^2$. James and Stein replace $d$ with $d - 2$ — a correction that drops out of an integration-by-parts identity called Stein's lemma — and that swap is exactly what makes the dominance proof go through.
+minimized at $c^\star = \|\theta\|^2 / (\|\theta\|^2 + d)$. That is the optimal shrinkage if you knew $\|\theta\|$. You don't, but the data hands you an estimate: $\mathbb{E}[\|X\|^2] = \|\theta\|^2 + d$, so $\|X\|^2 - d$ is an unbiased estimator of $\|\theta\|^2$. Substituting and simplifying produces a shrinkage factor of $1 - d/\|X\|^2$. James and Stein replace $d$ with $d - 2$, a correction that drops out of an integration-by-parts identity called Stein's lemma, and that swap is exactly what makes the dominance proof go through.
 
 **Theorem (James and Stein, 1961).** For every $\theta \in \mathbb{R}^d$ and every $d \ge 3$,
 
@@ -143,7 +143,7 @@ The sample mean is dominated *uniformly*. For $d \le 2$ the estimator degenerate
 
 ## The geometric reason
 
-The mechanism behind shrinkage is a fact about the magnitude of $X$. If $X \sim \mathcal{N}(\theta, I_d)$, then $\|X\|^2$ has a non-central chi-squared distribution with non-centrality $\|\theta\|^2$, so
+The mechanism behind shrinkage is a fact about the magnitude of $X$. If $X \sim \mathcal{N}(\theta, I_d)$, then $\|X\|^2$ has a non-central chi-squared distribution with non-centrality $\|\theta\|^2$ (the distribution of the squared length of a Gaussian vector whose mean sits a distance $\|\theta\|$ from the origin), so
 
 $$
 \mathbb{E}[\|X\|^2] \;=\; \|\theta\|^2 + d.
@@ -277,7 +277,7 @@ Slide $d$ to see the full curve as $\|\theta\|$ varies:
 
 The MLE curve sits flat at $d$. The James–Stein curve starts at $\approx 2$ for $\theta = 0$ and rises smoothly toward $d$ as $\|\theta\|$ grows: with the true mean far from the origin, the shrinkage benefit shrinks, but the MLE never wins at any $\theta$ in $d \ge 3$. At $d = 1$ the JS curve sits *above* the MLE (the formula inflates rather than shrinks); at $d = 2$ they coincide.
 
-## What is genuinely weird
+## The cost of independence
 
 Stein's original example is the part that breaks people's intuition.
 
