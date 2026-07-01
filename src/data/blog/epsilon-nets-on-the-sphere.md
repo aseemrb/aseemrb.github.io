@@ -73,7 +73,7 @@ The unit circle $S^1$ is the one case we can draw. Below, each dot is a net poin
 })();
 </script>
 
-## How many points does the net need?
+## The size of the net
 
 The net is finite, but its size is the question that decides everything. That size is the **covering number** $N(S^{d-1}, \varepsilon)$, and a short volume argument bounds it.
 

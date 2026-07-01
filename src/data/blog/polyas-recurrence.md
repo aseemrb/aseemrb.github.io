@@ -214,7 +214,7 @@ $$
 
 Watson (1939) evaluated this triple integral in terms of elliptic integrals, getting $u(0,0,0) \approx 1.516$ and so the return probability $\approx 0.3405$.
 
-## Where this matters
+## Applications
 
 - **MCMC and random-walk Metropolis-Hastings** (algorithms that sample a distribution by taking random steps through a state space) in high-dimensional state spaces are inherently transient unless the chain has a centering force from the target distribution; you cannot rely on diffusive recurrence to revisit important states.
 - **Resistor networks** on $\mathbb{Z}^d$ have effective resistance from the origin to infinity that is finite iff $d \ge 3$. Recurrence is exactly the statement that this resistance is infinite.

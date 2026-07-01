@@ -23,7 +23,7 @@ Number the boxes $1$ through $100$. Prisoner $i$ first opens box $i$. They read 
 
 That is the entire strategy.
 
-## Where the success rate comes from
+## Success depends on the longest cycle
 
 The contents of the boxes define a [permutation](https://en.wikipedia.org/wiki/Permutation) $\pi$ of $\{1, \ldots, 100\}$, where $\pi(i)$ is the number in box $i$. Prisoner $i$, following the strategy, traverses the **cycle** of $\pi$ that contains $i$, the chain of boxes reached by repeatedly following the number inside, which loops back to box $i$:
 

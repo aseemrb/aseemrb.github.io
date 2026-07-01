@@ -214,7 +214,7 @@ $$
 
 The diagonal part is a sum of independent variables $A_{ii} X_i^2$; it carries the mean $\operatorname{tr}(A)$ and concentrates by Bernstein's inequality (the same sub-exponential bound used above, now for a sum rather than after a rotation), no harder than the Gaussian case. The off-diagonal part has mean zero and is the real content of the theorem. Its terms $X_i X_j$ share variables, so they are not independent, and the standard handle is **decoupling**: replace one copy of $X$ by an independent copy $X'$, so that conditionally on $X'$ the off-diagonal sum $\sum_{i\ne j} A_{ij} X_i X_j'$ is a linear form in the independent variables $X_i$, which sub-Gaussian tools control directly. Carrying that through reproduces the same two norms.
 
-## Where it gets used
+## Applications
 
 The inequality is a standard tool wherever a squared length or an energy has to be pinned to its mean.
 

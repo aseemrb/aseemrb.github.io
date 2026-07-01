@@ -389,7 +389,7 @@ It is, up to normalization, the upper half of a circle of radius $2$. The $\sqrt
 
 The histogram approaches the semicircle smoothly as $n$ grows. At $n = 20$ the fit is rough; by $n = 80$ it is essentially indistinguishable from the curve.
 
-## Where these limits come from
+## Proving the two laws
 
 Both theorems are concentration phenomena for *linear spectral statistics*. For a fixed test function $f$, the random variable
 

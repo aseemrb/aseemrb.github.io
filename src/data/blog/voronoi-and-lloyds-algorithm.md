@@ -252,7 +252,7 @@ $$
 
 the total squared distance to the nearest generator. Each step strictly decreases $F$ unless the configuration is already a CVT. The **mean squared distance** readout in the widget is exactly $F$ divided by the area of the canvas, so the monotone decrease is visible directly: press **step** repeatedly and the number never goes up.
 
-## Where this connects
+## Connections
 
 - **k-means clustering.** Lloyd's algorithm is the algorithm typically called "k-means". Given a finite point cloud and $k$ cluster centers, [k-means](https://en.wikipedia.org/wiki/K-means_clustering) alternates "assign each point to the nearest center" (the discrete analog of computing Voronoi cells) and "move each center to the centroid of its cluster" (the discrete analog of step 2). Continuous Lloyd's is the limiting case where the finite point cloud is replaced by a **uniform measure** on a domain: instead of summing over discrete points, you integrate uniformly over the whole region. k-means inherits its convergence properties from the same energy-decrease argument.
 - **Vector quantization.** Designing optimal **codebooks** (a small fixed set of representative values used to approximate a signal) for compressing continuous signals. The optimal $k$-point codebook for squared error is exactly a CVT of the source distribution.

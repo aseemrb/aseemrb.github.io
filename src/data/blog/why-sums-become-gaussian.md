@@ -177,7 +177,7 @@ For any other finite-variance distribution, this operation moves the shape *clos
 
 (Without finite variance, the same fixed-point logic gives non-Gaussian limits called *[stable distributions](https://en.wikipedia.org/wiki/Stable_distribution)*: [Cauchy](https://en.wikipedia.org/wiki/Cauchy_distribution), [Lévy](https://en.wikipedia.org/wiki/L%C3%A9vy_distribution), and others. The Gaussian is just the most familiar member of an infinite family of self-similar limit laws.)
 
-## How fast?
+## The rate of convergence
 
 The [Berry–Esseen theorem](https://en.wikipedia.org/wiki/Berry%E2%80%93Esseen_theorem) makes the convergence quantitative:
 

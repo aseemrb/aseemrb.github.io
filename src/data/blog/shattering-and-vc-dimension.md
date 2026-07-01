@@ -223,7 +223,7 @@ Slide $d$ below. The blue line is $2^n$, what shattering would demand; the green
 })();
 </script>
 
-## How a single integer controls generalization
+## A single integer controls generalization
 
 Suppose we want every rule in $\mathcal{H}$ to have its error on the training sample close to its true error on the full distribution, all rules at once. For one fixed rule this is a law of large numbers statement, with a Hoeffding tail (an exponential bound on how far an average of bounded variables strays from its mean) bounding the gap. For all rules simultaneously we need a union bound, and when $\mathcal{H}$ is infinite, as it is for half-planes or any class with continuous parameters, a union bound over $|\mathcal{H}|$ is vacuous.
 
