@@ -9,7 +9,7 @@ tags:
   - mathematics
   - physics
 description:
-  "A bead slides down a frictionless wire between two fixed points. The wire shape that minimizes travel time is not the straight line but an arc of a cycloid, and the identification takes one idea: treat the bead as a light ray and apply Snell's law. The same curve is also the tautochrone, on which beads released from any height reach the bottom simultaneously. Two animated races with exact closed-form motion."
+  "A bead slides down a frictionless wire between two fixed points. The wire shape that minimizes travel time is not the straight line but an arc of a cycloid. Treating the bead as a light ray gives Snell's law from Fermat's principle, the Euler–Lagrange equation turns the Snell invariant into a conservation law that forces the cycloid, and a convexity argument certifies the cycloid as the unique global minimizer. The same curve is also the tautochrone, on which beads released from any height reach the bottom simultaneously. Two animated races with exact closed-form motion."
 ---
 
 Fix a point $A$ and a lower point $B$, off to the side. Thread a frictionless wire from $A$ to $B$, place a bead on it at $A$, and release it from rest under gravity. The travel time depends on the wire's shape. The straight line has the shortest length, but length is not what is being minimized; time is, and speed is not free: the bead moves fast only where it has already fallen far.
@@ -32,23 +32,85 @@ $$
 v = \sqrt{2gy},
 $$
 
-regardless of the route it took to get there. So the problem reads: find the path of least time through a medium where speed depends on depth. That is a problem optics already solved. **[Fermat's principle](https://en.wikipedia.org/wiki/Fermat%27s_principle)** says light follows least-time paths, and light crossing layers of varying speed obeys **[Snell's law](https://en.wikipedia.org/wiki/Snell%27s_law)**: along the ray,
+regardless of the route it took to get there. So the problem reads: find the path of least time through a medium where speed depends on depth. That is a problem optics already solved. **[Fermat's principle](https://en.wikipedia.org/wiki/Fermat%27s_principle)** says light travels between two points along the path of least time, and **[Snell's law](https://en.wikipedia.org/wiki/Snell%27s_law)** follows from it at a single interface. Send a ray from a point at height $a$ above a flat interface, where the speed is $v_1$, to a point at depth $b$ below it, where the speed is $v_2$, with horizontal separation $d$ between the endpoints; the ray is straight within each medium, so the only unknown is the horizontal position $x$ of the crossing. The travel time and its derivative are
 
 $$
-\frac{\sin\alpha}{v} = \text{constant},
-$$
-
-where $\alpha$ is the angle the ray makes with the vertical. Treat the bead as a light ray in a medium with $v = \sqrt{2gy}$ and the optimal path must satisfy $\sin\alpha = C\sqrt{y}$ for some constant $C$: the deeper the bead, the more horizontal its path, and at the start ($y = 0$) it must move straight down.
-
-The cycloid satisfies this exactly. From the parametrization, an arc-length element is $ds = 2R\sin(\theta/2)\,d\theta$, and the horizontal component is $dx = R(1 - \cos\theta)\,d\theta = 2R\sin^2(\theta/2)\,d\theta$, so
-
-$$
-\sin\alpha = \frac{dx}{ds} = \sin\frac{\theta}{2},
+T(x) = \frac{\sqrt{a^2 + x^2}}{v_1} + \frac{\sqrt{b^2 + (d - x)^2}}{v_2},
 \qquad
-\sqrt{y} = \sqrt{2R}\,\sin\frac{\theta}{2},
+T'(x) = \frac{\sin\alpha_1}{v_1} - \frac{\sin\alpha_2}{v_2},
 $$
 
-and $\sin\alpha/\sqrt{y} = 1/\sqrt{2R}$, a constant. (The same conclusion follows from the [Euler–Lagrange equation](https://en.wikipedia.org/wiki/Euler%E2%80%93Lagrange_equation) of the time integral $\int \sqrt{(1 + y'^2)/2gy}\; dx$; Bernoulli's optics argument gets there without the machinery.)
+where $\alpha_1, \alpha_2$ are the angles the two segments make with the normal, since $\sin\alpha_1 = x/\sqrt{a^2 + x^2}$ and $\sin\alpha_2 = (d - x)/\sqrt{b^2 + (d - x)^2}$. Both terms of $T$ are strictly convex in $x$, so there is exactly one stationary crossing point and it is the global minimum: the least-time ray refracts so that $\sin\alpha / v$ is the same on both sides of the interface.
+
+Now slice a medium whose speed varies continuously with depth into thin horizontal layers. The least-time path obeys Snell's law at every interface, so the quantity $\sin\alpha/v$ survives each crossing and is constant along the entire ray, with $\alpha$ measured from the vertical.
+
+For the bead this is not an analogy but the same problem. The travel time along any curve is $\int ds / v$, and energy conservation fixes the bead's speed at $v = \sqrt{2gy}$ no matter which curve it rides, so the bead and the ray minimize the identical functional: the brachistochrone is the path light takes through a medium whose speed grows as $\sqrt{y}$. The optimal path must therefore satisfy $\sin\alpha = C\sqrt{y}$ for some constant $C$: the deeper the bead, the more horizontal its path, and at the start ($y = 0$) it must move straight down.
+
+One gap remains. Slicing treats the continuous medium as a limit of discrete layers, which identifies the invariant but is not by itself a proof of minimality. The next two sections supply the proof: the invariant forces the cycloid, and a convexity argument then shows the cycloid beats every competitor.
+
+## The invariant forces a cycloid
+
+Parametrize the unknown curve by depth, $x = x(y)$, which describes any curve along which the bead keeps descending. The arc-length element is $ds = \sqrt{1 + x'(y)^2}\,dy$, so the quantity to minimize is
+
+$$
+T[x] = \int_0^{y_B} f\bigl(y, x'(y)\bigr)\, dy,
+\qquad
+f(y, p) = \frac{\sqrt{1 + p^2}}{\sqrt{2gy}}.
+$$
+
+The integrand depends on the slope $x'$ but not on $x$ itself: shifting the whole curve sideways does not change how depth is gained. For such functionals the [Euler–Lagrange equation](https://en.wikipedia.org/wiki/Euler%E2%80%93Lagrange_equation), the first-order optimality condition for integral functionals, collapses to a conservation law, $\frac{d}{dy}\frac{\partial f}{\partial p} = 0$:
+
+$$
+\frac{\partial f}{\partial p} = \frac{x'}{\sqrt{2gy}\,\sqrt{1 + x'^2}} = \frac{\sin\alpha}{\sqrt{2gy}} \equiv c,
+$$
+
+using $\sin\alpha = dx/ds = x'/\sqrt{1 + x'^2}$. The conserved quantity is exactly Snell's invariant: the Euler–Lagrange equation and the layered-medium argument are two derivations of the same statement.
+
+Solving the invariant for the slope gives an ODE,
+
+$$
+x'(y) = \sqrt{\frac{y}{2R - y}},
+\qquad
+2R \equiv \frac{1}{2gc^2},
+$$
+
+and the substitution $y = R(1 - \cos\theta) = 2R\sin^2(\theta/2)$ resolves it: $x' = \tan(\theta/2)$ and $dy = R\sin\theta\,d\theta$, so $dx = 2R\sin^2(\theta/2)\,d\theta = R(1 - \cos\theta)\,d\theta$, hence
+
+$$
+x = R(\theta - \sin\theta), \qquad y = R(1 - \cos\theta),
+$$
+
+with the integration constant fixed by the start at the origin. This is the parametrization quoted in the opening, now derived rather than assumed. Passing through $B$ pins down the two remaining constants: the ratio $x/y = (\theta - \sin\theta)/(1 - \cos\theta)$ increases strictly from $0$ to $\pi/2$ as $\theta$ runs over $(0, \pi]$, so every target with $x_B \le \tfrac{\pi}{2}\, y_B$ is reached by exactly one descending arc, $\theta_B$ set by the ratio and $R$ by the scale. Two byproducts of the computation, $\sin\alpha = \sin(\theta/2)$ and $ds = 2R\sin(\theta/2)\,d\theta$, are used below.
+
+## Global minimality by convexity
+
+The Euler–Lagrange equation is a first-order condition; on its own it certifies the cycloid as a stationary point of $T$, not as its minimum. What upgrades it here is a structural feature of the integrand: for each fixed depth $y$, the map $p \mapsto f(y, p)$ is strictly convex, since
+
+$$
+\frac{\partial^2 f}{\partial p^2} = \frac{1}{\sqrt{2gy}\,(1 + p^2)^{3/2}} > 0.
+$$
+
+A strictly convex function lies above each of its tangent lines, touching only at the point of tangency:
+
+$$
+f(y, q) \;\ge\; f(y, p) + \frac{\partial f}{\partial p}(y, p)\,(q - p),
+\qquad \text{with equality only at } q = p.
+$$
+
+Let $x_*$ be the cycloid and $\tilde{x}$ any competing descent through the same endpoints, regular enough for its travel time to be defined. Apply the tangent-line inequality at each depth, with $p = x_*'(y)$ and $q = \tilde{x}'(y)$, and integrate over $y$:
+
+$$
+T[\tilde{x}] - T[x_*]
+\;\ge\;
+\int_0^{y_B} \frac{\partial f}{\partial p}\bigl(y, x_*'(y)\bigr)\,\bigl(\tilde{x}'(y) - x_*'(y)\bigr)\, dy
+\;=\;
+c \int_0^{y_B} \bigl(\tilde{x}' - x_*'\bigr)\, dy
+\;=\; 0.
+$$
+
+The middle equality is where the conservation law does its work: along the cycloid, $\partial f/\partial p = \sin\alpha/\sqrt{2gy} = c$ is constant, so it pulls out of the integral, and what remains is $\bigl(\tilde{x}(y_B) - x_*(y_B)\bigr) - \bigl(\tilde{x}(0) - x_*(0)\bigr) = 0$ because the curves share both endpoints. So $T[\tilde{x}] \ge T[x_*]$, and strict convexity turns equality into $\tilde{x}' = x_*'$ almost everywhere: the cycloid is the unique minimizer. Read through the optics, the constancy of Snell's invariant is not merely a property the best curve happens to have; it is the certificate that lets every rival be compared to the cycloid in one line. And since bead and ray minimize the same functional, the theorem settles both at once: no wire is faster than the cycloid, and a light ray in a medium with $v \propto \sqrt{y}$ bends along exactly this curve.
+
+Two limitations of the argument, stated plainly. It compares the cycloid against descents, the curves expressible as $x(y)$; ruling out paths that dip below $y_B$ and climb back takes the heavier sufficiency machinery of the calculus of variations, and does not change the answer in this regime. And it assumes $B$ is within reach of a single descending arc, $x_B \le \tfrac{\pi}{2}\, y_B$; beyond that range the true optimum does dip below its endpoint, a case the remarks after the race below return to. The integrand blows up like $1/\sqrt{y}$ at the start, but harmlessly: along the cycloid $x' \to 0$ there, the integral converges, and any competitor whose time integral diverges loses by default.
 
 ## Time along the cycloid
 
@@ -245,4 +307,6 @@ The aftermath mattered more than the contest. Jakob Bernoulli's solution method,
 - Christiaan Huygens. *Horologium Oscillatorium*. Paris, 1673. The tautochrone property and the cycloidal pendulum clock.
 - Galileo Galilei. *Discorsi e dimostrazioni matematiche intorno a due nuove scienze*. Leiden, 1638. Descent along arcs and chords, Third Day.
 - Héctor J. Sussmann, Jan C. Willems. *300 years of optimal control: from the brachystochrone to the maximum principle*. IEEE Control Systems Magazine, 17(3):32-44, 1997. The brachistochrone as the seed of optimal control.
+- John L. Troutman. *Variational Calculus and Optimal Control: Optimization with Elementary Convexity*. 2nd edition, Springer, 1996. The convexity route to global minimality used above, with the brachistochrone as a worked application.
+- Gary Lawlor. *A new minimization proof for the brachistochrone*. The American Mathematical Monthly, 103(3):242-249, 1996. Another complete minimality proof, decomposing the global problem into local single-variable ones.
 - Mark Levi. *The Mathematical Mechanic*. Princeton University Press, 2009. Physical derivations, including the Snell's-law solution.
