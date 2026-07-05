@@ -9,6 +9,7 @@ tags:
   - mathematics
   - machine learning
   - computer science
+  - statistics
 description:
   "In three or more dimensions, the sample mean is dominated everywhere by a shrinkage estimator. The geometric reason is the Gaussian shell: noise pushes you outward, and pulling back is uniformly better. A precursor of ridge regression and most modern regularization."
 ---

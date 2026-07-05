@@ -8,6 +8,7 @@ draft: false
 tags:
   - mathematics
   - machine learning
+  - statistics
 description:
   "How expressive is a family of yes/no rules? Shattering measures it on a fixed set of points: the class can cut them apart in every conceivable way. The VC dimension is the largest set it can shatter, a single integer. Past that size the number of labelings stops doubling and is trapped under a polynomial, the Sauer-Shelah jump, and that one integer is what makes an infinite class learnable."
 ---

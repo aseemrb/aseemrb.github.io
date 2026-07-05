@@ -8,6 +8,7 @@ draft: false
 tags:
   - mathematics
   - machine learning
+  - statistics
 description:
   The eigenvalues of a large random matrix do not scatter around. They concentrate, as a histogram, on a deterministic shape. For sample covariance matrices the shape is Marchenko-Pastur; for symmetric matrices with i.i.d. entries it is the Wigner semicircle. Both shapes are computable, and they explain precisely why high-dimensional covariance estimation is biased.
 ---

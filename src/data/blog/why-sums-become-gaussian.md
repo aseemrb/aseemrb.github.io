@@ -7,6 +7,7 @@ featured: false
 draft: false
 tags:
   - mathematics
+  - statistics
 description:
   A geometric look at the central limit theorem. Adding random variables is convolving their densities. Convolution smooths. Watch a Bernoulli, a die roll, or a bimodal distribution become Gaussian as you slide the number of summands.
 ---

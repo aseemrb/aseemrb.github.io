@@ -8,6 +8,7 @@ draft: false
 tags:
   - mathematics
   - machine learning
+  - statistics
 description:
   "Averages shrink, but maxima grow. Sudakov's minoration inequality is the clean tool for the harder direction: a lower bound on the expected maximum of many Gaussians. As long as no two of them are too alike, that maximum is at least ε times the square root of log N. This is the engine behind a lot of impossibility proofs."
 ---

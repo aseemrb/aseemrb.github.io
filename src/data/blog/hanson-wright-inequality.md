@@ -8,6 +8,7 @@ draft: false
 tags:
   - mathematics
   - machine learning
+  - statistics
 description:
   "A quadratic form in independent random variables concentrates around its mean, the trace of the matrix. Hanson–Wright pins down the two-sided tail: a Gaussian regime near the mean set by the Frobenius norm, crossing over to a heavier exponential tail set by the operator norm. For Gaussian inputs it all follows from rotating to the eigenbasis and applying Bernstein."
 ---

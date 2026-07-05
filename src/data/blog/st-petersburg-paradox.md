@@ -7,6 +7,7 @@ featured: false
 draft: false
 tags:
   - computer science
+  - statistics
 description:
   An analysis of the St. Petersburg paradox, where the expected winning value is infinite. Discusses the conflict between mathematical expectation and intuition, and resolves it using practical constraints.
 ---

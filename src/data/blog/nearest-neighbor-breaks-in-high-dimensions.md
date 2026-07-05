@@ -8,6 +8,7 @@ draft: false
 tags:
   - mathematics
   - machine learning
+  - statistics
 description:
   In high dimensions, all pairwise distances become essentially equal. Nearest and farthest neighbor are no longer meaningfully different. A short geometric tour of the curse of dimensionality.
 ---

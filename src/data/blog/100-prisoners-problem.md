@@ -7,6 +7,7 @@ featured: false
 draft: false
 tags:
   - mathematics
+  - statistics
 description:
   100 prisoners must each find their own number among 100 randomly filled boxes, opening at most 50 each. Random guessing succeeds with probability one in a nonillion. A particular cycle-following strategy succeeds about 31% of the time. The reason is the cycle structure of a random permutation.
 ---

@@ -7,6 +7,7 @@ featured: false
 draft: false
 tags:
   - mathematics
+  - statistics
 description:
   "The bell-curve picture says Gaussian samples live near the mean. In high dimensions that picture is catastrophically wrong: almost all the mass lies in a thin spherical shell at radius √d. Density and mass are not the same thing."
 ---
