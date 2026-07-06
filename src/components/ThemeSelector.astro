@@ -8,8 +8,8 @@ import { SITE } from "@/config";
 // to its underlying theme. (family x mode) -> data-theme value is defined in the
 // client script below.
 const families = [
-  { key: "zinc", label: "Zinc" },
   { key: "rose", label: "Rose" },
+  { key: "zinc", label: "Zinc" },
   { key: "mint", label: "Mint" },
   { key: "grape", label: "Plum" }, // key kept as "grape" so it doesn't clash with the dark theme value "plum"
   { key: "amber", label: "Sand" }, // key kept as "amber" so it doesn't clash with the rose light theme value "sand"
@@ -203,7 +203,7 @@ const themeValues = ["default", "midnight", "sage", "forest", "sand", "carbon", 
 
     const currentState = (): { family: Family; mode: Mode } => {
       const v = document.documentElement.getAttribute("data-theme") ?? "";
-      return VALUE_TO_STATE[v] ?? { family: "zinc", mode: "light" };
+      return VALUE_TO_STATE[v] ?? { family: "rose", mode: "dark" };
     };
 
     function render(family: Family, mode: Mode) {
