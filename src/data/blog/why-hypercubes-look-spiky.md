@@ -13,7 +13,7 @@ description:
 
 If you've flipped through a textbook on high-dimensional probability or geometry, you've seen the obligatory drawing of an $n$-dimensional cube. It is usually rendered as a strange spiky object: a sea urchin, a thorny diamond, a star with way too many points. Why does the high-dimensional cube get drawn like that?
 
-Some of it is **concentration of measure** (the phenomenon where, in high dimensions, almost all of a set's mass sits in a thin shell rather than being spread out), but there is a much simpler counting argument behind a particular family of these drawings. It is just the binomial coefficient in disguise.
+Some of it is [**concentration of measure**](https://en.wikipedia.org/wiki/Concentration_of_measure) (the phenomenon where, in high dimensions, almost all of a set's mass sits in a thin shell rather than being spread out), but there is a much simpler counting argument behind a particular family of these drawings. It is just the binomial coefficient in disguise.
 
 ## Counting corners
 
@@ -43,7 +43,7 @@ That is the point: the level distribution of cube corners is exactly the binomia
 
 A bell. Peaked at $\ell = n/2$, symmetric around it, with $C_0 = C_n = 1$ at the extremes and $C_{\lfloor n/2 \rfloor} \approx 2^n / \sqrt{\pi n / 2}$ in the middle.
 
-For large $n$, the de Moivre–Laplace theorem (a classical, pre-CLT special case of the central limit theorem) gives
+For large $n$, the [de Moivre–Laplace theorem](https://en.wikipedia.org/wiki/De_Moivre%E2%80%93Laplace_theorem) (a classical, pre-CLT special case of the central limit theorem) gives
 
 $$
 \binom{n}{\ell} \;\approx\; \frac{2^n}{\sqrt{\pi n / 2}} \exp\!\left(-\frac{2(\ell - n/2)^2}{n}\right).
@@ -152,7 +152,7 @@ A few observations follow immediately:
 Versions of the spiky-cube drawing appear all over high-dimensional probability and data-science texts. A few good places to look:
 
 - Roman Vershynin, *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. The first few chapters set up exactly this geometric picture before deploying it for concentration inequalities.
-- Avrim Blum, John Hopcroft, Ravi Kannan, *Foundations of Data Science*. Cambridge University Press, 2020. Chapter 2 is a friendly tour of the geometry of high dimensions; available freely on the authors' webpages.
+- Avrim Blum, John Hopcroft, Ravindran Kannan, *Foundations of Data Science*. Cambridge University Press, 2020. Chapter 2 is a friendly tour of the geometry of high dimensions; available freely on the authors' webpages.
 - Stéphane Boucheron, Gábor Lugosi, Pascal Massart, *Concentration Inequalities: A Nonasymptotic Theory of Independence*. Oxford University Press, 2013.
 
 The drawings vary author to author, but the underlying combinatorics is always the same: corners count as a binomial, and a binomial peaks sharply.

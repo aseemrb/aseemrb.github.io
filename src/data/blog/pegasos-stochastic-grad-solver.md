@@ -11,9 +11,9 @@ description:
   A detailed guide on implementing PEGASOS (Primal Estimated sub-GrAdient SOlver for SVM). Explains the mathematical derivation, the stochastic gradient descent approach, and the algorithm's steps.
 ---
 
-Here's the [original paper](http://ttic.uchicago.edu/~nati/Publications/PegasosMPB.pdf) that proposes the algorithm that we're going to implement.
+Here's the [original paper](https://home.ttic.edu/~nati/Publications/PegasosMPB.pdf) that proposes the algorithm that we're going to implement.
 
-SVMs are a very popular classification learning tool, and in the original form, the task of learning an SVM is actually a loss minimization problem with a penalty term for the [norm](https://en.wikipedia.org/wiki/Norm_(mathematics)) of the classifier being learned. So for a given training set of $$m$$ training examples $$S = \{(x_i, y_i)\}_{i=1}^m$$, where $$x_i \in \mathbb{R}^n$$ and $$y_i \in \{-1, +1\}$$, we want to build a minimizer for the following function (note that here $$w$$ and $$x$$ are vectors):
+[SVMs](https://en.wikipedia.org/wiki/Support_vector_machine) are a very popular classification learning tool, and in the original form, the task of learning an SVM is actually a loss minimization problem with a penalty term for the [norm](https://en.wikipedia.org/wiki/Norm_(mathematics)) of the classifier being learned. So for a given training set of $$m$$ training examples $$S = \{(x_i, y_i)\}_{i=1}^m$$, where $$x_i \in \mathbb{R}^n$$ and $$y_i \in \{-1, +1\}$$, we want to build a minimizer for the following function (note that here $$w$$ and $$x$$ are vectors):
 
 $$ F = \min_{w}\left(\frac{\lambda}{2}||w||^2\right) + \frac{1}{m}\sum_{(x, y) \in S}l(w; (x, y)) $$
 
@@ -29,7 +29,7 @@ $$
 
 The variable $$y$$ has the classification information, where $$1$$ means belonging to the class, and $$-1$$ means not belonging to the class for which the classifier is being trained. Therefore, a positive value of $$\langle w, x \rangle$$ along with $$y = 1$$, or a negative value of $$\langle w, x \rangle$$ along with $$y = -1$$ is favorable because both these cases denote that the prediction works right. It also means that the loss function will be minimized in these two scenarios (work it out if needed), which is a part of our main function $$F$$ that we need to build the minimizer for.
 
-**PEGASOS** stands for *Primal Estimated sub-GrAdient SOlver for SVM*, where *stochastic* means *having a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely.* Let's dive into the algorithm and see why it's *stochastic*. The PEGASOS algorithm performs stochastic gradient descent on the primal objective function $$F$$ with a *carefully chosen* step size.
+**PEGASOS** stands for *Primal Estimated sub-GrAdient SOlver for SVM*, where *stochastic* means *having a random probability distribution or pattern that may be analysed statistically but may not be predicted precisely.* Let's dive into the algorithm and see why it's *stochastic*. The PEGASOS algorithm performs [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) on the primal objective function $$F$$ with a *carefully chosen* step size.
 
 ## The basic procedure
 - Initially, set $$w_1$$ to be the [zero vector](http://mathworld.wolfram.com/ZeroVector.html)
@@ -39,7 +39,7 @@ The variable $$y$$ has the classification information, where $$1$$ means belongi
 
     $$ f(w, i_t) = \frac{\lambda}{2} ||w||^2 + l(w; (x_{i_t}, y_{i_t})) $$
 
-    - Compute the subgradient of $$f(w, i_t)$$ as
+    - Compute the [subgradient](https://en.wikipedia.org/wiki/Subderivative) of $$f(w, i_t)$$ as
 
     $$ \nabla_t = \lambda w_t - \mathbb{I}[y_{i_t} \langle w_t, x_{i_t} \rangle < 1] y_{i_t} x_{i_t} $$
 

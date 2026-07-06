@@ -12,7 +12,7 @@ description:
   "The textbook framing makes the uncertainty principle sound like a measurement artifact. It isn't. It is a property of any wave: a packet narrow in x has a Fourier decomposition spread in p, with the bound σx · σp ≥ ℏ/2 saturated by a Gaussian. This post derives that statement from photoelectric-effect-level physics."
 ---
 
-The textbook story for the uncertainty principle is that quantum measurements come with a built-in disturbance: pin down a particle's position with a photon, and the photon kicks the particle's momentum. This is Heisenberg's gamma-ray microscope. The picture isn't *wrong*, but it puts the principle on the wrong footing. It makes uncertainty sound like a constraint imposed by clumsy detectors, when in fact it is a property of the wave function itself.
+The textbook story for the uncertainty principle is that quantum measurements come with a built-in disturbance: pin down a particle's position with a photon, and the photon kicks the particle's momentum. This is Heisenberg's [gamma-ray microscope](https://en.wikipedia.org/wiki/Heisenberg%27s_microscope). The picture isn't *wrong*, but it puts the principle on the wrong footing. It makes uncertainty sound like a constraint imposed by clumsy detectors, when in fact it is a property of the wave function itself.
 
 The goal of this post is to derive the uncertainty relation from scratch, assuming only what an attentive student would already know after meeting the photoelectric effect and de Broglie's matter waves. We'll build up the wave function, define what its **spread** is, see why position and momentum give two views of the same wave, and finally prove
 
@@ -24,7 +24,7 @@ Along the way the constant $\hbar$ will appear in exactly one place: as a unit c
 
 ## Quantum particles are waves
 
-In 1905 Einstein explained the photoelectric effect by saying that light arrives in chunks of energy $E = hf$. A wave (the electromagnetic field) carries particle-like packets (photons). Twenty years later, Louis de Broglie suggested the symmetric statement: matter, conventionally thought of as particles, also has a wave description, with wavelength
+In 1905 Einstein explained the photoelectric effect by saying that light arrives in chunks of energy $E = hf$. A wave (the electromagnetic field) carries particle-like packets (photons). Twenty years later, [Louis de Broglie](https://en.wikipedia.org/wiki/Louis_de_Broglie) suggested the symmetric statement: matter, conventionally thought of as particles, also has a wave description, with wavelength
 
 $$
 \lambda \;=\; \frac{h}{p},
@@ -34,7 +34,7 @@ where $p$ is the particle's momentum. This is confirmed in many experiments, fro
 
 > We don't read this as saying that an electron is sometimes a particle and sometimes a wave. We read it as: the **wave** is the fundamental object, and what we call the **particle** is just the localized point on a detector where a measurement of the wave is recorded.
 
-In one dimensional space, the wave function is a complex-valued function $\psi(x)$ defined for every $x \in \mathbb R$. The **Born rule** assigns it a physical meaning:
+In one dimensional space, the wave function is a complex-valued function $\psi(x)$ defined for every $x \in \mathbb R$. The [**Born rule**](https://en.wikipedia.org/wiki/Born_rule) assigns it a physical meaning:
 
 $$
 |\psi(x)|^2 \;=\; \text{probability density of finding the particle at } x.
@@ -74,7 +74,7 @@ $$
 
 Read this as: build $\psi$ by adding up plane waves of every momentum $p$, weighted by complex amplitudes $\tilde\psi(p)$. The function $\tilde\psi(p)$ tells you how much of each momentum is in the mix.
 
-By the **Fourier inversion theorem** (the same integral, run backwards to recover $\tilde\psi$ from $\psi$), this relation is invertible:
+By the [**Fourier inversion theorem**](https://en.wikipedia.org/wiki/Fourier_inversion_theorem) (the same integral, run backwards to recover $\tilde\psi$ from $\psi$), this relation is invertible:
 
 $$
 \tilde\psi(p) \;=\; \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \psi(x) \, e^{-ipx/\hbar} \, dx.
@@ -116,7 +116,7 @@ This tradeoff is well known from contexts that have nothing to do with quantum m
 
 Each of these is the same mathematical statement, applied to time and frequency, or to space and angle, instead of position and wavenumber.
 
-The precise quantitative version, first proved with the constant $\tfrac{1}{2}$ by Kennard (1927), is
+The precise quantitative version, first proved with the constant $\tfrac{1}{2}$ by [Kennard](https://en.wikipedia.org/wiki/Earle_Hesse_Kennard) (1927), is
 
 $$
 \sigma_x \, \sigma_k \;\ge\; \tfrac{1}{2}.
@@ -376,6 +376,7 @@ The disturbance interpretation is fine pedagogy as long as it is taken as illust
 - Werner Heisenberg. *Über den anschaulichen Inhalt der quantentheoretischen Kinematik und Mechanik.* Zeitschrift für Physik, 43:172-198, 1927. The original (semi-rigorous) statement.
 - Earle Hesse Kennard. *Zur Quantenmechanik einfacher Bewegungstypen.* Zeitschrift für Physik, 44:326-352, 1927. The first explicit $\sigma_x \sigma_p \ge \hbar/2$.
 - H. P. Robertson. *The uncertainty principle.* Physical Review, 34(1):163-164, 1929. The general two-operator inequality used above.
+- Clinton Davisson, Lester H. Germer. *Diffraction of electrons by a crystal of nickel.* Physical Review, 30(6):705-740, 1927. The experiment that confirmed electron diffraction.
 - Markus Arndt, Olaf Nairz, Julian Vos-Andreae, Claudia Keller, Gerbrand van der Zouw, Anton Zeilinger. *Wave-particle duality of C60 molecules.* Nature, 401(6754):680-682, 1999.
 - Yaakov Y. Fein, Philipp Geyer, Patrick Zwick, Filip Kiałka, Sebastian Pedalino, Marcel Mayor, Stefan Gerlich, Markus Arndt. *Quantum superposition of molecules beyond 25 kDa.* Nature Physics, 15(12):1242-1245, 2019.
 - John Stewart Bell. *Speakable and Unspeakable in Quantum Mechanics.* Cambridge University Press, 1987. Conceptual critique of the disturbance interpretation.

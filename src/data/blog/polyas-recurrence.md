@@ -16,7 +16,7 @@ The drunkard wandering along a sidewalk almost surely returns home. The drunkard
 
 This is **Pólya's recurrence theorem** (Pólya, 1921): on the integer lattice $\mathbb{Z}^d$, a [simple random walk](https://en.wikipedia.org/wiki/Random_walk) (each step picks one of the $2d$ unit-vector directions uniformly) returns to the origin with probability $1$ if and only if $d \le 2$.
 
-The phase transition is precisely at $d = 2$. In $d = 3$ the walk returns with probability about $0.3405$, known as **Pólya's constant**. The probability shrinks further in higher dimensions.
+The phase transition is precisely at $d = 2$. In $d = 3$ the walk returns with probability about $0.3405$, known as [**Pólya's constant**](https://mathworld.wolfram.com/PolyasRandomWalkConstants.html). The probability shrinks further in higher dimensions.
 
 Three independent walks running in 1D, 2D, and 3D below, each taking unit steps on its integer lattice. The 1D panel plots the position against time; the 2D and 3D panels trace the path itself, with the 3D walk seen from above and its height $z$ encoded in the color of the trace. The current walk in each panel restarts when it hits the origin (a return) or after $3000$ steps (give up). The counter shows the empirical fraction of walks that have returned.
 
@@ -213,11 +213,11 @@ $$
 u(0,0,0) \;=\; \frac{1}{(2\pi)^3} \int_{[-\pi,\pi]^3} \frac{dx\,dy\,dz}{1 - \tfrac{1}{3}(\cos x + \cos y + \cos z)}.
 $$
 
-Watson (1939) evaluated this triple integral in terms of elliptic integrals, getting $u(0,0,0) \approx 1.516$ and so the return probability $\approx 0.3405$.
+Watson (1939) evaluated this triple integral in terms of [elliptic integrals](https://en.wikipedia.org/wiki/Elliptic_integral), getting $u(0,0,0) \approx 1.516$ and so the return probability $\approx 0.3405$.
 
 ## Applications
 
-- **MCMC and random-walk Metropolis-Hastings** (algorithms that sample a distribution by taking random steps through a state space) in high-dimensional state spaces are inherently transient unless the chain has a centering force from the target distribution; you cannot rely on diffusive recurrence to revisit important states.
+- **MCMC and random-walk [Metropolis-Hastings](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm)** (algorithms that sample a distribution by taking random steps through a state space) in high-dimensional state spaces are inherently transient unless the chain has a centering force from the target distribution; you cannot rely on diffusive recurrence to revisit important states.
 - **Resistor networks** on $\mathbb{Z}^d$ have effective resistance from the origin to infinity that is finite iff $d \ge 3$. Recurrence is exactly the statement that this resistance is infinite.
 - **Polymer models** behave qualitatively differently in dimension $\le 2$ vs. $\ge 3$, because random-walk-like polymers have very different self-intersection statistics.
 

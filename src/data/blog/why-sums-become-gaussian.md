@@ -166,7 +166,7 @@ Three complementary intuitions, each capturing a different aspect of why this ha
 
 **(1) Convolution is smoothing.** Each convolution averages out sharp features of the densities being combined. Spikes get blurred, gaps get filled, rough edges get rounded. After enough convolutions, only the smoothest distribution with the right mean and variance survives. That happens to be the Gaussian.
 
-**(2) Entropy maximization.** Among all densities on $\mathbb{R}$ with a given mean and variance, the one with maximum [differential entropy](https://en.wikipedia.org/wiki/Differential_entropy) (a measure of how spread out a density is) is the Gaussian. Convolution drives the entropy of the standardized sum up toward that maximum, so repeated convolution pushes the distribution toward the entropy maximizer with the matching moments. This is the *entropic CLT* (Barron, 1986); the entropy is in fact monotone in $n$ (Artstein, Ball, Barthe, and Naor, 2004). It gives a thermodynamic flavor to convergence: the Gaussian is the thermal equilibrium of independent additive noise.
+**(2) Entropy maximization.** Among all densities on $\mathbb{R}$ with a given mean and variance, the one with maximum [differential entropy](https://en.wikipedia.org/wiki/Differential_entropy) (a measure of how spread out a density is) is the Gaussian. Convolution drives the entropy of the standardized sum up toward that maximum, so repeated convolution pushes the distribution toward the entropy maximizer with the matching moments. This is the *entropic CLT* ([Barron, 1986](https://projecteuclid.org/journals/annals-of-probability/volume-14/issue-1/Entropy-and-the-Central-Limit-Theorem/10.1214/aop/1176992632.full)); the entropy is in fact monotone in $n$ (Artstein, Ball, Barthe, and Naor, 2004). It gives a thermodynamic flavor to convergence: the Gaussian is the thermal equilibrium of independent additive noise.
 
 **(3) Self-similarity.** The Gaussian is the unique distribution with finite variance that is preserved under the operation **add an independent copy and rescale by $1/\sqrt{2}$**:
 
@@ -192,7 +192,7 @@ Three things to read off the bound:
 
 - The convergence rate is $1/\sqrt{n}$.
 - The factor $\rho/\sigma^3$ measures how skewed/heavy-tailed the base is. Heavy tails slow it down; thin tails speed it up.
-- The bound is uniform over $z$. Sharper *local* statements ([Edgeworth expansions](https://en.wikipedia.org/wiki/Edgeworth_series)) give higher-order corrections in $1/n$ that depend on higher cumulants of $X$ (skewness, then kurtosis, and so on).
+- The bound is uniform over $z$. Sharper *local* statements ([Edgeworth expansions](https://en.wikipedia.org/wiki/Edgeworth_series)) give higher-order corrections in $1/n$ that depend on higher [cumulants](https://en.wikipedia.org/wiki/Cumulant) of $X$ (skewness, then kurtosis, and so on).
 
 In the widget, the rate-of-convergence comparison is easy to feel: the symmetric uniform die approaches Gaussian faster than the asymmetric Bernoulli(0.3). The two have nearly the same $\rho/\sigma^3$, so what separates them is symmetry: the die has zero skewness, which removes the leading $1/\sqrt{n}$ Edgeworth correction, while the skewed Bernoulli still carries that term.
 

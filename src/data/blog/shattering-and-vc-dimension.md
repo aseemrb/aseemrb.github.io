@@ -144,7 +144,7 @@ The counting is exact, and the widget below makes it concrete. Click a point to 
 })();
 </script>
 
-Three points give $8$ of $8$, the full set, so they are shattered. Four points give at most $14$ of $16$: the two diagonal labelings have no line. So some triple is shattered and no quadruple is, which is exactly $\mathrm{VC}(\text{half-planes}) = 3$. Those counts are not specific to the configuration on screen. For $n$ points in general position, the number of labelings a half-plane in $\mathbb{R}^2$ can realize is exactly $2 \sum_{k=0}^{2} \binom{n-1}{k}$, a result of Cover, and that equals $2^n$ only up to $n = 3$.
+Three points give $8$ of $8$, the full set, so they are shattered. Four points give at most $14$ of $16$: the two diagonal labelings have no line. So some triple is shattered and no quadruple is, which is exactly $\mathrm{VC}(\text{half-planes}) = 3$. Those counts are not specific to the configuration on screen. For $n$ points in general position, the number of labelings a half-plane in $\mathbb{R}^2$ can realize is exactly $2 \sum_{k=0}^{2} \binom{n-1}{k}$, [a result of Cover](https://en.wikipedia.org/wiki/Cover%27s_theorem), and that equals $2^n$ only up to $n = 3$.
 
 ## The growth function and the Sauer–Shelah jump
 
@@ -226,7 +226,7 @@ Slide $d$ below. The blue line is $2^n$, what shattering would demand; the green
 
 ## A single integer controls generalization
 
-Suppose we want every rule in $\mathcal{H}$ to have its error on the training sample close to its true error on the full distribution, all rules at once. For one fixed rule this is a law of large numbers statement, with a Hoeffding tail (an exponential bound on how far an average of bounded variables strays from its mean) bounding the gap. For all rules simultaneously we need a union bound, and when $\mathcal{H}$ is infinite, as it is for half-planes or any class with continuous parameters, a union bound over $|\mathcal{H}|$ is vacuous.
+Suppose we want every rule in $\mathcal{H}$ to have its error on the training sample close to its true error on the full distribution, all rules at once. For one fixed rule this is a law of large numbers statement, with a [Hoeffding tail](https://en.wikipedia.org/wiki/Hoeffding%27s_inequality) (an exponential bound on how far an average of bounded variables strays from its mean) bounding the gap. For all rules simultaneously we need a union bound, and when $\mathcal{H}$ is infinite, as it is for half-planes or any class with continuous parameters, a union bound over $|\mathcal{H}|$ is vacuous.
 
 Vapnik and Chervonenkis observed that the count that belongs in the union bound is not the number of rules but the number of distinct labelings they produce on the $n$ samples, and that count is the growth function $\Pi_{\mathcal{H}}(n)$, which Sauer–Shelah caps at $(en/d)^d$. Two rules that label the sample identically are indistinguishable on the data, so they should count once. Carrying the polynomial growth function through the union bound gives the VC generalization bound: with probability at least $1 - \delta$, every $h \in \mathcal{H}$ satisfies
 $$

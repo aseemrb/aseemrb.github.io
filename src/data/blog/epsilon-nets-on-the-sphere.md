@@ -215,7 +215,7 @@ The balance is the whole content of the method. Below, the curve is the exponent
 })();
 </script>
 
-The constants are loose. The factor $2$ is the price of the $\tfrac12$-net, and the $\sqrt{2\ln 5}$ is the price of the volume bound on the net size. Sharper arguments remove them: Gordon's Gaussian comparison inequality gives $\mathbb{E}\|A\| \le \sqrt{m} + \sqrt{n}$ with no stray constant, and the Bai–Yin law shows $\|A\|/(\sqrt{m} + \sqrt{n}) \to 1$ as the dimensions grow. The $\varepsilon$-net gets the rate $\sqrt{m} + \sqrt{n}$ right with almost no work, which is why it is usually the first thing to try.
+The constants are loose. The factor $2$ is the price of the $\tfrac12$-net, and the $\sqrt{2\ln 5}$ is the price of the volume bound on the net size. Sharper arguments remove them: [Gordon's Gaussian comparison inequality](https://link.springer.com/article/10.1007/BF02759761) gives $\mathbb{E}\|A\| \le \sqrt{m} + \sqrt{n}$ with no stray constant, and the [Bai–Yin law](https://projecteuclid.org/journals/annals-of-probability/volume-21/issue-3/Limit-of-the-Smallest-Eigenvalue-of-a-Large-Dimensional-Sample/10.1214/aop/1176989118.full) shows $\|A\|/(\sqrt{m} + \sqrt{n}) \to 1$ as the dimensions grow. The $\varepsilon$-net gets the rate $\sqrt{m} + \sqrt{n}$ right with almost no work, which is why it is usually the first thing to try.
 
 ## When the net trick works
 
@@ -229,3 +229,4 @@ It also has clear limits. The $e^{O(d)}$ net size means the per-point tail must 
 - Martin J. Wainwright. *High-Dimensional Statistics: A Non-Asymptotic Viewpoint*. Cambridge University Press, 2019. Chapter 6 covers random matrices and covariance estimation, including the operator-norm bound; Chapter 5 develops the metric-entropy machinery behind it.
 - Terence Tao. *Topics in Random Matrix Theory*. American Mathematical Society, 2012. The $\varepsilon$-net argument for the operator norm appears in the opening sections on the operator norm.
 - Yehoram Gordon. *Some inequalities for Gaussian processes and applications*. Israel Journal of Mathematics, 50(4):265–289, 1985. The Gaussian comparison behind the sharp $\sqrt{m} + \sqrt{n}$ constant.
+- Z. D. Bai, Y. Q. Yin. *Limit of the smallest eigenvalue of a large dimensional sample covariance matrix*. The Annals of Probability, 21(3):1275–1294, 1993. The exact limiting values of the extreme singular values that the $\varepsilon$-net bound approximates.

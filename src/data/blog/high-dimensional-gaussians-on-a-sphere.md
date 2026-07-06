@@ -143,8 +143,8 @@ A point at the origin has the maximum density, but the volume of a small ball ar
 
 A few non-trivial consequences:
 
-1. **Generative models.** Models that map noise $\mathcal{N}(0, I_d)$ to data (GANs, VAEs, diffusion models) learn how to take samples on the input shell at $\sqrt{d}$ and place them somewhere meaningful. Decoding from a sample near the origin is asking the network to handle a region it almost never saw during training.
-2. **Sampling and MCMC** (Markov chain Monte Carlo). A lot of inference algorithms have to **find the typical set** of the target distribution: the thin shell where almost all the probability mass sits. Algorithms that wander far from the shell waste samples on regions with negligible mass.
+1. **Generative models.** Models that map noise $\mathcal{N}(0, I_d)$ to data ([GANs](https://en.wikipedia.org/wiki/Generative_adversarial_network), [VAEs](https://en.wikipedia.org/wiki/Variational_autoencoder), [diffusion models](https://en.wikipedia.org/wiki/Diffusion_model)) learn how to take samples on the input shell at $\sqrt{d}$ and place them somewhere meaningful. Decoding from a sample near the origin is asking the network to handle a region it almost never saw during training.
+2. **Sampling and [MCMC](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo)** (Markov chain Monte Carlo). A lot of inference algorithms have to **find the typical set** of the target distribution: the thin shell where almost all the probability mass sits. Algorithms that wander far from the shell waste samples on regions with negligible mass.
 3. **Random projections.** A uniformly random unit vector in $\mathbb{R}^d$ projected onto a single axis gives a value with std $\sim 1/\sqrt{d}$. High-dim spheres **look Gaussian** in low-dim projections, which connects this story back to the [central limit theorem](/blog/why-sums-become-gaussian).
 4. **[Concentration of measure](https://en.wikipedia.org/wiki/Concentration_of_measure).** The Gaussian shell is one face of a much more general fact: in high dimensions, **Lipschitz functions** of independent variables (those whose output changes no faster than a fixed multiple of the input) concentrate sharply around their median. Lévy's lemma, which says a Lipschitz function on a high-dimensional sphere is nearly constant over most of the sphere, is the same idea in spherical clothing.
 
@@ -155,5 +155,5 @@ The 1D bell curve is so canonical that it overwrites our intuition for higher di
 ## References
 
 - Roman Vershynin. *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. Chapter 3.
-- Avrim Blum, John Hopcroft, Ravi Kannan. *Foundations of Data Science*. Cambridge University Press, 2020. Chapter 2.
+- Avrim Blum, John Hopcroft, Ravindran Kannan. *Foundations of Data Science*. Cambridge University Press, 2020. Chapter 2.
 - Michel Talagrand. *Concentration of Measure and Isoperimetric Inequalities in Product Spaces*. Publications mathématiques de l'IHÉS, 1995.

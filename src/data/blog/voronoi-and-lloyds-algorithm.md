@@ -31,7 +31,7 @@ At each step:
    $$
 3. Repeat.
 
-This is **Lloyd's algorithm** (Lloyd, 1957/1982). It decreases the total squared distance from each point in the plane to its nearest generator at every step (an **energy function**, also called a **Lyapunov function**: a quantity that only ever goes down, so the configuration cannot cycle and must settle), so it converges to a local minimum.
+This is **Lloyd's algorithm** (Lloyd, 1957/1982). It decreases the total squared distance from each point in the plane to its nearest generator at every step (an **energy function**, also called a [**Lyapunov function**](https://en.wikipedia.org/wiki/Lyapunov_function): a quantity that only ever goes down, so the configuration cannot cycle and must settle), so it converges to a local minimum.
 
 The fixed points are configurations where every generator is *already* at the centroid of its own cell. These are called **centroidal Voronoi tessellations** (CVTs). On flat domains, the cells of a CVT are nearly hexagonal: among polygons that tile the plane, hexagons minimize the second moment of area per unit area, so the algorithm seeks them out (see [The bees](#the-bees) for more details on this minimization).
 
@@ -263,7 +263,7 @@ the total squared distance to the nearest generator. Each step strictly decrease
 
 Bees build approximately hexagonal honeycombs, and they are often described as running Lloyd's algorithm in nature. Not quite: there are two distinct mathematical optimality statements that both have the hexagonal tiling as their answer in 2D, and bees and Lloyd's algorithm solve different ones.
 
-**Hales's Honeycomb Theorem** (Hales, 2001). Among all tilings of the plane into regions of equal area, the regular hexagonal tiling minimizes the total perimeter. This is the optimization that minimizes wax usage for a given total storage volume. The conjecture goes back at least to Pappus of Alexandria in the fourth century AD; the proof is modern.
+[**Hales's Honeycomb Theorem**](https://en.wikipedia.org/wiki/Honeycomb_conjecture) (Hales, 2001). Among all tilings of the plane into regions of equal area, the regular hexagonal tiling minimizes the total perimeter. This is the optimization that minimizes wax usage for a given total storage volume. The conjecture goes back at least to Pappus of Alexandria in the fourth century AD; the proof is modern.
 
 **Lloyd's CVT** in the flat-domain, uniform-density limit minimizes a different functional, the second moment of area per unit area:
 
@@ -282,7 +282,7 @@ For shapes of fixed area, this average depends only on the shape of $V$, not its
 - square: $\dfrac{1}{6} \approx 0.1667$,
 - equilateral triangle: $\dfrac{\sqrt{3}}{9} \approx 0.1925$.
 
-The hexagon comes within $0.7\%$ of the disk lower bound; the square is about $5\%$ over, the triangle about $21\%$ over. Among polygons that tile the plane (not only the regular ones), the regular hexagon minimizes this functional (L. Fejes Tóth, 1959). The analogous statement in $d \ge 3$, that the optimal tiling for this same second-moment functional (the moment of inertia of a uniform cell) is by **truncated octahedra** (the 14-faced space-filling solid), is **Gersho's conjecture**, still open in general dimensions.
+The hexagon comes within $0.7\%$ of the disk lower bound; the square is about $5\%$ over, the triangle about $21\%$ over. Among convex polygons that tile the plane (not only the regular ones), the regular hexagon minimizes this functional (L. Fejes Tóth, 1959). The analogous statement in $d \ge 3$, that the optimal tiling for this same second-moment functional (the moment of inertia of a uniform cell) is by [**truncated octahedra**](https://en.wikipedia.org/wiki/Truncated_octahedron) (the 14-faced space-filling solid), is **Gersho's conjecture**, still open in general dimensions.
 
 So the perimeter minimum and the moment-of-inertia minimum are mathematically distinct objectives, but they happen to be solved by the same shape in 2D. That is the reason bees and k-means converge on hexagons through completely unrelated processes.
 
@@ -296,6 +296,7 @@ In this sense, *bees do calculus* the same way *soap films do calculus*: the phy
 - Qiang Du, Vance Faber, Max Gunzburger. *Centroidal Voronoi tessellations: Applications and algorithms*. SIAM Review, 41(4):637-676, 1999.
 - Atsuyuki Okabe, Barry Boots, Kokichi Sugihara, Sung Nok Chiu. *Spatial Tessellations: Concepts and Applications of Voronoi Diagrams*. Wiley, 2000.
 - Thomas C. Hales. *The honeycomb conjecture*. Discrete and Computational Geometry, 25(1):1-22, 2001.
+- László Fejes Tóth. *Sur la représentation d'une population infinie par un nombre fini d'éléments*. Acta Mathematica Academiae Scientiarum Hungaricae, 10:299-304, 1959. The hexagon moment theorem cited in the text.
 - L. Fejes Tóth. *What the bees know and what they do not know*. Bulletin of the American Mathematical Society, 70(4):468-481, 1964.
 - B. L. Karihaloo, K. Zhang, J. Wang. *Honeybee combs: how the circular cells transform into rounded hexagons*. Journal of the Royal Society Interface, 10(86):20130299, 2013.
 - D'Arcy Wentworth Thompson. *On Growth and Form*. Cambridge University Press, 1917.

@@ -41,7 +41,7 @@ Concretely: the mean distance grows as $\sqrt{d/6}$, the ratio std/mean shrinks 
 
 kNN works by ranking training points by distance to a query and using the closest few. If every training point is at essentially the same distance, the ranking is essentially random, driven by tiny fluctuations rather than signal. The nearest neighbor is no more informative than a random training point.
 
-Beyer, Goldstein, Ramakrishnan, and Shaft made this precise in 1999 in a paper titled exactly *When is "nearest neighbor" meaningful?* The answer, roughly: not when the dimension is large compared to the number of points and the data has no low-dimensional structure. Their main result:
+Beyer, Goldstein, Ramakrishnan, and Shaft made this precise in 1999 in a paper titled exactly *[When is "nearest neighbor" meaningful?](https://doi.org/10.1007/3-540-49257-7_15)* The answer, roughly: not when the dimension is large compared to the number of points and the data has no low-dimensional structure. Their main result:
 
 $$
 \frac{\max_{i \ne j} \|X_i - X_j\| \;-\; \min_{i \ne j} \|X_i - X_j\|}{\min_{i \ne j} \|X_i - X_j\|} \;\xrightarrow{p}\; 0
@@ -75,5 +75,5 @@ The first principle: the raw Euclidean metric on a high-dimensional ambient spac
 ## References
 
 - Kevin Beyer, Jonathan Goldstein, Raghu Ramakrishnan, Uri Shaft. *When is "nearest neighbor" meaningful?* International Conference on Database Theory, 1999.
-- Roman Vershynin. *High-Dimensional Probability*. Cambridge University Press, 2018. Chapter 5 (concentration), Section 6.6 (random projections).
-- Avrim Blum, John Hopcroft, Ravi Kannan. *Foundations of Data Science*. Cambridge University Press, 2020. Chapter 2.
+- Roman Vershynin. *High-Dimensional Probability*. Cambridge University Press, 2018. Chapter 5 (concentration), Section 5.3 (the Johnson–Lindenstrauss lemma).
+- Avrim Blum, John Hopcroft, Ravindran Kannan. *Foundations of Data Science*. Cambridge University Press, 2020. Chapter 2.

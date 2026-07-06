@@ -56,7 +56,7 @@ $$
 
 where $\|A\|_F^2 = \sum_i \lambda_i^2$ is the squared **Frobenius norm** and the band $|s| \le \tfrac{1}{4\|A\|}$ comes from needing $|s\lambda_i| \le \tfrac{1}{4}$ for every $i$, with $\|A\| = \max_i |\lambda_i|$ the **operator norm** (the largest singular value).
 
-This is the cumulant bound of a Bernstein-type variable: a Gaussian-like $s^2$ term, but valid only inside a band whose width is set by $\|A\|$. Optimizing the Chernoff bound $\Pr[S \ge t] \le \exp(-st + 2 s^2 \|A\|_F^2)$ (Markov's inequality applied to $e^{sS}$) over $s$ in that band gives the two regimes. For small $t$ the optimal $s$ stays inside the band and the bound is Gaussian; for large $t$ the optimum is pinned at the edge $s = \tfrac{1}{4\|A\|}$ and the bound is exponential. Together,
+This is the cumulant bound of a [Bernstein-type](https://en.wikipedia.org/wiki/Bernstein_inequalities_(probability_theory)) variable: a Gaussian-like $s^2$ term, but valid only inside a band whose width is set by $\|A\|$. Optimizing the Chernoff bound $\Pr[S \ge t] \le \exp(-st + 2 s^2 \|A\|_F^2)$ (Markov's inequality applied to $e^{sS}$) over $s$ in that band gives the two regimes. For small $t$ the optimal $s$ stays inside the band and the bound is Gaussian; for large $t$ the optimum is pinned at the edge $s = \tfrac{1}{4\|A\|}$ and the bound is exponential. Together,
 
 $$
 \Pr\big[\,|X^\top A X - \operatorname{tr}(A)| \ge t\,\big] \;\le\; 2\exp\!\left(-\frac{1}{8}\min\!\left(\frac{t^2}{\|A\|_F^2},\; \frac{t}{\|A\|}\right)\right).
@@ -199,7 +199,7 @@ What decides which regime matters in practice is the shape of the spectrum. Belo
 
 ## The general theorem
 
-For general independent entries the rotation that handled the Gaussian case is not available: only the Gaussian is rotation invariant, so for any other distribution the rotated coordinates $Q^\top X$, while still sub-Gaussian, are no longer independent, and the clean weighted sum of squares falls apart. The inequality holds anyway. For a random vector with independent, mean-zero, sub-Gaussian entries of sub-Gaussian norm at most $K$ (the scale on which the entries' own tails decay like $e^{-x^2/K^2}$),
+For general independent entries the rotation that handled the Gaussian case is not available: only the Gaussian is rotation invariant, so for any other distribution the rotated coordinates $Q^\top X$, while still [sub-Gaussian](https://en.wikipedia.org/wiki/Sub-Gaussian_distribution), are no longer independent, and the clean weighted sum of squares falls apart. The inequality holds anyway. For a random vector with independent, mean-zero, sub-Gaussian entries of sub-Gaussian norm at most $K$ (the scale on which the entries' own tails decay like $e^{-x^2/K^2}$),
 
 $$
 \Pr\big[\,|X^\top A X - \mathbb{E}\,X^\top A X| \ge t\,\big] \;\le\; 2\exp\!\left(-c\min\!\left(\frac{t^2}{K^4\|A\|_F^2},\; \frac{t}{K^2\|A\|}\right)\right),

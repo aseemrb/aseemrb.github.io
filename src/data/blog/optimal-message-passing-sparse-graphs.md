@@ -13,7 +13,7 @@ description:
   A condensed walkthrough of our NeurIPS 2023 paper deriving the asymptotically Bayes-optimal classifier for node classification on sparse contextual stochastic block models, and what it implies for the design of graph neural networks.
 ---
 
-Most theory on graph neural networks (GNNs) lives in the *dense* regime, usually on the dense stochastic block model, where each node's degree grows with the size of the graph. That setting is mathematically convenient (as $n \to \infty$, neighborhoods concentrate), but it doesn't match what we actually train on: the [Open Graph Benchmark](https://ogb.stanford.edu/) datasets have millions of nodes with average degree on the order of tens, and the per-node feature dimension stays in the low hundreds. The interesting regime is *sparse*: node degrees stay $O(1)$, the feature dimension stays fixed, and only $n$ grows.
+Most theory on graph neural networks (GNNs) lives in the *dense* regime, usually on the dense [stochastic block model](https://en.wikipedia.org/wiki/Stochastic_block_model), where each node's degree grows with the size of the graph. That setting is mathematically convenient (as $n \to \infty$, neighborhoods concentrate), but it doesn't match what we actually train on: the [Open Graph Benchmark](https://ogb.stanford.edu/) datasets have millions of nodes with average degree on the order of tens, and the per-node feature dimension stays in the low hundreds. The interesting regime is *sparse*: node degrees stay $O(1)$, the feature dimension stays fixed, and only $n$ grows.
 
 In our [NeurIPS 2023 paper](https://arxiv.org/abs/2305.10391) with [Kimon Fountoulakis](https://opallab.ca/) and [Aukosh Jagannath](https://aukosh.github.io/), we ask: what does the *optimal* node classifier look like in this regime, and is there an architecture that realizes it? The answer turns out to be cleaner than expected, with some surprising consequences for how to design GNNs in practice. This post sketches the main results.
 
@@ -137,7 +137,7 @@ Theorem 1 gives an explicit message-passing architecture and proves it asymptoti
 
 ## Closed-form generalization error (Theorem 2)
 
-For the symmetric two-class Gaussian case, we compute the asymptotic generalization error in closed form, in terms of $(\gamma, \Gamma)$. On the Galton–Watson tree that the CSBM neighborhood converges to (a random tree in which each node draws its number of children independently from a fixed distribution), the distribution of the optimal message can be characterized by a fixed-point recursion on the branching process. This collapses what would otherwise be pages of integrals into a tractable distributional equation. The full statement (and the multi-class extension) is in Section 4.
+For the symmetric two-class Gaussian case, we compute the asymptotic generalization error in closed form, in terms of $(\gamma, \Gamma)$. On the [Galton–Watson tree](https://en.wikipedia.org/wiki/Galton%E2%80%93Watson_process) that the CSBM neighborhood converges to (a random tree in which each node draws its number of children independently from a fixed distribution), the distribution of the optimal message can be characterized by a fixed-point recursion on the branching process. This collapses what would otherwise be pages of integrals into a tractable distributional equation. The full statement (and the multi-class extension) is in Section 4.
 
 ## The MLP–GCN interpolation (Theorem 3)
 

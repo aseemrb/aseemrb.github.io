@@ -155,7 +155,7 @@ Separation rules out near-duplicates, non-duplicate points are genuinely differe
 
 ## Lower bounds give impossibility results
 
-Why would we want a lower bound on a maximum? Upper bounds are the reassuring direction: they say the worst case is not that bad, the estimator concentrates, the error is controlled. Lower bounds, on the other hand, are the source of impossibility results. If we can show some noise is quantitatively *at least* this large no matter what, then no method can drive the corresponding error below it. Minimax lower bounds, hardness-of-detection results, and non-separability results all rest on exactly this kind of statement.
+Why would we want a lower bound on a maximum? Upper bounds are the reassuring direction: they say the worst case is not that bad, the estimator concentrates, the error is controlled. Lower bounds, on the other hand, are the source of impossibility results. If we can show some noise is quantitatively *at least* this large no matter what, then no method can drive the corresponding error below it. [Minimax lower bounds](https://en.wikipedia.org/wiki/Minimax_estimator), hardness-of-detection results, and non-separability results all rest on exactly this kind of statement.
 
 And a supremum is exactly the right object for a worst case. "Can any direction separate these points?" is a statement about $\sup$ over directions. "Is there any test function that detects the signal?" is a $\sup$ over test functions. To prove such a worst case is unavoidably bad, we lower-bound a supremum, which is exactly what Sudakov does.
 
@@ -171,7 +171,7 @@ $$
 s \;>\; \max_{i \ne i_0} X_i.
 $$
 
-So everything hinges on the size of the largest pure-noise reading, a maximum of a Gaussian process over the $N$ readings, and that is exactly what Sudakov lower-bounds. As long as the readings are genuinely different from one another, meaning their noises are pairwise at least $\varepsilon$ apart in the canonical metric, then
+So everything hinges on the size of the largest pure-noise reading, a maximum of a [Gaussian process](https://en.wikipedia.org/wiki/Gaussian_process) over the $N$ readings, and that is exactly what Sudakov lower-bounds. As long as the readings are genuinely different from one another, meaning their noises are pairwise at least $\varepsilon$ apart in the canonical metric, then
 
 $$
 \max_i \, X_i \;\ge\; c\,\varepsilon \sqrt{\log N}

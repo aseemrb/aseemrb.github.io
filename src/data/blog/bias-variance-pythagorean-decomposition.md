@@ -74,7 +74,7 @@ The derivation is correct, but it reads like a lucky cancellation. The cross ter
 
 ## What the cancellation actually says
 
-Treat random variables as vectors: they can be added and scaled, and the space of square-integrable ones (those with $\mathbb{E}[U^2] < \infty$) is called $L^2$. The natural [inner product on $L^2$](https://en.wikipedia.org/wiki/Lp_space#The_p-norm_in_finite_dimensions) is
+Treat random variables as vectors: they can be added and scaled, and the space of square-integrable ones (those with $\mathbb{E}[U^2] < \infty$) is called $L^2$. The natural [inner product on $L^2$](https://en.wikipedia.org/wiki/Square-integrable_function) is
 
 $$
 \langle U, V \rangle \;:=\; \mathbb{E}[UV],
@@ -261,7 +261,7 @@ A few things to read off the picture:
 
 ## What this buys you
 
-Most regularization techniques ([ridge regression](https://en.wikipedia.org/wiki/Ridge_regression), [weight decay](https://en.wikipedia.org/wiki/Tikhonov_regularization), [James–Stein shrinkage](/blog/steins-paradox), early stopping, dropout) introduce some bias in exchange for a reduction in variance. The right triangle gives a single picture for all of them: each method defines its own frontier in the $(|\text{bias}|, \sigma_{\text{res}})$ plane, and the engineering question is whether that frontier dips closer to the origin than the unbiased baseline.
+Most regularization techniques ([ridge regression](https://en.wikipedia.org/wiki/Ridge_regression), [weight decay](https://en.wikipedia.org/wiki/Tikhonov_regularization), [James–Stein shrinkage](/blog/steins-paradox), [early stopping](https://en.wikipedia.org/wiki/Early_stopping), [dropout](https://en.wikipedia.org/wiki/Dropout_(neural_networks))) introduce some bias in exchange for a reduction in variance. The right triangle gives a single picture for all of them: each method defines its own frontier in the $(|\text{bias}|, \sigma_{\text{res}})$ plane, and the engineering question is whether that frontier dips closer to the origin than the unbiased baseline.
 
 In high dimensions the frontier really does dip in. The geometric content of [Stein's paradox](/blog/steins-paradox) is exactly this: in $d \ge 3$, the unbiased point $(0, \sigma\sqrt{d})$ is dominated everywhere by a shrinkage estimator, because the noise leg has length $\sigma\sqrt{d}$, and a small bias buys back a much larger reduction in that long vertical leg.
 
@@ -281,7 +281,7 @@ The picture survives, with the legs now being the bias *vector*'s norm and the *
 
 Once you internalize the $L^2$ inner product, several other identities are the same theorem in different costumes:
 
-- **Law of total variance.** $\mathrm{Var}(Y) = \mathbb{E}[\mathrm{Var}(Y \mid X)] + \mathrm{Var}(\mathbb{E}[Y \mid X])$. Decompose $Y - \mathbb{E}[Y]$ into the conditional residual and the conditional mean's deviation. Orthogonal in $L^2$.
+- **[Law of total variance](https://en.wikipedia.org/wiki/Law_of_total_variance).** $\mathrm{Var}(Y) = \mathbb{E}[\mathrm{Var}(Y \mid X)] + \mathrm{Var}(\mathbb{E}[Y \mid X])$. Decompose $Y - \mathbb{E}[Y]$ into the conditional residual and the conditional mean's deviation. Orthogonal in $L^2$.
 - **OLS (ordinary least squares) sum-of-squares decomposition.** $\|y - \bar y\|^2 = \|\hat y - \bar y\|^2 + \|y - \hat y\|^2$. The fitted vector is the projection onto the column space (the vectors the model can produce); the residual is perpendicular. Same right triangle.
 - **[ANOVA](https://en.wikipedia.org/wiki/Analysis_of_variance).** $SS_{\text{total}} = SS_{\text{between}} + SS_{\text{within}}$. Group-mean deviations and within-group residuals are orthogonal.
 - **[Conditional expectation as a projection](https://en.wikipedia.org/wiki/Conditional_expectation#As_a_random_variable).** $\mathbb{E}[Y \mid X]$ is the closest function of $X$ to $Y$ in $L^2$, and $Y - \mathbb{E}[Y \mid X]$ is orthogonal to every such function.
@@ -291,6 +291,6 @@ Each is Pythagoras with a different orthogonal pair. The bias-variance identity 
 ## References
 
 - Trevor Hastie, Robert Tibshirani, Jerome Friedman. *The Elements of Statistical Learning*. Springer, 2009. Chapter 7 has the standard treatment plus the connection to model selection.
-- Larry Wasserman. *All of Statistics*. Springer, 2004. Section 7.3 derives the identity in the algebraic style.
+- Larry Wasserman. *All of Statistics*. Springer, 2004. Theorem 6.9 in Section 6.3.1 derives the identity in the algebraic style.
 - Stuart Geman, Elie Bienenstock, René Doursat. *Neural networks and the bias/variance dilemma*. Neural Computation, 4(1):1–58, 1992. The paper that put the decomposition front and center for the neural net community.
-- Roman Vershynin. *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. Chapter 8 develops the $L^2$ geometry that makes the orthogonality picture transparent.
+- Roman Vershynin. *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. Chapter 1 develops the $L^2$ geometry that makes the orthogonality picture transparent.

@@ -22,7 +22,7 @@ $$
 
 the sample mean is the [maximum-likelihood estimator](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation), the [minimum-variance unbiased estimator](https://en.wikipedia.org/wiki/Minimum-variance_unbiased_estimator), and, in one dimension, [admissible](https://en.wikipedia.org/wiki/Admissible_decision_rule): no other estimator beats it for every value of the parameter. For two centuries this read as the end of the story.
 
-In 1961, Charles Stein and Willard James proved that in *three or more dimensions*, the sample mean is *not* admissible. There is a different estimator with strictly smaller MSE for every $\theta \in \mathbb{R}^d$, simultaneously. Even when the components correspond to completely unrelated quantities.
+In 1956, [Charles Stein](https://en.wikipedia.org/wiki/Charles_M._Stein) proved that in *three or more dimensions*, the sample mean is *not* admissible. In 1961, [Willard James](https://en.wikipedia.org/wiki/Willard_D._James) and Stein exhibited an explicit improvement: an estimator with strictly smaller MSE for every $\theta \in \mathbb{R}^d$, simultaneously. Even when the components correspond to completely unrelated quantities.
 
 The estimator is famous and, when first encountered, jarring. It is also a precursor of [ridge regression](https://en.wikipedia.org/wiki/Ridge_regression), [empirical Bayes](https://en.wikipedia.org/wiki/Empirical_Bayes_method), and a great deal of modern machine learning.
 
@@ -56,7 +56,7 @@ Maximum likelihood, minimum variance among unbiased estimators, and unbeatable-e
 
 The first three properties were direct calculations. Admissibility is the substantive one. Take the canonical case $X \sim \mathcal{N}(\theta, 1)$ on $\mathbb{R}$ (one observation, unit variance, after rescaling). The sample mean is just $X$, and its MSE is $\mathbb{E}[(X - \theta)^2] = 1$ at every $\theta$. The claim is that no estimator strictly beats $1$ everywhere.
 
-The standard proof, due to [Hodges and Lehmann](https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-21/issue-2/Some-Problems-in-Minimax-Point-Estimation/10.1214/aoms/1177729838.full) (1950) and Blyth (1951), is by contradiction, using a wide Gaussian prior on $\theta$. The strategy in one line: suppose some estimator beats $X$ everywhere, then average the comparison against a very spread-out prior. When the prior is wide, the best possible estimator for it is almost exactly $X$, which leaves no room for a uniform improvement, and the arithmetic of that squeeze is the contradiction.
+The standard proof, due to [Hodges and Lehmann](https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-21/issue-2/Some-Problems-in-Minimax-Point-Estimation/10.1214/aoms/1177729838.full) (1950) and [Blyth (1951)](https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-1/On-Minimax-Statistical-Decision-Procedures-and-their-Admissibility/10.1214/aoms/1177729690.full), is by contradiction, using a wide Gaussian prior on $\theta$. The strategy in one line: suppose some estimator beats $X$ everywhere, then average the comparison against a very spread-out prior. When the prior is wide, the best possible estimator for it is almost exactly $X$, which leaves no room for a uniform improvement, and the arithmetic of that squeeze is the contradiction.
 
 Suppose some $\tilde\theta$ dominated $X$: its **risk function** $R(\theta) := \mathbb{E}\bigl[(\tilde\theta - \theta)^2\bigr]$ satisfies $R(\theta) \le 1$ for every $\theta$, with strict inequality $R(\theta_0) < 1$ at some $\theta_0$. Assuming $R$ is continuous in $\theta$ (true for any reasonable $\tilde\theta$), there is a small interval $[\theta_0 - a, \theta_0 + a]$ on which $R(\theta) \le 1 - \delta$ for some $\delta > 0$.
 
@@ -132,7 +132,7 @@ $$
 \mathrm{MSE}(cX) \;=\; (c-1)^2 \|\theta\|^2 + c^2 d,
 $$
 
-minimized at $c^\star = \|\theta\|^2 / (\|\theta\|^2 + d)$. That is the optimal shrinkage if you knew $\|\theta\|$. You don't, but the data hands you an estimate: $\mathbb{E}[\|X\|^2] = \|\theta\|^2 + d$, so $\|X\|^2 - d$ is an unbiased estimator of $\|\theta\|^2$. Substituting and simplifying produces a shrinkage factor of $1 - d/\|X\|^2$. James and Stein replace $d$ with $d - 2$, a correction that drops out of an integration-by-parts identity called Stein's lemma, and that swap is exactly what makes the dominance proof go through.
+minimized at $c^\star = \|\theta\|^2 / (\|\theta\|^2 + d)$. That is the optimal shrinkage if you knew $\|\theta\|$. You don't, but the data hands you an estimate: $\mathbb{E}[\|X\|^2] = \|\theta\|^2 + d$, so $\|X\|^2 - d$ is an unbiased estimator of $\|\theta\|^2$. Substituting and simplifying produces a shrinkage factor of $1 - d/\|X\|^2$. James and Stein replace $d$ with $d - 2$, a correction that drops out of an integration-by-parts identity called [Stein's lemma](https://en.wikipedia.org/wiki/Stein%27s_lemma), and that swap is exactly what makes the dominance proof go through.
 
 **Theorem (James and Stein, 1961).** For every $\theta \in \mathbb{R}^d$ and every $d \ge 3$,
 
@@ -144,7 +144,7 @@ The sample mean is dominated *uniformly*. For $d \le 2$ the estimator degenerate
 
 ## The geometric reason
 
-The mechanism behind shrinkage is a fact about the magnitude of $X$. If $X \sim \mathcal{N}(\theta, I_d)$, then $\|X\|^2$ has a non-central chi-squared distribution with non-centrality $\|\theta\|^2$ (the distribution of the squared length of a Gaussian vector whose mean sits a distance $\|\theta\|$ from the origin), so
+The mechanism behind shrinkage is a fact about the magnitude of $X$. If $X \sim \mathcal{N}(\theta, I_d)$, then $\|X\|^2$ has a [non-central chi-squared distribution](https://en.wikipedia.org/wiki/Noncentral_chi-squared_distribution) with non-centrality $\|\theta\|^2$ (the distribution of the squared length of a Gaussian vector whose mean sits a distance $\|\theta\|$ from the origin), so
 
 $$
 \mathbb{E}[\|X\|^2] \;=\; \|\theta\|^2 + d.
@@ -294,13 +294,16 @@ Stein's paradox is the seed of a huge amount of modern statistics and ML:
 
 - **Empirical Bayes.** Learn the prior from data; shrink toward what the data says is the typical $\theta$.
 - **Ridge regression.** Penalize the squared norm of the regression coefficients; the regularization parameter is a shrinkage knob.
-- **Hierarchical Bayesian models.** Multi-level shrinkage across groups.
+- **[Hierarchical Bayesian models](https://en.wikipedia.org/wiki/Bayesian_hierarchical_modeling).** Multi-level shrinkage across groups.
 - **L2 regularization in deep learning.** Weight decay is, at heart, a shrinkage estimator.
 
 All of these are descendants of: *the sample mean is wrong in $\ge 3$ dimensions; do something biased instead*.
 
 ## References
 
-- William James, Charles Stein. *Estimation with Quadratic Loss.* Berkeley Symposium on Mathematical Statistics and Probability, 1961.
+- Joseph L. Hodges, Erich L. Lehmann. *Some Problems in Minimax Point Estimation.* The Annals of Mathematical Statistics, 21(2):182–197, 1950.
+- Colin R. Blyth. *On Minimax Statistical Decision Procedures and their Admissibility.* The Annals of Mathematical Statistics, 22(1):22–42, 1951.
+- Charles Stein. *Inadmissibility of the Usual Estimator for the Mean of a Multivariate Normal Distribution.* Proceedings of the Third Berkeley Symposium on Mathematical Statistics and Probability, Volume 1, pages 197–206, University of California Press, 1956.
+- Willard James, Charles Stein. *Estimation with Quadratic Loss.* Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability, Volume 1, pages 361–379, University of California Press, 1961.
 - Bradley Efron, Carl Morris. *Stein's Paradox in Statistics.* Scientific American, 1977. A beautifully written exposition.
-- Roman Vershynin. *High-Dimensional Probability*. Cambridge University Press, 2018. Chapter 8 has the geometric setup and a clean proof of the key inequality.
+- Roman Vershynin. *High-Dimensional Probability*. Cambridge University Press, 2018. Chapter 3 has the geometric setup and a clean proof of the key inequality.

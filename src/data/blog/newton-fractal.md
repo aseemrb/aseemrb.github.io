@@ -234,13 +234,13 @@ Slide $n$ to change the polynomial. Click anywhere on the picture to launch a Ne
 })();
 </script>
 
-For $n = 2$, the basins are exactly the left and right half-planes, separated by the imaginary axis. No fractal. For $n \ge 3$, every basin shares its boundary with every other basin: any small disk that contains a boundary point also contains points from all $n$ basins. This is the **Wada property** of the Newton fractal.
+For $n = 2$, the basins are exactly the left and right half-planes, separated by the imaginary axis. No fractal. For $n \ge 3$, every basin shares its boundary with every other basin: any small disk that contains a boundary point also contains points from all $n$ basins. This is the [**Wada property**](https://en.wikipedia.org/wiki/Lakes_of_Wada) of the Newton fractal.
 
 ## The boundary is a fractal
 
-The set of starting points that *do not* converge to any root is the [Julia set](https://en.wikipedia.org/wiki/Julia_set) of the Newton iteration map $N(z) = z - f(z)/f'(z)$. For $f(z) = z^n - 1$ with $n \ge 2$, this Julia set is non-empty and self-similar at every scale. It has [Hausdorff dimension](https://en.wikipedia.org/wiki/Hausdorff_dimension) strictly between $1$ and $2$.
+The set of starting points that *do not* converge to any root is the [Julia set](https://en.wikipedia.org/wiki/Julia_set) of the Newton iteration map $N(z) = z - f(z)/f'(z)$. For $f(z) = z^n - 1$ with $n \ge 3$, this Julia set is non-empty and self-similar at every scale. It has [Hausdorff dimension](https://en.wikipedia.org/wiki/Hausdorff_dimension) strictly between $1$ and $2$.
 
-The Newton iteration is a holomorphic dynamical system: the map $z \mapsto N(z)$ is meromorphic on the complex plane. The local theory of holomorphic dynamics says that the boundary of any attracting basin is automatically a fractal except in degenerate cases. The fractal boundary is not a quirk of $z^n - 1$; it is generic.
+The Newton iteration is a [holomorphic dynamical system](https://en.wikipedia.org/wiki/Complex_dynamics): the map $z \mapsto N(z)$ is meromorphic on the complex plane. The local theory of holomorphic dynamics says that the boundary of any attracting basin is automatically a fractal except in degenerate cases. The fractal boundary is not a quirk of $z^n - 1$; it is generic.
 
 ## What is interesting beyond the picture
 

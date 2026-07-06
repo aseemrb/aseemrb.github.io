@@ -15,7 +15,7 @@ description:
 
 The [central limit theorem](/blog/why-sums-become-gaussian) says that the *sum* of many independent random variables, properly standardized, converges to a deterministic shape (the Gaussian). [Random matrix theory](https://en.wikipedia.org/wiki/Random_matrix) gives the analogous statement for *spectra*: the eigenvalues of a large random matrix, taken together as a histogram, converge to a deterministic density. Two of the cleanest results are the **Marchenko-Pastur law** for sample covariance matrices and the **Wigner semicircle law** for symmetric matrices with i.i.d. entries.
 
-The geometric content matters in machine learning: the bias of the sample covariance matrix, the failure of nearest-neighbor and PCA in high dimensions, and a chunk of modern shrinkage theory all live inside these two densities.
+The geometric content matters in machine learning: the bias of the sample covariance matrix, the failure of nearest-neighbor and [PCA](https://en.wikipedia.org/wiki/Principal_component_analysis) in high dimensions, and a chunk of modern shrinkage theory all live inside these two densities.
 
 ## Sample covariance matrices
 
@@ -398,7 +398,7 @@ $$
 \frac{1}{d} \sum_{i=1}^d f(\lambda_i)
 $$
 
-(an average of $f$ over the eigenvalues of a $d \times d$ random matrix) has variance of order $1/d^2$ in good cases, and its expectation has a limit as $d \to \infty$. The expectations as $f$ ranges over polynomials are precisely the moments of the limiting density. The method of moments (a density is pinned down by its sequence of moments, so it is enough to compute the limit of $\mathbb{E}\bigl[\tfrac{1}{d}\sum_i \lambda_i^k\bigr]$ for each power $k$) reduces the proof to combinatorics: counting non-crossing pair partitions for Wigner (ways to join $2k$ points on a line into pairs so that no two connecting chords cross, which gives the [Catalan numbers](https://en.wikipedia.org/wiki/Catalan_number), the moments of the semicircle), and a related count for Marchenko-Pastur.
+(an average of $f$ over the eigenvalues of a $d \times d$ random matrix) has variance of order $1/d^2$ in good cases, and its expectation has a limit as $d \to \infty$. The expectations as $f$ ranges over polynomials are precisely the moments of the limiting density. The [method of moments](https://en.wikipedia.org/wiki/Method_of_moments_(probability_theory)) (a density is pinned down by its sequence of moments, so it is enough to compute the limit of $\mathbb{E}\bigl[\tfrac{1}{d}\sum_i \lambda_i^k\bigr]$ for each power $k$) reduces the proof to combinatorics: counting non-crossing pair partitions for Wigner (ways to join $2k$ points on a line into pairs so that no two connecting chords cross, which gives the [Catalan numbers](https://en.wikipedia.org/wiki/Catalan_number), the moments of the semicircle), and a related count for Marchenko-Pastur.
 
 A more conceptual derivation comes from [free probability](https://en.wikipedia.org/wiki/Free_probability), a version of probability for non-commuting variables such as large matrices, in which **freeness** is the analog of independence. There the semicircle plays the role that the Gaussian plays in classical probability: it is the limit of sums of freely independent self-adjoint variables. Marchenko-Pastur is the free analog of the Poisson distribution, arising from a free compound process.
 
@@ -407,7 +407,7 @@ A more conceptual derivation comes from [free probability](https://en.wikipedia.
 Three concrete consequences for machine learning:
 
 1. **Sample covariance is biased even with $n \gg d$, as long as $c = d/n$ is not vanishingly small.** The eigenvalue at the lower edge is shifted to $(1 - \sqrt{c})^2$, the upper edge to $(1 + \sqrt{c})^2$. PCA on $S$ inflates the leading eigenvalue and suppresses the smaller ones, in a deterministic way that depends only on $c$.
-2. **Shrinkage estimators** for the covariance matrix (Ledoit-Wolf, nonlinear shrinkage, etc.) explicitly use the Marchenko-Pastur picture to undo this bias. They pull each empirical eigenvalue back toward $1$ by an amount that depends on its distance from $\lambda_-$ and $\lambda_+$. The Marchenko-Pastur framework is what makes the correction tractable.
+2. **Shrinkage estimators** for the covariance matrix ([Ledoit-Wolf](https://doi.org/10.1016/S0047-259X(03)00096-4), nonlinear shrinkage, etc.) explicitly use the Marchenko-Pastur picture to undo this bias. They pull each empirical eigenvalue back toward $1$ by an amount that depends on its distance from $\lambda_-$ and $\lambda_+$. The Marchenko-Pastur framework is what makes the correction tractable.
 3. **The ratio $c$ is the only relevant dimensionless parameter** in the bulk. Doubling both $d$ and $n$ leaves the eigenvalue distribution unchanged. This is why "more data" alone does not save you in high-dimensional inference; you need more samples *per dimension*.
 
 The Wigner side has analogous consequences for any setting that produces a symmetric random matrix, including Hessians of random loss landscapes, kernel matrices with random features, and the linearized dynamics of certain neural-network training schemes.

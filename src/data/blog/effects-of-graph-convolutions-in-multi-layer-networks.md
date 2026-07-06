@@ -14,7 +14,7 @@ description:
 
 A natural question for graph neural networks: when you add a "graph convolution" layer that aggregates features from neighbors, does it actually help, and by how much? In the right theoretical setting, the answer is sharp.
 
-In our [ICLR 2023 paper](https://arxiv.org/abs/2204.09297) with [Kimon Fountoulakis](https://opallab.ca/) and [Aukosh Jagannath](https://aukosh.github.io/), we study this for multi-layer networks classifying nodes in a contextual stochastic block model whose features are *non-linearly* separable, so a hidden layer is genuinely needed and a hyperplane cannot work. The main result: each graph convolution provably lowers the feature-signal threshold for successful classification, by a quantitative factor that depends on the graph density. Two convolutions help dramatically more than one. The placement of the convolution layers within the network does not matter asymptotically.
+In our [ICLR 2023 paper](https://arxiv.org/abs/2204.09297) with [Kimon Fountoulakis](https://opallab.ca/) and [Aukosh Jagannath](https://aukosh.github.io/), we study this for multi-layer networks classifying nodes in a [contextual stochastic block model](https://arxiv.org/abs/1807.09596) whose features are *non-linearly* separable, so a hidden layer is genuinely needed and a hyperplane cannot work. The main result: each graph convolution provably lowers the feature-signal threshold for successful classification, by a quantitative factor that depends on the graph density. Two convolutions help dramatically more than one. The placement of the convolution layers within the network does not matter asymptotically.
 
 ## The setup
 
@@ -50,7 +50,7 @@ In words:
 - **One graph convolution** lowers the feature-signal threshold by a factor of $(\mathbb{E}[\deg])^{1/4}$. If the graph has, say, average degree $10^4$, you can tolerate a feature signal $\sqrt[4]{10^4} = 10$ times weaker before the network fails.
 - **Two graph convolutions** (under a slightly stronger density assumption) lower the threshold by a factor of $n^{1/4}$, which is a much bigger reduction. For $n = 10^6$, that is a factor of about $32$.
 
-So two convolutions are *much* better than one in the dense regime. (Past two, oversmoothing is a well-known issue, so we do not recommend stacking further unless you have a specific reason.)
+So two convolutions are *much* better than one in the dense regime. (Past two, [oversmoothing](https://arxiv.org/abs/2303.10993) is a well-known issue, so we do not recommend stacking further unless you have a specific reason.)
 
 <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" style="color: var(--foreground); width: 100%; height: auto; max-width: 720px; display: block; margin: 1.5rem auto;" role="img" aria-label="Classification thresholds for MLP, MLP plus one convolution, and MLP plus two convolutions. Adding convolutions shifts the threshold left, by factor (E[deg])^(-1/4) for one conv and n^(-1/4) for two.">
   <text x="660" y="32" text-anchor="end" font-size="11" font-style="italic" fill="currentColor">larger feature signal γ →</text>
