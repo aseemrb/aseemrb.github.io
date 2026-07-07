@@ -216,6 +216,8 @@ about 19% slower than the cycloid's $\pi \approx 3.14$. A third strategy, droppi
 
 Two remarks the picture suggests. First, the optimal start is a free fall: the cycloid leaves its cusp vertically, which is what $\sin\alpha = C\sqrt{y}$ demands at $y = 0$. Second, if $B$ is far away and shallow (specifically $x_B > \tfrac{\pi}{2} y_B$), the optimal arc passes below $B$ and comes back up: the bead overshoots the destination depth to carry more speed across the long horizontal stretch, then spends some of it climbing.
 
+The race has also been run inside a video game. A [post on r/gaming](https://www.reddit.com/r/gaming/comments/bkfarl/roller_coaster_tycoon_had_physics_so_accurate/) restages it in *RollerCoaster Tycoon*, the 1999 amusement-park simulation: coaster trains released on differently shaped tracks between the same endpoints, with the cycloid-shaped drop finishing first. The game computes each train's motion from the shape of the track it rides rather than playing a fixed animation, so nothing in it knows about cycloids; as the post puts it, the game had "physics so accurate that it passed the brachistochrone test."
+
 ## The same curve is the tautochrone
 
 The cycloid solves a second problem, one [Huygens](https://en.wikipedia.org/wiki/Christiaan_Huygens) had settled decades before Bernoulli posed his: it is also the **tautochrone** (equal time). Turn the arc into a bowl (cusps up, vertex down) and release a bead from rest anywhere on it: the time to reach the bottom does not depend on the starting point.
