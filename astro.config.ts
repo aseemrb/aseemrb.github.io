@@ -1,4 +1,5 @@
 import { defineConfig, envField } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import remarkToc from "remark-toc";
@@ -22,7 +23,14 @@ export default defineConfig({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
     }),
   ],
+  // Keep HTML-aware whitespace compression; the v7 "jsx" default strips
+  // newline whitespace between inline elements, which joins words around
+  // links in hand-written prose.
+  compressHTML: true,
   markdown: {
+    // Astro 7 renders Markdown with its native pipeline by default; the
+    // unified processor keeps the remark/rehype plugins below working.
+    processor: unified(),
     remarkPlugins: [
       remarkMath,
       remarkToc,
