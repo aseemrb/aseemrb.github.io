@@ -1,10 +1,10 @@
 @import "tailwindcss";
 @import "./typography.css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=midnight], [data-theme=midnight] *, [data-theme=forest], [data-theme=forest] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=carbon], [data-theme=carbon] *, [data-theme=rays], [data-theme=rays] *, [data-theme=umber], [data-theme=umber] *, [data-theme=plum], [data-theme=plum] *));
+@custom-variant dark (&:where([data-theme$="-dark"], [data-theme$="-dark"] *, [data-theme=dark], [data-theme=dark] *, [data-theme=obsidian], [data-theme=obsidian] *, [data-theme=cyber], [data-theme=cyber] *, [data-theme=rays], [data-theme=rays] *));
 
 :root,
-html[data-theme="default"] {
+html[data-theme="zinc-light"] {
   --background: #fdfdfd;
   --foreground: #282728;
   --accent: #006cac;
@@ -21,9 +21,8 @@ html[data-theme="obsidian"] {
   --border: #262626;
 }
 
-/* Rose (soft red accent on a warm rose-white base) — picker label "Rose".
-   Light counterpart to the dark red Rose theme; legacy value "sand". */
-html[data-theme="sand"] {
+/* Rose, light half: a soft red accent on a warm rose-white base. */
+html[data-theme="rose-light"] {
   --background: #fbf2f1;
   --foreground: #3a2225;
   --accent: #c43a3f;
@@ -31,8 +30,8 @@ html[data-theme="sand"] {
   --border: #ecd0d0;
 }
 
-/* Option: Sage (Calm & Botanical) */
-html[data-theme="sage"] {
+/* Mint, light half: green accent on a pale botanical base. */
+html[data-theme="mint-light"] {
   --background: #f4f7f3;
   --foreground: #1f2d24;
   --accent: #3f7a52;
@@ -40,8 +39,8 @@ html[data-theme="sage"] {
   --border: #cddbcf;
 }
 
-/* Option: Midnight (muted slate-blue on a desaturated cool-grey base) */
-html[data-theme="midnight"] {
+/* Zinc, dark half: muted slate-blue accent on a desaturated cool-grey base. */
+html[data-theme="zinc-dark"] {
   --background: #12161e;
   --foreground: #dfe4ec;
   --accent: #8aa6d6;
@@ -56,8 +55,8 @@ html[data-theme="rays"] #top-nav-wrap {
   background-color: transparent;
 }
 
-/* Option 3: Deep Forest (Natural & Calm) */
-html[data-theme="forest"] {
+/* Mint, dark half: bright green accent on a deep forest base. */
+html[data-theme="mint-dark"] {
   --background: #051a12;
   --foreground: #e8f5e9;
   --accent: #4ade80;
@@ -74,8 +73,8 @@ html[data-theme="cyber"] {
   --border: #2e293b;
 }
 
-/* Option 5: Carbon & Rose (Sleek & Pop) */
-html[data-theme="carbon"] {
+/* Rose, dark half: rose accent on a carbon base. */
+html[data-theme="rose-dark"] {
   --background: #18181b;
   --foreground: #f4f4f5;
   --accent: #fb7185;
@@ -83,9 +82,9 @@ html[data-theme="carbon"] {
   --border: #27272a;
 }
 
-/* Honey (light half of the Sand family): a deep gold accent, kept dark enough
-   to stay legible as link text, on a warm cream base. */
-html[data-theme="honey"] {
+/* Sand, light half: a deep gold accent, kept dark enough to stay legible as
+   link text, on a warm cream base. */
+html[data-theme="sand-light"] {
   --background: #fdfaef;
   --foreground: #2c2717;
   --accent: #8f6800;
@@ -93,8 +92,8 @@ html[data-theme="honey"] {
   --border: #e7d7ad;
 }
 
-/* Umber (dark half of the Sand family): a bright gold accent on a warm near-black base. */
-html[data-theme="umber"] {
+/* Sand, dark half: a bright gold accent on a warm near-black base. */
+html[data-theme="sand-dark"] {
   --background: #17130a;
   --foreground: #f3ecd9;
   --accent: #e6b64a;
@@ -102,8 +101,8 @@ html[data-theme="umber"] {
   --border: #2c2410;
 }
 
-/* Lilac (light half of the Plum family): a medium violet accent on a pale violet-white base. */
-html[data-theme="lilac"] {
+/* Plum, light half: a medium violet accent on a pale violet-white base. */
+html[data-theme="plum-light"] {
   --background: #faf7fd;
   --foreground: #29233a;
   --accent: #6d3fbf;
@@ -111,8 +110,8 @@ html[data-theme="lilac"] {
   --border: #dccbef;
 }
 
-/* Plum (dark half of the Plum family): a soft violet accent on a deep violet base. */
-html[data-theme="plum"] {
+/* Plum, dark half: a soft violet accent on a deep violet base. */
+html[data-theme="plum-dark"] {
   --background: #140f1f;
   --foreground: #e7e0f2;
   --accent: #b79cf7;
@@ -241,24 +240,16 @@ html[data-theme="snow"] body::before {
 
 /* Theme-swapped diagrams: show light variant on default theme, dark variant on dark themes. */
 .chrome-svg-dark { display: none; }
+html[data-theme$="-dark"] .chrome-svg-light,
 html[data-theme="dark"] .chrome-svg-light,
 html[data-theme="obsidian"] .chrome-svg-light,
-html[data-theme="midnight"] .chrome-svg-light,
-html[data-theme="forest"] .chrome-svg-light,
 html[data-theme="cyber"] .chrome-svg-light,
-html[data-theme="carbon"] .chrome-svg-light,
-html[data-theme="rays"] .chrome-svg-light,
-html[data-theme="umber"] .chrome-svg-light,
-html[data-theme="plum"] .chrome-svg-light { display: none; }
+html[data-theme="rays"] .chrome-svg-light { display: none; }
+html[data-theme$="-dark"] .chrome-svg-dark,
 html[data-theme="dark"] .chrome-svg-dark,
 html[data-theme="obsidian"] .chrome-svg-dark,
-html[data-theme="midnight"] .chrome-svg-dark,
-html[data-theme="forest"] .chrome-svg-dark,
 html[data-theme="cyber"] .chrome-svg-dark,
-html[data-theme="carbon"] .chrome-svg-dark,
-html[data-theme="rays"] .chrome-svg-dark,
-html[data-theme="umber"] .chrome-svg-dark,
-html[data-theme="plum"] .chrome-svg-dark { display: block; }
+html[data-theme="rays"] .chrome-svg-dark { display: block; }
 
 /* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
 /* Anything that has been anchored to should have extra scroll margin */

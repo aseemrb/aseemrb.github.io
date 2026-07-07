@@ -5,18 +5,17 @@ import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import { SITE } from "@/config";
 
 // The picker shows five accent-color families; a light/dark switch flips each
-// to its underlying theme. (family x mode) -> data-theme value is defined in the
-// client script below.
+// to its underlying theme. The data-theme value is `${family}-${mode}`.
 const families = [
   { key: "rose", label: "Rose" },
   { key: "zinc", label: "Zinc" },
   { key: "mint", label: "Mint" },
-  { key: "grape", label: "Plum" }, // key kept as "grape" so it doesn't clash with the dark theme value "plum"
-  { key: "amber", label: "Sand" }, // key kept as "amber" so it doesn't clash with the rose light theme value "sand"
+  { key: "plum", label: "Plum" },
+  { key: "sand", label: "Sand" },
 ];
 
 // Every reachable theme value, for the hidden <select> that toggle-theme.js drives.
-const themeValues = ["default", "midnight", "sage", "forest", "sand", "carbon", "honey", "umber", "lilac", "plum"];
+const themeValues = families.flatMap(({ key }) => [`${key}-light`, `${key}-dark`]);
 ---
 
 {
@@ -155,39 +154,17 @@ const themeValues = ["default", "midnight", "sage", "forest", "sand", "carbon", 
 
 <script>
   type Mode = "light" | "dark";
-  type Family = "zinc" | "mint" | "rose" | "amber" | "grape";
+  type Family = "rose" | "zinc" | "mint" | "plum" | "sand";
 
-  // (family x mode) -> { theme value, accent shown in that mode }.
-  const FAMILIES: Record<Family, Record<Mode, { value: string; accent: string }>> = {
-    zinc: {
-      light: { value: "default", accent: "#006cac" },
-      dark: { value: "midnight", accent: "#8aa6d6" },
-    },
-    mint: {
-      light: { value: "sage", accent: "#3f7a52" },
-      dark: { value: "forest", accent: "#4ade80" },
-    },
-    rose: {
-      light: { value: "sand", accent: "#c43a3f" },
-      dark: { value: "carbon", accent: "#fb7185" },
-    },
-    amber: {
-      light: { value: "honey", accent: "#8f6800" },
-      dark: { value: "umber", accent: "#e6b64a" },
-    },
-    grape: {
-      light: { value: "lilac", accent: "#6d3fbf" },
-      dark: { value: "plum", accent: "#b79cf7" },
-    },
+  // Accent swatch shown for each (family x mode); the corresponding
+  // data-theme value is `${family}-${mode}`.
+  const ACCENTS: Record<Family, Record<Mode, string>> = {
+    rose: { light: "#c43a3f", dark: "#fb7185" },
+    zinc: { light: "#006cac", dark: "#8aa6d6" },
+    mint: { light: "#3f7a52", dark: "#4ade80" },
+    plum: { light: "#6d3fbf", dark: "#b79cf7" },
+    sand: { light: "#8f6800", dark: "#e6b64a" },
   };
-
-  // Reverse lookup so a live data-theme maps back to (family, mode).
-  const VALUE_TO_STATE: Record<string, { family: Family; mode: Mode }> = {};
-  (Object.keys(FAMILIES) as Family[]).forEach(family => {
-    (["light", "dark"] as Mode[]).forEach(mode => {
-      VALUE_TO_STATE[FAMILIES[family][mode].value] = { family, mode };
-    });
-  });
 
   function setupThemePicker() {
     const root = document.querySelector<HTMLElement>("#theme-picker");
@@ -203,7 +180,11 @@ const themeValues = ["default", "midnight", "sage", "forest", "sand", "carbon", 
 
     const currentState = (): { family: Family; mode: Mode } => {
       const v = document.documentElement.getAttribute("data-theme") ?? "";
-      return VALUE_TO_STATE[v] ?? { family: "rose", mode: "dark" };
+      const [family, mode] = v.split("-");
+      if (family in ACCENTS && (mode === "light" || mode === "dark")) {
+        return { family: family as Family, mode };
+      }
+      return { family: "rose", mode: "dark" };
     };
 
     function render(family: Family, mode: Mode) {
@@ -212,15 +193,15 @@ const themeValues = ["default", "midnight", "sage", "forest", "sand", "carbon", 
         mode === "dark" ? "true" : "false"
       );
       for (const opt of options) {
-        const fam = (opt.dataset.family ?? "zinc") as Family;
+        const fam = (opt.dataset.family ?? "rose") as Family;
         opt.setAttribute("aria-selected", fam === family ? "true" : "false");
         const swatch = opt.querySelector<HTMLElement>(".swatch");
-        if (swatch) swatch.style.backgroundColor = FAMILIES[fam][mode].accent;
+        if (swatch) swatch.style.backgroundColor = ACCENTS[fam][mode];
       }
     }
 
     function apply(family: Family, mode: Mode) {
-      select!.value = FAMILIES[family][mode].value;
+      select!.value = `${family}-${mode}`;
       select!.dispatchEvent(new Event("change", { bubbles: true }));
       render(family, mode);
     }
@@ -252,7 +233,7 @@ const themeValues = ["default", "midnight", "sage", "forest", "sand", "carbon", 
     // Pick a color family, keeping the current light/dark mode.
     for (const opt of options) {
       opt.addEventListener("click", () => {
-        const family = (opt.dataset.family ?? "zinc") as Family;
+        const family = (opt.dataset.family ?? "rose") as Family;
         apply(family, currentState().mode);
       });
     }

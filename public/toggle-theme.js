@@ -1,19 +1,36 @@
-const primaryColorScheme = "carbon"; // default theme value (rose dark)
+const primaryColorScheme = "rose-dark"; // default theme value
+
+// Themes are named `${family}-${mode}`. Visitors may still have a value from
+// before the rename stored; map those to their current equivalents.
+const LEGACY_THEMES = {
+  light: "zinc-light",
+  default: "zinc-light",
+  dark: "zinc-dark",
+  midnight: "zinc-dark",
+  sand: "rose-light",
+  carbon: "rose-dark",
+  sage: "mint-light",
+  forest: "mint-dark",
+  honey: "sand-light",
+  umber: "sand-dark",
+  lilac: "plum-light",
+  plum: "plum-dark",
+};
 
 // Get theme data from local storage
 const currentTheme = localStorage.getItem("theme");
 
 function getPreferTheme() {
   // return theme value in local storage if it is set
-  if (currentTheme) return currentTheme;
+  if (currentTheme) return LEGACY_THEMES[currentTheme] ?? currentTheme;
 
   // return primary color scheme if it is set
   if (primaryColorScheme) return primaryColorScheme;
 
   // return user device's prefer color scheme
   return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+    ? "zinc-dark"
+    : "zinc-light";
 }
 
 let themeValue = getPreferTheme();
@@ -82,33 +99,15 @@ document.addEventListener("astro:before-swap", event => {
     ?.setAttribute("content", bgColor);
 });
 
-// Light/dark counterparts within each accent family. Keep in sync with
-// FAMILIES in src/components/ThemeSelector.astro. Legacy stored values
-// ("light", "dark") map into the zinc family they used to render as.
-const DARK_COUNTERPART = {
-  light: "midnight",
-  default: "midnight",
-  sage: "forest",
-  sand: "carbon",
-  honey: "umber",
-  lilac: "plum",
-};
-const LIGHT_COUNTERPART = {
-  dark: "default",
-  midnight: "default",
-  forest: "sage",
-  carbon: "sand",
-  umber: "honey",
-  plum: "lilac",
-};
-
 // Sync with system changes: flip the current family to the matching mode,
-// keeping the accent choice. Themes without a counterpart are left alone.
+// keeping the accent choice. Themes without a light/dark pair are left alone.
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", ({ matches: isDark }) => {
-    const next = (isDark ? DARK_COUNTERPART : LIGHT_COUNTERPART)[themeValue];
-    if (next) {
+    const next = isDark
+      ? themeValue.replace(/-light$/, "-dark")
+      : themeValue.replace(/-dark$/, "-light");
+    if (next !== themeValue) {
       themeValue = next;
       setPreference();
     }
