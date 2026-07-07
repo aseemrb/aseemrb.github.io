@@ -91,10 +91,11 @@
     }
   }
 
-  /* Katex text color */
+  /* Katex text color; long display equations scroll horizontally within
+     their own box on narrow screens instead of widening the page. */
   .prose .katex-display,
   .app-prose .katex-display {
-    @apply text-foreground;
+    @apply overflow-x-auto overflow-y-hidden py-1 text-foreground;
   }
 
   /* ===== Code Blocks & Syntax Highlighting ===== */

@@ -53,7 +53,7 @@ For closure let's look at what happens when
 - **Alice (in red) is moving towards Bob (in blue) with speed `a m/s`** and
 - **Bob is moving away from Alice with speed `b m/s`**.
 
-<svg height="138" width="490" style="color: var(--foreground)">
+<svg viewBox="0 0 490 138" style="color: var(--foreground); width: 100%; max-width: 490px; height: auto">
    <defs>
       <marker id="triangle" viewBox="0 0 14 14" refX="0" refY="5" markerUnits="strokeWidth" markerWidth="10" markerHeight="10" orient="auto">
          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
