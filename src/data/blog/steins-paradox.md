@@ -11,7 +11,7 @@ tags:
   - computer science
   - statistics
 description:
-  "In three or more dimensions, the sample mean is dominated everywhere by a shrinkage estimator. The geometric reason is the Gaussian shell: noise pushes you outward, and pulling back is uniformly better. A precursor of ridge regression and most modern regularization."
+  "In three or more dimensions the sample mean is dominated everywhere by a shrinkage estimator. The reason is the Gaussian shell, and the idea is a precursor of ridge regression."
 ---
 
 The orthodoxy was clear: to estimate the mean of a [Gaussian](https://en.wikipedia.org/wiki/Normal_distribution), use the sample mean. Grading estimators by their [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error)

@@ -8,7 +8,7 @@ draft: false
 tags:
   - computer science
 description:
-  A deep dive into the Javascript runtime environment. Explains the single-threaded nature, the call stack, the event loop, the callback queue, and how they work together to handle asynchronous operations.
+  "The Javascript runtime from the inside: the single thread, the call stack, the event loop, and the callback queue that together handle asynchronous work."
 ---
 
 I've been programming something or the other in Javascript for more than a year now, but I still did not have a clear understanding of what it really is, and how it works. What makes it so different than other languages, why browsers use it, etc.

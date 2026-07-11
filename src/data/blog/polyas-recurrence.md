@@ -9,7 +9,7 @@ tags:
   - mathematics
   - statistics
 description:
-  Simple random walk on the integer lattice returns to the origin with probability one in 1D and 2D. In 3D and higher, there is a positive probability of never returning. The transition is exact, dimension-dependent, and reduces to convergence of a single harmonic-style series.
+  "Simple random walk returns to the origin with probability one in one and two dimensions, but not in three. The transition reduces to the convergence of a single series."
 ---
 
 The drunkard wandering along a sidewalk almost surely returns home. The drunkard wandering across a city almost surely returns home. The bird flying through three-dimensional space, taking unit-length steps in random directions, may never return: there is a positive probability of escaping to infinity, never to come back.

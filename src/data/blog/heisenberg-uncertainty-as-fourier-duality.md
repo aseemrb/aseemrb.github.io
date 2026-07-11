@@ -9,7 +9,7 @@ tags:
   - physics
   - mathematics
 description:
-  "The textbook framing makes the uncertainty principle sound like a measurement artifact. It isn't. It is a property of any wave: a packet narrow in x has a Fourier decomposition spread in p, with the bound σx · σp ≥ ℏ/2 saturated by a Gaussian. This post derives that statement from photoelectric-effect-level physics."
+  "The uncertainty principle is not a measurement artifact but a property of any wave: a packet narrow in x is spread in p, and σx · σp ≥ ℏ/2 with equality exactly for Gaussians."
 ---
 
 The textbook story for the uncertainty principle is that quantum measurements come with a built-in disturbance: pin down a particle's position with a photon, and the photon kicks the particle's momentum. This is Heisenberg's [gamma-ray microscope](https://en.wikipedia.org/wiki/Heisenberg%27s_microscope). The picture isn't *wrong*, but it puts the principle on the wrong footing. It makes uncertainty sound like a constraint imposed by clumsy detectors, when in fact it is a property of the wave function itself.

@@ -9,7 +9,7 @@ tags:
   - mathematics
   - statistics
 description:
-  "The bell-curve picture says Gaussian samples live near the mean. In high dimensions that picture is catastrophically wrong: almost all the mass lies in a thin spherical shell at radius √d. Density and mass are not the same thing."
+  "The bell-curve picture says Gaussian samples live near the mean. In high dimensions almost all the mass lies in a thin shell at radius √d: density and mass are not the same thing."
 ---
 
 The bell curve is one of the first things we learn in probability. [Gaussian](https://en.wikipedia.org/wiki/Normal_distribution) samples concentrate near the mean, density peaks at zero, tails fall off fast. In one dimension this picture is correct. In a hundred dimensions, it is catastrophically wrong.

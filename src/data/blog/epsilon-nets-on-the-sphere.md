@@ -9,7 +9,7 @@ tags:
   - mathematics
   - machine learning
 description:
-  "Many quantities in high dimensions are a supremum over all unit vectors, and a union bound cannot reach infinitely many of them. An ε-net replaces the sphere by a finite set of directions: control the quantity there, pay a constant factor to extend back, and the exponentially large net is still no match for a sub-Gaussian tail. The worked example is the operator norm of a random matrix."
+  "An ε-net replaces the sphere by finitely many directions, so a supremum over all unit vectors reduces to a finite union bound. Worked out on the operator norm of a random matrix."
 ---
 
 A lot of quantities in high-dimensional probability are a supremum over the unit sphere, a worst case over all directions at once. The standard example is the **operator norm** of a matrix $A$,

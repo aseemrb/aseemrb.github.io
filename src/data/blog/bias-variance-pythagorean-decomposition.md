@@ -10,7 +10,7 @@ tags:
   - machine learning
   - statistics
 description:
-  The textbook derivation of MSE = bias² + variance reads as a cancellation in algebra. Geometrically, it is the Pythagorean theorem in L². A constant bias and a mean-zero residual are orthogonal, and their squared lengths add. The bias-variance tradeoff lives on a right triangle.
+  "MSE = bias² + variance is the Pythagorean theorem in L²: a constant bias and a mean-zero residual are orthogonal, so their squared lengths add."
 ---
 
 Most stats and machine learning courses introduce the bias-variance decomposition as a piece of algebra. The textbook derivation feels like a lucky cancellation: write down the mean squared error, expand with a clever insertion, watch a cross term vanish. What is left is

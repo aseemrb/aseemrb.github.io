@@ -10,7 +10,7 @@ tags:
   - machine learning
   - statistics
 description:
-  "How expressive is a family of yes/no rules? Shattering measures it on a fixed set of points: the class can cut them apart in every conceivable way. The VC dimension is the largest set it can shatter, a single integer. Past that size the number of labelings stops doubling and is trapped under a polynomial, the Sauer-Shelah jump, and that one integer is what makes an infinite class learnable."
+  "The VC dimension of a class of yes/no rules is the largest set of points it can label in every way. Past it, the labelings stop doubling, and that single integer governs learnability."
 ---
 
 A classifier is a yes/no rule: feed it a point, it answers $+$ or $-$. A **hypothesis class** $\mathcal{H}$ is a whole family of such rules, for instance all thresholds on the line, all half-planes in the plane, or all axis-aligned boxes. One question governs how well anything learned from such a class will generalize to unseen data: how expressive is $\mathcal{H}$? A class rich enough to reproduce any pattern of labels on the training points has explained nothing about the data, it has only memorized; a class too poor cannot fit the signal at all. The Vapnik–Chervonenkis (VC) dimension is the single integer that measures this richness, and it measures it combinatorially, by counting the labelings a class can produce, with no reference to probability or to the geometry of a particular dataset.

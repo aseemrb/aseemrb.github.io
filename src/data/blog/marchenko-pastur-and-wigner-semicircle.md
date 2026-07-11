@@ -10,7 +10,7 @@ tags:
   - machine learning
   - statistics
 description:
-  The eigenvalues of a large random matrix do not scatter around. They concentrate, as a histogram, on a deterministic shape. For sample covariance matrices the shape is Marchenko-Pastur; for symmetric matrices with i.i.d. entries it is the Wigner semicircle. Both shapes are computable, and they explain precisely why high-dimensional covariance estimation is biased.
+  "The eigenvalue histogram of a large random matrix converges to a deterministic shape: Marchenko-Pastur for sample covariance matrices, the Wigner semicircle for symmetric i.i.d. entries."
 ---
 
 The [central limit theorem](/blog/why-sums-become-gaussian) says that the *sum* of many independent random variables, properly standardized, converges to a deterministic shape (the Gaussian). [Random matrix theory](https://en.wikipedia.org/wiki/Random_matrix) gives the analogous statement for *spectra*: the eigenvalues of a large random matrix, taken together as a histogram, converge to a deterministic density. Two of the cleanest results are the **Marchenko-Pastur law** for sample covariance matrices and the **Wigner semicircle law** for symmetric matrices with i.i.d. entries.

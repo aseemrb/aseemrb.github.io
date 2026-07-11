@@ -8,7 +8,7 @@ draft: false
 tags:
   - mathematics
 description:
-  Newton's method for finding roots of polynomials is a discrete dynamical system on the complex plane. Each starting point converges (almost always) to one of the roots. The basins of attraction have fractal boundaries, intricate to a degree the algebra of the polynomial gives no hint of.
+  "Newton's method on a polynomial is a dynamical system on the complex plane: almost every start converges to some root, and the basins of attraction have fractal boundaries."
 ---
 
 [Newton's method](https://en.wikipedia.org/wiki/Newton%27s_method) is a standard recipe for finding a root of a smooth function $f$. From a starting point $z_0$, iterate

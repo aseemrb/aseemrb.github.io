@@ -8,7 +8,7 @@ draft: false
 tags:
   - computer science
 description:
-  An exploration of an efficient algorithm for online palindrome counting using a palindrome tree data structure. Based on the work of Rubinchik and Shur, this post details the problem, the data structure, and the implementation.
+  "An efficient algorithm for online palindrome counting using the palindrome tree of Rubinchik and Shur: the problem, the data structure, and the implementation."
 ---
 
 For a [recent project](https://arxiv.org/abs/1904.10028), I had to deal with the following subproblem.

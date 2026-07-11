@@ -9,7 +9,7 @@ tags:
   - mathematics
   - statistics
 description:
-  A geometric look at the central limit theorem. Adding random variables is convolving their densities. Convolution smooths. Watch a Bernoulli, a die roll, or a bimodal distribution become Gaussian as you slide the number of summands.
+  "Adding random variables convolves their densities, and convolution smooths. A geometric look at the central limit theorem, with a slider over the number of summands."
 ---
 
 Most things in nature, when you measure them carefully, look roughly [Gaussian](https://en.wikipedia.org/wiki/Normal_distribution). Heights, exam scores, voltage noise, sample averages of pretty much any quantity. This is, famously, the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) (CLT). The textbook statement uses [characteristic functions](https://en.wikipedia.org/wiki/Characteristic_function_%28probability_theory%29) (the Fourier transform of a distribution) and analytic limits, but here I try to present the underlying picture in a purely geometric way.

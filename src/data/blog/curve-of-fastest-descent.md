@@ -9,7 +9,7 @@ tags:
   - mathematics
   - physics
 description:
-  "A bead slides down a frictionless wire between two fixed points. The wire shape that minimizes travel time is not the straight line but an arc of a cycloid. Treating the bead as a light ray gives Snell's law from Fermat's principle, the Euler–Lagrange equation turns the Snell invariant into a conservation law that forces the cycloid, and a convexity argument certifies the cycloid as the unique global minimizer. The same curve is also the tautochrone, on which beads released from any height reach the bottom simultaneously. Two animated races with exact closed-form motion."
+  "The wire carrying a sliding bead between two points in the least time is a cycloid arc, not the straight line. Optics finds it, convexity proves it, and the same arc is the tautochrone."
 ---
 
 Fix a point $A$ and a lower point $B$, off to the side. Thread a frictionless wire from $A$ to $B$, place a bead on it at $A$, and release it from rest under gravity. The travel time depends on the wire's shape. The straight line has the shortest length, but length is not what is being minimized; time is, and speed is not free: the bead moves fast only where it has already fallen far.

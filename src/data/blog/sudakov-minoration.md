@@ -10,7 +10,7 @@ tags:
   - machine learning
   - statistics
 description:
-  "Averages shrink, but maxima grow. Sudakov's minoration inequality is the clean tool for the harder direction: a lower bound on the expected maximum of many Gaussians. As long as no two of them are too alike, that maximum is at least ε times the square root of log N. This is the engine behind a lot of impossibility proofs."
+  "Sudakov minoration lower-bounds the expected maximum of many Gaussians: if no two are too alike, the maximum is at least of order ε√(log N). The engine behind many impossibility proofs."
 ---
 
 We have a good instinct for averages (or equivalently, sums) of random variables. Add up many (say $N$) independent random numbers, divide by $N$, and the result barely moves: that is the law of large numbers. The [central limit theorem](/blog/why-sums-become-gaussian) refines this, telling us the typical size of the small deviation that remains.

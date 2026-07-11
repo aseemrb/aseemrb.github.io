@@ -10,7 +10,7 @@ tags:
   - computer science
   - statistics
 description:
-  A condensed walkthrough of our NeurIPS 2023 paper deriving the asymptotically Bayes-optimal classifier for node classification on sparse contextual stochastic block models, and what it implies for the design of graph neural networks.
+  "Our NeurIPS 2023 paper: the asymptotically Bayes-optimal classifier for node classification on sparse contextual stochastic block models, and what it implies for graph neural networks."
 ---
 
 Most theory on graph neural networks (GNNs) lives in the *dense* regime, usually on the dense [stochastic block model](https://en.wikipedia.org/wiki/Stochastic_block_model), where each node's degree grows with the size of the graph. That setting is mathematically convenient (as $n \to \infty$, neighborhoods concentrate), but it doesn't match what we actually train on: the [Open Graph Benchmark](https://ogb.stanford.edu/) datasets have millions of nodes with average degree on the order of tens, and the per-node feature dimension stays in the low hundreds. The interesting regime is *sparse*: node degrees stay $O(1)$, the feature dimension stays fixed, and only $n$ grows.

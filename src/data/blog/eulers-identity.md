@@ -9,7 +9,7 @@ tags:
   - mathematics
   - physics
 description:
-  "e^{iπ} + 1 = 0 contains 0, 1, π, e, and i, each exactly once. It is the θ = π case of Euler's formula e^{iθ} = cos θ + i sin θ, whose value is the point on the unit circle at angle θ. A geometric derivation from the derivative, the (1 + iθ/n)^n limit, the power-series check, the roles of the five constants, and the standard applications."
+  "e^{iπ} + 1 = 0 is the θ = π case of Euler's formula e^{iθ} = cos θ + i sin θ, the point on the unit circle at angle θ. Three derivations: geometric, as a limit, and by power series."
 ---
 
 Euler's identity is one of my favorite equations.

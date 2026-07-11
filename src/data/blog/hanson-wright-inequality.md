@@ -10,7 +10,7 @@ tags:
   - machine learning
   - statistics
 description:
-  "A quadratic form in independent random variables concentrates around its mean, the trace of the matrix. Hanson–Wright pins down the two-sided tail: a Gaussian regime near the mean set by the Frobenius norm, crossing over to a heavier exponential tail set by the operator norm. For Gaussian inputs it all follows from rotating to the eigenbasis and applying Bernstein."
+  "A quadratic form in independent random variables concentrates around the trace: a Gaussian tail near the mean via the Frobenius norm, an exponential tail further out via the operator norm."
 ---
 
 A **quadratic form** is the expression $X^\top A X = \sum_{i,j} A_{ij} X_i X_j$ for a fixed $n \times n$ matrix $A$ and a random vector $X = (X_1, \dots, X_n)$ with independent, mean-zero entries. The squared length $\|X\|^2$ is the case $A = I$, a sample variance is a quadratic form, and so is the energy $\|M x\|^2 = x^\top (M^\top M) x$ that a fixed linear map $M$ measures. The question is how tightly $X^\top A X$ concentrates around its mean. The **Hanson–Wright inequality** is the standard answer, and the answer is not a single Gaussian tail but two regimes.

@@ -9,7 +9,7 @@ tags:
   - computer science
   - statistics
 description:
-  An analysis of the St. Petersburg paradox, where the expected winning value is infinite. Discusses the conflict between mathematical expectation and intuition, and resolves it using practical constraints.
+  "A coin-toss game whose expected winnings are infinite, and why nobody would pay much to play: expectation against intuition, resolved by practical constraints."
 ---
 
 Recently while revisiting probability, I came across an interesting problem, otherwise commonly known as the **_St. Petersburg paradox_**. The problem is about a coin-toss game, in which you will always win. What matters is the amount of money you win in the game. To play it, first, you must pay an amount **`C`**. Let's see what the game is, and then we can think about the right value of **`C`**.

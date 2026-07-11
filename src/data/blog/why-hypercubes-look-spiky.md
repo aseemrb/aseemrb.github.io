@@ -8,7 +8,7 @@ draft: false
 tags:
   - mathematics
 description:
-  Counting the corners of an n-dimensional cube by Hamming weight gives a binomial distribution. Plot it as a vertical cross-section and you recover the spiky cube shape that high-dimensional textbooks love to draw.
+  "Counting the corners of an n-cube by Hamming weight gives a binomial distribution; plotted as a cross-section, it recovers the spiky cube of the textbooks."
 ---
 
 If you've flipped through a textbook on high-dimensional probability or geometry, you've seen the obligatory drawing of an $n$-dimensional cube. It is usually rendered as a strange spiky object: a sea urchin, a thorny diamond, a star with way too many points. Why does the high-dimensional cube get drawn like that?

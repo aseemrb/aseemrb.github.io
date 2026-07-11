@@ -9,7 +9,7 @@ tags:
   - mathematics
   - statistics
 description:
-  "Keep each edge of a grid independently with probability p and ask whether a connected path crosses the whole grid. The answer flips from almost-never to almost-always at a sharp critical value, which on the square lattice is exactly 1/2 by a self-duality argument. An interactive grid with a monotone coupling on the slider, the dual blocking wall, and the theorems of Harris, Kesten, and Smirnov."
+  "Keep each edge of a grid with probability p and ask whether a path crosses the grid. The answer flips at a sharp threshold, exactly 1/2 on the square lattice by self-duality."
 ---
 
 Take an enormous square grid of vertices, with edges joining horizontal and vertical neighbors. Keep each edge independently with probability $p$ and delete it otherwise. The kept edges carve the vertices into connected **clusters**. [Broadbent and Hammersley](https://doi.org/10.1017/S0305004100032680) introduced this model in 1957 to describe a fluid spreading through a random porous medium (the motivating example was gas diffusing through the carbon granules of a gas-mask filter): kept edges are open channels, and a cluster is the region a drop of fluid can reach. The model is called **bond percolation**, and its central question is whether an infinite cluster exists, that is, whether the fluid can seep arbitrarily far from where it entered.
