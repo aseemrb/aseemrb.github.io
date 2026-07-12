@@ -12,19 +12,55 @@ description:
   "The pendulum period grows with amplitude; 2π√(L/g) is only the zeroth term. The exact period is an elliptic integral, and Gauss's arithmetic–geometric mean evaluates it in five iterations."
 ---
 
-The pendulum formula everyone memorizes,
+A pendulum is a bob hanging from a fixed pivot by a rod of length $L$, free to swing in a vertical plane. Its position at any instant is the single angle $\theta$ between the rod and the vertical, and the **amplitude** $\theta_0$ is the largest angle the swing reaches: released from rest at $\theta_0$, the bob oscillates between $-\theta_0$ and $+\theta_0$.
+
+<div style="margin: 1.5rem auto; max-width: 560px; color: var(--foreground);">
+<svg viewBox="0 0 640 400" role="img" aria-label="A pendulum of length L hanging from a fixed pivot. The rod makes the angle theta with the vertical, the bob is released from rest at the amplitude theta-zero, the dashed arc is the swing, and g points downward." style="width: 100%; height: auto; display: block;">
+<line x1="280" y1="48" x2="360" y2="48" stroke="currentColor" stroke-opacity="0.5" stroke-width="2"/>
+<line x1="290" y1="48" x2="283" y2="38" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
+<line x1="310" y1="48" x2="303" y2="38" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
+<line x1="330" y1="48" x2="323" y2="38" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
+<line x1="350" y1="48" x2="343" y2="38" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
+<circle cx="320" cy="60" r="4" fill="currentColor"/>
+<line x1="320" y1="60" x2="320" y2="355" stroke="currentColor" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="5 5"/>
+<path d="M 105.5 240 A 280 280 0 0 0 534.5 240" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 6"/>
+<circle cx="105.5" cy="240" r="13" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="2"/>
+<line x1="320" y1="60" x2="534.5" y2="240" stroke="currentColor" stroke-opacity="0.55" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="534.5" cy="240" r="13" fill="none" stroke="currentColor" stroke-opacity="0.7" stroke-width="2"/>
+<text x="536" y="272" text-anchor="middle" font-size="12.5" fill="currentColor">released from rest</text>
+<text x="536" y="288" text-anchor="middle" font-size="12.5" fill="currentColor">at the amplitude θ₀</text>
+<line x1="320" y1="60" x2="438.3" y2="313.8" stroke="currentColor" stroke-width="2.5"/>
+<circle cx="438.3" cy="313.8" r="13" fill="currentColor"/>
+<text x="403" y="276" text-anchor="middle" font-size="16" font-style="italic" fill="currentColor">L</text>
+<path d="M 320 155 A 95 95 0 0 0 360.1 146.1" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="344" y="172" text-anchor="middle" font-size="17" font-style="italic" fill="#2563eb">θ</text>
+<path d="M 320 210 A 150 150 0 0 0 434.9 156.4" fill="none" stroke="#d97706" stroke-width="2"/>
+<text x="422" y="195" text-anchor="middle" font-size="17" font-style="italic" fill="#d97706">θ₀</text>
+<line x1="140" y1="115" x2="140" y2="170" stroke="currentColor" stroke-width="2"/>
+<path d="M 133 170 L 140 184 L 147 170 Z" fill="currentColor"/>
+<text x="158" y="152" font-size="16" font-style="italic" fill="currentColor">g</text>
+</svg>
+</div>
+
+Gravity pulls the bob back toward the vertical: the component of gravity along the bob's circular track is $-mg\sin\theta$, the position along the track is $s = L\theta$, and Newton's second law, with the mass canceling, gives the equation of motion
 
 $$
-T_0 = 2\pi \sqrt{\frac{L}{g}},
+\ddot\theta = -\frac{g}{L} \sin\theta,
 $$
 
-contains no amplitude, and that absence is an approximation, not a property of pendulums. The equation of motion $\ddot\theta = -(g/L)\sin\theta$ is nonlinear; only after replacing $\sin\theta$ by $\theta$ does the period detach from the swing. The true period exceeds $T_0$ by 0.19% at an amplitude of 10°, by 1.74% at 30°, and by 18% at 90°. Released almost inverted, at 179°, the pendulum takes nearly four $T_0$ to complete a cycle.
+where $g$ is the gravitational acceleration. The way this is taught in secondary and high school, most of the time, is to assume the swing is small, replace $\sin\theta$ by $\theta$, and recognize a harmonic oscillator with angular frequency $\sqrt{g/L}$, hence with period
+
+$$
+T_0 = 2\pi \sqrt{\frac{L}{g}}.
+$$
+
+No amplitude appears in $T_0$, but that absence belongs to the approximation, not to pendulums. The full equation is nonlinear, and the true period grows with the swing: it exceeds $T_0$ by 0.19% at an amplitude of 10°, by 1.74% at 30°, and by 18% at 90°. Released almost inverted, at 179°, the pendulum takes nearly four $T_0$ to complete a cycle.
 
 None of this requires numerics to pin down. The exact period is a **complete elliptic integral**, a classical special function, and an algorithm of Gauss evaluates it with astonishing efficiency: each iteration doubles the number of correct digits, so machine precision arrives in about five steps.
 
 ## The exact period
 
-Let $L$ be the length, $\theta_0$ the amplitude, and measure $\theta$ from the vertical. Conservation of energy between angle $\theta$ and the turning point $\theta_0$ gives
+Conservation of energy between the angle $\theta$ and the turning point $\theta_0$ gives
 
 $$
 \tfrac{1}{2} L^2 \dot\theta^2 = g L (\cos\theta - \cos\theta_0),
