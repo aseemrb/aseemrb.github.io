@@ -1,5 +1,20 @@
 [
     {
+        "title": "The Value of Depth in Message Passing on Sparse Graphs: A Kesten-Stigum Dichotomy",
+        "authors": [
+            "Aseem Baranwal"
+        ],
+        "venue": "arXiv preprint",
+        "date": "2026-07-18",
+        "link": null,
+        "preprint": "https://arxiv.org/abs/2607.16676",
+        "code": null,
+        "slides": null,
+        "poster": null,
+        "talk": null,
+        "featured": true
+    },
+    {
         "title": "Statistical Foundations for Learning on Graphs",
         "authors": [],
         "venue": "PhD Thesis, UWSpace, University of Waterloo",
