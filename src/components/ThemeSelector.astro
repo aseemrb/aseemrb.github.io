@@ -7,11 +7,11 @@ import { SITE } from "@/config";
 // The picker shows five accent-color families; a light/dark switch flips each
 // to its underlying theme. The data-theme value is `${family}-${mode}`.
 const families = [
+  { key: "sand", label: "Sand" },
   { key: "zinc", label: "Zinc" },
   { key: "rose", label: "Rose" },
   { key: "mint", label: "Mint" },
   { key: "plum", label: "Plum" },
-  { key: "sand", label: "Sand" },
 ];
 
 // Every reachable theme value, for the hidden <select> that toggle-theme.js drives.
@@ -184,7 +184,7 @@ const themeValues = families.flatMap(({ key }) => [`${key}-light`, `${key}-dark`
       if (family in ACCENTS && (mode === "light" || mode === "dark")) {
         return { family: family as Family, mode };
       }
-      return { family: "rose", mode: "dark" };
+      return { family: "sand", mode: "dark" };
     };
 
     function render(family: Family, mode: Mode) {

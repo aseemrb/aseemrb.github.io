@@ -1,4 +1,4 @@
-const primaryColorScheme = "zinc-light"; // default theme value
+const primaryColorScheme = "sand-dark"; // default theme value
 
 // Themes are named `${family}-${mode}`. Visitors may still have a value from
 // before the rename stored; map those to their current equivalents.
