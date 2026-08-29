@@ -73,9 +73,17 @@ Irrationality of $\alpha$ guarantees $h\alpha$ is never an integer, so the bound
 
 The nine limiting frequencies, to four places:
 
-| $d$ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| $\log_{10}(1+1/d)$ | .3010 | .1761 | .1249 | .0969 | .0792 | .0669 | .0580 | .0512 | .0458 |
+| $d$ | $\log_{10}(1+1/d)$ |
+| --- | --- |
+| 1 | .3010 |
+| 2 | .1761 |
+| 3 | .1249 |
+| 4 | .0969 |
+| 5 | .0792 |
+| 6 | .0669 |
+| 7 | .0580 |
+| 8 | .0512 |
+| 9 | .0458 |
 
 ## The drift, made visible
 
