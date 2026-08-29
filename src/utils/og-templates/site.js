@@ -1,6 +1,8 @@
 import satori from "satori";
 import { SITE } from "@/config";
 import loadGoogleFonts from "../loadGoogleFont";
+// Vite `?inline` yields a base64 data URI, which satori embeds directly.
+import dp from "@/assets/images/dp.png?inline";
 
 export default async () => {
   return satori(
@@ -53,11 +55,10 @@ export default async () => {
                 props: {
                   style: {
                     display: "flex",
-                    flexDirection: "column",
+                    flexDirection: "row",
                     justifyContent: "space-between",
-                    margin: "20px",
-                    width: "90%",
-                    height: "90%",
+                    width: "94%",
+                    height: "100%",
                   },
                   children: [
                     {
@@ -67,47 +68,51 @@ export default async () => {
                           display: "flex",
                           flexDirection: "column",
                           justifyContent: "center",
-                          alignItems: "center",
-                          height: "90%",
-                          maxHeight: "90%",
+                          flex: 1,
+                          paddingRight: "24px",
                           overflow: "hidden",
-                          textAlign: "center",
                         },
                         children: [
                           {
                             type: "p",
                             props: {
-                              style: { fontSize: 72, fontWeight: "bold" },
+                              style: {
+                                fontSize: 64,
+                                fontWeight: "bold",
+                                margin: 0,
+                              },
                               children: SITE.title,
                             },
                           },
                           {
                             type: "p",
                             props: {
-                              style: { fontSize: 28 },
+                              style: { fontSize: 28, marginTop: "20px" },
                               children: SITE.desc,
+                            },
+                          },
+                          {
+                            type: "p",
+                            props: {
+                              style: {
+                                fontSize: 28,
+                                fontWeight: "bold",
+                                marginTop: "36px",
+                              },
+                              children: new URL(SITE.website).hostname,
                             },
                           },
                         ],
                       },
                     },
                     {
-                      type: "div",
+                      // Bottom-anchored so the bust crop sits on the frame edge.
+                      type: "img",
                       props: {
-                        style: {
-                          display: "flex",
-                          justifyContent: "flex-end",
-                          width: "100%",
-                          marginBottom: "8px",
-                          fontSize: 28,
-                        },
-                        children: {
-                          type: "span",
-                          props: {
-                            style: { overflow: "hidden", fontWeight: "bold" },
-                            children: new URL(SITE.website).hostname,
-                          },
-                        },
+                        src: dp,
+                        width: 380,
+                        height: 380,
+                        style: { alignSelf: "flex-end" },
                       },
                     },
                   ],
