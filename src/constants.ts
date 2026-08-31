@@ -41,7 +41,7 @@ export const SOCIALS: Social[] = [
   {
     name: "Telegram",
     href: "https://t.me/aseemrb",
-    linkTitle: `Send an email to ${SITE.title}`,
+    linkTitle: `${SITE.title} on Telegram`,
     icon: IconTelegram,
   },
 ] as const;
