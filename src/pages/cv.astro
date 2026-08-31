@@ -3,7 +3,6 @@ import { SITE } from "@/config";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import Hr from "@/components/Hr.astro";
 import IconDownload from "@/assets/icons/IconDownload.svg";
@@ -12,11 +11,10 @@ import IconDownload from "@/assets/icons/IconDownload.svg";
 
 <Layout title={`CV | ${SITE.title}`}>
   <Header activeNav="cv" />
-  <Breadcrumb />
   <main id="main-content">
     <section id="cv" class="mb-14 pt-8">
-      <div class="flex items-center justify-between mb-8">
-        <h1 class="text-3xl font-bold">curriculum vitae</h1>
+      <div class="flex items-center justify-between mb-4">
+        <h1 class="mt-0 text-xl font-semibold sm:text-2xl">Curriculum vitae</h1>
         <LinkButton
             href="/assets/pdf/CV.pdf"
             class="hover:text-accent"
@@ -32,12 +30,16 @@ import IconDownload from "@/assets/icons/IconDownload.svg";
       </div>
 
       <div class="app-prose max-w-none cv">
-        <p class="mt-8 mb-4">See <a href="/publications">here</a> for publications</p>
+        <p class="mt-8 mb-4"><a href="/publications">See publications here</a></p>
         <h2 class="text-2xl font-semibold mt-8 mb-4">Experience</h2>
         <ul class="list-disc pl-5">
             <li>
-                <span><strong>AI Scientist</strong>, <a href="https://xtxmarkets.com/">XTX Markets</a></span>
-                <span class="cv-date">Jan 2025 - Present</span>
+                <span><strong>Research Scientist</strong>, <a href="https://xtxmarkets.com/">XTX Markets</a></span>
+                <span class="cv-date">Jun 2026 - Present</span>
+            </li>
+            <li>
+                <span><strong>AI Resident</strong>, <a href="https://xtxmarkets.com/">XTX Markets</a></span>
+                <span class="cv-date">Jan 2025 - Jun 2026</span>
             </li>
             <li>
                 <span><strong>Research Intern</strong>, <a href="https://www.microsoft.com/en-us/research">Microsoft</a></span>

@@ -1,7 +1,6 @@
 ---
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
 import Layout from "./Layout.astro";
 import { SITE } from "@/config";
 
@@ -17,10 +16,9 @@ const { frontmatter } = Astro.props;
 
 <Layout title={`${frontmatter.title} | ${SITE.title}`}>
   <Header />
-  <Breadcrumb />
   <main id="main-content">
-    <section class="app-prose mb-28 max-w-app prose-img:border-0">
-      <h2>{frontmatter.title}</h2>
+    <section class="app-prose mb-28 max-w-app pt-8 prose-img:border-0">
+      <h1 class="mt-0 text-xl font-semibold sm:text-2xl">{frontmatter.title}</h1>
       <p>
         More details on <a href="https://scholar.google.com/citations?user=DPt626YAAAAJ">Google scholar</a>.
       </p>

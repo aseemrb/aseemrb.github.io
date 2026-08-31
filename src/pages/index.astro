@@ -35,14 +35,14 @@ const postDate = (pubDatetime: string | Date, tz: string | undefined) =>
       {/* Below sm: a profile card, portrait at the left with the name and socials
           stacked beside it. The navbar drops the title at this width, so the
           heading lives here. Desktop keeps the portrait in the row below. */}
-      <div class="mt-2 flex items-center gap-4 sm:hidden">
+      <div class="mt-2 flex items-center justify-center gap-4 sm:hidden">
         <Image
           src={dp}
           alt="Sketch portrait of Aseem Baranwal"
           width={352}
-          sizes="96px"
+          sizes="160px"
           loading="eager"
-          class="w-24 shrink-0"
+          class="min-w-24 max-w-40 flex-1"
         />
         <div class="min-w-0">
           <h1 class="text-xl font-semibold tracking-wide">{SITE.title}</h1>
