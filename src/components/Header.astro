@@ -1,9 +1,10 @@
 ---
 import Hr from "./Hr.astro";
-import IconX from "@/assets/icons/IconX.svg";
 import IconArchive from "@/assets/icons/IconArchive.svg";
-import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
-import LinkButton from "./LinkButton.astro";
+import IconArticle from "@/assets/icons/IconArticle.svg";
+import IconBooks from "@/assets/icons/IconBooks.svg";
+import IconFileCv from "@/assets/icons/IconFileCv.svg";
+import IconHome from "@/assets/icons/IconHome.svg";
 import ThemeSelector from "./ThemeSelector.astro";
 import { SITE } from "@/config";
 
@@ -19,6 +20,11 @@ const isActive = (path: string) => {
 
   return currentPath === path || currentPathArray[0] === pathArray[0];
 };
+
+// Below sm the nav is an icon-only row of equal square tap targets; from sm up
+// the icons give way to the text labels.
+const navLink =
+  "flex h-9 w-9 items-center justify-center font-medium hover:text-accent sm:h-auto sm:w-auto sm:px-2 sm:py-1";
 ---
 
 <header>
@@ -35,80 +41,73 @@ const isActive = (path: string) => {
   >
     <div
       id="top-nav-wrap"
-      class="relative flex w-full items-start justify-between bg-background pt-6 px-4 pb-4 sm:items-center sm:py-4"
+      class="relative flex w-full items-center justify-between bg-background px-4 py-4"
     >
+      {/* Below sm the title would crowd the icon row, so the home page carries it instead. */}
       <a
         href="/"
-        class="absolute flex items-center whitespace-nowrap font-semibold hover:text-accent sm:static"
+        class="hidden items-center whitespace-nowrap font-semibold hover:text-accent sm:flex"
       >
         <span class="text-lg sm:text-xl">{SITE.title}</span>
       </a>
-      <nav
-        id="nav-menu"
-        class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"
-      >
-        <button
-          id="menu-btn"
-          class="focus-outline self-end p-2 sm:hidden"
-          aria-label="Open Menu"
-          aria-expanded="false"
-          aria-controls="menu-items"
-        >
-          <IconX id="close-icon" class="hidden" />
-          <IconMenuDeep id="menu-icon" />
-        </button>
+      <nav id="nav-menu" class="flex w-full items-center sm:ms-2 sm:w-auto">
         <ul
           id="menu-items"
-          class:list={[
-            "mt-2 flex w-full flex-col border-t border-border pt-2",
-            "[&>li>a]:block [&>li>a]:py-3 [&>li>a]:font-medium [&>li>a]:hover:text-accent sm:[&>li>a]:px-2 sm:[&>li>a]:py-1 sm:[&>li>a]:text-center",
-            "hidden",
-            "sm:mt-0 sm:flex sm:w-auto sm:flex-row sm:items-center sm:gap-x-5 sm:border-0 sm:pt-0",
-          ]}
+          class="flex w-full flex-row items-center justify-center gap-x-5 sm:w-auto sm:justify-end"
         >
-          <li>
-            <a href="/publications" class:list={{ "active-nav": isActive("/publications") }}>
-              Publications
+          <li class="sm:hidden">
+            <a href="/" class:list={[navLink, { "active-nav": isActive("/") }]}>
+              <IconHome class="h-6 w-6" aria-hidden="true" />
+              <span class="sr-only">Home</span>
+            </a>
+          </li>
+          <li class="ms-auto sm:ms-0">
+            <a
+              href="/publications"
+              class:list={[navLink, { "active-nav": isActive("/publications") }]}
+            >
+              <IconBooks class="h-6 w-6 sm:hidden" aria-hidden="true" />
+              <span class="sr-only sm:not-sr-only">Publications</span>
             </a>
           </li>
           <li>
-            <a href="/blog" class:list={{ "active-nav": isActive("/blog") }}>
-              Blog
+            <a
+              href="/blog"
+              class:list={[navLink, { "active-nav": isActive("/blog") }]}
+            >
+              <IconArticle class="h-6 w-6 sm:hidden" aria-hidden="true" />
+              <span class="sr-only sm:not-sr-only">Blog</span>
             </a>
           </li>
-          <!-- <li>
-            <a href="https://notes.aseemrb.me" class:list={{ "active-nav": isActive("/notes") }}>
-              Notes
-            </a>
-          </li> -->
           <li>
-            <a href="/cv" class:list={{ "active-nav": isActive("/cv") }}>
-              CV
+            <a
+              href="/cv"
+              class:list={[navLink, { "active-nav": isActive("/cv") }]}
+            >
+              <IconFileCv class="h-6 w-6 sm:hidden" aria-hidden="true" />
+              <span class="sr-only sm:not-sr-only">CV</span>
             </a>
           </li>
           {
             SITE.showArchives && (
               <li>
-                <LinkButton
+                <a
                   href="/archives"
                   class:list={[
-                    "focus-outline flex justify-center p-3 sm:p-1",
+                    navLink,
+                    "focus-outline",
                     {
                       "active-nav [&>svg]:stroke-accent": isActive("/archives"),
                     },
                   ]}
-                  ariaLabel="archives"
-                  title="Archives"
                 >
-                  <IconArchive class="hidden sm:inline-block" />
-                  <span class="sm:sr-only">Archives</span>
-                </LinkButton>
+                  <IconArchive class="h-6 w-6 sm:hidden" aria-hidden="true" />
+                  <span class="sr-only sm:not-sr-only">Archives</span>
+                </a>
               </li>
             )
           }
-          <li
-            class="mt-1 flex items-center justify-start gap-2 border-t border-border pt-2 sm:mt-0 sm:border-0 sm:pt-0 sm:justify-center"
-          >
+          <li class="ms-auto flex items-center sm:ms-0">
             <ThemeSelector />
           </li>
         </ul>
@@ -117,27 +116,3 @@ const isActive = (path: string) => {
   </div>
   <Hr />
 </header>
-
-<script>
-  function toggleNav() {
-    const menuBtn = document.querySelector("#menu-btn");
-    const menuItems = document.querySelector("#menu-items");
-    const menuIcon = document.querySelector("#menu-icon");
-    const closeIcon = document.querySelector("#close-icon");
-
-    if (!menuBtn || !menuItems || !menuIcon || !closeIcon) return;
-
-    menuBtn.addEventListener("click", () => {
-      const openMenu = menuBtn.getAttribute("aria-expanded") === "true";
-
-      menuBtn.setAttribute("aria-expanded", openMenu ? "false" : "true");
-      menuBtn.setAttribute("aria-label", openMenu ? "Open Menu" : "Close Menu");
-
-      menuItems.classList.toggle("hidden");
-      menuIcon.classList.toggle("hidden");
-      closeIcon.classList.toggle("hidden");
-    });
-  }
-
-  toggleNav();
-</script>
