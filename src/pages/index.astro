@@ -32,38 +32,52 @@ const postDate = (pubDatetime: string | Date, tz: string | undefined) =>
   <Header />
   <main id="main-content" data-layout="index">
     <section id="hero" class="pt-8 pb-6">
-      {/* Mobile: profile-card order — portrait, socials, bio. Desktop shows the copy in the row below. */}
-      <Image
-        src={dp}
-        alt="Sketch portrait of Aseem Baranwal"
-        width={352}
-        loading="eager"
-        class="mx-auto mt-2 w-36 sm:hidden"
-      />
+      {/* Below sm: a profile card, portrait at the left with the name and socials
+          stacked beside it. The navbar drops the title at this width, so the
+          heading lives here. Desktop keeps the portrait in the row below. */}
+      <div class="mt-2 flex items-center gap-4 sm:hidden">
+        <Image
+          src={dp}
+          alt="Sketch portrait of Aseem Baranwal"
+          width={352}
+          sizes="96px"
+          loading="eager"
+          class="w-24 shrink-0"
+        />
+        <div class="min-w-0">
+          <h1 class="text-xl font-semibold tracking-wide">{SITE.title}</h1>
+          {SOCIALS.length > 0 && (
+            <div class="mt-2">
+              <Socials centered />
+            </div>
+          )}
+        </div>
+      </div>
+      {/* The header carries the name from sm up, so the heading only needs to
+          stay in the document outline there. */}
+      <h1 class="sr-only hidden sm:block">{SITE.title}</h1>
 
       {
         SOCIALS.length > 0 && (
-          <div class="my-4 flex flex-col items-center sm:my-6 sm:flex-row">
+          <div class="hidden sm:my-6 sm:flex sm:flex-row sm:items-center">
             <Socials />
           </div>
         )
       }
 
-      <div class="sm:flex sm:items-start sm:gap-8">
+      <div class="mt-6 sm:mt-0 sm:flex sm:items-start sm:gap-8">
         <div class="min-w-0 flex-1">
           <p class="mt-2">
             I am a scientist at <LinkButton class="underline-offset-4 hover:text-accent" href="https://xtxmarkets.com/">XTX</LinkButton>.
           </p>
           <p class="mt-2">
-            My <LinkButton class="underline-offset-4 hover:text-accent" href="https://uwspace.uwaterloo.ca/items/291d10bc-ba68-4beb-9984-6daa021f6e86">doctorate</LinkButton> was on statistical foundations for learning on graphs and high-dimensional probability, co-advised by Prof <LinkButton class="underline-offset-4 hover:text-accent" href="https://scholar.google.ca/citations?user=K-SafJUAAAAJ">Kimon Fountoulakis</LinkButton> and Prof <LinkButton class="underline-offset-4 hover:text-accent" href="https://aukosh.github.io/">Aukosh Jagannath</LinkButton> at the <LinkButton class="underline-offset-4 hover:text-accent" href="https://cs.uwaterloo.ca/">Cheriton School of Computer Science</LinkButton>, <LinkButton class="underline-offset-4 hover:text-accent" href="https://uwaterloo.ca/">University of Waterloo</LinkButton>.
+            My <LinkButton class="underline-offset-4 hover:text-accent" href="https://uwspace.uwaterloo.ca/items/291d10bc-ba68-4beb-9984-6daa021f6e86">doctorate</LinkButton> focused on statistical foundations for learning on graphs and was co-advised by <LinkButton class="underline-offset-4 hover:text-accent" href="https://scholar.google.ca/citations?user=K-SafJUAAAAJ">Kimon Fountoulakis</LinkButton> and <LinkButton class="underline-offset-4 hover:text-accent" href="https://aukosh.github.io/">Aukosh Jagannath</LinkButton> at the <LinkButton class="underline-offset-4 hover:text-accent" href="https://cs.uwaterloo.ca/">Cheriton School of Computer Science</LinkButton>, <LinkButton class="underline-offset-4 hover:text-accent" href="https://uwaterloo.ca/">University of Waterloo</LinkButton>.
           </p>
           <p class="mt-2">
-            Before that, I did my M.Math. at UWaterloo with Prof <LinkButton class="underline-offset-4 hover:text-accent" href="https://cs.uwaterloo.ca/~shallit/">Jeffrey Shallit</LinkButton> on algorithmic number theory and combinatorics on words, and my undergrad at <LinkButton class="underline-offset-4 hover:text-accent" href="http://iitj.ac.in/">IIT Jodhpur</LinkButton>.
+            Before that, I earned an <LinkButton class="underline-offset-4 hover:text-accent" href="https://uwspace.uwaterloo.ca/items/9b25240e-3e35-4074-8bcf-08a9d7e7c048">M.Math.</LinkButton> at Waterloo, focusing on algorithmic number theory and combinatorics on words, advised by <LinkButton class="underline-offset-4 hover:text-accent" href="https://cs.uwaterloo.ca/~shallit/">Jeffrey Shallit</LinkButton>. My undergrad was at <LinkButton class="underline-offset-4 hover:text-accent" href="http://iitj.ac.in/">IIT Jodhpur</LinkButton>.
           </p>
           <p class="mt-2">
-            Fun fact: my <LinkButton class="underline-offset-4 hover:text-accent" href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</LinkButton> is <a href="https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1350148&target=189017">2</a>
-            <LinkButton class="underline-offset-4 hover:text-accent" href="http://www.numdam.org/item/JTNB_1991__3_1_43_0/">via</LinkButton>
-            Jeffrey Shallit.
+            Fun fact: my <LinkButton class="underline-offset-4 hover:text-accent" href="https://en.wikipedia.org/wiki/Erdős_number">Erdős number</LinkButton> is <a href="https://mathscinet.ams.org/mathscinet/freetools/collab-dist?source=1350148&target=189017">2</a>, via Jeffrey Shallit.
           </p>
         </div>
 
@@ -71,6 +85,7 @@ const postDate = (pubDatetime: string | Date, tz: string | undefined) =>
           src={dp}
           alt="Sketch portrait of Aseem Baranwal"
           width={352}
+          sizes="176px"
           loading="eager"
           class="mt-2 hidden w-44 shrink-0 sm:block"
         />
@@ -134,8 +149,8 @@ const postDate = (pubDatetime: string | Date, tz: string | undefined) =>
                   )
               )}
             </ul>
-            <p class="mt-4">
-              Find all posts <LinkButton class="underline-offset-4 hover:text-accent" href="/blog/">here</LinkButton>.
+            <p class="mt-4 text-sm opacity-80">
+              <LinkButton class="underline-offset-4 hover:text-accent" href="/blog/">Read more</LinkButton>
             </p>
           </section>
         </>
