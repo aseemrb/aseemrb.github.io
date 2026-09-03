@@ -105,13 +105,9 @@ $$
 
 The leading correction $\theta_0^2/16$ already tells the practical story: a pendulum clock's error is quadratic in the swing, so halving the amplitude quarters the error. The exact values, computed by the method of the next section:
 
-| $\theta_0$ | $T / T_0$ |
-| --- | --- |
-| 10° | 1.0019 |
-| 30° | 1.0174 |
-| 90° | 1.1803 |
-| 150° | 1.7622 |
-| 179° | 3.9010 |
+| $\theta_0$ | 10° | 30° | 90° | 179° |
+| --- | --- | --- | --- | --- |
+| $T / T_0$ | 1.0019 | 1.0174 | 1.1803 | 3.9010 |
 
 The divergence at the far end has its own closed form: as $\theta_0 \to 180°$ the modulus $k \to 1$ and $K(k) \sim \ln\bigl(4/k'\bigr)$ with $k' = \sqrt{1 - k^2} = \cos(\theta_0/2)$, so
 

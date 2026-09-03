@@ -71,19 +71,11 @@ $$
 
 Irrationality of $\alpha$ guarantees $h\alpha$ is never an integer, so the bound is finite, and crucially it does not grow with $N$: dividing by $N$ sends the average to zero. (The other half of the criterion, that killing all the exponentials forces uniform counting, follows by sandwiching the indicator function of an interval between trigonometric polynomials; Kuipers and Niederreiter give the two-page argument.)
 
-The nine limiting frequencies, to four places:
+The limiting frequencies for a few digits, to four places:
 
-| $d$ | $\log_{10}(1+1/d)$ |
-| --- | --- |
-| 1 | .3010 |
-| 2 | .1761 |
-| 3 | .1249 |
-| 4 | .0969 |
-| 5 | .0792 |
-| 6 | .0669 |
-| 7 | .0580 |
-| 8 | .0512 |
-| 9 | .0458 |
+| $d$ | 1 | 2 | 5 | 9 |
+| --- | --- | --- | --- | --- |
+| $\log_{10}(1+1/d)$ | .3010 | .1761 | .0792 | .0458 |
 
 ## The drift, made visible
 
