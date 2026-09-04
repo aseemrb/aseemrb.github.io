@@ -5,8 +5,8 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 /** Repository root: this file sits in scripts/flights/lib/. */
 export const ROOT = path.resolve(__dirname, "../../..");
-/** Served at /flights/data/ — keep in step with src/flights/lib/dataUrl.ts. */
-export const DATA_DIR = path.join(ROOT, "public/flights/data");
+/** Served at /logbook/data/ — keep in step with src/flights/lib/dataUrl.ts. */
+export const DATA_DIR = path.join(ROOT, "public/logbook/data");
 export const TRACKS_DIR = path.join(DATA_DIR, "tracks");
 export const FLIGHTS_JSON = path.join(DATA_DIR, "flights.json");
 

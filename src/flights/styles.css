@@ -26,7 +26,7 @@
      panel's mode; the dark rule at the end of the file flips it. */
   color-scheme: light;
 
-  /* Fills whatever height the page hands it: the <main> on /flights is a flex
+  /* Fills whatever height the page hands it: the <main> on /logbook is a flex
      column below the site header, so this stretches to the bottom of the
      viewport and the list and map scroll inside it rather than the page. */
   display: flex;
@@ -46,7 +46,7 @@
   isolation: isolate;
 
   /* From the site's sm breakpoint the page holds the panel to the same width
-     as every other page (see flights.astro), so it gets a frame. Below that it
+     as every other page (see logbook.astro), so it gets a frame. Below that it
      runs edge to edge, as a map should on a phone. overflow: hidden clips the
      map to the rounded corners; the fixed-position overlays inside (modals,
      the mobile list, the switcher) are positioned against the viewport and
@@ -1136,7 +1136,7 @@ html[data-theme="rays"] .flight-log {
   --fl-danger-contrast: #1a0505;
 }
 
-/* Shown by flights.astro until the island's JavaScript arrives; outside
+/* Shown by logbook.astro until the island's JavaScript arrives; outside
    .flight-log because it is what stands in for it. */
 .flight-log-fallback {
   padding: 16px;

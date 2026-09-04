@@ -38,7 +38,7 @@ async function extractFlightInfo(filePath) {
 }
 
 /**
- * Scans public/flights/data/tracks for .kml files with no matching entry in flights.json
+ * Scans public/logbook/data/tracks for .kml files with no matching entry in flights.json
  * and appends a best-guess entry for each (aircraft/date/duration read straight
  * from the track; from/to/kind/notes defaulted for the user to correct by hand).
  * Never touches existing entries.
@@ -94,7 +94,7 @@ export async function generateFlights({ log = () => {} } = {}) {
       groundTime: null,
     });
     log(
-      `[flights] added "${id}" from ${file} — defaulted from/to/kind/notes and logbook hours, edit public/flights/data/flights.json to fill in totalTime/dualReceived/groundTime and adsbUrl`,
+      `[flights] added "${id}" from ${file} — defaulted from/to/kind/notes and logbook hours, edit public/logbook/data/flights.json to fill in totalTime/dualReceived/groundTime and adsbUrl`,
     );
   }
 

@@ -17,7 +17,7 @@ import {
   useMap,
 } from "react-leaflet";
 import type { Path, Polyline as LeafletPolyline } from "leaflet";
-// leaflet.css is imported by the page (src/pages/flights.astro) alongside the
+// leaflet.css is imported by the page (src/pages/logbook.astro) alongside the
 // panel's own stylesheet, so it is in <head> before this client-only tree mounts.
 import type { Flight } from "../types";
 import { loadTrack, type TrackPoint } from "../lib/parseTrack";

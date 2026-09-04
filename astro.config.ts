@@ -24,11 +24,11 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      // /flights stays out of the sitemap while its nav entry is hidden, so
+      // /logbook stays out of the sitemap while its nav entry is hidden, so
       // the page is reachable by URL but not advertised.
       filter: page =>
         (SITE.showArchives || !page.endsWith("/archives")) &&
-        !page.endsWith("/flights/"),
+        !page.endsWith("/logbook/"),
     }),
   ],
   // Keep HTML-aware whitespace compression; the v7 "jsx" default strips
@@ -59,7 +59,7 @@ export default defineConfig({
     },
   },
   vite: {
-    // The flight log plugins keep public/flights/data in step with its KML
+    // The flight log plugins keep public/logbook/data in step with its KML
     // tracks, and (dev only) serve the add/delete API behind the logbook
     // editor; see scripts/flights/.
     plugins: [tailwindcss(), flightsDataPlugin(), devApiPlugin()],

@@ -7,7 +7,7 @@ import { ShareButton } from "./components/ShareButton";
 import type { Flight } from "./types";
 import { dataUrl } from "./lib/dataUrl";
 import { readFlightIdFromUrl, writeFlightIdToUrl } from "./lib/flightUrl";
-// styles.css is imported by the page (src/pages/flights.astro), not here: this
+// styles.css is imported by the page (src/pages/logbook.astro), not here: this
 // tree only ever renders on the client, and a stylesheet imported from inside
 // it would arrive with the JavaScript rather than in the page's <head>.
 
@@ -24,7 +24,7 @@ const REFRESH_INTERVAL_MS = 30_000;
 /**
  * The flight log panel: the list, the map, and (in dev) the logbook editor.
  *
- * Mounted as a client-only island on /flights, under the site's own header. The
+ * Mounted as a client-only island on /logbook, under the site's own header. The
  * site's navigation and theme picker replace the header the standalone app used
  * to carry; the logbook total and the mobile-only list and share buttons that
  * were in it now float in a corner of the map.
