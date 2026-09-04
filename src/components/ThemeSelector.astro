@@ -1,5 +1,4 @@
 ---
-import IconPalette from "@/assets/icons/IconPalette.svg";
 import IconMoon from "@/assets/icons/IconMoon.svg";
 import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import { SITE } from "@/config";
@@ -31,7 +30,7 @@ const themeValues = families.flatMap(({ key }) => [`${key}-light`, `${key}-dark`
         title="Select Theme"
         class="flex h-9 w-9 items-center justify-center rounded p-2 transition-all hover:text-accent"
       >
-        <IconPalette class="h-6 w-6" />
+        <span class="theme-wheel" aria-hidden="true"></span>
       </button>
 
       <div
@@ -92,6 +91,33 @@ const themeValues = families.flatMap(({ key }) => [`${key}-light`, `${key}-dark`
   /* Drive currentColor (icons) at full theme contrast. */
   #theme-picker {
     color: var(--foreground);
+  }
+
+  /* The button's face: the theme's own palette in three equal wedges,
+     foreground at the top, accent and muted below, with a gap and then a ring
+     in the accent around it, so the button previews the theme in force rather
+     than showing a generic palette. Every colour is a token, so it follows
+     the theme on its own. Starting at -150deg centres a wedge on the top,
+     which keeps the shape symmetric about the vertical. */
+  .theme-wheel {
+    display: block;
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 9999px;
+    background: conic-gradient(
+      from -150deg,
+      var(--foreground) 0 120deg,
+      var(--accent) 0 240deg,
+      var(--muted) 0
+    );
+    box-shadow:
+      0 0 0 1.5px var(--background),
+      0 0 0 3.5px var(--accent);
+    transition: transform 0.15s ease;
+  }
+
+  #theme-picker-button:hover .theme-wheel {
+    transform: scale(1.08);
   }
 
   .theme-option[aria-selected="true"] {

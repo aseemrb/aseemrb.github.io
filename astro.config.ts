@@ -2,6 +2,7 @@ import { defineConfig, envField } from "astro/config";
 import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
+import react from "@astrojs/react";
 import remarkToc from "remark-toc";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -13,14 +14,21 @@ import {
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import { SITE } from "./src/config";
+import { flightsDataPlugin } from "./scripts/flights/flightsDataPlugin.mjs";
+import { devApiPlugin } from "./scripts/flights/devApiPlugin.mjs";
 
 // https://astro.build/config
 export default defineConfig({
   // site: SITE.website,
   site: 'https://aseemrb.me',
   integrations: [
+    react(),
     sitemap({
-      filter: page => SITE.showArchives || !page.endsWith("/archives"),
+      // /flights stays out of the sitemap while its nav entry is hidden, so
+      // the page is reachable by URL but not advertised.
+      filter: page =>
+        (SITE.showArchives || !page.endsWith("/archives")) &&
+        !page.endsWith("/flights/"),
     }),
   ],
   // Keep HTML-aware whitespace compression; the v7 "jsx" default strips
@@ -51,7 +59,10 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [tailwindcss()],
+    // The flight log plugins keep public/flights/data in step with its KML
+    // tracks, and (dev only) serve the add/delete API behind the logbook
+    // editor; see scripts/flights/.
+    plugins: [tailwindcss(), flightsDataPlugin(), devApiPlugin()],
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
     },

@@ -1,0 +1,38 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import FlightLog from "@/flights/FlightLog";
+import { SITE } from "@/config";
+// Both stylesheets are imported here rather than from the React tree: the
+// island is client:only, so nothing in it renders on the server, and a
+// stylesheet imported from inside it would only arrive with the component's
+// JavaScript. Importing here puts them in the page's <head> from the start.
+import "leaflet/dist/leaflet.css";
+import "@/flights/styles.css";
+---
+
+<Layout
+  title={`Flights | ${SITE.title}`}
+  description="Flight training log: every leg with its altitude-coloured GPS track, from ADS-B Exchange."
+>
+  <Header />
+  {
+    /* No Footer on this page. The panel fills the viewport below the header so
+      the map never sits inside a scrolling page, and on mobile the flight
+      switcher is pinned to the bottom edge, where a footer would sit. */
+  }
+  <main
+    id="main-content"
+    class="mx-auto flex w-full min-h-0 max-w-app flex-1 flex-col sm:px-4 sm:py-4"
+    data-pagefind-ignore
+  >
+    <h1 class="sr-only">Flight log</h1>
+    {
+      /* client:only because Leaflet reads `window` at import time, so the map
+        can't be rendered on the server at all. */
+    }
+    <FlightLog client:only="react">
+      <p slot="fallback" class="flight-log-fallback">Loading the flight log…</p>
+    </FlightLog>
+  </main>
+</Layout>

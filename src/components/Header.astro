@@ -5,6 +5,9 @@ import IconArticle from "@/assets/icons/IconArticle.svg";
 import IconBooks from "@/assets/icons/IconBooks.svg";
 import IconFileCv from "@/assets/icons/IconFileCv.svg";
 import IconHome from "@/assets/icons/IconHome.svg";
+// Used by the Flights entry, which is commented out below until the page is
+// ready to show; restore both together.
+// import IconPlane from "@/assets/icons/IconPlane.svg";
 import ThemeSelector from "./ThemeSelector.astro";
 import { SITE } from "@/config";
 
@@ -67,7 +70,7 @@ const navLink =
               class:list={[navLink, { "active-nav": isActive("/publications") }]}
             >
               <IconBooks class="h-6 w-6 sm:hidden" aria-hidden="true" />
-              <span class="sr-only sm:not-sr-only">Publications</span>
+              <span class="sr-only sm:not-sr-only">Papers</span>
             </a>
           </li>
           <li>
@@ -79,6 +82,20 @@ const navLink =
               <span class="sr-only sm:not-sr-only">Blog</span>
             </a>
           </li>
+          {
+            /* Hidden for now; an expression comment rather than an HTML one so
+               the link does not ship in the page source.
+          <li>
+            <a
+              href="/flights"
+              class:list={[navLink, { "active-nav": isActive("/flights") }]}
+            >
+              <IconPlane class="h-6 w-6 sm:hidden" aria-hidden="true" />
+              <span class="sr-only sm:not-sr-only">Flights</span>
+            </a>
+          </li>
+          */
+          }
           <li>
             <a
               href="/cv"

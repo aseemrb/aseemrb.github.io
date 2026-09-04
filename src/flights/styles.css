@@ -1,0 +1,1144 @@
+/*
+ * Flight log panel.
+ *
+ * Everything nests under .flight-log, so nothing here can reach the rest of
+ * the site, and the panel takes its palette from the site's theme tokens
+ * (--background, --foreground, --accent, --muted, --border, --muted-foreground)
+ * rather than carrying one of its own. The --fl-* names exist for the few
+ * tones the site doesn't define, and because the site's --muted is a surface
+ * tint where the panel's muted is a text colour.
+ *
+ * The font is inherited from the site (monospace) rather than set here.
+ */
+.flight-log {
+  --fl-bg: var(--background);
+  --fl-panel-bg: var(--background);
+  --fl-muted: var(--muted-foreground);
+  --fl-selected-bg: var(--muted);
+  /* Text that sits ON a solid --accent fill (.btn-primary). The site puts its
+     page background on accent fills, so the same holds here. */
+  --fl-accent-contrast: var(--background);
+  /* Deeper than the dark theme's red: #ef4444 only reaches 3.6:1 on a
+     near-white ground, where this reaches 6.1:1. */
+  --fl-danger: #b91c1c;
+  --fl-danger-contrast: #ffffff;
+  /* Native form chrome (date/time picker icons, scrollbars) follows the
+     panel's mode; the dark rule at the end of the file flips it. */
+  color-scheme: light;
+
+  /* Fills whatever height the page hands it: the <main> on /flights is a flex
+     column below the site header, so this stretches to the bottom of the
+     viewport and the list and map scroll inside it rather than the page. */
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  color: var(--foreground);
+  background: var(--fl-bg);
+  /* Leaflet stacks its panes and controls at z-index 400-1000, and the detail
+     card and legend sit at 1000 to clear them. Left in the page's own stacking
+     context those also cleared the site header's theme picker, which opens at
+     z-index 20 and vanished behind the map. Isolating the panel keeps every
+     z-index inside it relative to the panel, so the picker only has to beat
+     the panel itself, which has none. The fixed-position overlays inside
+     (modals, the mobile list, the switcher) still cover the header, since the
+     panel paints after it in tree order. */
+  isolation: isolate;
+
+  /* From the site's sm breakpoint the page holds the panel to the same width
+     as every other page (see flights.astro), so it gets a frame. Below that it
+     runs edge to edge, as a map should on a phone. overflow: hidden clips the
+     map to the rounded corners; the fixed-position overlays inside (modals,
+     the mobile list, the switcher) are positioned against the viewport and
+     are not clipped by it. */
+  @media (min-width: 640px) {
+    & {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+  }
+
+  /* Mobile only (shown in the media query at the end of the file): the
+     logbook total and, under it, the list and share buttons the standalone
+     app's header used to hold, in the top-right corner of the map. The other
+     corners are spoken for: zoom control and detail card at the top-left,
+     scale bar and attribution at the bottom-left, legend at the bottom-right.
+     On desktop the total heads the list instead, where it never has to share
+     the map's top edge with the detail card. */
+  .map-corner {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .total-hours {
+    background: var(--fl-panel-bg);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .total-hours-value {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Mobile-only corner buttons — shown in the media query at the end of the file. */
+  .mobile-list-button,
+  .share-button {
+    display: none;
+  }
+
+  /* Leaflet's stylesheet sets its own sans-serif on the map container, which
+     would leave the scale bar, popups and attribution in a different face from
+     the detail card and legend beside them. */
+  .map-panel .leaflet-container {
+    font-family: inherit;
+  }
+
+  .flight-log-body {
+    flex: 1;
+    display: grid;
+    /* 280px rather than the standalone app's 320px: the page holds the panel
+       to the site's content width, and the map needs the difference more than
+       the list does. */
+    grid-template-columns: 280px 1fr;
+    min-height: 0;
+  }
+
+  /* The logbook total, heading the list on desktop. Sticky inside the
+     scrolling list so it stays in view. */
+  .flight-list-total {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--fl-panel-bg);
+    font-size: 0.85rem;
+  }
+
+  .flight-list-total-label {
+    color: var(--fl-muted);
+  }
+
+  .flight-list {
+    /* grid items default to min-height:auto, which lets list content overflow its
+     track and push the map down instead of scrolling internally */
+    min-height: 0;
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    background: var(--fl-panel-bg);
+  }
+
+  /* Mobile-only elements: hidden by default, unhidden inside the mobile media
+   query below. FlightList renders .flight-switcher unconditionally (it's not
+   gated by viewport in JS), so without this it lands as an unstyled block
+   div inside .flight-log-body's 2-column grid on desktop and breaks the layout. */
+  .flight-switcher,
+  .flight-list-mobile-header,
+  .flight-list-close {
+    display: none;
+  }
+
+  /* Only ever rendered inside the mobile switcher, so this is sized for a thumb
+   rather than a cursor — close to the 44px minimum touch target. */
+  .flight-list-nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--fl-panel-bg);
+    color: var(--foreground);
+    cursor: pointer;
+    /* isolated from the parent handle's own drag/tap gesture */
+    touch-action: manipulation;
+  }
+
+  .flight-list-nav-button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .flight-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Anchors the dev-only delete button over the row. In a production build that
+   button renders nothing, so this is just an inert positioning context. */
+  .flight-row {
+    position: relative;
+  }
+
+  /* Sits over the row's right edge rather than in the flow, so the row button
+   below it still spans the full width and stays a single click target. */
+  .flight-delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--fl-panel-bg);
+    color: var(--fl-muted);
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    .flight-delete-button:hover {
+      color: var(--fl-danger);
+      border-color: var(--fl-danger);
+    }
+  }
+
+  .flight-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    border-left: 3px solid transparent;
+    background: transparent;
+    color: var(--foreground);
+    cursor: pointer;
+    font: inherit;
+  }
+
+  @media (hover: hover) {
+    .flight-item:hover {
+      background: var(--fl-selected-bg);
+    }
+  }
+
+  .flight-item.selected {
+    background: var(--fl-selected-bg);
+    border-left-color: var(--accent);
+  }
+
+  .flight-item-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .flight-item-date {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .flight-item-hours {
+    font-size: 0.8rem;
+    color: var(--fl-muted);
+    white-space: nowrap;
+  }
+
+  /* Clears the delete button overlaying the row's top-right corner. Only applied
+   where that button exists — FlightList adds the class in dev builds only. */
+  .flight-list.dev .flight-item-top {
+    padding-right: 26px;
+  }
+
+  .flight-item-route {
+    font-size: 0.85rem;
+    color: var(--fl-muted);
+    margin-top: 2px;
+  }
+
+  .flight-item-notes {
+    font-size: 0.8rem;
+    color: var(--fl-muted);
+    margin-top: 4px;
+  }
+
+  .muted {
+    color: var(--fl-muted);
+    padding: 16px;
+    margin: 0;
+  }
+
+  .map-panel {
+    position: relative;
+    min-height: 0;
+    height: 100%;
+  }
+
+  /* Leaflet's own base CSS hardcodes a light-gray background on this, which
+   shows through while newly-panned-to or freshly-loaded tiles are still
+   downloading — a visible flash of "light theme" on a dark map until the
+   dark tiles finish loading in. */
+  .map-panel .leaflet-container {
+    background: var(--fl-bg);
+  }
+
+  /* CARTO's only free colorful tile set (Voyager) is light-only — there's no free
+   colorful *dark* equivalent, only their near-grayscale Dark Matter. Deriving
+   dark mode from the same colorful tiles via a filter instead, so both themes
+   get real color rather than one of them staying flat gray/black. This is an
+   approximation (a best-effort filter recipe, not something visually tuned) —
+   may need adjusting once you actually see it.
+
+   Applied to the tile pane via this ancestor class (set by React, so it updates
+   live on theme toggle) rather than TileLayer's own `className` option — that
+   option only gets baked into tiles at layer-creation time, so it silently
+   stopped updating on toggle and only took effect again after a full reload. */
+  /* Standard OSM is a louder basemap than the Voyager tiles this replaced —
+   strong green landuse, red/orange roads — and the route's own altitude
+   gradient has to read on top of it. Toning it down leaves the labels and road
+   network intact while giving the colored line the field to itself. */
+  .map-panel .leaflet-tile-pane {
+    filter: saturate(0.62) brightness(1.05) contrast(0.94);
+  }
+
+  /* Must stay after the rule above: same specificity, so source order decides,
+   and .dark-tiles lands on the same element.
+
+   saturate() runs BEFORE invert(), not after. Inverting first turns OSM's green
+   landuse into a heavy magenta that hue-rotate swings back to green, and the
+   map comes out mean #27382f — the greenish cast the app chrome deliberately
+   avoids. Draining the color first lands it on a near-neutral #252a28.
+   hue-rotate still earns its place on what colour survives: it keeps water
+   reading blue rather than orange. */
+  .dark-tiles .leaflet-tile-pane {
+    filter: saturate(0.3) invert(1) hue-rotate(180deg) brightness(0.82)
+      contrast(0.95);
+  }
+
+  /* The dashed "no coverage" chords. Themed rather than a literal colour so it
+   recedes on both grounds, and non-interactive-looking on purpose — it isn't
+   part of the altitude gradient because it isn't flown data. */
+  .flight-gap-line {
+    stroke: var(--fl-muted);
+    opacity: 0.75;
+  }
+
+  .flight-detail {
+    position: absolute;
+    top: 12px;
+    /* clears Leaflet's zoom control, which sits top-left */
+    left: 56px;
+    z-index: 1000;
+    /* fixed so expanding the details below never changes the box's width;
+     the min() keeps it from overflowing on narrow phones. 260px is what the
+     header line ("N739WR · 39N local" plus its two buttons) needs in the
+     site's monospace font; the 2x2 time grid below it needs far less. */
+    width: min(260px, calc(100vw - 76px));
+    display: flex;
+    flex-direction: column;
+    background: var(--fl-panel-bg);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .flight-detail-main {
+    padding: 10px 14px;
+  }
+
+  .flight-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .flight-detail-header-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Tail number, in the detail card and on the mobile switcher. A base rule, not
+   a mobile one — both surfaces use it. */
+  .flight-tail {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Holds the row's buttons together at the right edge, so the header text keeps
+   the whole rest of the line to ellipsis into. */
+  .flight-detail-actions {
+    flex-shrink: 0;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .flight-detail-play,
+  .flight-detail-reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    background: var(--fl-panel-bg);
+    color: var(--accent);
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    .flight-detail-play:hover:not(:disabled),
+    .flight-detail-reset:hover:not(:disabled) {
+      background: var(--fl-selected-bg);
+    }
+  }
+
+  .flight-detail-play:disabled,
+  .flight-detail-reset:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  /* Note + toggle share one row so they sit on the same horizontal line instead
+   of stacking with a gap. Lives in .flight-detail-main specifically (not the
+   outer .flight-detail) so its position never shifts when expanding. */
+  .flight-detail-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .flight-detail-footer-text {
+    min-width: 0;
+    font-size: 0.7rem;
+    color: var(--fl-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .flight-detail-toggle {
+    flex-shrink: 0;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--fl-panel-bg);
+    color: var(--fl-muted);
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    .flight-detail-toggle:hover {
+      color: var(--foreground);
+    }
+  }
+
+  .flight-detail-extra {
+    border-top: 1px solid var(--border);
+    padding: 10px 14px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+    row-gap: 6px;
+    align-items: baseline;
+    font-size: 0.8rem;
+  }
+
+  /* lets the label/value pair act as direct grid items of .flight-detail-extra,
+   so every row shares the same two columns and lines up like a table */
+  .detail-row {
+    display: contents;
+  }
+
+  .detail-label {
+    color: var(--fl-muted);
+    white-space: nowrap;
+  }
+
+  .detail-value {
+    text-align: left;
+  }
+
+  .detail-link {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  @media (hover: hover) {
+    .detail-link:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .time-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(44px, auto));
+    gap: 6px 16px;
+    margin-top: 8px;
+  }
+
+  .time-cell {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .time-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--fl-muted);
+  }
+
+  .time-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  /* Rendered inside the Leaflet container, so it needs to clear the panes (which
+   top out around z-index 700) the way Leaflet's own controls do. Sits above the
+   attribution in the bottom-left, leaving the opposite corner to the legend.
+   pointer-events:none so a drag that starts on it still pans the map. */
+  .map-scale {
+    position: absolute;
+    left: 12px;
+    bottom: 32px;
+    z-index: 1000;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.68rem;
+    color: var(--foreground);
+    /* No panel behind it — a bar and a number read fine straight on the map, and
+     a box here would crowd the attribution below it. The shadow is what keeps
+     both legible over whatever the basemap puts underneath. */
+    text-shadow:
+      0 0 3px var(--fl-panel-bg),
+      0 0 3px var(--fl-panel-bg),
+      0 0 2px var(--fl-panel-bg);
+  }
+
+  .map-scale-label {
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Ticked at both ends, like a chart's scale, so where it starts and stops is
+   unambiguous — a plain rule would leave the ends ill-defined against the map. */
+  .map-scale-bar {
+    height: 5px;
+    border: 1px solid var(--foreground);
+    border-top: 0;
+    box-shadow: 0 0 3px var(--fl-panel-bg);
+  }
+
+  .altitude-legend {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 1000;
+    background: var(--fl-panel-bg);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 0.75rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .altitude-legend-title {
+    color: var(--fl-muted);
+    margin-bottom: 4px;
+  }
+
+  .altitude-legend-bar {
+    width: 200px;
+    height: 10px;
+    border-radius: 5px;
+  }
+
+  .altitude-legend-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2px;
+  }
+
+  .map-panel .leaflet-control-attribution {
+    background: var(--fl-panel-bg);
+    color: var(--fl-muted);
+    font-size: 0.65rem;
+    padding: 1px 6px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .map-panel .leaflet-control-attribution a {
+    color: var(--fl-muted);
+  }
+
+  .map-panel .leaflet-bar {
+    border-color: var(--border);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .map-panel .leaflet-bar a {
+    background: var(--fl-panel-bg);
+    color: var(--foreground);
+    border-bottom-color: var(--border);
+  }
+
+  @media (hover: hover) {
+    .map-panel .leaflet-bar a:hover {
+      background: var(--fl-selected-bg);
+    }
+  }
+
+  .map-panel .leaflet-bar a:focus {
+    background: var(--fl-selected-bg);
+  }
+
+  .map-panel .leaflet-bar a.leaflet-disabled {
+    background: var(--fl-panel-bg);
+    color: var(--fl-muted);
+  }
+
+  /* No halo/outline here (unlike the endpoint markers): the plane is a solid
+   shape in --foreground, which is near-black on the light basemap and
+   near-white on the dark one, so it separates from the route on its own. */
+  .plane-marker {
+    color: var(--foreground);
+  }
+
+  .plane-marker-rotor svg {
+    display: block;
+  }
+
+  .map-error {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1000;
+    background: #7f1d1d;
+    color: #fff;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .add-flight-button {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 12px 16px;
+    padding: 7px 12px;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--accent);
+    font: inherit;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    .add-flight-button:hover {
+      background: var(--fl-selected-bg);
+    }
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal {
+    width: 100%;
+    max-width: 460px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--fl-panel-bg);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .modal-header h2 {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--fl-muted);
+    cursor: pointer;
+  }
+
+  .add-flight-search {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 10px;
+  }
+
+  .add-flight-search .form-field {
+    flex: 1;
+    min-width: 110px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--fl-muted);
+  }
+
+  .form-field input,
+  .form-field select {
+    font: inherit;
+    font-size: 0.78rem;
+    color: var(--foreground);
+    background: var(--fl-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px;
+  }
+
+  .btn-primary {
+    padding: 7px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: var(--accent);
+    color: var(--fl-accent-contrast);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  .btn-secondary {
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--foreground);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .btn-danger {
+    padding: 7px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: var(--fl-danger);
+    color: var(--fl-danger-contrast);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .btn-secondary:disabled,
+  .btn-danger:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  .delete-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .delete-summary {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .delete-detail {
+    margin: 8px 0 0;
+    font-size: 0.82rem;
+    color: var(--fl-muted);
+  }
+
+  .delete-detail code {
+    font-size: 0.95em;
+    color: var(--foreground);
+  }
+
+  .modal-narrow {
+    max-width: 400px;
+  }
+
+  .form-error {
+    margin: 10px 0 0;
+    font-size: 0.85rem;
+    color: var(--fl-danger);
+  }
+
+  .leg-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 14px;
+    max-height: 260px;
+    overflow-y: auto;
+  }
+
+  .leg-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--foreground);
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    .leg-item:hover {
+      background: var(--fl-selected-bg);
+    }
+  }
+
+  .leg-item.selected {
+    background: var(--fl-selected-bg);
+    border-color: var(--accent);
+  }
+
+  .leg-thumbnail {
+    flex-shrink: 0;
+    color: var(--accent);
+    background: var(--fl-bg);
+    border-radius: 4px;
+  }
+
+  .leg-thumbnail-empty {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--fl-bg);
+    border-radius: 4px;
+  }
+
+  .add-flight-details {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .form-row .form-field {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .form-row-times .form-field input {
+    width: 100%;
+  }
+
+  .form-actions {
+    margin-top: 4px;
+  }
+
+  /* Mobile: map fills the screen. Switching between flights and browsing the
+   full list are two separate, deliberate actions (a small static bottom bar
+   with plain buttons, and a header button that opens the list full-screen)
+   rather than one gesture-heavy drawer — that was catching accidental touches
+   meant for the map. Placed at the very end of the file — CSS gives
+   equal-specificity rules the later source position priority, and every
+   selector here has an earlier base rule above that it needs to beat once
+   this media query matches. */
+  @media (max-width: 760px) {
+    .flight-log-body {
+      display: block;
+    }
+
+    /* Adding a flight is a desk workflow (searching/typing tail numbers,
+     picking a leg) — not something to expose in the mobile viewing layout. */
+    .add-flight-button {
+      display: none;
+    }
+
+    .map-corner {
+      display: flex;
+    }
+
+    /* The total lives in the map corner here; see .map-corner. */
+    .flight-list-total {
+      display: none;
+    }
+
+    .mobile-list-button,
+    .share-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      /* Opaque, with the legend's shadow: these float over the map now. */
+      background: var(--fl-panel-bg);
+      color: var(--foreground);
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .flight-list {
+      display: none;
+    }
+
+    .flight-list.mobile-open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      border-right: 0;
+    }
+
+    .flight-list.mobile-open ul {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+    }
+
+    .flight-list-mobile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+    }
+
+    .flight-list-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--fl-muted);
+      cursor: pointer;
+    }
+
+    /* Small floating bar (not a drawer) for stepping to the adjacent flight. */
+    .flight-switcher {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      /* Well clear of the bottom edge: a swipe up from down there is iOS's
+       home/app-switcher gesture, and a drag started on the bar was sometimes
+       being taken by the system instead. env() adds the home-indicator inset on
+       top wherever the browser reports one, and resolves to 0 where it doesn't,
+       so this is never less than 30px. */
+      bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+      z-index: 1100;
+      padding: 11px 12px;
+      background: var(--fl-panel-bg);
+      color: var(--foreground);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+      /* Horizontal drags are ours (flight stepping); the browser keeps vertical
+       gestures. Without this the drag fights native swipe-to-navigate. */
+      touch-action: pan-y;
+    }
+
+    /* The window onto the track: one flight wide, clipping the neighbours until
+     a drag brings them in. */
+    .flight-switcher-viewport {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    /* Deliberately width:100% (one flight) while its children overflow it — the
+     translateX percentage in JS resolves against this box, so -100% is exactly
+     one flight. Sizing this to the full content would break that. */
+    .flight-switcher-track {
+      display: flex;
+      width: 100%;
+      /* Decelerating ease, so a released drag glides into place rather than
+       stopping dead. Suppressed mid-drag: the track must track the finger
+       exactly, not chase it a frame behind. */
+      transition: transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .flight-switcher-track.dragging {
+      transition: none;
+    }
+
+    .flight-switcher-item {
+      flex: 0 0 100%;
+      /* padding, not gap: gap would add to the track's layout width and put the
+       percentage transform progressively out of step down the list. */
+      padding: 0 8px;
+      text-align: center;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .flight-switcher-track {
+        transition: none;
+      }
+    }
+
+    /* Leaves room for the corner stack on the right: 56px to clear the zoom
+       control, 12px margins either side of the stack, and the stack itself,
+       whose width is the hours chip (about 60px for a two-digit total). On
+       phones narrower than about 370px the card gives way and its header line
+       ellipsises rather than running under the stack. */
+    .flight-detail {
+      width: min(230px, calc(100vw - 140px));
+    }
+
+    /* Just the figure: the stack has to stay narrower than the card's
+       clearance above, and the label would double its width. */
+    .total-hours-full {
+      display: none;
+    }
+
+    .total-hours {
+      padding: 5px 7px;
+      font-size: 0.7rem;
+    }
+
+    .flight-detail-main {
+      padding: 8px 10px;
+    }
+
+    .flight-detail-extra {
+      padding: 8px 10px;
+      column-gap: 18px;
+      row-gap: 6px;
+    }
+
+    .flight-detail-toggle {
+      width: 18px;
+      height: 18px;
+    }
+
+    .time-grid {
+      gap: 6px 14px;
+    }
+
+    /* Lifted alongside the altitude legend, for the same reason — see there. */
+    .map-scale {
+      bottom: calc(104px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .altitude-legend {
+      /* clears the floating flight-switcher bar instead of sitting behind it:
+       that bar sits 30px off the bottom and is 64px tall (11px padding x2 + a
+       40px button + 1px borders), putting its top edge at 94px — plus 10px of
+       gap. Carries the same safe-area inset so the two move together. */
+      bottom: calc(104px + env(safe-area-inset-bottom, 0px));
+      padding: 5px 7px;
+    }
+
+    .altitude-legend-bar {
+      width: 140px;
+    }
+  }
+}
+
+/* The site's dark themes, as src/styles/global.css defines them. Only the tones
+   the site has no token for need a dark value of their own. */
+html[data-theme$="-dark"] .flight-log,
+html[data-theme="dark"] .flight-log,
+html[data-theme="obsidian"] .flight-log,
+html[data-theme="cyber"] .flight-log,
+html[data-theme="rays"] .flight-log {
+  color-scheme: dark;
+  --fl-danger: #ef4444;
+  /* Same reasoning as --fl-accent-contrast: white on this fill is only 3.8:1. */
+  --fl-danger-contrast: #1a0505;
+}
+
+/* Shown by flights.astro until the island's JavaScript arrives; outside
+   .flight-log because it is what stands in for it. */
+.flight-log-fallback {
+  padding: 16px;
+  color: var(--muted-foreground);
+}
