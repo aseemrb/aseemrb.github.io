@@ -7,7 +7,7 @@ import IconFileCv from "@/assets/icons/IconFileCv.svg";
 import IconHome from "@/assets/icons/IconHome.svg";
 // Used by the Flights entry, which is commented out below until the page is
 // ready to show; restore both together.
-// import IconPlane from "@/assets/icons/IconPlane.svg";
+import IconPlane from "@/assets/icons/IconPlane.svg";
 import ThemeSelector from "./ThemeSelector.astro";
 import { SITE } from "@/config";
 
@@ -25,9 +25,9 @@ const isActive = (path: string) => {
 };
 
 // Below sm the nav is an icon-only row of equal square tap targets; from sm up
-// the icons give way to the text labels.
+// each icon drops a size step and sits beside its text label.
 const navLink =
-  "flex h-9 w-9 items-center justify-center font-medium hover:text-accent sm:h-auto sm:w-auto sm:px-2 sm:py-1";
+  "flex h-9 w-9 items-center justify-center font-medium hover:text-accent sm:h-auto sm:w-auto sm:gap-1.5 sm:px-2 sm:py-1";
 ---
 
 <header>
@@ -69,7 +69,7 @@ const navLink =
               href="/publications"
               class:list={[navLink, { "active-nav": isActive("/publications") }]}
             >
-              <IconBooks class="h-6 w-6 sm:hidden" aria-hidden="true" />
+              <IconBooks class="h-6 w-6 sm:h-5 sm:w-5" aria-hidden="true" />
               <span class="sr-only sm:not-sr-only">Papers</span>
             </a>
           </li>
@@ -78,30 +78,25 @@ const navLink =
               href="/blog"
               class:list={[navLink, { "active-nav": isActive("/blog") }]}
             >
-              <IconArticle class="h-6 w-6 sm:hidden" aria-hidden="true" />
+              <IconArticle class="h-6 w-6 sm:h-5 sm:w-5" aria-hidden="true" />
               <span class="sr-only sm:not-sr-only">Blog</span>
             </a>
           </li>
-          {
-            /* Hidden for now; an expression comment rather than an HTML one so
-               the link does not ship in the page source.
-          <li>
+          <!-- <li>
             <a
               href="/logbook"
               class:list={[navLink, { "active-nav": isActive("/logbook") }]}
             >
-              <IconPlane class="h-6 w-6 sm:hidden" aria-hidden="true" />
+              <IconPlane class="h-6 w-6 sm:h-5 sm:w-5" aria-hidden="true" />
               <span class="sr-only sm:not-sr-only">Flights</span>
             </a>
-          </li>
-          */
-          }
+          </li> -->
           <li>
             <a
               href="/cv"
               class:list={[navLink, { "active-nav": isActive("/cv") }]}
             >
-              <IconFileCv class="h-6 w-6 sm:hidden" aria-hidden="true" />
+              <IconFileCv class="h-6 w-6 sm:h-5 sm:w-5" aria-hidden="true" />
               <span class="sr-only sm:not-sr-only">CV</span>
             </a>
           </li>
@@ -118,7 +113,7 @@ const navLink =
                     },
                   ]}
                 >
-                  <IconArchive class="h-6 w-6 sm:hidden" aria-hidden="true" />
+                  <IconArchive class="h-6 w-6 sm:h-5 sm:w-5" aria-hidden="true" />
                   <span class="sr-only sm:not-sr-only">Archives</span>
                 </a>
               </li>
