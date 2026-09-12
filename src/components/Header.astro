@@ -28,6 +28,11 @@ const isActive = (path: string) => {
 // each icon drops a size step and sits beside its text label.
 const navLink =
   "flex h-9 w-9 items-center justify-center font-medium hover:text-accent sm:h-auto sm:w-auto sm:gap-1.5 sm:px-2 sm:py-1";
+
+// On the home page the site title in the navbar is the page's own heading
+// from sm up (the hero card carries it below sm), so it renders as the h1
+// there and as plain text everywhere else.
+const TitleTag = currentPath === "/" ? "h1" : "span";
 ---
 
 <header>
@@ -51,7 +56,7 @@ const navLink =
         href="/"
         class="hidden items-center whitespace-nowrap font-semibold hover:text-accent sm:flex"
       >
-        <span class="text-lg sm:text-xl">{SITE.title}</span>
+        <TitleTag class="text-lg sm:text-xl">{SITE.title}</TitleTag>
       </a>
       <nav id="nav-menu" class="flex w-full items-center sm:ms-2 sm:w-auto">
         <ul

@@ -53,10 +53,6 @@ const postDate = (pubDatetime: string | Date, tz: string | undefined) =>
           )}
         </div>
       </div>
-      {/* The header carries the name from sm up, so the heading only needs to
-          stay in the document outline there. */}
-      <h1 class="sr-only hidden sm:block">{SITE.title}</h1>
-
       {
         SOCIALS.length > 0 && (
           <div class="hidden sm:my-6 sm:flex sm:flex-row sm:items-center">
