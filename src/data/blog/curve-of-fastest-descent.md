@@ -305,10 +305,6 @@ The aftermath mattered more than the contest. Jakob Bernoulli's solution method,
 
 ## References
 
-- Herman H. Goldstine. *A History of the Calculus of Variations from the 17th through the 19th Century*. Springer, 1980. Chapter 1 covers the challenge, the 1697 solutions, and the original texts.
 - Christiaan Huygens. *Horologium Oscillatorium*. Paris, 1673. The tautochrone property and the cycloidal pendulum clock.
 - Galileo Galilei. *Discorsi e dimostrazioni matematiche intorno a due nuove scienze*. Leiden, 1638. Descent along arcs and chords, Third Day.
-- Héctor J. Sussmann, Jan C. Willems. *300 years of optimal control: from the brachystochrone to the maximum principle*. IEEE Control Systems Magazine, 17(3):32-44, 1997. The brachistochrone as the seed of optimal control.
 - John L. Troutman. *Variational Calculus and Optimal Control: Optimization with Elementary Convexity*. 2nd edition, Springer, 1996. The convexity route to global minimality used above, with the brachistochrone as a worked application.
-- Gary Lawlor. *A new minimization proof for the brachistochrone*. The American Mathematical Monthly, 103(3):242-249, 1996. Another complete minimality proof, decomposing the global problem into local single-variable ones.
-- Mark Levi. *The Mathematical Mechanic*. Princeton University Press, 2009. Physical derivations, including the Snell's-law solution.

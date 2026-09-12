@@ -226,7 +226,5 @@ It also has clear limits. The $e^{O(d)}$ net size means the per-point tail must 
 ## References
 
 - Roman Vershynin. *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. Chapter 4 builds nets and covering numbers and uses them to bound the operator norm of a random matrix.
-- Martin J. Wainwright. *High-Dimensional Statistics: A Non-Asymptotic Viewpoint*. Cambridge University Press, 2019. Chapter 6 covers random matrices and covariance estimation, including the operator-norm bound; Chapter 5 develops the metric-entropy machinery behind it.
-- Terence Tao. *Topics in Random Matrix Theory*. American Mathematical Society, 2012. The $\varepsilon$-net argument for the operator norm appears in the opening sections on the operator norm.
 - Yehoram Gordon. *Some inequalities for Gaussian processes and applications*. Israel Journal of Mathematics, 50(4):265–289, 1985. The Gaussian comparison behind the sharp $\sqrt{m} + \sqrt{n}$ constant.
 - Z. D. Bai, Y. Q. Yin. *Limit of the smallest eigenvalue of a large dimensional sample covariance matrix*. The Annals of Probability, 21(3):1275–1294, 1993. The exact limiting values of the extreme singular values that the $\varepsilon$-net bound approximates.

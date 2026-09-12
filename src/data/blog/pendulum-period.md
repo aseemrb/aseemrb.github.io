@@ -228,8 +228,6 @@ The iteration's quadratic convergence also earned it a modern career: the [Salam
 ## References
 
 - David A. Cox. *The arithmetic-geometric mean of Gauss*. L'Enseignement Mathématique, 30:275–330, 1984. The history and the full proof of the AGM–elliptic integral identity.
-- Jonathan M. Borwein, Peter B. Borwein. *Pi and the AGM: A Study in Analytic Number Theory and Computational Complexity*. Wiley, 1987. The AGM as an algorithmic object.
-- E. T. Whittaker, G. N. Watson. *A Course of Modern Analysis*. Cambridge University Press, 4th edition, 1927. Elliptic integrals and Landen's transformation.
 - Christiaan Huygens. *Horologium Oscillatorium*. Paris, 1673. The cycloidal pendulum as the fix for amplitude dependence.
 - Eugene Salamin. *Computation of π using arithmetic-geometric mean*. Mathematics of Computation, 30:565–570, 1976. Quadratically convergent π from the AGM.
 - Richard P. Brent. *Fast multiple-precision evaluation of elementary functions*. Journal of the ACM, 23(2):242–251, 1976. The companion result, same year, found independently.

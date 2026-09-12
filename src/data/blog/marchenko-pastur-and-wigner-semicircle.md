@@ -416,6 +416,4 @@ The Wigner side has analogous consequences for any setting that produces a symme
 
 - V. A. Marchenko, L. A. Pastur. *Distribution of eigenvalues for some sets of random matrices*. Mathematics of the USSR-Sbornik, 1(4):457-483, 1967.
 - E. P. Wigner. *Characteristic vectors of bordered matrices with infinite dimensions*. Annals of Mathematics, 62(3):548-564, 1955.
-- T. Tao. *Topics in Random Matrix Theory*. Graduate Studies in Mathematics, AMS, 2012.
-- Z. Bai, J. W. Silverstein. *Spectral Analysis of Large Dimensional Random Matrices*. Springer, 2010.
 - O. Ledoit, M. Wolf. *A well-conditioned estimator for large-dimensional covariance matrices*. Journal of Multivariate Analysis, 88(2):365-411, 2004. (Marchenko-Pastur in shrinkage estimation.)

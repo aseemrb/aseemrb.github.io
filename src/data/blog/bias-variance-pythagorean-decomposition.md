@@ -286,10 +286,3 @@ Once you internalize the $L^2$ inner product, several other identities are the s
 - **[Conditional expectation as a projection](https://en.wikipedia.org/wiki/Conditional_expectation#As_a_random_variable).** $\mathbb{E}[Y \mid X]$ is the closest function of $X$ to $Y$ in $L^2$, and $Y - \mathbb{E}[Y \mid X]$ is orthogonal to every such function.
 
 Each is Pythagoras with a different orthogonal pair. The bias-variance identity is just the most familiar member of the family.
-
-## References
-
-- Trevor Hastie, Robert Tibshirani, Jerome Friedman. *The Elements of Statistical Learning*. Springer, 2009. Chapter 7 has the standard treatment plus the connection to model selection.
-- Larry Wasserman. *All of Statistics*. Springer, 2004. Theorem 6.9 in Section 6.3.1 derives the identity in the algebraic style.
-- Stuart Geman, Elie Bienenstock, René Doursat. *Neural networks and the bias/variance dilemma*. Neural Computation, 4(1):1–58, 1992. The paper that put the decomposition front and center for the neural net community.
-- Roman Vershynin. *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. Chapter 1 develops the $L^2$ geometry that makes the orthogonality picture transparent.

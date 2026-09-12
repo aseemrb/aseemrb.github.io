@@ -251,5 +251,3 @@ The Newton iteration is a [holomorphic dynamical system](https://en.wikipedia.or
 ## References
 
 - John Hubbard, Dierk Schleicher, Scott Sutherland. *How to find all roots of complex polynomials by Newton's method*. Inventiones Mathematicae, 146(1):1-33, 2001.
-- John Milnor. *Dynamics in One Complex Variable*. Princeton University Press, 2006.
-- Robert L. Devaney. *An Introduction to Chaotic Dynamical Systems*. Westview Press, 2003.

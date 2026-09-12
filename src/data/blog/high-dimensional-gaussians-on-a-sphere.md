@@ -151,9 +151,3 @@ A few non-trivial consequences:
 ## A common pitfall
 
 The 1D bell curve is so canonical that it overwrites our intuition for higher dimensions. Even researchers in high-dimensional probability slip into **mass near the mean** thinking when working informally. The right picture: in $d$ dimensions, a typical Gaussian sample is at distance $\sqrt{d}$ from the mean. The mean itself is essentially never sampled.
-
-## References
-
-- Roman Vershynin. *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. Chapter 3.
-- Avrim Blum, John Hopcroft, Ravindran Kannan. *Foundations of Data Science*. Cambridge University Press, 2020. Chapter 2.
-- Michel Talagrand. *Concentration of Measure and Isoperimetric Inequalities in Product Spaces*. Publications mathématiques de l'IHÉS, 1995.

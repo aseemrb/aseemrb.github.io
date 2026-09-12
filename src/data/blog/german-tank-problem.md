@@ -130,5 +130,3 @@ The practice was messier than the model. Serial numbers did not always start at 
 
 - Richard Ruggles, Henry Brodie. *An empirical approach to economic intelligence in World War II*. Journal of the American Statistical Association, 42(237):72–91, 1947. The wartime method and the postwar comparison table.
 - Leo A. Goodman. *Serial number analysis*. Journal of the American Statistical Association, 47(259):622–634, 1952. The estimation theory: unbiasedness, variance, and optimality.
-- E. L. Lehmann, George Casella. *Theory of Point Estimation*. 2nd edition, Springer, 1998. Sufficiency, completeness, and the Lehmann–Scheffé theorem used above.
-- Roger W. Johnson. *Estimating the size of a population*. Teaching Statistics, 16(2):50–52, 1994. A clean expository treatment comparing the candidate estimators.

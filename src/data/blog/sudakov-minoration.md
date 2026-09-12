@@ -276,6 +276,4 @@ The shape of this argument, lower-bound a worst-case noise to show that *nothing
 ## References
 
 - Roman Vershynin. *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. Section 7.4 states and proves Sudakov's minoration inequality; the Dudley upper bound is in Section 8.1, in the chapter on chaining.
-- Martin J. Wainwright. *High-Dimensional Statistics: A Non-Asymptotic Viewpoint*. Cambridge University Press, 2019. Chapter 5 develops covering and packing numbers and the supremum bounds built on them.
-- Michel Talagrand. *Upper and Lower Bounds for Stochastic Processes*. Springer, 2014. The definitive account of how far the lower and upper bounds for suprema can be pushed, via generic chaining.
 - Aseem Baranwal, Kimon Fountoulakis, Aukosh Jagannath. *Graph Convolution for Semi-Supervised Classification: Improved Linear Separability and Out-of-Distribution Generalization*. International Conference on Machine Learning (ICML), 2021. [arXiv:2102.06966](https://arxiv.org/abs/2102.06966). The non-separability threshold (Theorem 1, part 3) is where the supremum lower bound above does its work.

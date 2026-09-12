@@ -206,4 +206,3 @@ A note on optimality: this is also (asymptotically) the *best* possible strategy
 
 - Anna Gál, Peter Bro Miltersen. *The cell probe complexity of succinct data structures*. Theoretical Computer Science, 379(3):405-417, 2007. (The puzzle was first posed in the conference version of this paper, at ICALP 2003.)
 - Eugene Curtin, Max Warshauer. *The locker puzzle*. The Mathematical Intelligencer, 28(1):28-31, 2006.
-- Philippe Flajolet, Robert Sedgewick. *Analytic Combinatorics*. Cambridge University Press, 2009. Chapter II covers the cycle structure of random permutations in detail.

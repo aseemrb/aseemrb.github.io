@@ -263,5 +263,3 @@ Euler's formula predates Euler's compact statement of it. [Roger Cotes](https://
 - Leonhard Euler. *Introductio in analysin infinitorum*. Lausanne, 1748. States $e^{i\theta} = \cos\theta + i\sin\theta$ and builds analysis around the exponential.
 - Roger Cotes. *Logometria*. Philosophical Transactions of the Royal Society, 29(338):5-45, 1714. The logarithmic form of the formula, before Euler.
 - David Wells. *Are these the most beautiful?* The Mathematical Intelligencer, 12(3):37-41, 1990. The reader poll in which Euler's identity finished first.
-- Paul J. Nahin. *Dr. Euler's Fabulous Formula*. Princeton University Press, 2006. A book-length tour of the formula and its uses.
-- Tristan Needham. *Visual Complex Analysis*. Oxford University Press, 1997. Chapter 1 develops the rotational, geometric reading of complex multiplication and $e^{i\theta}$.

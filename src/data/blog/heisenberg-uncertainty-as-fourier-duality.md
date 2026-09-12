@@ -379,6 +379,3 @@ The disturbance interpretation is fine pedagogy as long as it is taken as illust
 - Clinton Davisson, Lester H. Germer. *Diffraction of electrons by a crystal of nickel.* Physical Review, 30(6):705-740, 1927. The experiment that confirmed electron diffraction.
 - Markus Arndt, Olaf Nairz, Julian Vos-Andreae, Claudia Keller, Gerbrand van der Zouw, Anton Zeilinger. *Wave-particle duality of C60 molecules.* Nature, 401(6754):680-682, 1999.
 - Yaakov Y. Fein, Philipp Geyer, Patrick Zwick, Filip Kiałka, Sebastian Pedalino, Marcel Mayor, Stefan Gerlich, Markus Arndt. *Quantum superposition of molecules beyond 25 kDa.* Nature Physics, 15(12):1242-1245, 2019.
-- John Stewart Bell. *Speakable and Unspeakable in Quantum Mechanics.* Cambridge University Press, 1987. Conceptual critique of the disturbance interpretation.
-- David J. Griffiths and Darrell F. Schroeter. *Introduction to Quantum Mechanics.* 3rd ed., Cambridge University Press, 2018. Sections 1.6 and 3.5 for the textbook proof.
-- Leon Cohen. *Time-Frequency Analysis: Theory and Applications.* Prentice Hall, 1995. The signal-processing reading of the same inequality.

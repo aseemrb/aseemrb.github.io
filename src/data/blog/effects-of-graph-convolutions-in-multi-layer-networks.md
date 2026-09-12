@@ -100,5 +100,4 @@ The full statements (with constants), the precise form of the non-linear feature
 ## References
 
 - Baranwal, Fountoulakis, Jagannath. *Effects of Graph Convolutions in Multi-layer Networks*. ICLR 2023 (Notable Top 25%). [arXiv:2204.09297](https://arxiv.org/abs/2204.09297)
-- Baranwal, Fountoulakis, Jagannath. *Graph Convolution for Semi-Supervised Classification: Improved Linear Separability and Out-of-Distribution Generalization*. ICML 2021. (Linear-feature precursor to this work.)
 - Deshpande, Sen, Montanari, Mossel. *Contextual Stochastic Block Models*. NeurIPS 2018.

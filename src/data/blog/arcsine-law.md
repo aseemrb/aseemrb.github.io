@@ -250,4 +250,3 @@ The law is not specific to coin tossing. [Lévy (1939)](http://www.numdam.org/it
 - Paul Erdős, Mark Kac. *On the number of positive sums of independent random variables*. Bulletin of the American Mathematical Society, 53(10):1011–1020, 1947. The arcsine limit for general steps with finite variance.
 - Kai Lai Chung, William Feller. *On fluctuations in coin-tossing*. Proceedings of the National Academy of Sciences, 35(10):605–608, 1949. The uniform distribution of the time in the lead among paths that end tied.
 - Erik Sparre Andersen. *On the fluctuations of sums of random variables*. Mathematica Scandinavica, 1:263–285, 1953, and part II, 2:194–222, 1954. The distribution-free finite-$n$ law for symmetric continuous steps.
-- William Feller. *An Introduction to Probability Theory and Its Applications*, Volume II. 2nd edition, Wiley, 1971. Chapter XII: the combinatorial lemma and the arcsine laws for general random walks, including Sparre Andersen's theorem.

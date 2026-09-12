@@ -76,4 +76,3 @@ The first principle: the raw Euclidean metric on a high-dimensional ambient spac
 
 - Kevin Beyer, Jonathan Goldstein, Raghu Ramakrishnan, Uri Shaft. *When is "nearest neighbor" meaningful?* International Conference on Database Theory, 1999.
 - Roman Vershynin. *High-Dimensional Probability*. Cambridge University Press, 2018. Chapter 5 (concentration), Section 5.3 (the Johnson–Lindenstrauss lemma).
-- Avrim Blum, John Hopcroft, Ravindran Kannan. *Foundations of Data Science*. Cambridge University Press, 2020. Chapter 2.

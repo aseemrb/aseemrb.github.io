@@ -293,11 +293,8 @@ In this sense, *bees do calculus* the same way *soap films do calculus*: the phy
 ## References
 
 - Stuart P. Lloyd. *Least squares quantization in PCM*. Bell Laboratories Technical Note, 1957; published in IEEE Transactions on Information Theory, 28(2):129-137, 1982.
-- Qiang Du, Vance Faber, Max Gunzburger. *Centroidal Voronoi tessellations: Applications and algorithms*. SIAM Review, 41(4):637-676, 1999.
-- Atsuyuki Okabe, Barry Boots, Kokichi Sugihara, Sung Nok Chiu. *Spatial Tessellations: Concepts and Applications of Voronoi Diagrams*. Wiley, 2000.
 - Thomas C. Hales. *The honeycomb conjecture*. Discrete and Computational Geometry, 25(1):1-22, 2001.
 - László Fejes Tóth. *Sur la représentation d'une population infinie par un nombre fini d'éléments*. Acta Mathematica Academiae Scientiarum Hungaricae, 10:299-304, 1959. The hexagon moment theorem cited in the text.
-- L. Fejes Tóth. *What the bees know and what they do not know*. Bulletin of the American Mathematical Society, 70(4):468-481, 1964.
 - B. L. Karihaloo, K. Zhang, J. Wang. *Honeybee combs: how the circular cells transform into rounded hexagons*. Journal of the Royal Society Interface, 10(86):20130299, 2013.
 - D'Arcy Wentworth Thompson. *On Growth and Form*. Cambridge University Press, 1917.
 - Allen Gersho. *Asymptotically optimal block quantization*. IEEE Transactions on Information Theory, 25(4):373-380, 1979.

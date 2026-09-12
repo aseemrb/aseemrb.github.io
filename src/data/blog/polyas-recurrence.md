@@ -225,5 +225,3 @@ Watson (1939) evaluated this triple integral in terms of [elliptic integrals](ht
 
 - George Pólya. *Über eine Aufgabe der Wahrscheinlichkeitsrechnung betreffend die Irrfahrt im Straßennetz*. Mathematische Annalen, 84(1-2):149-160, 1921.
 - G. N. Watson. *Three triple integrals*. Quarterly Journal of Mathematics, 10:266-276, 1939.
-- Frank Spitzer. *Principles of Random Walk*. Springer, 1976.
-- Steven R. Finch. *Mathematical Constants*. Cambridge University Press, 2003. Section 5.9 on Pólya's constant.

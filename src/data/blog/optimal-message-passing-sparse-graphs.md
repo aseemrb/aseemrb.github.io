@@ -258,6 +258,4 @@ The full paper has the proofs, the formal asymptotic statements, the multi-class
 
 - Baranwal, Fountoulakis, Jagannath. *Optimality of Message-Passing Architectures for Sparse Graphs*. NeurIPS 2023. [arXiv:2305.10391](https://arxiv.org/abs/2305.10391)
 - Deshpande, Sen, Montanari, Mossel. *Contextual Stochastic Block Models*. NeurIPS 2018.
-- Decelle, Krzakala, Moore, Zdeborová. *Asymptotic analysis of the stochastic block model for modular networks and its algorithmic applications*. Physical Review E, 2011.
-- Mossel, Neeman, Sly. *A proof of the block model threshold conjecture*. Combinatorica, 2018.
 - Kesten, Stigum. *Additional limit theorems for indecomposable multidimensional Galton–Watson processes*. Annals of Mathematical Statistics, 1966.

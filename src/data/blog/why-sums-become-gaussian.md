@@ -216,8 +216,6 @@ A lot of high-dimensional statistics is what happens to this picture when the di
 
 ## References
 
-- Roman Vershynin, *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. Chapter 2 has a clean treatment of CLT and Berry–Esseen.
 - Andrew R. Barron. *Entropy and the central limit theorem*. The Annals of Probability, 14(1):336–342, 1986.
 - Shiri Artstein, Keith M. Ball, Franck Barthe, Assaf Naor. *Solution of Shannon's problem on the monotonicity of entropy*. Journal of the American Mathematical Society, 17(4):975–982, 2004.
 - Irina Shevtsova. *On the absolute constants in the Berry–Esseen type inequalities for identically distributed summands*. arXiv:1111.6554, 2011.
-- Stéphane Boucheron, Gábor Lugosi, Pascal Massart. *Concentration Inequalities: A Nonasymptotic Theory of Independence*. Oxford University Press, 2013.

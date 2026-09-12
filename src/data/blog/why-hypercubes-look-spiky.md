@@ -149,10 +149,8 @@ A few observations follow immediately:
 
 ## References
 
-Versions of the spiky-cube drawing appear all over high-dimensional probability and data-science texts. A few good places to look:
+Versions of the spiky-cube drawing appear all over high-dimensional probability and data-science texts. One good place to look:
 
 - Roman Vershynin, *High-Dimensional Probability: An Introduction with Applications in Data Science*. Cambridge University Press, 2018. The first few chapters set up exactly this geometric picture before deploying it for concentration inequalities.
-- Avrim Blum, John Hopcroft, Ravindran Kannan, *Foundations of Data Science*. Cambridge University Press, 2020. Chapter 2 is a friendly tour of the geometry of high dimensions; available freely on the authors' webpages.
-- Stéphane Boucheron, Gábor Lugosi, Pascal Massart, *Concentration Inequalities: A Nonasymptotic Theory of Independence*. Oxford University Press, 2013.
 
 The drawings vary author to author, but the underlying combinatorics is always the same: corners count as a binomial, and a binomial peaks sharply.

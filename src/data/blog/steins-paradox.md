@@ -305,5 +305,3 @@ All of these are descendants of: *the sample mean is wrong in $\ge 3$ dimensions
 - Colin R. Blyth. *On Minimax Statistical Decision Procedures and their Admissibility.* The Annals of Mathematical Statistics, 22(1):22–42, 1951.
 - Charles Stein. *Inadmissibility of the Usual Estimator for the Mean of a Multivariate Normal Distribution.* Proceedings of the Third Berkeley Symposium on Mathematical Statistics and Probability, Volume 1, pages 197–206, University of California Press, 1956.
 - Willard James, Charles Stein. *Estimation with Quadratic Loss.* Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability, Volume 1, pages 361–379, University of California Press, 1961.
-- Bradley Efron, Carl Morris. *Stein's Paradox in Statistics.* Scientific American, 1977. A beautifully written exposition.
-- Roman Vershynin. *High-Dimensional Probability*. Cambridge University Press, 2018. Chapter 3 has the geometric setup and a clean proof of the key inequality.

@@ -164,4 +164,3 @@ These results are proven for one lattice. The **universality conjecture**, that 
 - Stanislav Smirnov, Wendelin Werner. *Critical exponents for two-dimensional percolation*. Mathematical Research Letters, 8:729-744, 2001. The exponent $5/36$, among others.
 - Mark E. J. Newman, Robert M. Ziff. *Efficient Monte Carlo algorithm and high-precision results for percolation*. Physical Review Letters, 85(19):4104-4107, 2000. The numerical value of the site-percolation threshold.
 - Robert Fitzner, Remco van der Hofstad. *Mean-field behavior for nearest-neighbor percolation in d > 10*. Electronic Journal of Probability, 22, paper no. 43, 2017. Criticality in high dimensions.
-- Geoffrey Grimmett. *Percolation*. 2nd edition, Springer, 1999. The standard textbook; covers duality, uniqueness of the infinite cluster, and exponential decay.
