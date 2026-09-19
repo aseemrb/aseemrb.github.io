@@ -57,7 +57,14 @@ const structuredData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Icons, generated from the portrait by scripts/icons/generateIcons.mjs
+         (pnpm icons). favicon.png is the ringed circle for the browser tab; the
+         apple-touch icon and the manifest's 192/512 icons are full-bleed
+         squares, which a phone's home screen masks to its own shape. -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="Aseem" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 

@@ -12,6 +12,7 @@
     "format:check": "prettier --check .",
     "format": "prettier --write .",
     "lint": "eslint .",
+    "icons": "node scripts/icons/generateIcons.mjs",
     "sync-flights": "node scripts/flights/generateFlights.mjs"
   },
   "dependencies": {
