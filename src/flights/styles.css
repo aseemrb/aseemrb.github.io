@@ -112,7 +112,9 @@
     /* 280px rather than the standalone app's 320px: the rows fit, and in a
        window too narrow for the panel to break out past the site's column
        the map needs the difference more than the list does. */
-    grid-template-columns: 280px 1fr;
+    /* In rem (17.5rem = 280px at the default size) so the column widens with
+       the large-screen type scale in global.css, as the text inside it does. */
+    grid-template-columns: 17.5rem 1fr;
     min-height: 0;
   }
 
@@ -445,7 +447,10 @@
      the min() keeps it from overflowing on narrow phones. 260px is what the
      header line ("N739WR · 39N local" plus its two buttons) needs in the
      site's monospace font; the 2x2 time grid below it needs far less. */
-    width: min(260px, calc(100vw - 76px));
+    /* rem, not px (16.25rem = 260px at the default size): global.css raises
+       the root font size on large screens, and a px width left the card's
+       text growing inside a fixed box until the footer line was cut off. */
+    width: min(16.25rem, calc(100vw - 76px));
     display: flex;
     flex-direction: column;
     background: var(--fl-panel-bg);
@@ -1166,7 +1171,7 @@
        phones narrower than about 370px the card gives way and its header line
        ellipsises rather than running under the stack. */
     .flight-detail {
-      width: min(230px, calc(100vw - 140px));
+      width: min(14.375rem, calc(100vw - 140px));
     }
 
     /* Just the figure: the stack has to stay narrower than the card's
