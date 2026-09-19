@@ -21,6 +21,23 @@ function sortFlights(data: Flight[]): Flight[] {
  */
 const REFRESH_INTERVAL_MS = 30_000;
 
+/** Remembers, per browser, whether the desktop list was left folded. */
+const LIST_COLLAPSED_KEY = "logbook-list-collapsed";
+
+/**
+ * Open unless this browser has explicitly folded it. The panel breaks out past
+ * the site's column on desktop (see logbook.astro), so the map has room with
+ * the list showing, and a first visit gets the whole logbook at a glance.
+ */
+function readListCollapsed(): boolean {
+  try {
+    return localStorage.getItem(LIST_COLLAPSED_KEY) === "1";
+  } catch {
+    // localStorage unavailable (e.g. private browsing): keep the default
+    return false;
+  }
+}
+
 /**
  * The flight log panel: the list, the map, and (in dev) the logbook editor.
  *
@@ -35,6 +52,25 @@ export default function FlightLog() {
   const [mobileListOpen, setMobileListOpen] = useState(false);
   const [showAddForm, setShowAddForm] = useState(false);
   const [pendingDelete, setPendingDelete] = useState<Flight | null>(null);
+  /**
+   * Desktop only: the list folded down to a narrow rail so the map gets the
+   * width. Lives here rather than in FlightList because the grid that sizes
+   * the two columns is this component's. CSS ignores it on mobile, where the
+   * list is a full-screen overlay instead.
+   */
+  const [listCollapsed, setListCollapsed] = useState(readListCollapsed);
+
+  const toggleListCollapsed = useCallback(() => {
+    setListCollapsed((current) => {
+      const next = !current;
+      try {
+        localStorage.setItem(LIST_COLLAPSED_KEY, next ? "1" : "0");
+      } catch {
+        // ignore: the choice just won't persist across reloads
+      }
+      return next;
+    });
+  }, []);
 
   /**
    * The raw bytes of the last flights.json we accepted, so a re-check that
@@ -167,7 +203,11 @@ export default function FlightLog() {
 
   return (
     <div className="flight-log">
-      <div className="flight-log-body">
+      <div
+        className={
+          listCollapsed ? "flight-log-body list-collapsed" : "flight-log-body"
+        }
+      >
         <FlightList
           flights={flights}
           selectedId={selectedId}
@@ -177,6 +217,8 @@ export default function FlightLog() {
           onAddFlightClick={() => setShowAddForm(true)}
           onDeleteFlightClick={setPendingDelete}
           totalHours={totalHours}
+          collapsed={listCollapsed}
+          onToggleCollapsed={toggleListCollapsed}
         />
         <FlightMap flight={selected}>
           {/* Mobile only (via CSS), in the top-right corner of the map: the

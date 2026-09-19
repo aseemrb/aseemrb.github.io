@@ -27,6 +27,8 @@ export function FlightList({
   onAddFlightClick,
   onDeleteFlightClick,
   totalHours,
+  collapsed,
+  onToggleCollapsed,
 }: {
   flights: Flight[] | null;
   selectedId: string | null;
@@ -36,7 +38,12 @@ export function FlightList({
   onAddFlightClick: () => void;
   onDeleteFlightClick: (flight: Flight) => void;
   totalHours: number | null;
+  /** Desktop only: folded to the rail. Ignored by the mobile layout's CSS. */
+  collapsed: boolean;
+  onToggleCollapsed: () => void;
 }) {
+  const listClass = collapsed ? `${LIST_CLASS} collapsed` : LIST_CLASS;
+
   // Hooks must run before the early returns below, so they live up here rather
   // than next to the switcher markup that uses them.
   const [dragDx, setDragDx] = useState(0);
@@ -54,8 +61,9 @@ export function FlightList({
 
   if (!flights) {
     return (
-      <aside className={LIST_CLASS}>
-        <ListTotal hours={totalHours} />
+      <aside className={listClass}>
+        <ListRail hours={totalHours} onExpand={onToggleCollapsed} />
+        <ListTotal hours={totalHours} onCollapse={onToggleCollapsed} />
         <AddFlightButton onClick={onAddFlightClick} />
         <p className="muted">Loading…</p>
       </aside>
@@ -64,8 +72,9 @@ export function FlightList({
 
   if (flights.length === 0) {
     return (
-      <aside className={LIST_CLASS}>
-        <ListTotal hours={totalHours} />
+      <aside className={listClass}>
+        <ListRail hours={totalHours} onExpand={onToggleCollapsed} />
+        <ListTotal hours={totalHours} onCollapse={onToggleCollapsed} />
         <AddFlightButton onClick={onAddFlightClick} />
         <p className="muted">No flights logged yet.</p>
       </aside>
@@ -151,9 +160,18 @@ export function FlightList({
   return (
     <>
       <aside
-        className={mobileListOpen ? `${LIST_CLASS} mobile-open` : LIST_CLASS}
+        className={mobileListOpen ? `${listClass} mobile-open` : listClass}
       >
-        <ListTotal hours={totalHours} />
+        {/* Stepping is wired the same way as the mobile switcher's chevrons.
+            The list is newest-first, so up is newer and down is older. */}
+        <ListRail
+          hours={totalHours}
+          onExpand={onToggleCollapsed}
+          date={selected ? formatDate(selected.date) : null}
+          onNewer={atNewest ? undefined : () => selectRelative(-1)}
+          onOlder={atOldest ? undefined : () => selectRelative(1)}
+        />
+        <ListTotal hours={totalHours} onCollapse={onToggleCollapsed} />
         {mobileListOpen && (
           <div className="flight-list-mobile-header">
             <span>All Flights</span>
@@ -305,13 +323,140 @@ function DeleteFlightButton({
  * put while the flights scroll under it. Hidden on mobile, where the list is
  * off screen and the same figure sits in the map's corner instead.
  */
-function ListTotal({ hours }: { hours: number | null }) {
-  if (hours == null) return null;
+function ListTotal({
+  hours,
+  onCollapse,
+}: {
+  hours: number | null;
+  onCollapse: () => void;
+}) {
   return (
     <div className="flight-list-total">
-      <span className="flight-list-total-label">Total time</span>
-      <span className="total-hours-value">{hours.toFixed(1)} hrs</span>
+      <button
+        type="button"
+        className="flight-list-fold"
+        onClick={onCollapse}
+        title="Fold the flight list"
+        aria-label="Fold the flight list"
+        aria-expanded="true"
+      >
+        <FoldIcon folded={false} />
+      </button>
+      {hours != null && (
+        <>
+          <span className="flight-list-total-label">Total time</span>
+          <span className="total-hours-value">{hours.toFixed(1)} hrs</span>
+        </>
+      )}
     </div>
+  );
+}
+
+/**
+ * What the list folds down to on desktop: a rail just wide enough for a
+ * button, so the map gets the rest of the panel. It keeps the three things
+ * the full list gave at a glance — a way back, the logbook total, and which
+ * flight is on the map (its date, set vertically) — plus chevrons to step
+ * to the neighbouring flight without unfolding.
+ *
+ * Always rendered; CSS shows it only on desktop while the list is folded.
+ * The step handlers are undefined at the ends of the list (and while there
+ * are no flights), which disables that chevron.
+ */
+function ListRail({
+  hours,
+  onExpand,
+  date = null,
+  onNewer,
+  onOlder,
+}: {
+  hours: number | null;
+  onExpand: () => void;
+  date?: string | null;
+  onNewer?: () => void;
+  onOlder?: () => void;
+}) {
+  return (
+    <div className="flight-list-rail">
+      <button
+        type="button"
+        className="flight-list-fold"
+        onClick={onExpand}
+        title="Unfold the flight list"
+        aria-label="Unfold the flight list"
+        aria-expanded="false"
+      >
+        <FoldIcon folded />
+      </button>
+      {hours != null && (
+        <div className="flight-list-rail-total" title="Total time">
+          <span className="total-hours-value">{hours.toFixed(1)}</span>
+          <span className="flight-list-rail-unit">hrs</span>
+        </div>
+      )}
+      {date && (
+        <div className="flight-list-rail-stepper">
+          <button
+            type="button"
+            className="flight-list-fold"
+            onClick={onNewer}
+            disabled={!onNewer}
+            title="Next flight (newer)"
+            aria-label="Next flight (newer)"
+          >
+            <RailChevron direction="up" />
+          </button>
+          <span className="flight-list-rail-date">{date}</span>
+          <button
+            type="button"
+            className="flight-list-fold"
+            onClick={onOlder}
+            disabled={!onOlder}
+            title="Previous flight (older)"
+            aria-label="Previous flight (older)"
+          >
+            <RailChevron direction="down" />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** A sidebar outline whose divider sits left when open and chevrons out when folded. */
+function FoldIcon({ folded }: { folded: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="14"
+      height="14"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M9 4v16" />
+      <path d={folded ? "M14 10l2 2-2 2" : "M16 10l-2 2 2 2"} />
+    </svg>
+  );
+}
+
+function RailChevron({ direction }: { direction: "up" | "down" }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="12"
+      height="12"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d={direction === "up" ? "M6 15l6-6 6 6" : "M6 9l6 6 6-6"} />
+    </svg>
   );
 }
 

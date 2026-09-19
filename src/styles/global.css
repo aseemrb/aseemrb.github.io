@@ -195,6 +195,28 @@ html[data-theme="snow"] body::before {
     @apply overflow-y-scroll scroll-smooth;
   }
 
+  /* On large screens the page scales up rather than widening. The content
+     column (max-w-app) and nearly all type and spacing are in rem, so raising
+     the root size grows them together: the column fills more of the screen
+     while the characters per line, which is what makes prose readable, stay
+     the same. Percentages, not px, so a reader's own browser font size still
+     applies on top. The rem in a media query is always the browser default
+     (16px), not this, so the breakpoints below and Tailwind's own don't move:
+     120rem = 1920px, 160rem = 2560px. Scaling starts there and no lower on
+     purpose: large laptops report 1500-1800px, and at that size the page is
+     meant to look exactly as it does on a small one. */
+  @media (width >= 120rem) {
+    html {
+      font-size: 112.5%;
+    }
+  }
+
+  @media (width >= 160rem) {
+    html {
+      font-size: 125%;
+    }
+  }
+
   body {
     @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
   }

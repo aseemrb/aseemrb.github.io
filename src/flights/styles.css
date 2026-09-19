@@ -45,8 +45,8 @@
      panel paints after it in tree order. */
   isolation: isolate;
 
-  /* From the site's sm breakpoint the page holds the panel to the same width
-     as every other page (see logbook.astro), so it gets a frame. Below that it
+  /* From the site's sm breakpoint the page centres the panel and caps its
+     width (see logbook.astro), so it gets a frame. Below that it
      runs edge to edge, as a map should on a phone. overflow: hidden clips the
      map to the rounded corners; the fixed-position overlays inside (modals,
      the mobile list, the switcher) are positioned against the viewport and
@@ -109,9 +109,9 @@
   .flight-log-body {
     flex: 1;
     display: grid;
-    /* 280px rather than the standalone app's 320px: the page holds the panel
-       to the site's content width, and the map needs the difference more than
-       the list does. */
+    /* 280px rather than the standalone app's 320px: the rows fit, and in a
+       window too narrow for the panel to break out past the site's column
+       the map needs the difference more than the list does. */
     grid-template-columns: 280px 1fr;
     min-height: 0;
   }
@@ -123,10 +123,11 @@
     top: 0;
     z-index: 1;
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
+    align-items: center;
     gap: 8px;
-    padding: 10px 16px;
+    /* 9px rather than 16px on the left, so the fold button sits on the same
+       axis here as it does in the 44px rail it folds to. */
+    padding: 8px 16px 8px 9px;
     border-bottom: 1px solid var(--border);
     background: var(--fl-panel-bg);
     font-size: 0.85rem;
@@ -134,6 +135,101 @@
 
   .flight-list-total-label {
     color: var(--fl-muted);
+  }
+
+  /* The figure sits at the row's right edge; the fold button and label lead. */
+  .flight-list-total .total-hours-value {
+    margin-left: auto;
+  }
+
+  /* The fold/unfold button, and the rail's step chevrons: one small square
+     button, the same as the detail card's. */
+  .flight-list-fold {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--foreground);
+    cursor: pointer;
+  }
+
+  .flight-list-fold:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  @media (hover: hover) {
+    .flight-list-fold:hover:not(:disabled) {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+  }
+
+  /* What the list folds to. Hidden unless the desktop rule below shows it. */
+  .flight-list-rail {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    height: 100%;
+    padding: 8px 0 12px;
+  }
+
+  .flight-list-rail-stepper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Reads bottom to top, like the spine of a book shelved on the left. */
+  .flight-list-rail-date {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .flight-list-rail-total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .flight-list-rail-unit {
+    color: var(--fl-muted);
+    font-size: 0.65rem;
+  }
+
+  /* Folding is a desktop affordance. The condition is the exact complement
+     of the mobile query at the end of the file (max-width: 760px), so every
+     width gets one layout or the other: on mobile the list is a full-screen
+     overlay and must render in full, whatever was chosen on a wider screen. */
+  @media (width > 760px) {
+    .flight-log-body.list-collapsed {
+      grid-template-columns: 44px 1fr;
+    }
+
+    .flight-list.collapsed {
+      overflow: hidden;
+    }
+
+    .flight-list.collapsed > :not(.flight-list-rail) {
+      display: none;
+    }
+
+    .flight-list.collapsed > .flight-list-rail {
+      display: flex;
+    }
   }
 
   .flight-list {

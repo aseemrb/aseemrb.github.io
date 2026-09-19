@@ -21,9 +21,17 @@ import "@/flights/styles.css";
       the map never sits inside a scrolling page, and on mobile the flight
       switcher is pinned to the bottom edge, where a footer would sit. */
   }
+  {
+    /* A breakout: the header keeps the site's column, and the panel alone may
+      run wider, centred under it and capped at 90rem, the way a wide figure
+      sits in a narrow text column. The cap is in rem so it grows with the
+      large-screen type scale in global.css, and it exists because the map's
+      height is fixed by the viewport: uncapped, a big monitor would turn it
+      into a letterbox. */
+  }
   <main
     id="main-content"
-    class="mx-auto flex w-full min-h-0 max-w-app flex-1 flex-col sm:px-4 sm:py-4"
+    class="mx-auto flex w-full min-h-0 max-w-[90rem] flex-1 flex-col sm:px-4 sm:py-4"
     data-pagefind-ignore
   >
     <h1 class="sr-only">Flight log</h1>

@@ -71,6 +71,24 @@ function FitBounds({ points, token }: { points: TrackPoint[]; token: number }) {
   return null;
 }
 
+/**
+ * Re-measures the map whenever its container changes size.
+ *
+ * Leaflet only does this on window resize. Folding the flight list changes the
+ * map's width with the window untouched, and without this the newly exposed
+ * strip stays grey: no tiles are requested for it and the route isn't drawn
+ * there until the next pan.
+ */
+function TrackContainerSize() {
+  const map = useMap();
+  useEffect(() => {
+    const observer = new ResizeObserver(() => map.invalidateSize());
+    observer.observe(map.getContainer());
+    return () => observer.disconnect();
+  }, [map]);
+  return null;
+}
+
 /** `children` render over the map, for overlays owned by the caller. */
 export function FlightMap({
   flight,
@@ -227,6 +245,7 @@ export function FlightMap({
         {/* Inside the map, unlike AltitudeLegend, because it has to read the
             live zoom and centre off the map instance. */}
         <ScaleBar />
+        <TrackContainerSize />
         {points.length > 1 && (
           <>
             {/* Casing: a single wider line in a theme-opposite neutral, under the
