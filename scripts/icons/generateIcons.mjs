@@ -105,11 +105,19 @@ async function favicon(size) {
  * or a frame, would leave filler around it or get cut by the mask.
  *
  * Android only guarantees to keep the central circle of radius 0.4, so the
- * head circle is sized to 0.38 and centred just above the middle, leaving the
- * shoulders to fill the bottom edge.
+ * head circle is sized to 0.38 and set just above the middle, leaving the
+ * shoulders to fill the bottom edge. Horizontally it is the portrait, not the
+ * head, that is centred, as on the home page: the shoulders sit square in the
+ * tile and the head keeps its lean to the left.
  */
 function tile(size) {
-  return framed(size, { headR: 0.38, cx: 0.5, cy: 0.47 });
+  const headR = 0.38;
+  const scale = headR / HEAD.r; // portrait width as a fraction of the tile
+  return framed(size, {
+    headR,
+    cx: 0.5 + (HEAD.cx - 0.5) * scale,
+    cy: 0.47,
+  });
 }
 
 const files = {
