@@ -36,14 +36,15 @@ const postDate = (pubDatetime: string | Date, tz: string | undefined) =>
           stacked beside it. The navbar drops the title at this width, so the
           heading lives here. Desktop keeps the portrait in the row below. */}
       <div class="mt-2 flex items-center justify-center gap-4 sm:hidden">
-        <Image
-          src={dp}
-          alt="Sketch portrait of Aseem Baranwal"
-          width={352}
-          sizes="160px"
-          loading="eager"
-          class="min-w-24 max-w-40 flex-1"
-        />
+        <div class="portrait-frame min-w-24 max-w-40 flex-1">
+          <Image
+            src={dp}
+            alt="Sketch portrait of Aseem Baranwal"
+            width={352}
+            sizes="160px"
+            loading="eager"
+          />
+        </div>
         <div class="min-w-0">
           <h1 class="text-xl font-semibold tracking-wide">{SITE.title}</h1>
           {SOCIALS.length > 0 && (
@@ -77,14 +78,15 @@ const postDate = (pubDatetime: string | Date, tz: string | undefined) =>
           </p>
         </div>
 
-        <Image
-          src={dp}
-          alt="Sketch portrait of Aseem Baranwal"
-          width={352}
-          sizes="176px"
-          loading="eager"
-          class="mt-2 hidden w-44 shrink-0 sm:block"
-        />
+        <div class="portrait-frame mt-2 hidden w-44 shrink-0 sm:block">
+          <Image
+            src={dp}
+            alt="Sketch portrait of Aseem Baranwal"
+            width={352}
+            sizes="176px"
+            loading="eager"
+          />
+        </div>
       </div>
     </section>
 

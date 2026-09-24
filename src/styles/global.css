@@ -260,6 +260,30 @@ html[data-theme="snow"] body::before {
   @apply text-accent;
 }
 
+/* Home-page portrait. The PNG is transparent around the head, but the
+   shirt runs off the bottom edge and, in the lower quarter, off both sides
+   (the right side from about 76% down, the left from about 86%). The
+   treatment targets those cuts: slightly rounded corners, a feather along
+   the bottom and a narrower one along each side (two gradient layers
+   intersected, so the side fade only touches the shirt), and a soft shadow
+   that follows the drawn silhouette rather than the image's rectangle. The
+   shadow sits on the wrapper because a mask clips anything outside the
+   image box, and it is tinted from the foreground so it reads as a shadow
+   on light themes and a faint glow on dark ones. The image stays
+   transparent: no backing card. */
+.portrait-frame {
+  filter: drop-shadow(0 1px 2px color-mix(in srgb, var(--foreground) 22%, transparent))
+    drop-shadow(0 8px 18px color-mix(in srgb, var(--foreground) 14%, transparent));
+}
+.portrait-frame > img {
+  width: 100%;
+  border-radius: 0.75rem;
+  mask:
+    linear-gradient(to bottom, #000 90%, transparent 100%),
+    linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  mask-composite: intersect;
+}
+
 /* Theme-swapped diagrams: show light variant on default theme, dark variant on dark themes. */
 .chrome-svg-dark { display: none; }
 html[data-theme$="-dark"] .chrome-svg-light,
