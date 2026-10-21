@@ -33,9 +33,15 @@ const navLink =
 // from sm up (the hero card carries it below sm), so it renders as the h1
 // there and as plain text everywhere else.
 const TitleTag = currentPath === "/" ? "h1" : "span";
+
+// Pages that scroll keep the navbar pinned to the top of the viewport, with a
+// background so content does not show through it. Home is left as it was. The
+// logbook never scrolls, so its navbar is always in view anyway, and pinning it
+// would lift it above the flight log's own overlays (dialogs, the mobile list).
+const sticky = currentPath !== "/" && !isActive("/logbook");
 ---
 
-<header>
+<header class:list={[{ "sticky top-0 z-40 bg-background": sticky }]}>
   <a
     id="skip-to-content"
     href="#main-content"

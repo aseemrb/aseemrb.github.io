@@ -55,6 +55,14 @@ html[data-theme="rays"] #top-nav-wrap {
   background-color: transparent;
 }
 
+/* On those themes the pinned navbar is translucent and blurs the page that
+   scrolls beneath it, so the fixed background still reads through. */
+html[data-theme="cyber"] header.sticky,
+html[data-theme="rays"] header.sticky {
+  background-color: color-mix(in srgb, var(--background) 75%, transparent);
+  backdrop-filter: blur(12px);
+}
+
 /* Mint, dark half: bright green accent on a deep forest base. */
 html[data-theme="mint-dark"] {
   --background: #051a12;
@@ -193,6 +201,8 @@ html[data-theme="snow"] body::before {
 
   html {
     @apply overflow-y-scroll scroll-smooth;
+    /* Anchor jumps land below the pinned navbar rather than under it. */
+    scroll-padding-top: 4.5rem;
   }
 
   /* On large screens the page scales up rather than widening. The content

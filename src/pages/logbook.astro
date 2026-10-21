@@ -44,3 +44,11 @@ import "@/flights/styles.css";
     </FlightLog>
   </main>
 </Layout>
+
+<style is:global>
+  /* The panel fills the viewport below the header, so the body is held at
+     exactly the viewport's height and the page itself never scrolls. */
+  body {
+    height: 100%;
+  }
+</style>

@@ -153,6 +153,14 @@ const structuredData = {
   body {
     margin: 0;
     width: 100%;
+  }
+  html {
     height: 100%;
+  }
+  /* A minimum, not a fixed height: a body capped at the viewport would end
+     one screen down, and the sticky navbar inside it would scroll away there.
+     The logbook, which must not scroll, fixes the height itself. */
+  body {
+    min-height: 100%;
   }
 </style>
