@@ -1,6 +1,6 @@
 ---
 author: Aseem Raj Baranwal
-pubDatetime: 2026-10-20T15:00:00Z
+pubDatetime: 2026-10-11T15:00:00Z
 title: The kaleidoscope in an elevator
 slug: kaleidoscope-in-an-elevator
 featured: false
