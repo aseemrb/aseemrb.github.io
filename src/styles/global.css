@@ -282,14 +282,14 @@ html[data-theme="snow"] body::before {
    on light themes and a faint glow on dark ones. The image stays
    transparent: no backing card. */
 .portrait-frame {
-  filter: drop-shadow(0 1px 2px color-mix(in srgb, var(--foreground) 22%, transparent))
-    drop-shadow(0 8px 18px color-mix(in srgb, var(--foreground) 14%, transparent));
+  filter: drop-shadow(0 1px 2px color-mix(in srgb, var(--foreground) 12%, transparent))
+    drop-shadow(0 2px 6px color-mix(in srgb, var(--foreground) 4%, transparent));
 }
 .portrait-frame > img {
   width: 100%;
   border-radius: 0.75rem;
   mask:
-    linear-gradient(to bottom, #000 90%, transparent 100%),
+    linear-gradient(to bottom, #000 96%, transparent 100%),
     linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
   mask-composite: intersect;
 }
